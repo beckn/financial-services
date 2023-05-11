@@ -1,7 +1,7 @@
-# financial-services
+# Beckn Protocol Specifications for Financial Services
 Recommendations for beckn protocol-enabled financial-services applications
 
-### This page is currently under development
+### ( This page is currently under development )
 
 
 ## Latest Version
