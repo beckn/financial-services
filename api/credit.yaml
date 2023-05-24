@@ -1,18 +1,21 @@
 openapi: 3.0.0
 info:
   title: Beckn Credit API Specification
-  description: Adaptation of beckn protocol for the credit sector.
-  version: 1.1.0
+  description: Adaptation of Beckn protocol for the credit sector.
+  version: 0.1-credit-draft
 security:
   - SubscriberAuth: []
+  - GatewaySubscriberAuth: []
+  - GatewaySubscriberAuthNew: []
 paths:
   /search:
     post:
       tags:
         - Beckn Provider Platform (BPP)
         - Beckn Gateway (BG)
-      description: BAP declares the customer's intent to buy/avail products or services
+      description: This allows the customer's to search for a) Personal Loans b) GST Invoice based loans
       requestBody:
+        description: BAP searches for services
         content:
           application/json:
             schema:
@@ -40,8 +43,9 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: BAP declares the customer's cart (or equivalent) created by selecting objects from the catalog
+      description: Select bank from the catalog and apply for a loan
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -73,8 +77,9 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Initialize an order by providing billing and/or shipping details
+      description: Initialize a loan application providing personal and bank details.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -100,7 +105,7 @@ paths:
                 - context
                 - message
       responses:
-        default:
+        '200':
           description: Acknowledgement of message received after successful validation of schema and signature
           content:
             application/json:
