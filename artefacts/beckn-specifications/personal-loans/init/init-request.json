@@ -34,6 +34,7 @@
             "fulfillments": [
                 {
                     "customer": {
+                        "id": "aadhaar:123412341234",
                         "person": {
                             "name": "John Doe",
                             "dob": "01-01-1970",

@@ -2303,6 +2303,10 @@ components:
                 $ref: '#/components/schemas/Price'
         ttl:
           $ref: '#/components/schemas/Duration'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagGroup'
     Rating:
       description: Describes the rating of an entity
       type: object

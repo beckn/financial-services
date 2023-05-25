@@ -26,7 +26,7 @@
                      "descriptor": {
                         "name": "Personal Loan Option 1",
                         "long_desc": "Personal Loan Option 1"
-                    }
+                     }
                 }
             ],
             "quote": {
@@ -38,30 +38,89 @@
                     {
                         "title": "Installment 1",
                         "price": {
-                            "value": "50000",
+                            "value": "40000",
                             "currency": "INR"
                         }
                     },
                     {
                         "title": "Installment 2",
                         "price": {
-                            "value": "50000",
+                            "value": "40000",
                             "currency": "INR"
                         }
                     },
                     {
                         "title": "Installment 3",
                         "price": {
-                            "value": "50000",
+                            "value": "40000",
                             "currency": "INR"
                         }
                     },
                     {
                         "title": "Installment 4",
                         "price": {
-                            "value": "50000",
+                            "value": "40000",
                             "currency": "INR"
                         }
+                    },
+                    {
+                        "title": "Installment 5",
+                        "price": {
+                            "value": "40000",
+                            "currency": "INR"
+                        }
+                    }
+                ],
+                "tags": [
+                    {
+                        "descriptor": {
+                            "name": "Personal loan terms"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "currency",
+                                    "long_desc": "Currency Type"
+                                },
+                                "value": "INR"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "interestRate",
+                                    "long_desc": "Rate of Interest (p.a)"
+                                },
+                                "value": "12% p.a"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "interestType",
+                                    "long_desc": "Type of Interest Rate"
+                                },
+                                "value": "FLOATING"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "tenure",
+                                    "long_desc": "Loan Tenure"
+                                },
+                                "value": "7"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "legalAgreement",
+                                    "long_desc": "Legal Agreement"
+                                },
+                                "value": "https://icicibank.com/legalAgreement"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "legalAgreement",
+                                    "long_desc": "Legal Agreement"
+                                },
+                                "value": "https://icicibank.com/loan/tnc.html"
+                            }
+                        ],
+                        "display": true
                     }
                 ]
             },
