@@ -1,0 +1,180 @@
+{
+    "context": {
+        "domain": "financial_services:0.2.0",
+        "version": "0.2.0",
+        "action": "search",
+        "bap_id": "credit-protocol.becknprotocol.io",
+        "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "7db91181-718f-4720-83de-88e36e9f854e",
+        "ttl": "PT10M",
+        "timestamp": "2023-05-25T05:23:03.443Z"
+    },
+    "responses": [
+        {
+            "context": {
+                "domain": "financial_services:0.2.0",
+                "version": "0.2.0",
+                "action": "on_search",
+                "bap_id": "credit-protocol.becknprotocol.io",
+                "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+                "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+                "message_id": "7db91181-718f-4720-83de-88e36e9f854e",
+                "ttl": "PT10M",
+                "timestamp": "2023-05-25T05:23:03.443Z",
+                "bpp_id": "bpp.credit.icicibank.io",
+                "bpp_uri": "https://bpp.credit.icicibank.io"
+            },
+            "message": {
+                "catalog": {
+                    "descriptor": {
+                        "name": "Catalog for personal loans"
+                    },
+                    "providers": [
+                        {
+                            "id": "1",
+                            "descriptor": {
+                                "name": "ICICIBANK - Udupi",
+                                "code": "ICIC0001432"
+                            },
+                            "categories": [
+                                {
+                                    "id": "PERSONAL_LOAN",
+                                    "parent_category_id": "LOAN",
+                                    "descriptor": {
+                                        "name": "PERSONAL_LOAN"
+                                    }
+                                }
+                            ],
+                            "items": [
+                                {
+                                }
+                            ],
+                            "tags": [
+                                {
+                                    "descriptor": {
+                                        "name": "AA-consent-handle"
+                                    },
+                                    "list": [{
+                                        "descriptor": {
+                                            "name": "requestId"
+                                        },
+                                        "value": "i8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+                                    },
+                                    {
+                                        "descriptor": {
+                                            "name": "consentHandle"
+                                        },
+                                        "value": "j8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+                                    }]
+                                } 
+                            ]
+                        },
+                        {
+                            "id": "2",
+                            "descriptor": {
+                                "name": "ICICIBANK - Manipal",
+                                "code": "ICIC0001564"
+                            },
+                            "categories": [
+                                {
+                                    "id": "PERSONAL_LOAN",
+                                    "parent_category_id": "LOAN",
+                                    "descriptor": {
+                                        "name": "PERSONAL_LOAN"
+                                    }
+                                }
+                            ],
+                            "items": [
+                                {
+                                }
+                            ],
+                            "tags": [
+                                {
+                                    "descriptor": {
+                                        "name": "AA-consent-handle"
+                                    },
+                                    "list": [{
+                                        "descriptor": {
+                                            "name": "requestId"
+                                        },
+                                        "value": "i8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+                                    },
+                                    {
+                                        "descriptor": {
+                                            "name": "consentHandle"
+                                        },
+                                        "value": "j8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+                                    }]
+                                } 
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "context": {
+                "domain": "financial_services:0.2.0",
+                "version": "0.2.0",
+                "action": "on_search",
+                "bap_id": "credit-protocol.becknprotocol.io",
+                "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+                "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+                "message_id": "7db91181-718f-4720-83de-88e36e9f854e",
+                "ttl": "PT10M",
+                "timestamp": "2023-02-22T10:30:18.145Z",
+                "bpp_id": "bpp.credit.hdfcbank.io",
+                "bpp_uri": "https://bpp.credit.hdfcbank.io"
+            },
+            "message": {
+                "catalog": {
+                    "descriptor": {
+                        "name": "Catalog for personal loans"
+                    },
+                    "providers": [
+                        {
+                            "id": "1",
+                            "descriptor": {
+                                "name": "HDFCBANK - Udupi",
+                                "code": "HDFC0004075"
+                            },
+                            "categories": [
+                                {
+                                    "id": "PERSONAL_LOAN",
+                                    "parent_category_id": "LOAN",
+                                    "descriptor": {
+                                        "name": "PERSONAL_LOAN"
+                                    }
+                                }
+                            ],
+                            "items": [
+                                {
+                                }
+                            ],
+                            "tags": [
+                                {
+                                    "descriptor": {
+                                        "name": "AA-consent-handle"
+                                    },
+                                    "list": [{
+                                        "descriptor": {
+                                            "name": "requestId"
+                                        },
+                                        "value": "i8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+                                    },
+                                    {
+                                        "descriptor": {
+                                            "name": "consentHandle"
+                                        },
+                                        "value": "j8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+                                    }]
+                                } 
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

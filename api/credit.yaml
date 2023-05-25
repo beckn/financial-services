@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Beckn Credit API Specification
   description: Adaptation of Beckn protocol for the credit sector.
-  version: 0.1-credit-draft
+  version: 0.2.0
 security:
   - SubscriberAuth: []
   - GatewaySubscriberAuth: []
@@ -1985,6 +1985,11 @@ components:
             - ACTIVE
             - COMPLETE
             - CANCELLED
+            - OFFER_ACCEPTED
+            - PROCESSING
+            - OFFERED
+            - GRANTED
+            - REJECTED
         type:
           description: 'This is used to indicate the type of order being created to BPPs. Sometimes orders can be linked to previous orders, like a replacement order in a retail domain. A follow-up consultation in healthcare domain. A single order part of a subscription order. The list of order types can be standardized at the network level.'
           type: string

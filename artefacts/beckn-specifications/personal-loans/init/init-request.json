@@ -1,0 +1,116 @@
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "version": "0.2.0",
+        "action": "init",
+        "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+        "bap_id": "credit-protocol.becknprotocol.io",
+        "bpp_id": "bpp.credit.icicibank.io",
+        "bpp_uri": "https://bpp.credit.icicibank.io",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6",
+        "ttl": "PT10M",
+        "timestamp": "2023-05-25T05:23:03.443Z"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1",
+                "descriptor": {
+                    "name": "ICICIBANK - Udupi",
+                    "code": "ICIC0001432"
+                },
+                "category_id": "PERSONAL_LOAN"
+            },
+            "items": [
+                {
+                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+                     "descriptor": {
+                        "name": "Personal Loan Option 1",
+                        "long_desc": "Personal Loan Option 1"
+                    }
+                }
+            ],
+            "fulfillments": [
+                {
+                    "customer": {
+                        "person": {
+                            "name": "John Doe",
+                            "dob": "01-01-1970",
+                            "gender": "male",
+                            "tags": [
+                                {
+                                    "descriptor": {
+                                        "name": "Financial Information"
+                                    },
+                                    "list": [
+                                        {
+                                            "descriptor": {
+                                                "name": "primaryId",
+                                                "long_desc": "Primary ID"
+                                            },
+                                            "value": "ABCDS1234E"
+                                        },
+                                        {
+                                            "descriptor": {
+                                                "name": "primaryIdType",
+                                                "long_desc": "Primary ID Type"
+                                            },
+                                            "value": "PAN"
+                                        },
+                                        {
+                                            "descriptor": {
+                                                "name": "currency",
+                                                "long_desc": "Currency Type"
+                                            },
+                                            "value": "INR"
+                                        },
+                                        {
+                                            "descriptor": {
+                                                "name": "salary",
+                                                "long_desc": "Salary"
+                                            },
+                                            "value": "60000"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Address"
+                                    },
+                                    "list": [
+                                        {
+                                            "descriptor": {
+                                                "name": "address",
+                                                "long_desc": "Address"
+                                            },
+                                            "value": "House no 1, ABC Cross, Alpha Nagar"
+                                        },
+                                        {
+                                            "descriptor": {
+                                                "name": "city",
+                                                "long_desc": "City"
+                                            },
+                                            "value": "Udupi"
+                                        },
+                                        {
+                                            "descriptor": {
+                                                "name": "pinCode",
+                                                "long_desc": "PIN Code"
+                                            },
+                                            "value": "576101"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "contact": {
+                            "phone": "+919876543210",
+                            "email": "johndoe@gmail.com"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

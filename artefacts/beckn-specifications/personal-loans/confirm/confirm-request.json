@@ -1,0 +1,105 @@
+{
+    "context": {
+        "domain": "financial_services:0.2.0",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "action": "confirm",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "version": "0.1",
+        "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+        "bap_id": "credit-protocol.becknprotocol.io",
+        "ttl": "PT10M"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1",
+                "descriptor": {
+                    "name": "ICICIBANK - Udupi",
+                    "code": "ICIC0001432"
+                },
+                "category_id": "PERSONAL_LOAN"
+            },
+            "items": [
+                {
+                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+                     "descriptor": {
+                        "name": "Personal Loan Option 1",
+                        "long_desc": "Personal Loan Option 1"
+                    }
+                }
+            ],
+            "quote": {
+                "price": {
+                    "currency": "INR",
+                    "value": "200000"
+                },
+                "breakup": [
+                    {
+                        "title": "Installment 1",
+                        "price": {
+                            "value": "50000",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "title": "Installment 2",
+                        "price": {
+                            "value": "50000",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "title": "Installment 3",
+                        "price": {
+                            "value": "50000",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "title": "Installment 4",
+                        "price": {
+                            "value": "50000",
+                            "currency": "INR"
+                        }
+                    }
+                ]
+            },
+            "tags": [
+                {
+                    "descriptor": {
+                        "name": "Disbursement Account Details"
+                    },
+                    "list": [{
+                        "descriptor": {
+                            "name": "accountNumber",
+                            "long_desc": "Account Number"
+                        },
+                        "value": "1800002341"
+                    },
+                    {
+                        "descriptor": {
+                            "name": "bankName",
+                            "long_desc": "Bank Name"
+                        },
+                        "value": "State Bank of India"
+                    },
+                    {
+                        "descriptor": {
+                            "name": "branchName",
+                            "long_desc": "branchName"
+                        },
+                        "value": "Udupi"
+                    },
+                    {
+                        "descriptor": {
+                            "name": "ifscCode",
+                            "long_desc": "IFSC Code"
+                        },
+                        "value": "SBIN0001234"
+                    }]
+                }
+            ]
+        }
+    }
+}
