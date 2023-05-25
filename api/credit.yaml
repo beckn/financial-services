@@ -37,13 +37,35 @@ paths:
                 - context
                 - message
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /select:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Select bank from the catalog and apply for a loan
+      description: Select bank from the catalog and apply for a loan, after approving the AA consent request from the selected bank.
       requestBody:
         description: TODO
         content:
@@ -71,13 +93,35 @@ paths:
                 - context
                 - message
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /init:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Initialize a loan application providing personal and bank details.
+      description: Initialize a loan application against a specific offer along with the personal and bank details.
       requestBody:
         description: TODO
         content:
@@ -133,8 +177,9 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Initialize an order by providing billing and/or shipping details
+      description: Initialize the loan application. Also confirm the loan amount, agree to terms & conditions, provide disbursement account details and repayment (EMI) details. KYC consent should be approved on the buyer app before making this call.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -160,14 +205,37 @@ paths:
                 - context
                 - message
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /status:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Fetch the latest order object
+      description: Fetch status of the loan application.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -193,14 +261,37 @@ paths:
                 - context
                 - message
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /track:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Track an active order
+      description: Track an active loan application.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -229,14 +320,37 @@ paths:
                 - context
                 - message
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /cancel:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Cancel an order
+      description: Cancel a loan application.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -266,14 +380,37 @@ paths:
                 - context
                 - message
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /update:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Remove object
+      description: Request a change in the loan application.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -305,14 +442,37 @@ paths:
                 - context
                 - message
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /rating:
     post:
       tags:
         - Beckn Provider Platform (BPP)
       description: Provide feedback on a service
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -338,14 +498,37 @@ paths:
                 - context
                 - message
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /support:
     post:
       tags:
         - Beckn Provider Platform (BPP)
       description: Contact support
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -369,15 +552,38 @@ paths:
                 - context
                 - message
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /on_search:
     post:
       tags:
         - Beckn Application Platform (BAP)
         - Beckn Gateway (BG)
-      description: BPP sends its catalog in response to a search request.
+      description: BPP sends its catalog in response to a search request. This includes the names of lenders registered on the platform along with their respective AA consent requests.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -404,14 +610,37 @@ paths:
               required:
                 - context
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /on_select:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Send draft order object with quoted price for selected items
+      description: Selected lender sends loan offers based on the bank statements retrieved from the AA
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -436,14 +665,37 @@ paths:
               required:
                 - context
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /on_init:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Send order object with payment details updated
+      description: Lender initiates loan application along with KYC consent via Aadhaar/DigiLocker.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -470,14 +722,37 @@ paths:
               required:
                 - context
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /on_confirm:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Send active order object
+      description: Lender approves the loan application after a successful KYC validation and generates the loan agreement.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -504,14 +779,37 @@ paths:
               required:
                 - context
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /on_track:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Send tracking details of an active order
+      description: Send disbursement status of the loan application.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -538,14 +836,37 @@ paths:
               required:
                 - context
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /on_cancel:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object
+      description: Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled loan application.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -572,14 +893,37 @@ paths:
               required:
                 - context
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /on_update:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Returns updated service with updated runtime object
+      description: Lender approves or denies update to loan application. If the loan agreement was modified, an updated terms & conditions will be sent.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -606,14 +950,37 @@ paths:
               required:
                 - context
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /on_status:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Fetch the status of a Service
+      description: Fetch the status of the loan application.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -640,14 +1007,37 @@ paths:
               required:
                 - context
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /on_rating:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Provide feedback on a service
+      description: Provide feedback on the lending service.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -675,14 +1065,37 @@ paths:
                 - context
                 - message
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /on_support:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Contact Support
+      description: Provides support.
       requestBody:
+        description: TODO
         content:
           application/json:
             schema:
@@ -707,8 +1120,30 @@ paths:
               required:
                 - context
       responses:
-        default:
-          $ref: '#/paths/~1init/post/responses/default'
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
 components:
   securitySchemes:
     SubscriberAuth:
