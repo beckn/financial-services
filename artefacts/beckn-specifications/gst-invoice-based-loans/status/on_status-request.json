@@ -2,7 +2,7 @@
     "context": {
         "domain": "financial-services:0.2.0",
         "version": "0.2.0",
-        "action": "confirm",
+        "action": "status",
         "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
         "bap_id": "credit-protocol.becknprotocol.io",
         "bpp_id": "bpp.credit.icicibank.io",
@@ -17,7 +17,7 @@
         "context": {
             "domain": "financial-services:0.2.0",
             "version": "0.2.0",
-            "action": "on_confirm",
+            "action": "on_status",
             "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
             "bap_id": "credit-protocol.becknprotocol.io",
             "bpp_id": "bpp.credit.icicibank.io",
@@ -38,7 +38,7 @@
                     },
                     "category_id": "GST_INVOICE_LOAN"
                 },
-                "status": "CONFIRMED",
+                "status": "PROCESSING",
                 "items": [
                     {
                         "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",

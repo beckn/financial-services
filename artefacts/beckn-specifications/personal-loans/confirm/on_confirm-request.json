@@ -29,6 +29,7 @@
         },
         "message": {
             "order": {
+                "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
                 "provider": {
                     "id": "1",
                     "descriptor": {
