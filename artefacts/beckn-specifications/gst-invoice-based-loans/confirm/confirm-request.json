@@ -18,14 +18,14 @@
                     "name": "ICICIBANK - Udupi",
                     "code": "ICIC0001432"
                 },
-                "category_id": "PERSONAL_LOAN"
+                "category_id": "GST_INVOICE_LOAN"
             },
             "items": [
                 {
                     "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
                      "descriptor": {
-                        "name": "Personal Loan Option 1",
-                        "long_desc": "Personal Loan Option 1"
+                        "name": "Business Loan Option 1",
+                        "long_desc": "Business Loan Option 1"
                      }
                 }
             ],
@@ -74,7 +74,7 @@
                 "tags": [
                     {
                         "descriptor": {
-                            "name": "Personal loan terms"
+                            "name": "Business Loan terms"
                         },
                         "list": [
                             {

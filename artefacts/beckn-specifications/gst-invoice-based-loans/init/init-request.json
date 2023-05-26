@@ -21,14 +21,14 @@
                     "name": "ICICIBANK - Udupi",
                     "code": "ICIC0001432"
                 },
-                "category_id": "PERSONAL_LOAN"
+                "category_id": "GST_INVOICE_LOAN"
             },
             "items": [
                 {
                     "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
                      "descriptor": {
-                        "name": "Personal Loan Option 1",
-                        "long_desc": "Personal Loan Option 1"
+                        "name": "Business Loan Option 1",
+                        "long_desc": "Business Loan Option 1"
                     }
                 }
             ],
@@ -110,7 +110,53 @@
                             "phone": "+919876543210",
                             "email": "johndoe@gmail.com"
                         }
-                    }
+                    },
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "name": "Organization"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "GSTIN"
+                                    },
+                                    "value": "22AAAAA0000A1Z5"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "udyamRegNo",
+                                        "long_desc": "Udyam Registration Number"
+                                    },
+                                    "value": "UDYAM-UP-99-0000051"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "businessType"
+                                    },
+                                    "value": "MEDIUM"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "businessCategory"
+                                    },
+                                    "value": "MANUFACTURING"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "businessName"
+                                    },
+                                    "value": "Alpha Manufacturing Pvt Ltd"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "mobile"
+                                    },
+                                    "value": "+919876543210"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }

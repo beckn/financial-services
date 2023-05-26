@@ -35,15 +35,15 @@
                         "name": "ICICIBANK - Udupi",
                         "code": "ICIC0001432"
                     },
-                    "category_id": "PERSONAL_LOAN"
+                    "category_id": "GST_INVOICE_LOAN"
                 },
                 "status": "CONFIRMED",
                 "items": [
                     {
                         "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
                          "descriptor": {
-                            "name": "Personal Loan Option 1",
-                            "long_desc": "Personal Loan Option 1"
+                            "name": "Business Loan Option 1",
+                            "long_desc": "Business Loan Option 1"
                          },
                         "tags": [
                             {
@@ -106,9 +106,21 @@
                     } 
                 ],
                 "billing": {
-                    "name": "John Doe",
-                    "phone": "+919876543210",
-                    "email": "john.doe@gmail.com"
+                    "name": "Alpha Manufacturing Pvt Ltd",
+                    "organization": {
+                        "address": "Industrial Park, Udupi",
+                        "state": {
+                            "name": "Karnataka"
+                        },
+                        "city": {
+                            "name": "Udupi",
+                            "code": "576101"
+                        },
+                        "contact": {
+                            "phone": "+919876543210",
+                            "email": "alpha.manufacturing@gmail.com"
+                        }
+                    }
                 },
                 "fulfillments": [
                     {
