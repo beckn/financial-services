@@ -2,175 +2,60 @@
     "context": {
         "domain": "financial_services:0.2.0",
         "version": "1.0.0",
-        "action": "search",
+        "action": "on_search",
         "bap_id": "credit-protocol.becknprotocol.io",
         "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
         "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-        "message_id": "7db91181-718f-4720-83de-88e36e9f854e",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
         "ttl": "PT10M",
-        "timestamp": "2023-05-25T05:23:03.443Z"
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bpp_id": "bpp.credit.icicibank.io",
+        "bpp_uri": "https://bpp.credit.icicibank.io"
     },
-    "responses": [
-        {
-            "context": {
-                "domain": "financial_services:0.2.0",
-                "version": "1.0.0",
-                "action": "on_search",
-                "bap_id": "credit-protocol.becknprotocol.io",
-                "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
-                "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-                "message_id": "7db91181-718f-4720-83de-88e36e9f854e",
-                "ttl": "PT10M",
-                "timestamp": "2023-05-25T05:23:03.443Z",
-                "bpp_id": "bpp.credit.icicibank.io",
-                "bpp_uri": "https://bpp.credit.icicibank.io"
+    "message": {
+        "catalog": {
+            "descriptor": {
+                "name": "ICICI Bank"
             },
-            "message": {
-                "catalog": {
+            "providers": [
+                {
+                    "id": "1",
                     "descriptor": {
-                        "name": "ICICI Bank"
+                        "code": "ICICIBANK"
                     },
-                    "providers": [
+                    "categories": [
                         {
-                            "id": "1",
+                            "id": "101123",
                             "descriptor": {
-                                "code": "ICICIBANK"
-                            },
-                            "categories": [
-                                {
-                                    "id": "101123",
-                                    "descriptor": {
-                                        "name": "PERSONAL LOAN",
-                                        "code": "PERSONAL_LOAN"
-                                    }
-                                }
-                            ],
-                            "tags": [
-                                {
-                                    "descriptor": {
-                                        "name": "AA-consent-handle"
-                                    },
-                                    "list": [{
-                                        "descriptor": {
-                                            "name": "requestId"
-                                        },
-                                        "value": "i8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
-                                    },
-                                    {
-                                        "descriptor": {
-                                            "name": "consentHandle"
-                                        },
-                                        "value": "j8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
-                                    }],
-                                    "display": "false"
-                                } 
-                            ]
-                        },
+                                "name": "PERSONAL LOAN",
+                                "code": "PERSONAL_LOAN"
+                            }
+                        }
+                    ],
+                    "tags": [
                         {
-                            "id": "2",
                             "descriptor": {
-                                "name": "ICICIBANK - Manipal",
-                                "code": "ICIC0001564"
+                                "name": "AA-consent-handle"
                             },
-                            "categories": [
-                                {
-                                    "id": "PERSONAL_LOAN",
-                                    "parent_category_id": "LOAN",
-                                    "descriptor": {
-                                        "name": "PERSONAL_LOAN"
-                                    }
-                                }
-                            ],
-                            "items": [
-                                {
-                                }
-                            ],
-                            "tags": [
+                            "list": [
                                 {
                                     "descriptor": {
-                                        "name": "AA-consent-handle"
+                                        "name": "requestId"
                                     },
-                                    "list": [{
-                                        "descriptor": {
-                                            "name": "requestId"
-                                        },
-                                        "value": "i8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+                                    "value": "i8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "consentHandle"
                                     },
-                                    {
-                                        "descriptor": {
-                                            "name": "consentHandle"
-                                        },
-                                        "value": "j8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
-                                    }]
-                                } 
-                            ]
+                                    "value": "j8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
+                                }
+                            ],
+                            "display": "false"
                         }
                     ]
                 }
-            }
-        },
-        {
-            "context": {
-                "domain": "financial_services:0.2.0",
-                "version": "1.0.0",
-                "action": "on_search",
-                "bap_id": "credit-protocol.becknprotocol.io",
-                "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
-                "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-                "message_id": "7db91181-718f-4720-83de-88e36e9f854e",
-                "ttl": "PT10M",
-                "timestamp": "2023-02-22T10:30:18.145Z",
-                "bpp_id": "bpp.credit.hdfcbank.io",
-                "bpp_uri": "https://bpp.credit.hdfcbank.io"
-            },
-            "message": {
-                "catalog": {
-                    "descriptor": {
-                        "name": "Catalog for personal loans"
-                    },
-                    "providers": [
-                        {
-                            "id": "1",
-                            "descriptor": {
-                                "name": "HDFCBANK - Udupi",
-                                "code": "HDFC0004075"
-                            },
-                            "categories": [
-                                {
-                                    "id": "PERSONAL_LOAN",
-                                    "parent_category_id": "LOAN",
-                                    "descriptor": {
-                                        "name": "PERSONAL_LOAN"
-                                    }
-                                }
-                            ],
-                            "items": [
-                                {
-                                }
-                            ],
-                            "tags": [
-                                {
-                                    "descriptor": {
-                                        "name": "AA-consent-handle"
-                                    },
-                                    "list": [{
-                                        "descriptor": {
-                                            "name": "requestId"
-                                        },
-                                        "value": "i8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
-                                    },
-                                    {
-                                        "descriptor": {
-                                            "name": "consentHandle"
-                                        },
-                                        "value": "j8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
-                                    }]
-                                } 
-                            ]
-                        }
-                    ]
-                }
-            }
+            ]
         }
-    ]
+    }
 }

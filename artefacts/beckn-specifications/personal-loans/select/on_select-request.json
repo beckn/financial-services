@@ -1,12 +1,6 @@
 {
     "context": {
         "domain": "financial_services:0.2.0",
-        "location": {
-            "country": {
-                "name": "India",
-                "code": "IND"
-            }
-        },
         "action": "on_select",
         "version": "1.0.0",
         "bap_id": "credit-protocol.becknprotocol.io",

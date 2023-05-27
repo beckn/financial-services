@@ -25,7 +25,7 @@
             "fulfillments": [
                 {
                     "customer": {
-                        "id": "TAN:ABCDT1407H"
+                        "id": "PAN:ABCDT1407H"
                     }
                 }
             ],
@@ -33,7 +33,7 @@
                 "form": {
                     "url": "https://www.icicibank.com/details",
                     "mime_type": "application/xml",
-                    "data": "<details><idInformation><primaryId>ABCDT1407H</primaryId><primaryIdType>TAN</primaryIdType><income>60000 INR</income></idInformation><address><fullAddress>House no 1, ABC Cross, Alpha Nagar</fullAddress><city>Udupi</city><pinCode>576106</pinCode></address></details>"
+                    "data": "<gstInformation><GSTIN>ABCDS1234E</GSTIN><mobile>+91987654321</mobile></gstInformation>"
                 },
                 "required": "true"
             }
