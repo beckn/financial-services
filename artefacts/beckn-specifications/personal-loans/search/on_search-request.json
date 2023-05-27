@@ -1,7 +1,7 @@
 {
     "context": {
         "domain": "financial_services:0.2.0",
-        "version": "0.2.0",
+        "version": "1.0.0",
         "action": "search",
         "bap_id": "credit-protocol.becknprotocol.io",
         "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
@@ -14,7 +14,7 @@
         {
             "context": {
                 "domain": "financial_services:0.2.0",
-                "version": "0.2.0",
+                "version": "1.0.0",
                 "action": "on_search",
                 "bap_id": "credit-protocol.becknprotocol.io",
                 "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
@@ -28,26 +28,21 @@
             "message": {
                 "catalog": {
                     "descriptor": {
-                        "name": "Catalog for personal loans"
+                        "name": "ICICI Bank"
                     },
                     "providers": [
                         {
                             "id": "1",
                             "descriptor": {
-                                "name": "ICICIBANK - Udupi",
-                                "code": "ICIC0001432"
+                                "code": "ICICIBANK"
                             },
                             "categories": [
                                 {
-                                    "id": "PERSONAL_LOAN",
-                                    "parent_category_id": "LOAN",
+                                    "id": "101123",
                                     "descriptor": {
-                                        "name": "PERSONAL_LOAN"
+                                        "name": "PERSONAL LOAN",
+                                        "code": "PERSONAL_LOAN"
                                     }
-                                }
-                            ],
-                            "items": [
-                                {
                                 }
                             ],
                             "tags": [
@@ -66,7 +61,8 @@
                                             "name": "consentHandle"
                                         },
                                         "value": "j8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
-                                    }]
+                                    }],
+                                    "display": "false"
                                 } 
                             ]
                         },
@@ -116,7 +112,7 @@
         {
             "context": {
                 "domain": "financial_services:0.2.0",
-                "version": "0.2.0",
+                "version": "1.0.0",
                 "action": "on_search",
                 "bap_id": "credit-protocol.becknprotocol.io",
                 "bap_uri": "https://credit-protocol-network.becknprotocol.io/",

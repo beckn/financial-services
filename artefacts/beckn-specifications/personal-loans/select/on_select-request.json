@@ -1,0 +1,150 @@
+{
+    "context": {
+        "domain": "financial_services:0.2.0",
+        "location": {
+            "country": {
+                "name": "India",
+                "code": "IND"
+            }
+        },
+        "action": "on_select",
+        "version": "1.0.0",
+        "bap_id": "credit-protocol.becknprotocol.io",
+        "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+        "bpp_id": "bpp.credit.icicibank.io",
+        "bpp_uri": "https://bpp.credit.icicibank.io",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62195",
+        "message_id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "ttl": "P1M"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1",
+                "descriptor": {
+                    "code": "ICICIBANK"
+                }
+            },
+            "items": [
+                {
+                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+                    "descriptor": {
+                        "name": "Personal Loan Offer 1"
+                    },
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "name": "Personal loan terms"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "code": "interestRate",
+                                        "name": "Rate of Interest (p.a)"
+                                    },
+                                    "value": "14% p.a"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "interestType",
+                                        "name": "Type of Interest Rate"
+                                    },
+                                    "value": "FIXED"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "maxAmount",
+                                        "name": "Maximum Amount"
+                                    },
+                                    "value": "2000000 INR"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "loanTenure",
+                                        "name": "Loan Tenure"
+                                    },
+                                    "value": "5 months"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "legalAgreement",
+                                        "name": "Legal Agreement"
+                                    },
+                                    "value": "https://icicibank.com/legalAgreement"
+                                }
+                            ],
+                            "display": true
+                        }
+                    ]
+                },
+                {
+                    "id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
+                    "descriptor": {
+                        "name": "Personal Loan Offer 2"
+                    },
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "name": "Personal loan terms"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "code": "interestRate",
+                                        "name": "Rate of Interest (p.a)"
+                                    },
+                                    "value": "12% p.a"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "interestType",
+                                        "name": "Type of Interest Rate"
+                                    },
+                                    "value": "FLOATING"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "maxAmount",
+                                        "name": "Maximum Amount"
+                                    },
+                                    "value": "2000000 INR"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "loanTenure",
+                                        "name": "Loan Tenure"
+                                    },
+                                    "value": "7 months"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "legalAgreement",
+                                        "name": "Legal Agreement"
+                                    },
+                                    "value": "https://icicibank.com/legalAgreement"
+                                }
+                            ],
+                            "display": true
+                        }
+                    ]
+                }
+            ],
+            "fulfillments": [
+                {
+                    "start": {
+                        "time": {
+                            "timestamp": "01-06-2023 00:00:00"
+                        }
+                    },
+                    "end": {
+                        "time": {
+                            "timestamp": "30-11-2023 23:59:59"
+                        }
+                    }
+                }
+            ],
+            "type": "DEFAULT"
+        }
+    }
+}

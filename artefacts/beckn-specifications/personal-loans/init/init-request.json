@@ -1,7 +1,7 @@
 {
     "context": {
         "domain": "financial-services:0.2.0",
-        "version": "0.2.0",
+        "version": "1.0.0",
         "action": "init",
         "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
         "bap_id": "credit-protocol.becknprotocol.io",
@@ -14,105 +14,29 @@
     },
     "message": {
         "order": {
-            "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
             "provider": {
-                "id": "1",
-                "descriptor": {
-                    "name": "ICICIBANK - Udupi",
-                    "code": "ICIC0001432"
-                },
-                "category_id": "PERSONAL_LOAN"
+                "id": "1"
             },
             "items": [
                 {
-                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
-                     "descriptor": {
-                        "name": "Personal Loan Option 1",
-                        "long_desc": "Personal Loan Option 1"
-                    }
+                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
                 }
             ],
             "fulfillments": [
                 {
                     "customer": {
-                        "id": "aadhaar:123412341234",
-                        "person": {
-                            "name": "John Doe",
-                            "dob": "01-01-1970",
-                            "gender": "male",
-                            "tags": [
-                                {
-                                    "descriptor": {
-                                        "name": "Financial Information"
-                                    },
-                                    "list": [
-                                        {
-                                            "descriptor": {
-                                                "name": "primaryId",
-                                                "long_desc": "Primary ID"
-                                            },
-                                            "value": "ABCDS1234E"
-                                        },
-                                        {
-                                            "descriptor": {
-                                                "name": "primaryIdType",
-                                                "long_desc": "Primary ID Type"
-                                            },
-                                            "value": "PAN"
-                                        },
-                                        {
-                                            "descriptor": {
-                                                "name": "currency",
-                                                "long_desc": "Currency Type"
-                                            },
-                                            "value": "INR"
-                                        },
-                                        {
-                                            "descriptor": {
-                                                "name": "salary",
-                                                "long_desc": "Salary"
-                                            },
-                                            "value": "60000"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "descriptor": {
-                                        "name": "Address"
-                                    },
-                                    "list": [
-                                        {
-                                            "descriptor": {
-                                                "name": "address",
-                                                "long_desc": "Address"
-                                            },
-                                            "value": "House no 1, ABC Cross, Alpha Nagar"
-                                        },
-                                        {
-                                            "descriptor": {
-                                                "name": "city",
-                                                "long_desc": "City"
-                                            },
-                                            "value": "Udupi"
-                                        },
-                                        {
-                                            "descriptor": {
-                                                "name": "pinCode",
-                                                "long_desc": "PIN Code"
-                                            },
-                                            "value": "576101"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        "contact": {
-                            "phone": "+919876543210",
-                            "email": "johndoe@gmail.com"
-                        }
+                        "id": "AADHAAR:123412341234"
                     }
                 }
-            ]
+            ],
+            "xinput": {
+                "form": {
+                    "url": "https://www.icicibank.com/details",
+                    "mime_type": "application/xml",
+                    "data": "<details><idInformation><primaryId>ABCDS1234E</primaryId><primaryIdType>PAN</primaryIdType><income>60000 INR</income></idInformation><address><fullAddress>House no 1, ABC Cross, Alpha Nagar</fullAddress><city>Udupi</city><pinCode>576106</pinCode></address></details>"
+                },
+                "required": "true"
+            }
         }
     }
 }

@@ -18,11 +18,8 @@
                 "id": "1"
             },
             "descriptor": {
-                "name": "ICICIBANK - Udupi",
-                "code": "ICIC0001432"
-            },
-            "items": [
-            ]
+                "code": "ICICIBANK"
+            }
         }
     }
 }

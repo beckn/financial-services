@@ -13,20 +13,11 @@
     "message": {
         "order": {
             "provider": {
-                "id": "1",
-                "descriptor": {
-                    "name": "ICICIBANK - Udupi",
-                    "code": "ICIC0001432"
-                },
-                "category_id": "PERSONAL_LOAN"
+                "id": "1"
             },
             "items": [
                 {
-                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
-                     "descriptor": {
-                        "name": "Personal Loan Option 1",
-                        "long_desc": "Personal Loan Option 1"
-                     }
+                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
                 }
             ],
             "quote": {

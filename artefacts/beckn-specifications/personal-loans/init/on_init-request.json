@@ -1,0 +1,58 @@
+
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "version": "1.0.0",
+        "action": "on_init",
+        "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+        "bap_id": "credit-protocol.becknprotocol.io",
+        "bpp_id": "bpp.credit.icicibank.io",
+        "bpp_uri": "https://bpp.credit.icicibank.io",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "166a5633-66d2-4ec8-bdcb-65cfeb1e4697",
+        "ttl": "PT10M",
+        "timestamp": "2023-05-25T05:23:03.443Z"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1",
+                "descriptor": {
+                    "name": "ICICIBANK - Udupi",
+                    "code": "ICIC0001432"
+                },
+                "category_id": "PERSONAL_LOAN"
+            },
+            "items": [
+                {
+                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+                    "descriptor": {
+                        "name": "Personal Loan Option 1",
+                        "long_desc": "Personal Loan Option 1"
+                    }
+                }
+            ],
+            "tags": [
+                {
+                    "descriptor": {
+                        "name": "KYC Request"
+                    },
+                    "list": [
+                        {
+                            "descriptor": {
+                                "name": "requestId"
+                            },
+                            "value": "es1c6822bd4bbb4eb1b9e1b4996fbff8acb"
+                        },
+                        {
+                            "descriptor": {
+                                "name": "loanApplicationId"
+                            },
+                            "value": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
