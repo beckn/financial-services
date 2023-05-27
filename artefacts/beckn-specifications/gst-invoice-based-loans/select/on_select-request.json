@@ -24,12 +24,12 @@
                 {
                     "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
                     "descriptor": {
-                        "name": "Business Loan Offer 1"
+                        "name": "Business Loan Upto 20 Lakhs"
                     },
                     "tags": [
                         {
                             "descriptor": {
-                                "name": "Business loan terms"
+                                "name": "General Information"
                             },
                             "list": [
                                 {
@@ -37,7 +37,7 @@
                                         "code": "interestRate",
                                         "name": "Rate of Interest (p.a)"
                                     },
-                                    "value": "14% p.a"
+                                    "value": "12% p.a"
                                 },
                                 {
                                     "descriptor": {
@@ -75,12 +75,12 @@
                 {
                     "id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
                     "descriptor": {
-                        "name": "Business Loan Offer 2"
+                        "name": "Business Loan Upto 2 Lakhs"
                     },
                     "tags": [
                         {
                             "descriptor": {
-                                "name": "Business loan terms"
+                                "name": "General Information"
                             },
                             "list": [
                                 {
@@ -88,7 +88,7 @@
                                         "code": "interestRate",
                                         "name": "Rate of Interest (p.a)"
                                     },
-                                    "value": "12% p.a"
+                                    "value": "14% p.a"
                                 },
                                 {
                                     "descriptor": {
@@ -102,14 +102,14 @@
                                         "code": "maxAmount",
                                         "name": "Maximum Amount"
                                     },
-                                    "value": "2000000 INR"
+                                    "value": "200000 INR"
                                 },
                                 {
                                     "descriptor": {
                                         "code": "loanTenure",
                                         "name": "Loan Tenure"
                                     },
-                                    "value": "7 months"
+                                    "value": "4 months"
                                 },
                                 {
                                     "descriptor": {

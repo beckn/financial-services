@@ -65,7 +65,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Select bank from the catalog and apply for a loan, after approving the AA consent request from the selected bank.
+      description: Select bank from the catalog and apply for a loan.
       requestBody:
         description: TODO
         content:
@@ -121,7 +121,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Initialize a loan application against a specific offer along with the personal and bank details.
+      description: Initialize a loan application against a specific offer along with the personal details. In case of personal loans, the AA consent request should be approved for the selected bank, before invoking init.
       requestBody:
         description: TODO
         content:
@@ -177,7 +177,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Initialize the loan application. Also confirm the loan amount, agree to terms & conditions, provide disbursement account details and repayment (EMI) details. KYC consent should be approved on the buyer app before making this call.
+      description: Initialize the loan application. Also confirm the loan amount, agree to terms & conditions, provide disbursement account details and repayment (EMI) details. KYC/Udyam consent should be approved on the buyer app before making this call.
       requestBody:
         description: TODO
         content:
@@ -581,7 +581,7 @@ paths:
       tags:
         - Beckn Application Platform (BAP)
         - Beckn Gateway (BG)
-      description: BPP sends its catalog in response to a search request. This includes the names of lenders registered on the platform along with their respective AA consent requests.
+      description: BPP sends its catalog in response to a search request.
       requestBody:
         description: TODO
         content:
@@ -638,7 +638,7 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Selected lender sends loan offers based on the bank statements retrieved from the AA
+      description: Selected lender sends loan offers for the selected category
       requestBody:
         description: TODO
         content:
@@ -750,7 +750,7 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Lender approves the loan application after a successful KYC validation and generates the loan agreement.
+      description: Lender approves the loan application after a successful KYC/Udyam validation and generates the loan agreement.
       requestBody:
         description: TODO
         content:
