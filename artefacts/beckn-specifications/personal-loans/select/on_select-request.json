@@ -138,7 +138,29 @@
                     }
                 }
             ],
-            "type": "DEFAULT"
+            "type": "DEFAULT",
+            "tags": [
+                {
+                    "descriptor": {
+                        "code": "AA-consent-request"
+                    },
+                    "list": [
+                        {
+                            "descriptor": {
+                                "code": "consentRequestId"
+                            },
+                            "value": "c8f6e545-4627-4e4e-b47f-e8b11f299fb7"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "consentUrl"
+                            },
+                            "value": "https://fiu-uat.setu.co/consents/webview/c8f6e545-4627-4e4e-b47f-e8b11f299fb7"
+                        }
+                    ],
+                    "display": "false"
+                }
+            ]
         }
     }
 }

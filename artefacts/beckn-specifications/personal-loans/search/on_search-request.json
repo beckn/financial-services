@@ -31,28 +31,6 @@
                                 "code": "PERSONAL_LOAN"
                             }
                         }
-                    ],
-                    "tags": [
-                        {
-                            "descriptor": {
-                                "name": "AA-consent-handle"
-                            },
-                            "list": [
-                                {
-                                    "descriptor": {
-                                        "name": "requestId"
-                                    },
-                                    "value": "i8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
-                                },
-                                {
-                                    "descriptor": {
-                                        "name": "consentHandle"
-                                    },
-                                    "value": "j8cc6822bd4bbb4eb1b9e1b4996fbff8acb"
-                                }
-                            ],
-                            "display": "false"
-                        }
                     ]
                 }
             ]

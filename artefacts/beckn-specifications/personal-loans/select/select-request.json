@@ -19,6 +19,13 @@
             },
             "descriptor": {
                 "code": "ICICIBANK"
+            },
+            "xinput": {
+                "required": "true",
+                "form": {
+                    "mime_type": "application/xml",
+                    "data": "<upiId>9999999999@onemoney</upidId>"
+                }
             }
         }
     }
