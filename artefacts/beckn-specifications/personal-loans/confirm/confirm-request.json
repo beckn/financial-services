@@ -70,13 +70,6 @@
                         "list": [
                             {
                                 "descriptor": {
-                                    "name": "currency",
-                                    "long_desc": "Currency Type"
-                                },
-                                "value": "INR"
-                            },
-                            {
-                                "descriptor": {
                                     "name": "interestRate",
                                     "long_desc": "Rate of Interest (p.a)"
                                 },
@@ -94,14 +87,7 @@
                                     "name": "tenure",
                                     "long_desc": "Loan Tenure"
                                 },
-                                "value": "7"
-                            },
-                            {
-                                "descriptor": {
-                                    "name": "tenureUnit",
-                                    "long_desc": "Loan Tenure Unit"
-                                },
-                                "value": "MONTH"
+                                "value": "7 months"
                             },
                             {
                                 "descriptor": {
