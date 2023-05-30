@@ -1,7 +1,5 @@
-# Beckn Protocol Specifications for Financial Services
-Recommendations for beckn protocol-enabled financial-services applications
-
-### ( This page is currently under development )
+# Beckn Protocol Adaptation for Financial Services
+This repository contains recommendations for adaptation of beckn protocol for use cases in the financial services sector. 
 
 
 ## Latest Version
