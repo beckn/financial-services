@@ -30,13 +30,6 @@
                             "list": [
                                 {
                                     "descriptor": {
-                                        "name": "currency",
-                                        "long_desc": "Currency Type"
-                                    },
-                                    "value": "INR"
-                                },
-                                {
-                                    "descriptor": {
                                         "name": "interestRate",
                                         "long_desc": "Rate of Interest (p.a)"
                                     },
@@ -61,14 +54,7 @@
                                         "name": "tenure",
                                         "long_desc": "Loan Tenure"
                                     },
-                                    "value": "7"
-                                },
-                                {
-                                    "descriptor": {
-                                        "name": "tenureUnit",
-                                        "long_desc": "Loan Tenure Unit"
-                                    },
-                                    "value": "MONTH"
+                                    "value": "7 months"
                                 },
                                 {
                                     "descriptor": {
@@ -98,7 +84,7 @@
                         "email": "beta.manufacturing@gmail.com"
                     }
                 }
-            }
+            },
             "fulfillments": [
                 {
                     "start": {
@@ -112,18 +98,24 @@
                         }
                     },
                     "customer": {
-                        "id": "aadhaar:123412341234",
-                        "person": {
-                            "name": "John Doe"
-                        },
-                        "contact": {
-                            "phone": "+91-9999999999",
-                            "email": "john.doe@example.com"
+                        "organization": {
+                            "address": "Industrial Park, Udupi",
+                            "state": {
+                                "name": "Karnataka"
+                            },
+                            "city": {
+                                "name": "Udupi",
+                                "code": "576101"
+                            },
+                            "contact": {
+                                "phone": "+919876543210",
+                                "email": "alpha.manufacturing@gmail.com"
+                            }
                         }
                     },
                     "state": {
                         "descriptor": {
-                            "name": "Loan application confirmed"
+                            "name": "Loan application updated"
                         }
                     }
                 }

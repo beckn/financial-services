@@ -22,6 +22,95 @@
                     "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
                 }
             ],
+            "status": "PROCESSING",
+            "quote": {
+                "price": {
+                    "currency": "INR",
+                    "value": "200000"
+                },
+                "breakup": [
+                    {
+                        "title": "Installment 1",
+                        "price": {
+                            "value": "40000",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "title": "Installment 2",
+                        "price": {
+                            "value": "40000",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "title": "Installment 3",
+                        "price": {
+                            "value": "40000",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "title": "Installment 4",
+                        "price": {
+                            "value": "40000",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "title": "Installment 5",
+                        "price": {
+                            "value": "40000",
+                            "currency": "INR"
+                        }
+                    }
+                ],
+                "tags": [
+                    {
+                        "descriptor": {
+                            "name": "Personal loan terms"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "interestRate",
+                                    "long_desc": "Rate of Interest (p.a)"
+                                },
+                                "value": "12% p.a"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "interestType",
+                                    "long_desc": "Type of Interest Rate"
+                                },
+                                "value": "FLOATING"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "tenure",
+                                    "long_desc": "Loan Tenure"
+                                },
+                                "value": "7 months"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "legalAgreement",
+                                    "long_desc": "Legal Agreement"
+                                },
+                                "value": "https://icicibank.com/legalAgreement"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "terms&Conditions",
+                                    "long_desc": "Terms and Conditions"
+                                },
+                                "value": "https://icicibank.com/loan/tnc.html"
+                            }
+                        ],
+                        "display": true
+                    }
+                ]
+            },
             "tags": [
                 {
                     "descriptor": {
@@ -39,6 +128,12 @@
                                 "name": "kycUrl"
                             },
                             "value": "https://dg-sandbox.setu.co/okyc/initiate/95e3d7ae-45fa-47f5-8a7a-55f4dc20fd7f/"
+                        },
+                        {
+                            "descriptor": {
+                                "name": "Additonal Notes"
+                            },
+                            "value": "Loan has been processed."
                         }
                     ]
                 }

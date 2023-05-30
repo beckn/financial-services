@@ -30,13 +30,6 @@
                             "list": [
                                 {
                                     "descriptor": {
-                                        "name": "currency",
-                                        "long_desc": "Currency Type"
-                                    },
-                                    "value": "INR"
-                                },
-                                {
-                                    "descriptor": {
                                         "name": "interestRate",
                                         "long_desc": "Rate of Interest (p.a)"
                                     },
@@ -61,14 +54,7 @@
                                         "name": "tenure",
                                         "long_desc": "Loan Tenure"
                                     },
-                                    "value": "7"
-                                },
-                                {
-                                    "descriptor": {
-                                        "name": "tenureUnit",
-                                        "long_desc": "Loan Tenure Unit"
-                                    },
-                                    "value": "MONTH"
+                                    "value": "7 months"
                                 },
                                 {
                                     "descriptor": {
@@ -100,7 +86,6 @@
                         }
                     },
                     "customer": {
-                        "id": "aadhaar:123412341234",
                         "person": {
                             "name": "John Doe"
                         },
@@ -228,6 +213,36 @@
                             "start": "01-10-2023 00:00:00",
                             "end": "31-10-2023 23:59:59"
                         }
+                    }
+                }
+            ],
+            "cancellation_terms": [
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "name": "Loan sanctioned"
+                        }
+                    },
+                    "cancellation_fee": {
+                        "percentage": "3%"
+                    },
+                    "external_ref": {
+                        "mimetype": "text/html",
+                        "url": "https://icicibank.com/loan/tnc.html"
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "name": "Loan disbursed"
+                        }
+                    },
+                    "cancellation_fee": {
+                        "percentage": "5%"
+                    },
+                    "external_ref": {
+                        "mimetype": "text/html",
+                        "url": "https://icicibank.com/loan/tnc.html"
                     }
                 }
             ],

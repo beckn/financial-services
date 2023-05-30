@@ -16,7 +16,7 @@
         "order_id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
         "cancellation_reason_id": "5",
         "descriptor": {
-            "short_desc": "KYC not completed"
+            "short_desc": "UDYAM verification not completed"
         }
     }
 }
