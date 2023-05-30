@@ -2,7 +2,7 @@
     "context": {
         "domain": "financial-services:0.2.0",
         "version": "1.0.0",
-        "action": "on_confirm",
+        "action": "on_update",
         "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
         "bap_id": "credit-protocol.becknprotocol.io",
         "bpp_id": "bpp.credit.icicibank.io",
@@ -83,10 +83,22 @@
                 }
             ],
             "billing": {
-                "name": "John Doe",
-                "phone": "+919876543210",
-                "email": "john.doe@gmail.com"
-            },
+                "name": "Beta Manufacturing Pvt Ltd",
+                "organization": {
+                    "address": "Industrial Park, Udupi",
+                    "state": {
+                        "name": "Karnataka"
+                    },
+                    "city": {
+                        "name": "Udupi",
+                        "code": "576101"
+                    },
+                    "contact": {
+                        "phone": "+919876543210",
+                        "email": "beta.manufacturing@gmail.com"
+                    }
+                }
+            }
             "fulfillments": [
                 {
                     "start": {
