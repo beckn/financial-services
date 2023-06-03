@@ -13,7 +13,7 @@ paths:
       tags:
         - Beckn Provider Platform (BPP)
         - Beckn Gateway (BG)
-      description: This allows the customer's to search for a) Personal Loans b) GST Invoice based loans
+      description: This allows the customers to search for different types of credit
       requestBody:
         description: BAP searches for services
         content:
@@ -65,7 +65,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Select bank from the catalog and apply for a loan.
+      description: Select lender from the catalog and optionally select one or more credit products.
       requestBody:
         description: TODO
         content:
@@ -121,7 +121,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Initialize a loan application against a specific offer along with the personal details. In case of personal loans, the AA consent request should be approved for the selected bank, before invoking init.
+      description: Initialize a loan application against one or more products offered by the lender. Borrower will share additional personal/business details and approve any consent request shared by the lender.
       requestBody:
         description: TODO
         content:
@@ -177,7 +177,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Initialize the loan application. Also confirm the loan amount, agree to terms & conditions, provide disbursement account details and repayment (EMI) details. KYC/Udyam consent should be approved on the buyer app before making this call.
+      description: Confirm the loan application, with the actual amount, agree to terms & conditions, provide disbursement account details and repayment (EMI) details. Lender may request approval of additional consents or one-time password.
       requestBody:
         description: TODO
         content:
@@ -285,65 +285,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-  /track:
-    post:
-      tags:
-        - Beckn Provider Platform (BPP)
-      description: Track an active loan application.
-      requestBody:
-        description: TODO
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  allOf:
-                    - $ref: '#/components/schemas/Context'
-                    - properties:
-                        action:
-                          enum:
-                            - track
-                      required:
-                        - action
-                message:
-                  type: object
-                  properties:
-                    order_id:
-                      $ref: '#/components/schemas/Order/properties/id'
-                    callback_url:
-                      type: string
-                      format: uri
-                  required:
-                    - order_id
-              required:
-                - context
-                - message
-      responses:
-        '200':
-          description: Acknowledgement of message received after successful validation of schema and signature
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        allOf:
-                          - $ref: '#/components/schemas/Ack'
-                          - properties:
-                              status:
-                                enum:
-                                  - ACK
-                                  - NACK
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
   /cancel:
     post:
       tags:
@@ -408,7 +349,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Request a change in the loan application.
+      description: Request a change in the loan application, or personal/business details submitted at the time of applying.
       requestBody:
         description: TODO
         content:
@@ -526,7 +467,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Contact support
+      description: Contact customer support
       requestBody:
         description: TODO
         content:
@@ -581,7 +522,7 @@ paths:
       tags:
         - Beckn Application Platform (BAP)
         - Beckn Gateway (BG)
-      description: BPP sends its catalog in response to a search request.
+      description: Lender sends its catalog in response to a search request.
       requestBody:
         description: TODO
         content:
@@ -638,7 +579,7 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Selected lender sends loan offers for the selected category
+      description: Selected lender sends loan offers for the loan type
       requestBody:
         description: TODO
         content:
@@ -693,7 +634,7 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Lender initiates loan application along with KYC consent via Aadhaar/DigiLocker.
+      description: Lender initiates loan application along with consent requests
       requestBody:
         description: TODO
         content:
@@ -750,7 +691,7 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Lender approves the loan application after a successful KYC/Udyam validation and generates the loan agreement.
+      description: Lender checks eligibility, and approves the loan application after a successful consent validation, and generates the loan agreement.
       requestBody:
         description: TODO
         content:
@@ -774,63 +715,6 @@ paths:
                       $ref: '#/components/schemas/Order'
                   required:
                     - order
-                error:
-                  $ref: '#/components/schemas/Error'
-              required:
-                - context
-      responses:
-        '200':
-          description: Acknowledgement of message received after successful validation of schema and signature
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        allOf:
-                          - $ref: '#/components/schemas/Ack'
-                          - properties:
-                              status:
-                                enum:
-                                  - ACK
-                                  - NACK
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
-  /on_track:
-    post:
-      tags:
-        - Beckn Application Platform (BAP)
-      description: Send disbursement status of the loan application.
-      requestBody:
-        description: TODO
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  allOf:
-                    - $ref: '#/components/schemas/Context'
-                    - properties:
-                        action:
-                          enum:
-                            - on_track
-                      required:
-                        - action
-                message:
-                  type: object
-                  properties:
-                    tracking:
-                      $ref: '#/components/schemas/Tracking'
-                  required:
-                    - tracking
                 error:
                   $ref: '#/components/schemas/Error'
               required:
@@ -1093,7 +977,7 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Provides support.
+      description: Provides customer support details.
       requestBody:
         description: TODO
         content:
