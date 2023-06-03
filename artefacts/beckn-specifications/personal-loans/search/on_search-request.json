@@ -27,9 +27,112 @@
                         {
                             "id": "101123",
                             "descriptor": {
-                                "code": "PERSONAL_LOAN",
                                 "name": "Personal loan"
                             }
+                        }
+                    ]
+                }
+            ],            
+            "items": [
+                {
+                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+                    "descriptor": {
+                        "name": "Personal Loan upto 20 Lakhs"
+                    },
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "name": "General Information"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "code": "interestRate",
+                                        "name": "Rate of Interest (p.a)"
+                                    },
+                                    "value": "12% p.a"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "interestType",
+                                        "name": "Type of Interest Rate"
+                                    },
+                                    "value": "FIXED"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "maxAmount",
+                                        "name": "Maximum Amount"
+                                    },
+                                    "value": "2000000 INR"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "loanTenure",
+                                        "name": "Loan Tenure"
+                                    },
+                                    "value": "5 months"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "loanAgreement",
+                                        "name": "Loan Agreement"
+                                    },
+                                    "value": "https://icicibank.com/loanAgreement"
+                                }
+                            ],
+                            "display": true
+                        }
+                    ]
+                },
+                {
+                    "id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
+                    "descriptor": {
+                        "name": "Personal Loan upto 2 Lakhs"
+                    },
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "name": "General Information"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "code": "interestRate",
+                                        "name": "Rate of Interest (p.a)"
+                                    },
+                                    "value": "14% p.a"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "interestType",
+                                        "name": "Type of Interest Rate"
+                                    },
+                                    "value": "FLOATING"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "maxAmount",
+                                        "name": "Maximum Amount"
+                                    },
+                                    "value": "200000 INR"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "loanTenure",
+                                        "name": "Loan Tenure"
+                                    },
+                                    "value": "4 months"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "loanAgreement",
+                                        "name": "Loan Agreement"
+                                    },
+                                    "value": "https://icicibank.com/loanAgreement"
+                                }
+                            ],
+                            "display": true
                         }
                     ]
                 }

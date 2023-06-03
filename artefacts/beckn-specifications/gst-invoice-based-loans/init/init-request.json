@@ -31,11 +31,14 @@
             ],
             "xinput": {
                 "form": {
-                    "url": "https://www.icicibank.com/details",
-                    "mime_type": "application/xml",
-                    "data": "<gstInformation><GSTIN>ABCDS1234E</GSTIN><udyamNumber>UDYAM-HR-1234567</udyamNumber><mobile>+91987654321</mobile></gstInformation>"
+                    "mime_type": "text/html",
+                    "data": {
+                        "GSTIN": "ABCDS1234E",
+                        "udyamNumber": "UDYAM-HR-1234567",
+                        "mobile": "+91987654321"
+                    }
                 },
-                "required": "true"
+                "required": true
             }
         }
     }

@@ -58,10 +58,10 @@
                                 },
                                 {
                                     "descriptor": {
-                                        "name": "legalAgreement",
-                                        "long_desc": "Legal Agreement"
+                                        "name": "loanAgreement",
+                                        "long_desc": "Loan Agreement"
                                     },
-                                    "value": "https://icicibank.com/legalAgreement"
+                                    "value": "https://icicibank.com/loanAgreement"
                                 }
                             ]
                         }
@@ -146,12 +146,11 @@
             },
             "payments": [
                 {
-                    "url": "https://pay.razorpay.in?amt=240000&cur=INR&ins=1",
                     "params": {
                         "amount": "40000",
                         "currency": "INR"
                     },
-                    "status": "NOT-PAID",
+                    "status": "PAID",
                     "time": {
                         "range": {
                             "start": "01-06-2023 00:00:00",

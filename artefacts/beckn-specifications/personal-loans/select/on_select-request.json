@@ -62,61 +62,10 @@
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "legalAgreement",
-                                        "name": "Legal Agreement"
+                                        "code": "loanAgreement",
+                                        "name": "Loan Agreement"
                                     },
-                                    "value": "https://icicibank.com/legalAgreement"
-                                }
-                            ],
-                            "display": true
-                        }
-                    ]
-                },
-                {
-                    "id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
-                    "descriptor": {
-                        "name": "Personal Loan upto 2 Lakhs"
-                    },
-                    "tags": [
-                        {
-                            "descriptor": {
-                                "name": "General Information"
-                            },
-                            "list": [
-                                {
-                                    "descriptor": {
-                                        "code": "interestRate",
-                                        "name": "Rate of Interest (p.a)"
-                                    },
-                                    "value": "14% p.a"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "interestType",
-                                        "name": "Type of Interest Rate"
-                                    },
-                                    "value": "FLOATING"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "maxAmount",
-                                        "name": "Maximum Amount"
-                                    },
-                                    "value": "200000 INR"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "loanTenure",
-                                        "name": "Loan Tenure"
-                                    },
-                                    "value": "4 months"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "legalAgreement",
-                                        "name": "Legal Agreement"
-                                    },
-                                    "value": "https://icicibank.com/legalAgreement"
+                                    "value": "https://icicibank.com/loanAgreement"
                                 }
                             ],
                             "display": true
@@ -160,7 +109,21 @@
                     ],
                     "display": "false"
                 }
-            ]
+            ],
+            "xinput": {
+                "form": {
+                    "mime_type": "text/html",
+                    "data": {
+                        "primaryId": "",
+                        "primaryIdType": "",
+                        "income": "",
+                        "fullAddress": "",
+                        "city": "",
+                        "pinCode": ""
+                    }
+                },
+                "required": "true"
+            }
         }
     }
 }

@@ -14,7 +14,6 @@
         "intent": {
             "category": {
                 "descriptor": {
-                    "code": "PERSONAL_LOAN",
                     "name": "Personal loan"
                 }
             }
