@@ -1,0 +1,74 @@
+@startuml search
+title Sequence Diagram for Search Use Case
+skinparam responseMessageBelowArrow true
+
+BAP -> BG: /search
+activate BAP
+activate BG
+deactivate BAP
+deactivate BG
+
+alt
+group parallel
+
+    BG -> BPP1: /search
+    activate BG
+    activate BPP1
+    deactivate BPP1
+    deactivate BG
+
+    BPP1 -> BG: /on_search
+    activate BG
+    activate BPP1
+    deactivate BPP1
+    deactivate BG
+
+    BG -> BAP: /on_search
+    activate BAP
+    activate BG
+    deactivate BAP
+    deactivate BG
+
+else
+
+    BG -> BPP2: /search
+    activate BG
+    activate BPP2
+    deactivate BPP2
+    deactivate BG
+
+    BPP2 -> BG: /on_search
+    activate BG
+    activate BPP2
+    deactivate BPP2
+    deactivate BG
+
+    BG -> BAP: /on_search
+    activate BAP
+    activate BG
+    deactivate BAP
+    deactivate BG
+
+else
+
+    BG -> BPP3: /search
+    activate BG
+    activate BPP3
+    deactivate BPP3
+    deactivate BG
+
+    BPP3 -> BG: /on_search
+    activate BG
+    activate BPP3
+    deactivate BPP3
+    deactivate BG
+
+    BG -> BAP: /on_search
+    activate BAP
+    activate BG
+    deactivate BAP
+    deactivate BG
+
+end
+
+@enduml 
