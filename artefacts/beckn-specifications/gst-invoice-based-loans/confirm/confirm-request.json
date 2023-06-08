@@ -5,9 +5,11 @@
         "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
         "action": "confirm",
         "timestamp": "2023-05-25T05:23:03.443Z",
-        "version": "0.1",
+        "version": "1.0.0",
         "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
         "bap_id": "credit-protocol.becknprotocol.io",
+        "bpp_id": "bpp.credit.icicibank.io",
+        "bpp_uri": "https://bpp.credit.icicibank.io",
         "ttl": "PT10M"
     },
     "message": {
@@ -18,6 +20,19 @@
             "items": [
                 {
                     "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
+                }
+            ],
+            "fulfillments": [
+                {
+                    "stops": [
+                        {
+                            "authorization": 
+                            {
+                                "type": "OTP",
+                                "token": "143532"
+                            }
+                        }
+                    ]
                 }
             ],
             "quote": {
@@ -91,10 +106,10 @@
                             },
                             {
                                 "descriptor": {
-                                    "name": "legalAgreement",
-                                    "long_desc": "Legal Agreement"
+                                    "name": "loanAgreement",
+                                    "long_desc": "Loan Agreement"
                                 },
-                                "value": "https://icicibank.com/legalAgreement"
+                                "value": "https://icicibank.com/loanAgreement"
                             },
                             {
                                 "descriptor": {
@@ -108,39 +123,12 @@
                     }
                 ]
             },
-            "tags": [
-                {
-                    "descriptor": {
-                        "name": "Disbursement Account Details"
-                    },
-                    "list": [{
-                        "descriptor": {
-                            "name": "accountNumber",
-                            "long_desc": "Account Number"
-                        },
-                        "value": "1800002341"
-                    },
+            "payments": [
                     {
-                        "descriptor": {
-                            "name": "bankName",
-                            "long_desc": "Bank Name"
-                        },
-                        "value": "State Bank of India"
-                    },
-                    {
-                        "descriptor": {
-                            "name": "branchName",
-                            "long_desc": "branchName"
-                        },
-                        "value": "Udupi"
-                    },
-                    {
-                        "descriptor": {
-                            "name": "ifscCode",
-                            "long_desc": "IFSC Code"
-                        },
-                        "value": "SBIN0001234"
-                    }]
+                    "params": {
+                        "bank_code": "SBIN0001234",
+                        "bank_account_number": "1800002341"
+                    }
                 }
             ]
         }

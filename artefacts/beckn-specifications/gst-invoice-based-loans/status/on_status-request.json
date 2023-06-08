@@ -58,10 +58,10 @@
                                 },
                                 {
                                     "descriptor": {
-                                        "name": "legalAgreement",
-                                        "long_desc": "Legal Agreement"
+                                        "name": "loanAgreement",
+                                        "long_desc": "Loan Agreement"
                                     },
-                                    "value": "https://icicibank.com/legalAgreement"
+                                    "value": "https://icicibank.com/loanAgreement"
                                 }
                             ]
                         }

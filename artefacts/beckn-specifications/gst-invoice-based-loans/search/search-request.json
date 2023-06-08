@@ -14,7 +14,6 @@
         "intent": {
             "category": {
                 "descriptor": {
-                    "code": "GST_INVOICE_LOAN",
                     "name": "GST invoice based loan"
                 }
             }

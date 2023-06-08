@@ -31,11 +31,17 @@
             ],
             "xinput": {
                 "form": {
-                    "url": "https://www.icicibank.com/details",
-                    "mime_type": "application/xml",
-                    "data": "<details><idInformation><primaryId>ABCDS1234E</primaryId><primaryIdType>PAN</primaryIdType><income>60000 INR</income></idInformation><address><fullAddress>House no 1, ABC Cross, Alpha Nagar</fullAddress><city>Udupi</city><pinCode>576106</pinCode></address></details>"
+                    "mime_type": "text/html",
+                    "data": {
+                        "primaryId": "ABCDS1234E",
+                        "primaryIdType": "PAN",
+                        "income": "60000 INR",
+                        "fullAddress": "House no 1, ABC Cross, Alpha Nagar",
+                        "city": "Udupi",
+                        "pinCode": "576106"
+                    }
                 },
-                "required": "true"
+                "required": true
             }
         }
     }
