@@ -1,0 +1,85 @@
+@startuml personal-loan
+title Sequence Diagram for the personal loan flow - Exception
+
+BAP -> BG: /search
+activate BAP
+activate BG
+deactivate BAP
+deactivate BG
+
+BG -> BPP: /search
+activate BG
+activate BPP
+deactivate BG
+
+
+BPP -> "BPP backend": type of loan
+activate "BPP backend"
+
+"BPP backend" -> BPP: list of services
+deactivate "BPP backend"
+
+
+BPP -> BG: /on_search
+activate BG
+deactivate BPP
+deactivate BG
+
+BG -> BAP: /on_search
+activate BAP
+activate BG
+deactivate BAP
+deactivate BG
+
+BAP -> BPP: /select
+activate BAP
+activate BPP
+deactivate BAP
+
+BPP -> "BPP backend": selected lender
+activate "BPP backend"
+
+"BPP backend" -> BPP: get offers
+deactivate "BPP backend"
+
+BPP -> BAP: /on_select
+activate BAP
+deactivate BPP
+deactivate BAP
+
+BAP -> BPP: /init
+activate BAP
+activate BPP
+deactivate BAP
+
+BPP -> "BPP backend": personal details etc
+activate "BPP backend"
+
+"BPP backend" -> BPP: get application details
+deactivate "BPP backend"
+
+BPP -> BAP: /on_init
+activate BAP
+deactivate BPP
+deactivate BAP
+
+BAP -> BPP: /confirm
+activate BAP
+activate BPP
+deactivate BAP
+
+BPP -> "BPP backend": confirmed loan application
+activate "BPP backend"
+
+alt
+group error on confirm
+    "BPP backend" -> BPP: OTP validation failed
+    deactivate "BPP backend"
+
+    BPP -> BAP: /on_confirm with error
+    activate BAP
+    deactivate BPP
+    deactivate BAP
+end
+
+@enduml
