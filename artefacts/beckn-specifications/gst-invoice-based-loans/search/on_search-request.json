@@ -1,142 +1,148 @@
 {
-    "context": {
-        "domain": "financial_services:0.2.0",
-        "version": "1.0.0",
-        "action": "on_search",
-        "bap_id": "credit-protocol.becknprotocol.io",
-        "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
-        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
-        "ttl": "PT30M",
-        "timestamp": "2023-05-25T05:23:03.443Z",
-        "bpp_id": "bpp.credit.icicibank.io",
-        "bpp_uri": "https://bpp.credit.icicibank.io"
+  "context": {
+    "domain": "financial_services:0.2.0",
+    "location": {
+      "country": {
+        "name": "India",
+        "code": "IND"
+      }
     },
-    "message": {
-        "catalog": {
-            "descriptor": {
-                "name": "ICICI Bank"
+    "version": "1.0.0",
+    "action": "on_search",
+    "bap_id": "credit-protocol.becknprotocol.io",
+    "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "ttl": "PT30M",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "bpp_id": "bpp.credit.icicibank.io",
+    "bpp_uri": "https://bpp.credit.icicibank.io"
+  },
+  "message": {
+    "catalog": {
+      "descriptor": {
+        "name": "ICICI Bank"
+      },
+      "providers": [
+        {
+          "id": "1",
+          "descriptor": {
+            "code": "ICICIBANK"
+          },
+          "categories": [
+            {
+              "id": "102661",
+              "descriptor": {
+                "name": "GST Invoice based loan"
+              }
+            }
+          ],
+          "items": [
+            {
+              "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+              "descriptor": {
+                "name": "GST Loan"
+              },
+              "tags": [
+                {
+                  "descriptor": {
+                    "name": "General Information"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "name": "interestRate",
+                        "short_desc": "Rate of Interest (p.a)"
+                      },
+                      "value": "12% p.a"
+                    },
+                    {
+                      "descriptor": {
+                        "name": "interestType",
+                        "short_desc": "Type of Interest Rate"
+                      },
+                      "value": "FIXED"
+                    },
+                    {
+                      "descriptor": {
+                        "name": "maxAmount",
+                        "short_desc": "Maximum Amount"
+                      },
+                      "value": "2000000 INR"
+                    },
+                    {
+                      "descriptor": {
+                        "name": "loanTenure",
+                        "short_desc": "Loan Tenure"
+                      },
+                      "value": "5 months"
+                    },
+                    {
+                      "descriptor": {
+                        "name": "loanAgreement",
+                        "short_desc": "Loan Agreement"
+                      },
+                      "value": "https://icicibank.com/loanAgreement"
+                    }
+                  ],
+                  "display": true
+                }
+              ]
             },
-            "providers": [
+            {
+              "id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
+              "descriptor": {
+                "name": "GST Loan"
+              },
+              "tags": [
                 {
-                    "id": "1",
-                    "descriptor": {
-                        "code": "ICICIBANK"
+                  "descriptor": {
+                    "name": "General Information"
+                  },
+                  "list": [
+                    {
+                      "descriptor": {
+                        "name": "interestRate",
+                        "short_desc": "Rate of Interest (p.a)"
+                      },
+                      "value": "14% p.a"
                     },
-                    "categories": [
-                        {
-                            "id": "102661",
-                            "descriptor": {
-                                "name": "GST Invoice based loan"
-                            }
-                        }
-                    ]
+                    {
+                      "descriptor": {
+                        "name": "interestType",
+                        "short_desc": "Type of Interest Rate"
+                      },
+                      "value": "FLOATING"
+                    },
+                    {
+                      "descriptor": {
+                        "name": "maxAmount",
+                        "short_desc": "Maximum Amount"
+                      },
+                      "value": "200000 INR"
+                    },
+                    {
+                      "descriptor": {
+                        "name": "loanTenure",
+                        "nashort_descme": "Loan Tenure"
+                      },
+                      "value": "4 months"
+                    },
+                    {
+                      "descriptor": {
+                        "name": "termsAndConditions",
+                        "short_desc": "Terms and Conditions"
+                      },
+                      "value": "https://icicibank.com/termsConditions"
+                    }
+                  ],
+                  "display": true
                 }
-            ],            
-            "items": [
-                {
-                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
-                    "descriptor": {
-                        "name": "Personal Loan upto 20 Lakhs"
-                    },
-                    "tags": [
-                        {
-                            "descriptor": {
-                                "name": "General Information"
-                            },
-                            "list": [
-                                {
-                                    "descriptor": {
-                                        "code": "interestRate",
-                                        "name": "Rate of Interest (p.a)"
-                                    },
-                                    "value": "12% p.a"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "interestType",
-                                        "name": "Type of Interest Rate"
-                                    },
-                                    "value": "FIXED"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "maxAmount",
-                                        "name": "Maximum Amount"
-                                    },
-                                    "value": "2000000 INR"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "loanTenure",
-                                        "name": "Loan Tenure"
-                                    },
-                                    "value": "5 months"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "loanAgreement",
-                                        "name": "Loan Agreement"
-                                    },
-                                    "value": "https://icicibank.com/loanAgreement"
-                                }
-                            ],
-                            "display": true
-                        }
-                    ]
-                },
-                {
-                    "id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
-                    "descriptor": {
-                        "name": "Personal Loan upto 2 Lakhs"
-                    },
-                    "tags": [
-                        {
-                            "descriptor": {
-                                "name": "General Information"
-                            },
-                            "list": [
-                                {
-                                    "descriptor": {
-                                        "code": "interestRate",
-                                        "name": "Rate of Interest (p.a)"
-                                    },
-                                    "value": "14% p.a"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "interestType",
-                                        "name": "Type of Interest Rate"
-                                    },
-                                    "value": "FLOATING"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "maxAmount",
-                                        "name": "Maximum Amount"
-                                    },
-                                    "value": "200000 INR"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "loanTenure",
-                                        "name": "Loan Tenure"
-                                    },
-                                    "value": "4 months"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "loanAgreement",
-                                        "name": "Loan Agreement"
-                                    },
-                                    "value": "https://icicibank.com/loanAgreement"
-                            }
-                            ],
-                            "display": true
-                        }
-                    ]
-                }
-            ]
+              ]
+            }
+          ]
         }
+      ]
     }
+  }
 }
