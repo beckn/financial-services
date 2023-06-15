@@ -928,8 +928,8 @@ paths:
               required:
                 - context
             examples:
-              ? Lender sends its catalog in response to a search request for personal loans
-              : value:
+              Lender sends its catalog in response to a search request for personal loans:
+                value:
                   context:
                     domain: financial-services:1.0.0
                     location:
@@ -1002,8 +1002,8 @@ paths:
                                       value: 13%
                                   display: true
                               matched: false
-              ? Lender sends its catalog in response to a search request for invoice based loans
-              : value:
+              Lender sends its catalog in response to a search request for invoice based loans:
+                value:
                   context:
                     domain: financial-services:1.0.0
                     location:
@@ -2524,8 +2524,8 @@ paths:
                                 name: Terms & Conditions
                                 short_desc: Terms and Conditions
                               value: https://icicibank.com/loan/tnc.html
-              ? Lender updates the invoice based loan application and sends a response
-              : value:
+              Lender updates the invoice based loan application and sends a response:
+                value:
                   context:
                     domain: financial-services:1.0.0
                     location:
@@ -2951,8 +2951,8 @@ paths:
                                 name: Terms & Conditions
                                 short_desc: Terms and Conditions
                               value: https://icicibank.com/loan/tnc.html
-              ? Returns the status of the personal loan application after paying an installment
-              : value:
+              Returns the status of the personal loan application after paying an installment:
+                value:
                   context:
                     domain: financial-services:1.0.0
                     location:
@@ -3308,8 +3308,8 @@ paths:
                                 name: Terms & Conditions
                                 short_desc: Terms and Conditions
                               value: https://icicibank.com/loan/tnc.html
-              ? Returns the status of the invoice based loan application after paying an installment
-              : value:
+              Returns the status of the invoice based loan application after paying an installment:
+                value:
                   context:
                     domain: financial-services:1.0.0
                     location:
