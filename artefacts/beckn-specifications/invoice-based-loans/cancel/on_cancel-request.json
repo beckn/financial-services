@@ -1,0 +1,197 @@
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "on_cancel",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+    "bap_id": "credit-protocol.becknprotocol.io",
+    "ttl": "PT10M",
+    "bpp_id": "bpp.credit.icicibank.io",
+    "bpp_uri": "https://bpp.credit.icicibank.io"
+  },
+  "message": {
+    "order": {
+      "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+      "provider": {
+        "id": "1",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+            }
+          ],
+          "code": "ICICIBANK",
+          "name": "ICICI Bank",
+          "short_desc": "ICICI Bank Ltd",
+          "long_desc": "ICICI Bank Ltd, India."
+        }
+      },
+      "status": "CANCELLED",
+      "items": [
+        {
+          "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+          "descriptor": {
+            "name": "Invoice based Loan",
+            "short_desc": "Invoice based Loan of INR 2,00,000 at price INR 2,45,000"
+          },
+          "price": {
+            "currency": "INR",
+            "offered_value": "2,00,000",
+            "computed_value": "2,45,000"
+          }
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "2,00,000"
+        },
+        "breakup": [
+          {
+            "title": "Processing fee",
+            "price": {
+              "value": "1800",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Installment 1",
+            "price": {
+              "value": "50,000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Installment 2",
+            "price": {
+              "value": "50,000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Installment 3",
+            "price": {
+              "value": "50,000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Installment 4",
+            "price": {
+              "value": "50,000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Installment 5",
+            "price": {
+              "value": "45,000",
+              "currency": "INR"
+            }
+          }
+        ]
+      },
+      "payments": [
+        {
+          "url": "https://pay.razorpay.in?amt=50000&cur=INR&ins=1",
+          "params": {
+            "amount": "50000",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-06-2023 00:00:00",
+              "end": "30-06-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "url": "https://pay.razorpay.in?amt=50000&cur=INR&ins=2",
+          "params": {
+            "amount": "50000",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-07-2023 00:00:00",
+              "end": "31-07-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "url": "https://pay.razorpay.in?amt=50000&cur=INR&ins=3",
+          "params": {
+            "amount": "50000",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-08-2023 00:00:00",
+              "end": "31-08-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "url": "https://pay.razorpay.in?amt=50000&cur=INR&ins=4",
+          "params": {
+            "amount": "50000",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-09-2023 00:00:00",
+              "end": "30-09-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "url": "https://pay.razorpay.in?amt=45000&cur=INR&ins=5",
+          "params": {
+            "amount": "45000",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-10-2023 00:00:00",
+              "end": "31-10-2023 23:59:59"
+            }
+          }
+        }
+      ],
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "name": "Loan sanctioned"
+            }
+          },
+          "cancellation_fee": {
+            "percentage": "3%"
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "https://icicibank.com/loan/tnc.html"
+          }
+        }
+      ],
+      "return_terms": [
+        {
+          "return_time": "30-11-2023 23:59:59"
+        }
+      ]
+    }
+  }
+}
