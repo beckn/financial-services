@@ -221,7 +221,168 @@ To discover a loan product on a beckn-enabled network, the BAP must fire a `sear
 
 ### Selection of a Loan Product
 
-The Buyer app collects the borrower's name, address, date of birth, PAN (Permanent Account Number), phone number, income, employment type, and company name. This information is then shared with the lenders.
+The BAP sends the loan product, the loan provider, and the customer's identity to the BPP. 
+
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "action": "select",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "version": "1.1.0",
+        "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+        "bap_id": "credit-protocol.becknprotocol.io",
+        "ttl": "PT10M",
+        "bpp_id": "bpp.credit.icicibank.io",
+        "bpp_uri": "https://bpp.credit.icicibank.io"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1"
+            },
+            "items": [
+                {
+                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
+                }
+            ],
+            "fulfillments": [
+                {
+                    "customer": {
+                        "id": "9999999999@onemoney"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+### Returning a consent request with additional details about the loan product
+
+In this interaction, the Lender Platform (BPP) generates a consent request, and an `XInput` object to collect additional details about the borrower like borrower's name, address, date of birth, PAN (Permanent Account Number), phone number, income, employment type, and company name.
+
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "action": "on_select",
+        "version": "1.1.0",
+        "bap_id": "credit-protocol.becknprotocol.io",
+        "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+        "bpp_id": "bpp.credit.icicibank.io",
+        "bpp_uri": "https://bpp.credit.icicibank.io",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62195",
+        "message_id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "ttl": "P30M"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1",
+                "descriptor": {
+                    "images": [
+                        {
+                            "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+                        }
+                    ],
+                    "code": "ICICIBANK",
+                    "name": "ICICI Bank",
+                    "short_desc": "ICICI Bank Ltd",
+                    "long_desc": "ICICI Bank Ltd, India."
+                }
+            },
+            "items": [
+                {
+                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+                    "descriptor": {
+                        "name": "Personal Loan",
+                        "short_desc": "Personal Loan of INR 2,00,000 at price INR 2,45,000"
+                    }
+                }
+            ],
+            "type": "DEFAULT",
+            "tags": [
+                {
+                    "descriptor": {
+                        "code": "consent_request"
+                    },
+                    "list": [
+                        {
+                            "descriptor": {
+                                "code": "consent_url"
+                            },
+                            "value": "https://fiu-uat.setu.co/consents/webview/c8f6e545-4627-4e4e-b47f-e8b11f299fb7"
+                        }
+                    ],
+                    "display": false
+                }
+            ],
+            "xinput": {
+                "form": {
+                    "mime_type": "text/html",
+                    "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75"
+                },
+                "required": "true"
+            }
+        }
+    }
+}
+```
+Below is an example `XInput` form used to collect additional data from the customer.
+
+```
+   <form>
+     <label for="firstName">First Name</label>
+     <input type="text" id="firstName" name="firstName" />
+     <label for="lastName">Last Name</label>
+     <input type="text" id="lastName" name="lastName" />
+     <label for="dob">Date of Birth</label>
+     <input type="date" id="dob" name="dob" />
+     <label for="sex">Sex</label>
+     <select name="sex" id="sex">
+       <option value="male">Male</option>
+       <option value="female">Female</option>
+     </select>
+     <label for="maritalStatus">Marital Status</label>
+     <select name="maritalStatus" id="maritalStatus">
+       <option value="single">Single</option>
+       <option value="married">Married</option>
+     </select>
+     <label for="address">Address</label>
+     <input type="text" id="address" name="address" />
+     <label for="idType">Identity Type</label>
+     <select name="idType" id="idType">
+       <option value="pan">PAN</option>
+       <option value="aadhaar">Aadhaar</option>
+     </select>
+     <label for="idValue">ID Number</label>
+     <input type="text" id="idValue" name="idValue" />
+     <label for="incomeProofType">Income Proof Type</label>
+     <select name="incomeProofType" id="incomeProofType">
+       <option value="salary_slip">Salary Slip</option>
+       <option value="income_tax_return">Income Tax Return</option>
+     </select>
+     <label for="incomeProof">Upload the Income Proof</label>
+     <input name="incomeProof" type="file" />
+   </form>
+```
+
+> **Note:** Some of these fields like Name, Date of Birth, Sex, Address etc may already have been provided by the BAP during the `select` call inside the `Customer` object. In case the BPP already has this information, it can a) prepopulate the values for these fields, b) Not send these fields as an input requirement. In other cases, the BPP might simply generate a consent request against the customer's ID to share financial information or profile information with the BPP. 
+
 
 ### Consent based Data Sharing
 
