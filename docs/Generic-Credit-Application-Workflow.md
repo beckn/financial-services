@@ -1,5 +1,12 @@
 # A Generic Workflow for a Decentralized Credit Application
 
+## Authors
+1. Ravi Prakash - FIDE
+2. Hrushikesh Mehta - ONDC
+3. Antriksh Parmar - ONDC
+
+## Overview
+
 Any credit application consists of the following interactions. Bear in mind, this is just an example workflow for a simple transaction between a Lender and a Borrower. The order of interactions between the two parties is arbitratrily selected on the basis of several interviews with subject matter experts.
 
 A typical workflow for a loan application consits of the following steps
