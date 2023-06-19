@@ -1,10 +1,10 @@
-# Personal Loan Workflow (Using Electronically Consented Data Sharing)
+# Loan Workflow (Using Electronically Consented Data Sharing)
 
-The following steps outline the flow of Personal Loan Application using beckn protocol
+The following steps outline the flow of Loan Application using beckn protocol with electronically consented data sharing
 
 ## Loan Product Discovery
 
-### Searching for personal loan products
+### Searching for loan products
 
 To discover a loan product on a beckn-enabled network, the BAP must fire a `search` request to the BG containing atleast one the following fields
 
