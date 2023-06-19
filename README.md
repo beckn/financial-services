@@ -24,7 +24,7 @@ The credit sector is a vital component of any economy, providing individuals and
 
 ## Implementing the specification
 
-To implement the specification click here
+To understanding how to implement the specification click [here](./docs)
 
 ## Acknowledgements
 
