@@ -1039,18 +1039,82 @@ Now the lender has all the information to make an offer to the borrower.
 }
 ```
 
-Step 3: Loan Offers
-Depending on the borrower's credit history and account statement, the lenders either return pre-approved offers to the borrower or do not provide offers based on their underwriting criteria. 
-The borrower can then choose to proceed with one of the offers or request an offer with a lower amount. If the borrower selects a lower amount, the lenders will share a revised offer..
+## Loan Disbursal
 
-Step 4: KYC
-The lender orchestrates the KYC process by sharing a KYC link with the borrower. The borrower is redirected to the KYC URL, where they enter their KYC document details and may optionally share a one-time password to complete the KYC.
+### Lender disburses loan
 
-Step 5: Repayment setup 
-Upon successful completion of KYC, the lender requests the borrower's disbursement account details and asks them to set up repayment using eNACH, eMandate, or standing instructions.
+In this stage the lender deposits the loan amount in the borrower's bank account through existing payment infrastructures.
 
-Step 6: Loan agreement sign and disbursal
-The lender shares the complete loan agreement with the borrower through the Buyer app. The borrower is requested to enter the OTP (One-Time Password) provided by the lender to complete the eSigning process. 
-Alternatively, the lender can provide a link to the loan agreement, allowing the borrower to review the agreement and proceed with Aadhar eSign. 
-After signing the agreement, the lender may request account monitoring access on the borrower's account. Finally, the lender disburses the loan amount.
+### Lender provides status update regarding loan disbursal
+
+```
+{
+    "context": {
+        ...
+        "action": "on_status"
+    },
+    "message": {
+        "order": {
+            ...
+            "fulfillments": [
+                {
+                    ...
+                    "state": {
+                        "descriptor": {
+                            "name": "Loan Disbursed"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+## Loan Repayment ( Post-Fulfillment )
+
+### Lender provides status update regarding EMI Received
+
+```
+{
+    "context": {
+        ...
+        "action": "on_status"
+    },
+    "message": {
+        "order": {
+            ...
+            "fulfillments": [
+                {
+                    ...
+                    "state": {
+                        "descriptor": {
+                            "name": "Installment 1/5 received"
+                        }
+                    }
+                }
+            ],
+            "payments": [
+                {
+                    "type": "ON-ORDER",
+                    "url": "https://emandate.icicibank.in",
+                    "params": {
+                        "amount": "46360",
+                        "currency": "INR"
+                    },
+                    "status": "PAID",
+                    "time": {
+                        "range": {
+                            "start": "01-06-2023 00:00:00",
+                            "end": "30-06-2023 23:59:59"
+                        }
+                    }
+                },
+                ...
+            ]
+        }
+    }
+}
+```
+
+
 
