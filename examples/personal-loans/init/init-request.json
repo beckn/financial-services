@@ -36,15 +36,18 @@
       ],
       "xinput": {
         "form": {
-          "mime_type": "text/html",
           "data": {
-            "primaryId": "ABCDS1234E",
-            "primaryIdType": "PAN",
+            "firstName": "John",
+            "lastName": "Doe",
+            "dob": "1986-11-15",
+            "maritalStatus": "married",
+            "occupation": "Software Engineer",
+            "idValue": "ABCDS1234E",
+            "idType": "PAN",
+            "incomeProofType": "salary_slip",
+            "incomeProof": "data:application/pdf;base64,JVBERi0xLjQNCiWhs8XXDQoxIDAgb2Jq.....IgL01lZGlhQm94Wy",
             "income": "INR 6,00,000",
-            "requestedLoanAmount": "INR 2,00,000",
-            "fullAddress": "House no 1, ABC Cross, Alpha Nagar",
-            "city": "Udupi",
-            "pinCode": "576106"
+            "address": "KB102, Oak Block, Green Springs Apartments, No 7, MG Road, Bengaluru - 560068"
           }
         }
       }

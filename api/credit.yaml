@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Beckn Credit API Specification
-  description: Adaptation of Beckn protocol for the credit sector.
+  description: Adaptation of Beckn protocol for the financial services sector.
   version: 0.2.0
 security:
   - SubscriberAuth: []
@@ -287,13 +287,17 @@ paths:
                         form:
                           mime_type: text/html
                           data:
-                            primaryId: ABCDS1234E
-                            primaryIdType: PAN
+                            firstName: John
+                            lastName: Doe
+                            dob: 1986-11-15
+                            maritalStatus: married
+                            occupation: Software Engineer
+                            idValue: ABCDS1234E
+                            idType: PAN
+                            incomeProofType: salary_slip
+                            incomeProof: data:application/pdf;base64,JVBERi0xLjQNCiWhs8XXDQoxIDAgb2Jq.....IgL01lZGlhQm94Wy
                             income: INR 6,00,000
-                            requestedLoanAmount: INR 2,00,000
-                            fullAddress: House no 1, ABC Cross, Alpha Nagar
-                            city: Udupi
-                            pinCode: "576106"
+                            address: KB102, Oak Block, Green Springs Apartments, No 7, MG Road, Bengaluru - 560068
               Initialing the Invoice based loan offer from the lender:
                 value:
                   context:
@@ -1141,33 +1145,7 @@ paths:
                             short_desc: Personal Loan of INR 2,00,000 at price INR 2,45,000
                           price:
                             currency: INR
-                            offered_value: 2,00,000
-                            computed_value: 2,45,000
-                          tags:
-                            - descriptor:
-                                name: General Information
-                              list:
-                                - descriptor:
-                                    name: Interest Rate
-                                    short_desc: Rate of Interest (p.a)
-                                  value: 12%
-                                - descriptor:
-                                    name: Interest Type
-                                    short_desc: Type of Interest Rate
-                                  value: FIXED
-                                - descriptor:
-                                    name: Term
-                                    short_desc: Loan Term
-                                  value: 5 months
-                                - descriptor:
-                                    name: Foreclosure Penalty
-                                    short_desc: Loan Foreclosure Penalty
-                                  value: 0.5%
-                                - descriptor:
-                                    name: Delayed payments penalty
-                                    short_desc: Delayed payments penalty
-                                  value: 5%
-                              display: true
+                            value: 2,45,000
                       type: DEFAULT
                       tags:
                         - descriptor:
@@ -1176,12 +1154,12 @@ paths:
                             - descriptor:
                                 code: consentUrl
                               value: https://fiu-uat.setu.co/consents/webview/c8f6e545-4627-4e4e-b47f-e8b11f299fb7
-                          display: "false"
+                          display: false
                       xinput:
                         form:
                           mime_type: text/html
                           url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
-                        required: "true"
+                        required: true
               Selected lender sends offer details for the invoice based loan:
                 value:
                   context:
@@ -1217,33 +1195,7 @@ paths:
                             short_desc: Invoice based Loan of INR 2,00,000 at price INR 2,45,000
                           price:
                             currency: INR
-                            offered_value: 2,00,000
-                            computed_value: 2,45,000
-                          tags:
-                            - descriptor:
-                                name: General Information
-                              list:
-                                - descriptor:
-                                    name: Interest Rate
-                                    short_desc: Rate of Interest (p.a)
-                                  value: 12%
-                                - descriptor:
-                                    name: Interest Type
-                                    short_desc: Type of Interest Rate
-                                  value: FIXED
-                                - descriptor:
-                                    name: Term
-                                    short_desc: Loan Term
-                                  value: 5 months
-                                - descriptor:
-                                    name: Foreclosure Penalty
-                                    short_desc: Loan Foreclosure Penalty
-                                  value: 0.5%
-                                - descriptor:
-                                    name: Delayed payments penalty
-                                    short_desc: Delayed payments penalty
-                                  value: 5%
-                              display: true
+                            value: 2,45,000
                       type: DEFAULT
                       tags:
                         - descriptor:
@@ -1252,12 +1204,12 @@ paths:
                             - descriptor:
                                 code: consentUrl
                               value: https://fiu-uat.setu.co/consents/webview/c8f6e545-4627-4e4e-b47f-e8b11f299fb7
-                          display: "false"
+                          display: false
                       xinput:
                         form:
                           mime_type: text/html
                           url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
-                        required: "true"
+                        required: true
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -1332,11 +1284,11 @@ paths:
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
                     message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
                     ttl: PT10M
-                    timestamp: "2023-05-25T05:23:03.443Z"
+                    timestamp: '2023-05-25T05:23:03.443Z'
                   message:
                     order:
                       provider:
-                        id: "1"
+                        id: '1'
                         descriptor:
                           images:
                             - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -1347,83 +1299,126 @@ paths:
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
-                            name: Personal Loan
-                            short_desc: Personal Loan of INR 2,00,000 at price INR 2,45,000
+                            name: 'Loan Offer : INR 2,00,000'
                           price:
                             currency: INR
-                            offered_value: 2,00,000
-                            computed_value: 2,45,000
+                            value: '230000'
+                          tags:
+                            - descriptor:
+                                name: Personal loan terms
+                              list:
+                                - descriptor:
+                                    name: Interest Rate
+                                    short_desc: Rate of Interest (p.a)
+                                  value: 12%
+                                - descriptor:
+                                    name: Interest Type
+                                    short_desc: Type of Interest Rate
+                                  value: FLOATING
+                                - descriptor:
+                                    name: Term
+                                    short_desc: Max Loan Term
+                                  value: 5 months
+                                - descriptor:
+                                    name: Foreclosure Penalty
+                                    short_desc: Loan Foreclosure Penalty
+                                  value: 0.5%
+                                - descriptor:
+                                    name: Delayed payments penalty
+                                    short_desc: Delayed payments penalty
+                                  value: 5%
+                                - descriptor:
+                                    name: Terms & Conditions
+                                    short_desc: Terms and Conditions
+                                  value: https://icicibank.com/loan/tnc.html
+                              display: true
                       quote:
                         price:
                           currency: INR
-                          value: 2,00,000
+                          value: '231800'
                         breakup:
+                          - title: Principal
+                            price:
+                              value: '200000'
+                              currency: INR
+                          - title: Interest
+                            price:
+                              value: '30000'
+                              currency: INR
                           - title: Processing fee
                             price:
-                              value: "1800"
+                              value: '1800'
                               currency: INR
-                          - title: Installment 1
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 2
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 3
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 4
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 5
-                            price:
-                              value: 45,000
-                              currency: INR
+                      payments:
+                        - type: ON-ORDER
+                          url: https://emandate.icicibank.in
+                          params:
+                            amount: '46360'
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-06-2023 00:00:00
+                              end: 30-06-2023 23:59:59
+                        - params:
+                            amount: '46360'
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-07-2023 00:00:00
+                              end: 31-07-2023 23:59:59
+                        - params:
+                            amount: '46360'
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-08-2023 00:00:00
+                              end: 31-08-2023 23:59:59
+                        - params:
+                            amount: '46360'
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-09-2023 00:00:00
+                              end: 30-09-2023 23:59:59
+                        - params:
+                            amount: '46360'
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-10-2023 00:00:00
+                              end: 31-10-2023 23:59:59
+                      cancellation_terms:
+                        - fulfillment_state:
+                            descriptor:
+                              name: Loan sanctioned
+                          cancellation_fee:
+                            percentage: 3%
+                          external_ref:
+                            mimetype: text/html
+                            url: https://icicibank.com/loan/tnc.html
+                        - fulfillment_state:
+                            descriptor:
+                              name: Loan disbursed
+                          cancellation_fee:
+                            percentage: 5%
+                          external_ref:
+                            mimetype: text/html
+                            url: https://icicibank.com/loan/tnc.html
                       tags:
-                        - descriptor:
-                            name: Personal loan terms
-                          list:
-                            - descriptor:
-                                name: Interest Rate
-                                short_desc: Rate of Interest (p.a)
-                              value: 12%
-                            - descriptor:
-                                name: Interest Type
-                                short_desc: Type of Interest Rate
-                              value: FLOATING
-                            - descriptor:
-                                name: Term
-                                short_desc: Loan Term
-                              value: 5 months
-                            - descriptor:
-                                name: Foreclosure Penalty
-                                short_desc: Loan Foreclosure Penalty
-                              value: 0.5%
-                            - descriptor:
-                                name: Delayed payments penalty
-                                short_desc: Delayed payments penalty
-                              value: 5%
-                            - descriptor:
-                                name: Loan Agreement
-                                short_desc: Loan Agreement
-                              value: https://icicibank.com/loanAgreement?id=afyrq9fbH
-                            - descriptor:
-                                name: Terms & Conditions
-                                short_desc: Terms and Conditions
-                              value: https://icicibank.com/loan/tnc.html
-                          display: true
-                        - descriptor:
-                            code: consentRequest
-                          list:
-                            - descriptor:
+                        - list:
+                          - descriptor:
                                 name: KYC Request
-                              value: https://dg-sandbox.setu.co/okyc/initiate/95e3d7ae-45fa-47f5-8a7a-55f4dc20fd7f/
-                            - descriptor:
-                                name: AA Consent Request
-                              value: Accepted
+                                short_desc: Click on this link to submit your KYC Details
+                            value: https://dg-sandbox.setu.co/okyc/initiate/95e3d7ae-45fa-47f5-8a7a-55f4dc20fd7f/
+                          - descriptor:
+                                name: Loan Agreement
+                                short_desc: Click on this link to view and sign your Loan Agreement
+                            value: https://icicibank.com/loanAgreement?id=afyrq9fbH
               Lender initiates invoice based loan application:
                 value:
                   context:
@@ -1440,11 +1435,11 @@ paths:
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
                     message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
                     ttl: PT10M
-                    timestamp: "2023-05-25T05:23:03.443Z"
+                    timestamp: '2023-05-25T05:23:03.443Z'
                   message:
                     order:
                       provider:
-                        id: "1"
+                        id: '1'
                         descriptor:
                           images:
                             - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -1455,83 +1450,126 @@ paths:
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
-                            name: Invoice based Loan
-                            short_desc: Invoice based Loan of INR 2,00,000 at price INR 2,45,000
+                            name: 'Loan Offer : INR 2,00,000'
                           price:
                             currency: INR
-                            offered_value: 2,00,000
-                            computed_value: 2,45,000
+                            value: '230000'
+                          tags:
+                            - descriptor:
+                                name: Invoice based loan terms
+                              list:
+                                - descriptor:
+                                    name: Interest Rate
+                                    short_desc: Rate of Interest (p.a)
+                                  value: 12%
+                                - descriptor:
+                                    name: Interest Type
+                                    short_desc: Type of Interest Rate
+                                  value: FLOATING
+                                - descriptor:
+                                    name: Term
+                                    short_desc: Max Loan Term
+                                  value: 5 months
+                                - descriptor:
+                                    name: Foreclosure Penalty
+                                    short_desc: Loan Foreclosure Penalty
+                                  value: 0.5%
+                                - descriptor:
+                                    name: Delayed payments penalty
+                                    short_desc: Delayed payments penalty
+                                  value: 5%
+                                - descriptor:
+                                    name: Terms & Conditions
+                                    short_desc: Terms and Conditions
+                                  value: https://icicibank.com/loan/tnc.html
+                              display: true
                       quote:
                         price:
                           currency: INR
-                          value: 2,00,000
+                          value: '231800'
                         breakup:
+                          - title: Principal
+                            price:
+                              value: '200000'
+                              currency: INR
+                          - title: Interest
+                            price:
+                              value: '30000'
+                              currency: INR
                           - title: Processing fee
                             price:
-                              value: "1800"
+                              value: '1800'
                               currency: INR
-                          - title: Installment 1
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 2
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 3
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 4
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 5
-                            price:
-                              value: 45,000
-                              currency: INR
+                      payments:
+                        - type: ON-ORDER
+                          url: https://emandate.icicibank.in
+                          params:
+                            amount: '46360'
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-06-2023 00:00:00
+                              end: 30-06-2023 23:59:59
+                        - params:
+                            amount: '46360'
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-07-2023 00:00:00
+                              end: 31-07-2023 23:59:59
+                        - params:
+                            amount: '46360'
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-08-2023 00:00:00
+                              end: 31-08-2023 23:59:59
+                        - params:
+                            amount: '46360'
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-09-2023 00:00:00
+                              end: 30-09-2023 23:59:59
+                        - params:
+                            amount: '46360'
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-10-2023 00:00:00
+                              end: 31-10-2023 23:59:59
+                      cancellation_terms:
+                        - fulfillment_state:
+                            descriptor:
+                              name: Loan sanctioned
+                          cancellation_fee:
+                            percentage: 3%
+                          external_ref:
+                            mimetype: text/html
+                            url: https://icicibank.com/loan/tnc.html
+                        - fulfillment_state:
+                            descriptor:
+                              name: Loan disbursed
+                          cancellation_fee:
+                            percentage: 5%
+                          external_ref:
+                            mimetype: text/html
+                            url: https://icicibank.com/loan/tnc.html
                       tags:
-                        - descriptor:
-                            name: Invoice based loan terms
-                          list:
-                            - descriptor:
-                                name: Interest Rate
-                                short_desc: Rate of Interest (p.a)
-                              value: 12%
-                            - descriptor:
-                                name: Interest Type
-                                short_desc: Type of Interest Rate
-                              value: FLOATING
-                            - descriptor:
-                                name: Term
-                                short_desc: Loan Term
-                              value: 5 months
-                            - descriptor:
-                                name: Foreclosure Penalty
-                                short_desc: Loan Foreclosure Penalty
-                              value: 0.5%
-                            - descriptor:
-                                name: Delayed payments penalty
-                                short_desc: Delayed payments penalty
-                              value: 5%
-                            - descriptor:
-                                name: Loan Agreement
-                                short_desc: Loan Agreement
-                              value: https://icicibank.com/loanAgreement?id=afyrq9fbH
-                            - descriptor:
-                                name: Terms & Conditions
-                                short_desc: Terms and Conditions
-                              value: https://icicibank.com/loan/tnc.html
-                          display: true
-                        - descriptor:
-                            code: consentRequest
-                          list:
-                            - descriptor:
+                        - list:
+                          - descriptor:
                                 name: KYC Request
-                              value: https://dg-sandbox.setu.co/okyc/initiate/95e3d7ae-45fa-47f5-8a7a-55f4dc20fd7f/
-                            - descriptor:
-                                name: AA Consent Request
-                              value: Accepted
+                                short_desc: Click on this link to submit your KYC Details
+                            value: https://dg-sandbox.setu.co/okyc/initiate/95e3d7ae-45fa-47f5-8a7a-55f4dc20fd7f/
+                          - descriptor:
+                                name: Loan Agreement
+                                short_desc: Click on this link to view and sign your Loan Agreement
+                            value: https://icicibank.com/loanAgreement?id=afyrq9fbH
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -1604,14 +1642,14 @@ paths:
                     bpp_id: bpp.credit.icicibank.io
                     bpp_uri: https://bpp.credit.icicibank.io
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
-                    message_id: 0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6
+                    message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
                     ttl: PT10M
-                    timestamp: "2023-05-25T05:23:03.443Z"
+                    timestamp: '2023-05-25T05:23:03.443Z'
                   message:
                     order:
-                      id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                      id: 66B7AEDF45
                       provider:
-                        id: "1"
+                        id: '1'
                         descriptor:
                           images:
                             - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -1619,20 +1657,59 @@ paths:
                           name: ICICI Bank
                           short_desc: ICICI Bank Ltd
                           long_desc: ICICI Bank Ltd, India.
-                      status: CONFIRMED
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
-                            name: Personal Loan
-                            short_desc: Personal Loan of INR 2,00,000 at price INR 2,45,000
+                            name: 'Loan Offer : INR 2,00,000'
                           price:
                             currency: INR
-                            offered_value: 2,00,000
-                            computed_value: 2,45,000
-                      billing:
-                        name: John Doe
-                        phone: "+919876543210"
-                        email: john.doe@gmail.com
+                            value: '230000'
+                          tags:
+                            - descriptor:
+                                name: Personal loan terms
+                              list:
+                                - descriptor:
+                                    name: Interest Rate
+                                    short_desc: Rate of Interest (p.a)
+                                  value: 12%
+                                - descriptor:
+                                    name: Interest Type
+                                    short_desc: Type of Interest Rate
+                                  value: FLOATING
+                                - descriptor:
+                                    name: Term
+                                    short_desc: Max Loan Term
+                                  value: 5 months
+                                - descriptor:
+                                    name: Foreclosure Penalty
+                                    short_desc: Loan Foreclosure Penalty
+                                  value: 0.5%
+                                - descriptor:
+                                    name: Delayed payments penalty
+                                    short_desc: Delayed payments penalty
+                                  value: 5%
+                                - descriptor:
+                                    name: Terms & Conditions
+                                    short_desc: Terms and Conditions
+                                  value: https://icicibank.com/loan/tnc.html
+                              display: true
+                      quote:
+                        price:
+                          currency: INR
+                          value: '231800'
+                        breakup:
+                          - title: Principal
+                            price:
+                              value: '200000'
+                              currency: INR
+                          - title: Interest
+                            price:
+                              value: '30000'
+                              currency: INR
+                          - title: Processing fee
+                            price:
+                              value: '1800'
+                              currency: INR
                       fulfillments:
                         - customer:
                             person:
@@ -1642,76 +1719,44 @@ paths:
                               email: john.doe@example.com
                           state:
                             descriptor:
-                              name: Loan application confirmed
-                      quote:
-                        price:
-                          currency: INR
-                          value: 2,00,000
-                        breakup:
-                          - title: Processing fee
-                            price:
-                              value: "1800"
-                              currency: INR
-                          - title: Installment 1
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 2
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 3
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 4
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 5
-                            price:
-                              value: 45,000
-                              currency: INR
+                              name: Loan Sanctioned
                       payments:
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=1
+                        - type: ON-ORDER
+                          url: https://emandate.icicibank.in
                           params:
-                            amount: "50000"
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=2
-                          params:
-                            amount: "50000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-07-2023 00:00:00
-                              end: 31-07-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=3
-                          params:
-                            amount: "50000"
+                            end: 31-07-2023 23:59:59
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=4
-                          params:
-                            amount: "50000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=45000&cur=INR&ins=5
-                          params:
-                            amount: "45000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
@@ -1735,49 +1780,6 @@ paths:
                           external_ref:
                             mimetype: text/html
                             url: https://icicibank.com/loan/tnc.html
-                      return_terms:
-                        - return_time: 30-11-2023 23:59:59
-                      tags:
-                        - descriptor:
-                            name: Personal Loan terms
-                          list:
-                            - descriptor:
-                                name: Interest Rate
-                                short_desc: Rate of Interest (p.a)
-                              value: 12%
-                            - descriptor:
-                                name: Interest Type
-                                short_desc: Type of Interest Rate
-                              value: FLOATING
-                            - descriptor:
-                                name: Term
-                                short_desc: Loan Term
-                              value: 5 months
-                            - descriptor:
-                                name: Foreclosure Penalty
-                                short_desc: Loan Foreclosure Penalty
-                              value: 0.5%
-                            - descriptor:
-                                name: Delayed payments penalty
-                                short_desc: Delayed payments penalty
-                              value: 5%
-                            - descriptor:
-                                name: Loan Agreement
-                                short_desc: Loan Agreement
-                              value: https://icicibank.com/loanAgreement
-                            - descriptor:
-                                name: Terms & Conditions
-                                short_desc: Terms and Conditions
-                              value: https://icicibank.com/loan/tnc.html
-                        - descriptor:
-                            code: consentRequest
-                          list:
-                            - descriptor:
-                                name: KYC Request
-                              value: Accepted
-                            - descriptor:
-                                name: AA Consent Request
-                              value: Accepted
               Lender approves the invoice based loan application:
                 value:
                   context:
@@ -1792,14 +1794,14 @@ paths:
                     bpp_id: bpp.credit.icicibank.io
                     bpp_uri: https://bpp.credit.icicibank.io
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
-                    message_id: 0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6
+                    message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
                     ttl: PT10M
-                    timestamp: "2023-05-25T05:23:03.443Z"
+                    timestamp: '2023-05-25T05:23:03.443Z'
                   message:
                     order:
-                      id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                      id: 66B7AEDF45
                       provider:
-                        id: "1"
+                        id: '1'
                         descriptor:
                           images:
                             - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -1807,28 +1809,59 @@ paths:
                           name: ICICI Bank
                           short_desc: ICICI Bank Ltd
                           long_desc: ICICI Bank Ltd, India.
-                      status: CONFIRMED
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
-                            name: Invoice based Loan
-                            short_desc: Invoice based Loan of INR 2,00,000 at price INR 2,45,000
+                            name: 'Loan Offer : INR 2,00,000'
                           price:
                             currency: INR
-                            offered_value: 2,00,000
-                            computed_value: 2,45,000
-                      billing:
-                        name: Alpha Manufacturing Pvt Ltd
-                        organization:
-                          address: Industrial Park, Udupi
-                          state:
-                            name: Karnataka
-                          city:
-                            name: Udupi
-                            code: "576101"
-                          contact:
-                            phone: "+919876543210"
-                            email: alpha.manufacturing@gmail.com
+                            value: '230000'
+                          tags:
+                            - descriptor:
+                                name: Invoice based loan terms
+                              list:
+                                - descriptor:
+                                    name: Interest Rate
+                                    short_desc: Rate of Interest (p.a)
+                                  value: 12%
+                                - descriptor:
+                                    name: Interest Type
+                                    short_desc: Type of Interest Rate
+                                  value: FLOATING
+                                - descriptor:
+                                    name: Term
+                                    short_desc: Max Loan Term
+                                  value: 5 months
+                                - descriptor:
+                                    name: Foreclosure Penalty
+                                    short_desc: Loan Foreclosure Penalty
+                                  value: 0.5%
+                                - descriptor:
+                                    name: Delayed payments penalty
+                                    short_desc: Delayed payments penalty
+                                  value: 5%
+                                - descriptor:
+                                    name: Terms & Conditions
+                                    short_desc: Terms and Conditions
+                                  value: https://icicibank.com/loan/tnc.html
+                              display: true
+                      quote:
+                        price:
+                          currency: INR
+                          value: '231800'
+                        breakup:
+                          - title: Principal
+                            price:
+                              value: '200000'
+                              currency: INR
+                          - title: Interest
+                            price:
+                              value: '30000'
+                              currency: INR
+                          - title: Processing fee
+                            price:
+                              value: '1800'
+                              currency: INR
                       fulfillments:
                         - customer:
                             organization:
@@ -1843,76 +1876,44 @@ paths:
                                 email: alpha.manufacturing@gmail.com
                           state:
                             descriptor:
-                              name: Loan application confirmed
-                      quote:
-                        price:
-                          currency: INR
-                          value: 2,00,000
-                        breakup:
-                          - title: Processing fee
-                            price:
-                              value: "1800"
-                              currency: INR
-                          - title: Installment 1
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 2
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 3
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 4
-                            price:
-                              value: 50,000
-                              currency: INR
-                          - title: Installment 5
-                            price:
-                              value: 45,000
-                              currency: INR
+                              name: Loan Sanctioned
                       payments:
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=1
+                        - type: ON-ORDER
+                          url: https://emandate.icicibank.in
                           params:
-                            amount: "50000"
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=2
-                          params:
-                            amount: "50000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-07-2023 00:00:00
-                              end: 31-07-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=3
-                          params:
-                            amount: "50000"
+                            end: 31-07-2023 23:59:59
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=4
-                          params:
-                            amount: "50000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=45000&cur=INR&ins=5
-                          params:
-                            amount: "45000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
@@ -1936,49 +1937,6 @@ paths:
                           external_ref:
                             mimetype: text/html
                             url: https://icicibank.com/loan/tnc.html
-                      return_terms:
-                        - return_time: 30-11-2023 23:59:59
-                      tags:
-                        - descriptor:
-                            name: Invoice based Loan terms
-                          list:
-                            - descriptor:
-                                name: Interest Rate
-                                short_desc: Rate of Interest (p.a)
-                              value: 12%
-                            - descriptor:
-                                name: Interest Type
-                                short_desc: Type of Interest Rate
-                              value: FLOATING
-                            - descriptor:
-                                name: Term
-                                short_desc: Loan Term
-                              value: 5 months
-                            - descriptor:
-                                name: Foreclosure Penalty
-                                short_desc: Loan Foreclosure Penalty
-                              value: 0.5%
-                            - descriptor:
-                                name: Delayed payments penalty
-                                short_desc: Delayed payments penalty
-                              value: 5%
-                            - descriptor:
-                                name: Loan Agreement
-                                short_desc: Loan Agreement
-                              value: https://icicibank.com/loanAgreement
-                            - descriptor:
-                                name: Terms & Conditions
-                                short_desc: Terms and Conditions
-                              value: https://icicibank.com/loan/tnc.html
-                        - descriptor:
-                            code: consentRequest
-                          list:
-                            - descriptor:
-                                name: KYC Request
-                              value: Accepted
-                            - descriptor:
-                                name: AA Consent Request
-                              value: Accepted
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -2793,9 +2751,9 @@ paths:
                     bpp_uri: https://bpp.credit.icicibank.io
                   message:
                     order:
-                      id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                      id: 66B7AEDF45
                       provider:
-                        id: "1"
+                        id: '1'
                         descriptor:
                           images:
                             - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -2803,97 +2761,106 @@ paths:
                           name: ICICI Bank
                           short_desc: ICICI Bank Ltd
                           long_desc: ICICI Bank Ltd, India.
-                      status: PROCESSING
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
-                            name: Personal Loan
-                            short_desc: Personal Loan of INR 2,00,000 at price INR 2,45,000
+                            name: 'Loan Offer : INR 2,00,000'
                           price:
                             currency: INR
-                            offered_value: 2,00,000
-                            computed_value: 2,45,000
-                      billing:
-                        name: John Doe
-                        phone: "+919876543210"
-                        email: john.doe@gmail.com
+                            value: '230000'
+                          tags:
+                            - descriptor:
+                                name: Personal loan terms
+                              list:
+                                - descriptor:
+                                    name: Interest Rate
+                                    short_desc: Rate of Interest (p.a)
+                                  value: 12%
+                                - descriptor:
+                                    name: Interest Type
+                                    short_desc: Type of Interest Rate
+                                  value: FLOATING
+                                - descriptor:
+                                    name: Term
+                                    short_desc: Max Loan Term
+                                  value: 5 months
+                                - descriptor:
+                                    name: Foreclosure Penalty
+                                    short_desc: Loan Foreclosure Penalty
+                                  value: 0.5%
+                                - descriptor:
+                                    name: Delayed payments penalty
+                                    short_desc: Delayed payments penalty
+                                  value: 5%
+                                - descriptor:
+                                    name: Terms & Conditions
+                                    short_desc: Terms and Conditions
+                                  value: https://icicibank.com/loan/tnc.html
+                              display: true
+                      quote:
+                        price:
+                          currency: INR
+                          value: '231800'
+                        breakup:
+                          - title: Principal
+                            price:
+                              value: '200000'
+                              currency: INR
+                          - title: Interest
+                            price:
+                              value: '30000'
+                              currency: INR
+                          - title: Processing fee
+                            price:
+                              value: '1800'
+                              currency: INR
                       fulfillments:
                         - customer:
-                            id: aadhaar:123412341234
                             person:
                               name: John Doe
                             contact:
                               phone: +91-9999999999
                               email: john.doe@example.com
-                      quote:
-                        price:
-                          currency: INR
-                          value: 2,00,000
-                        breakup:
-                          - title: Processing fee
-                            price:
-                              value: "1800"
-                              currency: INR
-                          - title: Installment 1
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 2
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 3
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 4
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 5
-                            price:
-                              value: "45000"
-                              currency: INR
+                          state:
+                            descriptor:
+                              name: Loan Disbursed
                       payments:
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=1
+                        - type: ON-ORDER
+                          url: https://emandate.icicibank.in
                           params:
-                            amount: "50000"
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=2
-                          params:
-                            amount: "50000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-07-2023 00:00:00
-                              end: 31-07-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=3
-                          params:
-                            amount: "50000"
+                            end: 31-07-2023 23:59:59
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=4
-                          params:
-                            amount: "50000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=45000&cur=INR&ins=5
-                          params:
-                            amount: "45000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
@@ -2917,40 +2884,6 @@ paths:
                           external_ref:
                             mimetype: text/html
                             url: https://icicibank.com/loan/tnc.html
-                      return_terms:
-                        - return_time: 30-11-2023 23:59:59
-                      tags:
-                        - descriptor:
-                            name: Person Loan terms
-                          list:
-                            - descriptor:
-                                name: Interest Rate
-                                short_desc: Rate of Interest (p.a)
-                              value: 12%
-                            - descriptor:
-                                name: Interest Type
-                                short_desc: Type of Interest Rate
-                              value: FLOATING
-                            - descriptor:
-                                name: Term
-                                short_desc: Loan Term
-                              value: 5 months
-                            - descriptor:
-                                name: Foreclosure Penalty
-                                short_desc: Loan Foreclosure Penalty
-                              value: 0.5%
-                            - descriptor:
-                                name: Delayed payments penalty
-                                short_desc: Delayed payments penalty
-                              value: 5%
-                            - descriptor:
-                                name: Loan Agreement
-                                short_desc: Loan Agreement
-                              value: https://icicibank.com/loanAgreement
-                            - descriptor:
-                                name: Terms & Conditions
-                                short_desc: Terms and Conditions
-                              value: https://icicibank.com/loan/tnc.html
               Returns the status of the personal loan application after paying an installment:
                 value:
                   context:
@@ -2970,9 +2903,9 @@ paths:
                     bpp_uri: https://bpp.credit.icicibank.io
                   message:
                     order:
-                      id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                      id: 66B7AEDF45
                       provider:
-                        id: "1"
+                        id: '1'
                         descriptor:
                           images:
                             - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -2980,96 +2913,106 @@ paths:
                           name: ICICI Bank
                           short_desc: ICICI Bank Ltd
                           long_desc: ICICI Bank Ltd, India.
-                      status: PROCESSING
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
-                            name: Personal Loan
-                            short_desc: Personal Loan of INR 2,00,000 at price INR 2,45,000
+                            name: 'Loan Offer : INR 2,00,000'
                           price:
                             currency: INR
-                            offered_value: 2,00,000
-                            computed_value: 2,45,000
-                      billing:
-                        name: John Doe
-                        phone: "+919876543210"
-                        email: john.doe@gmail.com
+                            value: '230000'
+                          tags:
+                            - descriptor:
+                                name: Personal loan terms
+                              list:
+                                - descriptor:
+                                    name: Interest Rate
+                                    short_desc: Rate of Interest (p.a)
+                                  value: 12%
+                                - descriptor:
+                                    name: Interest Type
+                                    short_desc: Type of Interest Rate
+                                  value: FLOATING
+                                - descriptor:
+                                    name: Term
+                                    short_desc: Max Loan Term
+                                  value: 5 months
+                                - descriptor:
+                                    name: Foreclosure Penalty
+                                    short_desc: Loan Foreclosure Penalty
+                                  value: 0.5%
+                                - descriptor:
+                                    name: Delayed payments penalty
+                                    short_desc: Delayed payments penalty
+                                  value: 5%
+                                - descriptor:
+                                    name: Terms & Conditions
+                                    short_desc: Terms and Conditions
+                                  value: https://icicibank.com/loan/tnc.html
+                              display: true
+                      quote:
+                        price:
+                          currency: INR
+                          value: '231800'
+                        breakup:
+                          - title: Principal
+                            price:
+                              value: '200000'
+                              currency: INR
+                          - title: Interest
+                            price:
+                              value: '30000'
+                              currency: INR
+                          - title: Processing fee
+                            price:
+                              value: '1800'
+                              currency: INR
                       fulfillments:
                         - customer:
-                            id: aadhaar:123412341234
                             person:
                               name: John Doe
                             contact:
                               phone: +91-9999999999
                               email: john.doe@example.com
-                      quote:
-                        price:
-                          currency: INR
-                          value: 2,00,000
-                        breakup:
-                          - title: Processing fee
-                            price:
-                              value: "1800"
-                              currency: INR
-                          - title: Installment 1
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 2
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 3
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 4
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 5
-                            price:
-                              value: "45000"
-                              currency: INR
+                          state:
+                            descriptor:
+                              name: Installment 1/5 received
                       payments:
-                        - params:
-                            amount: "50000"
+                        - type: ON-ORDER
+                          url: https://emandate.icicibank.in
+                          params:
+                            amount: '46360'
                             currency: INR
                           status: PAID
                           time:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=2
-                          params:
-                            amount: "50000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-07-2023 00:00:00
-                              end: 31-07-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=3
-                          params:
-                            amount: "50000"
+                            end: 31-07-2023 23:59:59
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=4
-                          params:
-                            amount: "50000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=45000&cur=INR&ins=5
-                          params:
-                            amount: "45000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
@@ -3093,32 +3036,6 @@ paths:
                           external_ref:
                             mimetype: text/html
                             url: https://icicibank.com/loan/tnc.html
-                      return_terms:
-                        - return_time: 30-11-2023 23:59:59
-                      tags:
-                        - descriptor:
-                            name: Person Loan terms
-                          list:
-                            - descriptor:
-                                name: Interest Rate
-                                short_desc: Rate of Interest (p.a)
-                              value: 12%
-                            - descriptor:
-                                name: Interest Type
-                                short_desc: Type of Interest Rate
-                              value: FLOATING
-                            - descriptor:
-                                name: Term
-                                short_desc: Loan Term
-                              value: 5 months
-                            - descriptor:
-                                name: Loan Agreement
-                                short_desc: Loan Agreement
-                              value: https://icicibank.com/loanAgreement
-                            - descriptor:
-                                name: Terms & Conditions
-                                short_desc: Terms and Conditions
-                              value: https://icicibank.com/loan/tnc.html
               Returns the status of the invoice based loan application:
                 value:
                   context:
@@ -3138,9 +3055,9 @@ paths:
                     bpp_uri: https://bpp.credit.icicibank.io
                   message:
                     order:
-                      id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                      id: 66B7AEDF45
                       provider:
-                        id: "1"
+                        id: '1'
                         descriptor:
                           images:
                             - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -3148,28 +3065,59 @@ paths:
                           name: ICICI Bank
                           short_desc: ICICI Bank Ltd
                           long_desc: ICICI Bank Ltd, India.
-                      status: PROCESSING
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
-                            name: Invoice based Loan
-                            short_desc: Invoice based Loan of INR 2,00,000 at price INR 2,45,000
+                            name: 'Loan Offer : INR 2,00,000'
                           price:
                             currency: INR
-                            offered_value: 2,00,000
-                            computed_value: 2,45,000
-                      billing:
-                        name: Alpha Manufacturing Pvt Ltd
-                        organization:
-                          address: Industrial Park, Udupi
-                          state:
-                            name: Karnataka
-                          city:
-                            name: Udupi
-                            code: "576101"
-                          contact:
-                            phone: "+919876543210"
-                            email: alpha.manufacturing@gmail.com
+                            value: '230000'
+                          tags:
+                            - descriptor:
+                                name: Invoice based loan terms
+                              list:
+                                - descriptor:
+                                    name: Interest Rate
+                                    short_desc: Rate of Interest (p.a)
+                                  value: 12%
+                                - descriptor:
+                                    name: Interest Type
+                                    short_desc: Type of Interest Rate
+                                  value: FLOATING
+                                - descriptor:
+                                    name: Term
+                                    short_desc: Max Loan Term
+                                  value: 5 months
+                                - descriptor:
+                                    name: Foreclosure Penalty
+                                    short_desc: Loan Foreclosure Penalty
+                                  value: 0.5%
+                                - descriptor:
+                                    name: Delayed payments penalty
+                                    short_desc: Delayed payments penalty
+                                  value: 5%
+                                - descriptor:
+                                    name: Terms & Conditions
+                                    short_desc: Terms and Conditions
+                                  value: https://icicibank.com/loan/tnc.html
+                              display: true
+                      quote:
+                        price:
+                          currency: INR
+                          value: '231800'
+                        breakup:
+                          - title: Principal
+                            price:
+                              value: '200000'
+                              currency: INR
+                          - title: Interest
+                            price:
+                              value: '30000'
+                              currency: INR
+                          - title: Processing fee
+                            price:
+                              value: '1800'
+                              currency: INR
                       fulfillments:
                         - customer:
                             organization:
@@ -3182,75 +3130,43 @@ paths:
                               contact:
                                 phone: "+919876543210"
                                 email: alpha.manufacturing@gmail.com
-                      quote:
-                        price:
-                          currency: INR
-                          value: 2,00,000
-                        breakup:
-                          - title: Processing fee
-                            price:
-                              value: "1800"
-                              currency: INR
-                          - title: Installment 1
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 2
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 3
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 4
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 5
-                            price:
-                              value: "45000"
-                              currency: INR
                       payments:
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=1
+                        - type: ON-ORDER
+                          url: https://emandate.icicibank.in
                           params:
-                            amount: "50000"
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=2
-                          params:
-                            amount: "50000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-07-2023 00:00:00
-                              end: 31-07-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=3
-                          params:
-                            amount: "50000"
+                            end: 31-07-2023 23:59:59
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=4
-                          params:
-                            amount: "50000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=45000&cur=INR&ins=5
-                          params:
-                            amount: "45000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
@@ -3274,40 +3190,6 @@ paths:
                           external_ref:
                             mimetype: text/html
                             url: https://icicibank.com/loan/tnc.html
-                      return_terms:
-                        - return_time: 30-11-2023 23:59:59
-                      tags:
-                        - descriptor:
-                            name: Person Loan terms
-                          list:
-                            - descriptor:
-                                name: Interest Rate
-                                short_desc: Rate of Interest (p.a)
-                              value: 12%
-                            - descriptor:
-                                name: Interest Type
-                                short_desc: Type of Interest Rate
-                              value: FLOATING
-                            - descriptor:
-                                name: Term
-                                short_desc: Loan Term
-                              value: 5 months
-                            - descriptor:
-                                name: Foreclosure Penalty
-                                short_desc: Loan Foreclosure Penalty
-                              value: 0.5%
-                            - descriptor:
-                                name: Delayed payments penalty
-                                short_desc: Delayed payments penalty
-                              value: 5%
-                            - descriptor:
-                                name: Loan Agreement
-                                short_desc: Loan Agreement
-                              value: https://icicibank.com/loanAgreement
-                            - descriptor:
-                                name: Terms & Conditions
-                                short_desc: Terms and Conditions
-                              value: https://icicibank.com/loan/tnc.html
               Returns the status of the invoice based loan application after paying an installment:
                 value:
                   context:
@@ -3327,9 +3209,9 @@ paths:
                     bpp_uri: https://bpp.credit.icicibank.io
                   message:
                     order:
-                      id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                      id: 66B7AEDF45
                       provider:
-                        id: "1"
+                        id: '1'
                         descriptor:
                           images:
                             - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -3337,28 +3219,59 @@ paths:
                           name: ICICI Bank
                           short_desc: ICICI Bank Ltd
                           long_desc: ICICI Bank Ltd, India.
-                      status: PROCESSING
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
-                            name: Invoice based Loan
-                            short_desc: Invoice based Loan of INR 2,00,000 at price INR 2,45,000
+                            name: 'Loan Offer : INR 2,00,000'
                           price:
                             currency: INR
-                            offered_value: 2,00,000
-                            computed_value: 2,45,000
-                      billing:
-                        name: Alpha Manufacturing Pvt Ltd
-                        organization:
-                          address: Industrial Park, Udupi
-                          state:
-                            name: Karnataka
-                          city:
-                            name: Udupi
-                            code: "576101"
-                          contact:
-                            phone: "+919876543210"
-                            email: alpha.manufacturing@gmail.com
+                            value: '230000'
+                          tags:
+                            - descriptor:
+                                name: Invoice based loan terms
+                              list:
+                                - descriptor:
+                                    name: Interest Rate
+                                    short_desc: Rate of Interest (p.a)
+                                  value: 12%
+                                - descriptor:
+                                    name: Interest Type
+                                    short_desc: Type of Interest Rate
+                                  value: FLOATING
+                                - descriptor:
+                                    name: Term
+                                    short_desc: Max Loan Term
+                                  value: 5 months
+                                - descriptor:
+                                    name: Foreclosure Penalty
+                                    short_desc: Loan Foreclosure Penalty
+                                  value: 0.5%
+                                - descriptor:
+                                    name: Delayed payments penalty
+                                    short_desc: Delayed payments penalty
+                                  value: 5%
+                                - descriptor:
+                                    name: Terms & Conditions
+                                    short_desc: Terms and Conditions
+                                  value: https://icicibank.com/loan/tnc.html
+                              display: true
+                      quote:
+                        price:
+                          currency: INR
+                          value: '231800'
+                        breakup:
+                          - title: Principal
+                            price:
+                              value: '200000'
+                              currency: INR
+                          - title: Interest
+                            price:
+                              value: '30000'
+                              currency: INR
+                          - title: Processing fee
+                            price:
+                              value: '1800'
+                              currency: INR
                       fulfillments:
                         - customer:
                             organization:
@@ -3371,38 +3284,11 @@ paths:
                               contact:
                                 phone: "+919876543210"
                                 email: alpha.manufacturing@gmail.com
-                      quote:
-                        price:
-                          currency: INR
-                          value: 2,00,000
-                        breakup:
-                          - title: Processing fee
-                            price:
-                              value: "1800"
-                              currency: INR
-                          - title: Installment 1
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 2
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 3
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 4
-                            price:
-                              value: "50000"
-                              currency: INR
-                          - title: Installment 5
-                            price:
-                              value: "45000"
-                              currency: INR
                       payments:
-                        - params:
-                            amount: "50000"
+                        - type: ON-ORDER
+                          url: https://emandate.icicibank.in
+                          params:
+                            amount: '46360'
                             currency: INR
                           status: PAID
                           time:
@@ -3410,34 +3296,31 @@ paths:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
                         - params:
-                            amount: "50000"
+                            amount: '46360'
                             currency: INR
-                          status: PAID
+                          status: NOT-PAID
                           time:
                             range:
                               start: 01-07-2023 00:00:00
-                              end: 31-07-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=3
-                          params:
-                            amount: "50000"
+                            end: 31-07-2023 23:59:59
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=50000&cur=INR&ins=4
-                          params:
-                            amount: "50000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://pay.razorpay.in?amt=45000&cur=INR&ins=5
-                          params:
-                            amount: "45000"
+                        - params:
+                            amount: '46360'
                             currency: INR
                           status: NOT-PAID
                           time:
@@ -3461,40 +3344,6 @@ paths:
                           external_ref:
                             mimetype: text/html
                             url: https://icicibank.com/loan/tnc.html
-                      return_terms:
-                        - return_time: 30-11-2023 23:59:59
-                      tags:
-                        - descriptor:
-                            name: Person Loan terms
-                          list:
-                            - descriptor:
-                                name: Interest Rate
-                                short_desc: Rate of Interest (p.a)
-                              value: 12%
-                            - descriptor:
-                                name: Interest Type
-                                short_desc: Type of Interest Rate
-                              value: FLOATING
-                            - descriptor:
-                                name: Term
-                                short_desc: Loan Term
-                              value: 5 months
-                            - descriptor:
-                                name: Foreclosure Penalty
-                                short_desc: Loan Foreclosure Penalty
-                              value: 0.5%
-                            - descriptor:
-                                name: Delayed payments penalty
-                                short_desc: Delayed payments penalty
-                              value: 5%
-                            - descriptor:
-                                name: Loan Agreement
-                                short_desc: Loan Agreement
-                              value: https://icicibank.com/loanAgreement
-                            - descriptor:
-                                name: Terms & Conditions
-                                short_desc: Terms and Conditions
-                              value: https://icicibank.com/loan/tnc.html
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature

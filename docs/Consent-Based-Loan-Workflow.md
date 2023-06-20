@@ -313,7 +313,7 @@ In this interaction, the Lender Platform (BPP) generates a consent request, and 
                         "short_desc": "Personal Loan of INR 2 Lakhs at price INR 2,45,000"
                     },
                     "price" : {
-                        "value": "245000".
+                        "value": "245000",
                         "currency": "INR"
                     }
                 }
@@ -340,7 +340,7 @@ In this interaction, the Lender Platform (BPP) generates a consent request, and 
                     "mime_type": "text/html",
                     "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75"
                 },
-                "required": "true"
+                "required": true
             }
         }
     }
@@ -460,9 +460,9 @@ Here the BAP submits the additional information that was requested by the BPP in
                         "idValue": "ABCDS1234E",
                         "idType": "PAN",
                         "incomeProofType": "salary_slip",
-                        "incomeProof": "data:application/pdf;base64,JVBERi0xLjQNCiWhs8XXDQoxIDAgb2Jq.....IgL01lZGlhQm94Wy"
+                        "incomeProof": "data:application/pdf;base64,JVBERi0xLjQNCiWhs8XXDQoxIDAgb2Jq.....IgL01lZGlhQm94Wy",
                         "income": "INR 6,00,000",
-                        "address": "KB102, Oak Block, Green Springs Apartments, No 7, MG Road, Bengaluru - 560068",
+                        "address": "KB102, Oak Block, Green Springs Apartments, No 7, MG Road, Bengaluru - 560068"
                     }
                 }
             }
@@ -543,7 +543,7 @@ Now the lender has all the information to make an offer to the borrower.
                                 {
                                     "descriptor": {
                                         "name": "Term",
-                                        "short_desc": "Loan Term"
+                                        "short_desc": "Max Loan Term"
                                     },
                                     "value": "5 months"
                                 },
@@ -857,7 +857,7 @@ Now the lender has all the information to make an offer to the borrower.
                                 {
                                     "descriptor": {
                                         "name": "Term",
-                                        "short_desc": "Loan Term"
+                                        "short_desc": "Max Loan Term"
                                     },
                                     "value": "5 months"
                                 },
