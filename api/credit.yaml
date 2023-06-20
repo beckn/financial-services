@@ -57,6 +57,29 @@ paths:
                       category:
                         descriptor:
                           name: Personal loan
+              Search for Personal loans with the required amount:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: search
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_uri: https://credit-protocol-network.becknprotocol.io/
+                    bap_id: credit-protocol.becknprotocol.io
+                    ttl: PT24H
+                  message:
+                    intent:
+                      category:
+                        descriptor:
+                          name: Personal loan
+                        price:
+                          value: 200000
+                          currency: INR
               Search for Invoice based loans:
                 value:
                   context:
@@ -77,6 +100,29 @@ paths:
                       category:
                         descriptor:
                           name: Invoice based loan
+              Search for Invoice based loans with the required amount:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: search
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_uri: https://credit-protocol-network.becknprotocol.io/
+                    bap_id: credit-protocol.becknprotocol.io
+                    ttl: PT24H
+                  message:
+                    intent:
+                      category:
+                        descriptor:
+                          name: Invoice based loan
+                      price:
+                          value: 200000
+                          currency: INR
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
