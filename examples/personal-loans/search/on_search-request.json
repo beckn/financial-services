@@ -67,7 +67,14 @@
                   "display": true
                 }
               ],
-              "matched": true
+              "matched": true,
+              "xinput": {
+                "form": {
+                  "mime_type": "text/html",
+                  "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75"
+                },
+                "required": true
+              }
             },
             {
               "id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
@@ -91,7 +98,14 @@
                   "display": true
                 }
               ],
-              "matched": false
+              "matched": false,
+              "xinput": {
+                "form": {
+                  "mime_type": "text/html",
+                  "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+                },
+                "required": true
+              }
             },
             {
               "id": "80414936-a06d-49ae-9475-f99448c77014",
@@ -115,7 +129,14 @@
                   "display": true
                 }
               ],
-              "matched": false
+              "matched": false,
+              "xinput": {
+                "form": {
+                  "mime_type": "text/html",
+                  "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf253fd"
+                },
+                "required": true
+              }
             }
           ]
         }

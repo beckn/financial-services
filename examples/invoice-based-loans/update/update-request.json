@@ -18,26 +18,34 @@
     "bpp_uri": "https://bpp.credit.icicibank.io"
   },
   "message": {
-    "update_target": "billing",
+    "update_target": "fulfillment",
     "order": {
-      "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
-      "billing": {
-        "name": "Beta Manufacturing Pvt Ltd",
-        "organization": {
-          "address": "Industrial Park, Udupi",
-          "state": {
-            "name": "Karnataka"
-          },
-          "city": {
-            "name": "Udupi",
-            "code": "576101"
-          },
-          "contact": {
-            "phone": "+919876543210",
-            "email": "beta.manufacturing@gmail.com"
+      "id": "66B7AEDF45",
+      "fulfillments": [
+        {
+          "customer": {
+            "organization": {
+              "address": "Industrial Park, Udupi",
+              "state": {
+                "name": "Karnataka"
+              },
+              "city": {
+                "name": "Udupi",
+                "code": "576101"
+              },
+              "contact": {
+                "phone": "+919876543210",
+                "email": "alpha.manufacturinofficialg@gmail.com"
+              }
+            },
+            "state": {
+              "descriptor": {
+                "name": "Loan application updated"
+              }
+            }
           }
         }
-      }
+      ]
     }
   }
 }

@@ -19,7 +19,7 @@
   },
   "message": {
     "order": {
-      "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+      "id": "66B7AEDF45",
       "provider": {
         "id": "1",
         "descriptor": {
@@ -34,7 +34,6 @@
           "long_desc": "ICICI Bank Ltd, India."
         }
       },
-      "status": "CONFIRMED",
       "items": [
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
@@ -44,15 +43,90 @@
           },
           "price": {
             "currency": "INR",
-            "offered_value": "2,00,000",
-            "computed_value": "2,45,000"
-          }
+            "value": "230000"
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Personal loan terms"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "Interest Rate",
+                    "short_desc": "Rate of Interest (p.a)"
+                  },
+                  "value": "12%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Interest Type",
+                    "short_desc": "Type of Interest Rate"
+                  },
+                  "value": "FLOATING"
+                },
+                {
+                  "descriptor": {
+                    "name": "Term",
+                    "short_desc": "Max Loan Term"
+                  },
+                  "value": "5 months"
+                },
+                {
+                  "descriptor": {
+                    "name": "Foreclosure Penalty",
+                    "short_desc": "Loan Foreclosure Penalty"
+                  },
+                  "value": "0.5%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Delayed payments penalty",
+                    "short_desc": "Delayed payments penalty"
+                  },
+                  "value": "5%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Terms & Conditions",
+                    "short_desc": "Terms and Conditions"
+                  },
+                  "value": "https://icicibank.com/loan/tnc.html"
+                }
+              ],
+              "display": true
+            }
+          ]
         }
       ],
-      "billing": {
-        "name": "John Doe",
-        "phone": "+919876543219",
-        "email": "john.doeofficial@gmail.com"
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "231800"
+        },
+        "breakup": [
+          {
+            "title": "Principal",
+            "price": {
+              "value": "200000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Interest",
+            "price": {
+              "value": "30000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Processing fee",
+            "price": {
+              "value": "1800",
+              "currency": "INR"
+            }
+          }
+        ]
       },
       "fulfillments": [
         {
@@ -61,8 +135,8 @@
               "name": "John Doe"
             },
             "contact": {
-              "phone": "+91-9999999999",
-              "email": "john.doe@example.com"
+              "phone": "+91-9876543210",
+              "email": "john.doe@gmail.com"
             }
           },
           "state": {
@@ -72,61 +146,12 @@
           }
         }
       ],
-      "quote": {
-        "price": {
-          "currency": "INR",
-          "value": "2,00,000"
-        },
-        "breakup": [
-          {
-            "title": "Processing fee",
-            "price": {
-              "value": "1800",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Installment 1",
-            "price": {
-              "value": "50,000",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Installment 2",
-            "price": {
-              "value": "50,000",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Installment 3",
-            "price": {
-              "value": "50,000",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Installment 4",
-            "price": {
-              "value": "50,000",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Installment 5",
-            "price": {
-              "value": "45,000",
-              "currency": "INR"
-            }
-          }
-        ]
-      },
       "payments": [
         {
-          "url": "https://pay.razorpay.in?amt=50000&cur=INR&ins=1",
+          "type": "ON-ORDER",
+          "url": "https://emandate.icicibank.in",
           "params": {
-            "amount": "50000",
+            "amount": "46360",
             "currency": "INR"
           },
           "status": "NOT-PAID",
@@ -138,9 +163,8 @@
           }
         },
         {
-          "url": "https://pay.razorpay.in?amt=50000&cur=INR&ins=2",
           "params": {
-            "amount": "50000",
+            "amount": "46360",
             "currency": "INR"
           },
           "status": "NOT-PAID",
@@ -152,9 +176,8 @@
           }
         },
         {
-          "url": "https://pay.razorpay.in?amt=50000&cur=INR&ins=3",
           "params": {
-            "amount": "50000",
+            "amount": "46360",
             "currency": "INR"
           },
           "status": "NOT-PAID",
@@ -166,9 +189,8 @@
           }
         },
         {
-          "url": "https://pay.razorpay.in?amt=50000&cur=INR&ins=4",
           "params": {
-            "amount": "50000",
+            "amount": "46360",
             "currency": "INR"
           },
           "status": "NOT-PAID",
@@ -180,9 +202,8 @@
           }
         },
         {
-          "url": "https://pay.razorpay.in?amt=45000&cur=INR&ins=5",
           "params": {
-            "amount": "45000",
+            "amount": "46360",
             "currency": "INR"
           },
           "status": "NOT-PAID",
@@ -222,69 +243,6 @@
             "mimetype": "text/html",
             "url": "https://icicibank.com/loan/tnc.html"
           }
-        }
-      ],
-      "return_terms": [
-        {
-          "return_time": "30-11-2023 23:59:59"
-        }
-      ],
-      "tags": [
-        {
-          "descriptor": {
-            "name": "Personal Loan terms"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "name": "Interest Rate",
-                "long_desc": "Rate of Interest (p.a)"
-              },
-              "value": "12%"
-            },
-            {
-              "descriptor": {
-                "name": "Interest Type",
-                "long_desc": "Type of Interest Rate"
-              },
-              "value": "FLOATING"
-            },
-            {
-              "descriptor": {
-                "name": "Term",
-                "long_desc": "Loan Term"
-              },
-              "value": "5 months"
-            },
-            {
-              "descriptor": {
-                "name": "Foreclosure Penalty",
-                "short_desc": "Loan Foreclosure Penalty"
-              },
-              "value": "0.5%"
-            },
-            {
-              "descriptor": {
-                "name": "Delayed payments penalty",
-                "short_desc": "Delayed payments penalty"
-              },
-              "value": "5%"
-            },
-            {
-              "descriptor": {
-                "name": "Loan Agreement",
-                "long_desc": "Loan Agreement"
-              },
-              "value": "https://icicibank.com/loanAgreement"
-            },
-            {
-              "descriptor": {
-                "name": "Terms & Conditions",
-                "short_desc": "Terms and Conditions"
-              },
-              "value": "https://icicibank.com/loan/tnc.html"
-            }
-          ]
         }
       ]
     }

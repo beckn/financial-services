@@ -31,7 +31,15 @@
         {
           "customer": {
             "id": "9999999999@onemoney"
-          }
+          },
+          "stops": [
+            {
+              "authorization": {
+                "type": "OTP",
+                "token": "143532"
+              }
+            }
+          ]
         }
       ],
       "xinput": {

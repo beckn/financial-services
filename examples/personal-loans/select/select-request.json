@@ -27,13 +27,13 @@
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
         }
       ],
-      "fulfillments": [
-        {
-          "customer": {
-            "id": "9999999999@onemoney"
+      "xinput": {
+        "form": {
+          "data": {
+            "accountAggregatorId": "9999999999@onemoney"
           }
         }
-      ]
+      }
     }
   }
 }

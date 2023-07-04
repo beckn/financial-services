@@ -230,13 +230,6 @@
           "list": [
             {
               "descriptor": {
-                "name": "KYC Request",
-                "short_desc": "Click on this link to submit your KYC Details"
-              },
-              "value": "https://dg-sandbox.setu.co/okyc/initiate/95e3d7ae-45fa-47f5-8a7a-55f4dc20fd7f/"
-            },
-            {
-              "descriptor": {
                 "name": "Loan Agreement",
                 "short_desc": "Click on this link to view and sign your Loan Agreement"
               },

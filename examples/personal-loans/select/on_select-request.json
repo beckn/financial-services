@@ -1,75 +1,122 @@
 {
   "context": {
-      "domain": "financial-services:0.2.0",
-      "location": {
-          "country": {
-              "code": "IND"
-          }
-      },
-      "action": "on_select",
-      "version": "1.1.0",
-      "bap_id": "credit-protocol.becknprotocol.io",
-      "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
-      "bpp_id": "bpp.credit.icicibank.io",
-      "bpp_uri": "https://bpp.credit.icicibank.io",
-      "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62195",
-      "message_id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
-      "timestamp": "2023-05-25T05:23:03.443Z",
-      "ttl": "P30M"
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "action": "on_select",
+    "version": "1.1.0",
+    "bap_id": "credit-protocol.becknprotocol.io",
+    "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+    "bpp_id": "bpp.credit.icicibank.io",
+    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62195",
+    "message_id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "ttl": "P30M"
   },
   "message": {
-      "order": {
-          "provider": {
-              "id": "1",
-              "descriptor": {
-                  "images": [
-                      {
-                          "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
-                      }
-                  ],
-                  "code": "ICICIBANK",
-                  "name": "ICICI Bank",
-                  "short_desc": "ICICI Bank Ltd",
-                  "long_desc": "ICICI Bank Ltd, India."
-              }
+    "order": {
+      "provider": {
+        "id": "1",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+            }
+          ],
+          "code": "ICICIBANK",
+          "name": "ICICI Bank",
+          "short_desc": "ICICI Bank Ltd",
+          "long_desc": "ICICI Bank Ltd, India."
+        }
+      },
+      "items": [
+        {
+          "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+          "descriptor": {
+            "name": "Loan Offer : INR 2,00,000",
+            "short_desc": "Personal Loan of INR 2 Lakhs"
           },
-          "items": [
-              {
-                  "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
-                  "descriptor": {
-                      "name": "Personal Loan",
-                      "short_desc": "Personal Loan of INR 2 Lakhs at price INR 2,45,000"
-                  },
-                  "price" : {
-                      "value": "245000",
-                      "currency": "INR"
-                  }
-              }
-          ],
-          "type": "DEFAULT",
+          "price": {
+            "value": "230000",
+            "currency": "INR"
+          },
           "tags": [
-              {
-                  "descriptor": {
-                      "code": "consent_request"
-                  },
-                  "list": [
-                      {
-                          "descriptor": {
-                              "code": "consent_url"
-                          },
-                          "value": "https://fiu-uat.setu.co/consents/webview/c8f6e545-4627-4e4e-b47f-e8b11f299fb7"
-                      }
-                  ],
-                  "display": false
-              }
-          ],
-          "xinput": {
-              "form": {
-                  "mime_type": "text/html",
-                  "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75"
+            {
+              "descriptor": {
+                "name": "General Information"
               },
-              "required": true
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "Interest Rate",
+                    "short_desc": "Rate of Interest (p.a)"
+                  },
+                  "value": "12%"
+                }
+              ],
+              "display": true
+            }
+          ]
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "231800"
+        },
+        "breakup": [
+          {
+            "title": "Principal",
+            "price": {
+              "value": "200000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Interest",
+            "price": {
+              "value": "30000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Processing fee",
+            "price": {
+              "value": "1800",
+              "currency": "INR"
+            }
           }
+        ]
+      },
+      "type": "DEFAULT",
+      "tags": [
+        {
+          "descriptor": {
+            "code": "kyc_request"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "name": "KYC Request",
+                "short_desc": "Click on this link to submit your KYC Details"
+              },
+              "value": "https://dg-sandbox.setu.co/okyc/initiate/95e3d7ae-45fa-47f5-8a7a-55f4dc20fd7f/"
+            }
+          ],
+          "display": false
+        }
+      ],
+      "xinput": {
+        "form": {
+          "mime_type": "text/html",
+          "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75"
+        },
+        "required": true
       }
+    }
   }
 }

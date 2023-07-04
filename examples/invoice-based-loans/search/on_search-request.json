@@ -67,7 +67,14 @@
                   "display": true
                 }
               ],
-              "matched": true
+              "matched": true,
+              "xinput": {
+                "form": {
+                  "mime_type": "text/html",
+                  "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+                },
+                "required": true
+              }
             }
           ]
         }
