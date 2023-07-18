@@ -38,8 +38,7 @@
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
           "descriptor": {
-            "name": "Personal Loan",
-            "short_desc": "Personal Loan of INR 2,00,000 at price INR 2,45,000"
+            "name": "Loan Offer : INR 2,00,000"
           },
           "price": {
             "currency": "INR",
@@ -163,6 +162,7 @@
           }
         },
         {
+          "url": "https://emandate.icicibank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -176,6 +176,7 @@
           }
         },
         {
+          "url": "https://emandate.icicibank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -189,6 +190,7 @@
           }
         },
         {
+          "url": "https://emandate.icicibank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -202,6 +204,7 @@
           }
         },
         {
+          "url": "https://emandate.icicibank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
