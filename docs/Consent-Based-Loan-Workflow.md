@@ -36,13 +36,14 @@ To discover a loan product on a beckn-enabled network, the BAP must fire a `sear
         "intent": {
             "category": {
                 "descriptor": {
-                    "name": "Personal loan"
+                    "code": "personal_loan"
                 }
             }
         }
     }
 }
 ```
+
 > **Note:** If the loan categories are standardized at a network level, then the `message.intent.category.descriptor.name` may be replaced with `message.intent.category.descriptor.code` containing the standardized code of the loan category.
 
 #### Example `search` Request for a Loan Product based on Loan Product Name and Loan Amount
@@ -69,7 +70,7 @@ To discover a loan product on a beckn-enabled network, the BAP must fire a `sear
         "intent": {
             "item": {
                 "descriptor": {
-                    "name": "Personal loan"
+                    "code": "personal_loan"
                 },
                 "price": {
                     "value": "200000",
@@ -126,27 +127,38 @@ To discover a loan product on a beckn-enabled network, the BAP must fire a `sear
                     },
                     "categories": [
                         {
-                            "id": "101123",
+                            "id": "1",
                             "descriptor": {
-                                "name": "Personal loan"
+                                "code": "personal_loan",
+                                "name": "Personal Loan"
                             }
                         }
                     ],
                     "items": [
                         {
-                            "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+                            "id": "1",
                             "descriptor": {
-                                "name": "Personal Loan"
+                                "name": "Personal Loan upto 2 Lakhs",
+                                "code": "personal_loan"
+                            },
+                            "xinput": {
+                                "form": {
+                                    "mime_type": "text/html",
+                                    "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75"
+                                },
+                                "required": "true"
                             },
                             "tags": [
                                 {
                                     "descriptor": {
-                                        "name": "General Information"
+                                        "name": "General Information",
+                                        "code": "general_info"
                                     },
                                     "list": [
                                         {
                                             "descriptor": {
-                                                "name": "Interest Rate",
+                                                "name": "Rate of Interest",
+                                                "code": "rate_of_interest",
                                                 "short_desc": "Rate of Interest (p.a)"
                                             },
                                             "value": "12%"
@@ -158,19 +170,29 @@ To discover a loan product on a beckn-enabled network, the BAP must fire a `sear
                             "matched": true
                         },
                         {
-                            "id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
+                            "id": "2",
                             "descriptor": {
-                                "name": "Car Loan"
+                                "name": "Car Loan",
+                                "code": "car_loan"
+                            },
+                            "xinput": {
+                                "form": {
+                                    "mime_type": "text/html",
+                                    "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75"
+                                },
+                                "required": "true"
                             },
                             "tags": [
                                 {
                                     "descriptor": {
-                                        "name": "General Information"
+                                        "name": "General Information",
+                                        "code": "general_info"
                                     },
                                     "list": [
                                         {
                                             "descriptor": {
                                                 "name": "Interest Rate",
+                                                "code": "rate_of_interest",
                                                 "short_desc": "Rate of Interest (p.a)"
                                             },
                                             "value": "8.5%"
@@ -182,19 +204,29 @@ To discover a loan product on a beckn-enabled network, the BAP must fire a `sear
                             "matched": false
                         },
                         {
-                            "id": "80414936-a06d-49ae-9475-f99448c77014",
+                            "id": "3",
                             "descriptor": {
-                                "name": "Education Loan"
+                                "name": "Education Loan",
+                                "name": "edu_loan"
+                            },
+                            "xinput": {
+                                "form": {
+                                    "mime_type": "text/html",
+                                    "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75"
+                                },
+                                "required": "true"
                             },
                             "tags": [
                                 {
                                     "descriptor": {
-                                        "name": "General Information"
+                                        "name": "General Information",
+                                        "code": "general_info"
                                     },
                                     "list": [
                                         {
                                             "descriptor": {
                                                 "name": "Interest Rate",
+                                                "code": "rate_of_interest",
                                                 "short_desc": "Rate of Interest (p.a)"
                                             },
                                             "value": "13%"
@@ -213,15 +245,17 @@ To discover a loan product on a beckn-enabled network, the BAP must fire a `sear
 }
 ```
 
-
-> **Note:** In modern lending flows, these interactions happen at the BAP's backend resulting in a pre-populated interface on the borrower's UI. Borrower applications may collect a majority of the user's information during signup and perform a scan across the network containing various lender platforms and their loan products. These loan products may appear as a pre-sorted static list on the borrower's app. However, this flow is not a mandatory. consumer applications with simpler UI's may default to a simple text-based search resulting in a dynamic catalog of search results obtained asynchronously from multiple lending platforms on the network 
-
+> **Note:** In modern lending flows, these interactions happen at the BAP's backend resulting in a pre-populated interface on the borrower's UI. Borrower applications may collect a majority of the user's information during signup and perform a scan across the network containing various lender platforms and their loan products. These loan products may appear as a pre-sorted static list on the borrower's app. However, this flow is not a mandatory. consumer applications with simpler UI's may default to a simple text-based search resulting in a dynamic catalog of search results obtained asynchronously from multiple lending platforms on the network
 
 ## Loan Application
 
 ### Selection of a Loan Product (`select`)
 
-The BAP sends the loan product, the loan provider, and the customer's identity to the BPP. In a consent-based data sharing use case, the customer's identity should be able to generate a consent request. For example, In India, the consent request is generated by sharing the Account Aggregator ID, ex: 9999999999@onemoney. 
+The BAP selects the loan product, the loan provider to the BPP. Along with the selection of the product, the BAP also sends the required form data to apply for the loan. 
+
+> **Important :** 
+> 1. Once the BAP selects the product, the BAP must capture the form fields from the `items[].xinput` object sent by the BPP. According to beckn protocol, the BAP SHOULD render the XInput form if it is sent by the BPP. In case the BPP has set the `items[].xinput.required` field to `false`, even then the BAP SHOULD render the form _but_ with an option to _Skip_.
+> 2. Note that the XInput is inside the `Item` object and not the `Order` object. This is not an exception. Beckn protocol supports `Item` level forms as well due to the possibility that each `Item` _may_ require different form data to provide a quote. 
 
 ```
 {
@@ -250,13 +284,24 @@ The BAP sends the loan product, the loan provider, and the customer's identity t
             },
             "items": [
                 {
-                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
-                }
-            ],
-            "fulfillments": [
-                {
-                    "customer": {
-                        "id": "9999999999@onemoney"
+                    "id": "1"
+                },
+                "xinput": {
+                    "form": {
+                        "data": {
+                            "firstName": "John",
+                            "lastName": "Doe",
+                            "dob": "1986-11-15",
+                            "maritalStatus": "married",
+                            "occupation": "Software Engineer",
+                            "idValue": "ABCDS1234E",
+                            "idType": "PAN",
+                            "incomeProofType": "salary_slip",
+                            "incomeProof": "data:application/pdf;base64,JVBERi0xLjQNCiWhs8XXDQoxIDAgb2Jq.....IgL01lZGlhQm94Wy"
+                            "income": "INR 6,00,000",
+                            "address": "KB102, Oak Block, Green Springs Apartments, No 7, MG Road, Bengaluru - 560068",
+                            "aa_id": "9999999999@onemoney"
+                        }
                     }
                 }
             ]
@@ -265,9 +310,19 @@ The BAP sends the loan product, the loan provider, and the customer's identity t
 }
 ```
 
-### Returning a consent request with additional details about the loan product (`on_select`)
+### Consented Data Sharing (Between `select` and `on_select`)
 
-In this interaction, the Lender Platform (BPP) generates a consent request, and an `XInput` object to collect additional details about the borrower like borrower's name, address, date of birth, PAN (Permanent Account Number), phone number, income, employment type, and company name.
+In the case of consented data sharing, the BAP shares the borrower's ID with the lender as requested in the `XInput` form. The lenders use this ID to create a consent request to access the borrower's financial information. The BAP user receives the consent request in the consent management platform that they have subscribed to. In case the BAP has an consent manager SDK that is capable of processing the consent request, it can render the consent form natively in the app. In other cases, the BAP user can simply log in to the consent manager separately and provide their consent. Alternatively, in case of GUI based BAPs, the BAP can render the web page inside a WebView on its app. On this page, the borrower can review and approve or reject the consent.
+
+In the case of credit, the borrower typically gives consent to the lender to pull their financial records, or any other profile information and assess the borrower's credit-worthiness. After the borrower approves the consent, the lender can retrieve the borrower's bank account statement via the appropriate APIs of the consent infrastructure.
+
+### Returning a quote based on financial information (`on_select`)
+
+In this interaction, the Lender Platform (BPP) returns an `XInput` object to collect additional details about the borrower like borrower's name, address, date of birth, PAN (Permanent Account Number), phone number, income, employment type, and company name. One of the fields in the `XInput` can be a consumer's identifier that can generate a consent request. For example, in India, consumers can have an account aggregator ID that allows users of financial information (like a lending bank) to generate a consent request against that ID.
+
+Furthermore, the BPP can also send another `XInput` request along with the offer to collect additional details about the customer in case the customer decides to accept the offer. 
+
+> **Note :** As always, if the BPP has a single form for all items, it will send the `XInput` inside the `Order.xinput` property. If it has different forms for each loan product, it will send it in the `Order.items[].xinput` property. 
 
 ```
 {
@@ -301,44 +356,67 @@ In this interaction, the Lender Platform (BPP) generates a consent request, and 
                     ],
                     "code": "ICICIBANK",
                     "name": "ICICI Bank",
-                    "short_desc": "ICICI Bank Ltd",
-                    "long_desc": "ICICI Bank Ltd, India."
+                    "short_desc": "ICICI Bank Ltd, India",
                 }
             },
             "items": [
                 {
-                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+                    "id": "1",
                     "descriptor": {
                         "name": "Personal Loan",
-                        "short_desc": "Personal Loan of INR 2 Lakhs at price INR 2,45,000"
+                        "code": "personal_loan",
+                        "short_desc": "Personal Loan upto 2 Lakhs"
                     },
                     "price" : {
                         "value": "245000",
                         "currency": "INR"
+                    },
+                    "xinput" : {
+                        "progress": {
+                            "submitted": "1",
+                            "total" : "1"
+                        }
                     }
                 }
             ],
-            "type": "DEFAULT",
-            "tags": [
-                {
-                    "descriptor": {
-                        "code": "consent_request"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "consent_url"
-                            },
-                            "value": "https://fiu-uat.setu.co/consents/webview/c8f6e545-4627-4e4e-b47f-e8b11f299fb7"
+            "quote": {
+                "price": {
+                    "currency": "INR",
+                    "value": "231800"
+                },
+                "breakup": [
+                    {
+                        "title": "Principal",
+                        "price": {
+                            "value": "200000",
+                            "currency": "INR"
                         }
-                    ],
-                    "display": false
-                }
-            ],
+                    },
+                    {
+                        "title": "Interest",
+                        "price": {
+                            "value": "30000",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "title": "Processing fee",
+                        "price": {
+                            "value": "1800",
+                            "currency": "INR"
+                        }
+                    }
+                ]
+            },
             "xinput": {
+                "progress": {
+                    "submitted": "0",
+                    "total" : "2"
+                }
                 "form": {
+                    "name" : "Know Your Customer",
                     "mime_type": "text/html",
-                    "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75"
+                    "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/2bff2fdfbbb8259d75a23ac40"
                 },
                 "required": true
             }
@@ -346,7 +424,21 @@ In this interaction, the Lender Platform (BPP) generates a consent request, and 
     }
 }
 ```
-Below is an example `XInput` form used to collect additional data from the customer.
+
+The consent-based data sharing flow is illustrated in the diagram below.
+
+```mermaid
+    sequenceDiagram
+    Borrower Platform (BAP)->>Lender Platform (BPP): Searches for Loan Products [ `search` ]
+    Lender Platform (BPP)->>Borrower Platform (BAP): Returns Catalog of Loan products with Xinput form links [ `on_search` ]
+    Borrower Platform (BAP)->>Lender Platform (BPP): Selects Loan Product, Provider and submits Form data [ `select` ]
+    Lender Platform (BPP)-->>Consent Infrastructure: Generate Consent Request URL based on Consumer's ID
+    Borrower Platform (BAP)-->>Consent Infrastructure: Approve Consent
+    Lender Platform (BPP)-->>Financial Data Provider: Fetches Desired Financial Information
+    Lender Platform (BPP)->>Borrower Platform (BAP): Generate Offer based on Financial Information [ `on_select` ]
+```
+
+Below is an example `XInput` form used to collect KYC data from the customer.
 
 ```
    <form>
@@ -360,6 +452,7 @@ Below is an example `XInput` form used to collect additional data from the custo
      <select name="sex" id="sex">
        <option value="male">Male</option>
        <option value="female">Female</option>
+       <option value="other">Other</option>
      </select>
      <label for="maritalStatus">Marital Status</label>
      <select name="maritalStatus" id="maritalStatus">
@@ -384,33 +477,18 @@ Below is an example `XInput` form used to collect additional data from the custo
      </select>
      <label for="incomeProof">Upload the Income Proof</label>
      <input name="incomeProof" type="file" />
+     <label for="aa_id">Account Aggregator ID</label>
+     <input type="text" id="aa_id" name="aa_id" />
+     <label for="tnc">I have read the <a href="https://icicibank.co.in/loans/tnc.html">Terms and Conditions</a></label>
+     <input type="checkbox" id="tnc" name="tnc" />
    </form>
 ```
 
-> **Note:** Some of these fields like Name, Date of Birth, Sex, Address etc may already have been provided by the BAP during the `select` call inside the `Customer` object. In case the BPP already has this information, it can a) prepopulate the values for these fields, b) Not send these fields as an input requirement. In other cases, the BPP might simply generate a consent request against the customer's ID to share financial information or profile information with the BPP. 
-
-
-### Consented Data Sharing
-
-The BAP shares the borrower's ID with the lenders. The lenders use this ID to create a consent request url to access the borrower's account statement. Upon receiving the consent url, the BAP redirects the borrower to the consent page. In case the BAP has an SDK that is capable of processing the consent request, it can render the consent form natively in the app. In other cases, the BAP can simply redirect the user to the consent page on the device's web browser. Alternatively, the BAP can render the web page inside a WebView on its app. On this page, the borrower can review and approve or reject the consent.
-
-In the case of credit, the borrower typically gives consent to the lender to pull their financial records, or any other profile information and assess the borrower's credit-worthiness. After the borrower approves the consent, the lender can retrieve the borrower's bank account statement via the appropriate APIs of the consent infrastructure.
-
-The consent-based data sharing flow is illustrated in the diagram below.
-
-```mermaid
-    sequenceDiagram
-    Borrower Platform (BAP)->>Lender Platform (BPP): Sends Loan Product, Provider and Customer ID [ `select` ]
-    Lender Platform (BPP)-->>Consent Infrastructure: Generate Consent Request URL based on Consumer's ID
-    Lender Platform (BPP)->>Borrower Platform (BAP): Returns Consent Request URL [ `on_select` ]
-    Borrower Platform (BAP)-->>Consent Infrastructure: Fetch Consent Request Page
-    Borrower Platform (BAP)-->>Consent Infrastructure: Approve Consent
-    Lender Platform (BPP)-->>Financial Data Provider: Fetch Desired Financial Information
-```
+> **Note:** Some of these fields like Name, Date of Birth, Sex, Address etc may already have been provided by the BAP during the `select` call inside the `Customer` object. In case the BPP already has this information, it can a) prepopulate the values for these fields, b) Not send these fields as an input requirement. In other cases, the BPP might simply generate a consent request against the customer's ID to share financial information or profile information with the BPP.
 
 ### Submission of Additional Information and requesting for offer (`init`)
 
-Here the BAP submits the additional information that was requested by the BPP in the `XInput` form. 
+Here the BAP submits the additional information that was requested by the BPP in the `XInput` form.
 
 ```
 {
@@ -442,23 +520,16 @@ Here the BAP submits the additional information that was requested by the BPP in
                     "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
                 }
             ],
-            "fulfillments": [
-                {
-                    "customer": {
-                        "id": "9999999999@onemoney"
-                    }
-                }
-            ],
             "xinput": {
-                "form": {
+                "form: {
                     "data": {
                         "firstName": "John",
                         "lastName": "Doe",
                         "dob": "1986-11-15",
                         "maritalStatus": "married",
-                        "occupation": "Software Engineer",                       
-                        "idValue": "ABCDS1234E",
-                        "idType": "PAN",
+                        "occupation": "Software Engineer",
+                        "idValue": "123412341234",
+                        "idType": "Aadhaar",
                         "incomeProofType": "salary_slip",
                         "incomeProof": "data:application/pdf;base64,JVBERi0xLjQNCiWhs8XXDQoxIDAgb2Jq.....IgL01lZGlhQm94Wy",
                         "income": "INR 6,00,000",
@@ -470,9 +541,10 @@ Here the BAP submits the additional information that was requested by the BPP in
     }
 }
 ```
-Now the lender has all the information to make an offer to the borrower. 
 
-### Lender makes an offer with repayment terms (`on_init`)
+Now the lender has all the information to generate the loan agreement.
+
+### Lender generates the loan agreement with repayment terms (`on_init`)
 
 ```
 {
@@ -512,13 +584,13 @@ Now the lender has all the information to make an offer to the borrower.
             },
             "items": [
                 {
-                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+                    "id": "1",
                     "descriptor": {
-                        "name": "Loan Offer : INR 2,00,000"
+                        "name": "Loan Offer"
                     },
                     "price": {
                         "currency": "INR",
-                        "value": "230000"
+                        "value": "200000"
                     },
                     "tags": [
                         {
@@ -605,8 +677,6 @@ Now the lender has all the information to make an offer to the borrower.
             },
             "payments": [
                 {
-                    "type": "ON-ORDER",
-                    "url": "https://emandate.icicibank.in",
                     "params": {
                         "amount": "46360",
                         "currency": "INR"
@@ -698,36 +768,358 @@ Now the lender has all the information to make an offer to the borrower.
                     },
                     "external_ref": {
                         "mimetype": "text/html",
-                        "url": "https://icicibank.com/loan/tnc.html"
+                        "url": "https://icicibank.com/loan/cancellation_policy.html"
                     }
                 }
             ],
-            "tags": [
-                {
-                    "list": [
-                        {
-                            "descriptor": {
-                                "name": "KYC Request",
-                                "short_desc": "Click on this link to submit your KYC Details"
-                            },
-                            "value": "https://dg-sandbox.setu.co/okyc/initiate/95e3d7ae-45fa-47f5-8a7a-55f4dc20fd7f/"
-                        },
-                        {
-                            "descriptor": {
-                                "name": "Loan Agreement",
-                                "short_desc": "Click on this link to view and sign your Loan Agreement"
-                            },
-                            "value": "https://icicibank.com/loanAgreement?id=afyrq9fbH"
-                        }
-                    ]
+            "xinput": {
+                "progress": {
+                    "submitted" : "1",
+                    "total" : "2"
+                },
+                "form": {
+                    "name" : "Loan Agreement",
+                    "mime_type" : "text/html",
+                    "url" : "https://icicibank.com/loanAgreement?id=afyrq9fbH"
                 }
-            ]
+            }
         }
     }
 }
 ```
 
-### Borrower Confirms Loan and Authorizes Lender to Disburse Loan (`confirm`)
+> **Note :** Below is an example of a loan agreement 
+
+```
+   <form>
+        <label for="tnc">I have read the <a href="https://icicibank.co.in/loans/tnc.html">Loan Agreement</a></label>
+        <input type="checkbox" id="tnc" name="tnc" />
+   </form>
+```
+
+### Borrower Signs Loan Application (`init`)
+
+
+Here the BAP submits the second part of the form data that was requested by the BPP `XInput` form.
+
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "version": "1.1.0",
+        "action": "init",
+        "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+        "bap_id": "credit-protocol.becknprotocol.io",
+        "bpp_id": "bpp.credit.icicibank.io",
+        "bpp_uri": "https://bpp.credit.icicibank.io",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6",
+        "ttl": "PT10M",
+        "timestamp": "2023-05-25T05:23:03.443Z"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1"
+            },
+            "items": [
+                {
+                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
+                }
+            ],
+            "xinput": {
+                "form: {
+                    "data": {
+                        "ifsc": "SBIN0001234",
+                        "accountNo": "1800002341",
+                        "iAgree": "true"
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+### Lender generates final loan agreement with all details (`on_init`)
+
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "version": "1.1.0",
+        "action": "on_init",
+        "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+        "bap_id": "credit-protocol.becknprotocol.io",
+        "bpp_id": "bpp.credit.icicibank.io",
+        "bpp_uri": "https://bpp.credit.icicibank.io",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "166a5633-66d2-4ec8-bdcb-65cfeb1e4697",
+        "ttl": "PT10M",
+        "timestamp": "2023-05-25T05:23:03.443Z"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1",
+                "descriptor": {
+                    "images": [
+                        {
+                            "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+                        }
+                    ],
+                    "code": "ICICIBANK",
+                    "name": "ICICI Bank",
+                    "short_desc": "ICICI Bank Ltd",
+                    "long_desc": "ICICI Bank Ltd, India."
+                }
+            },
+            "items": [
+                {
+                    "id": "1",
+                    "descriptor": {
+                        "name": "Loan Offer"
+                    },
+                    "price": {
+                        "currency": "INR",
+                        "value": "200000"
+                    },
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "name": "Personal loan terms"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "Interest Rate",
+                                        "short_desc": "Rate of Interest (p.a)"
+                                    },
+                                    "value": "12%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Interest Type",
+                                        "short_desc": "Type of Interest Rate"
+                                    },
+                                    "value": "FLOATING"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Term",
+                                        "short_desc": "Loan Term"
+                                    },
+                                    "value": "5 months"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Foreclosure Penalty",
+                                        "short_desc": "Loan Foreclosure Penalty"
+                                    },
+                                    "value": "0.5%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Delayed payments penalty",
+                                        "short_desc": "Delayed payments penalty"
+                                    },
+                                    "value": "5%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Terms & Conditions",
+                                        "short_desc": "Terms and Conditions"
+                                    },
+                                    "value": "https://icicibank.com/loan/tnc.html"
+                                }
+                            ],
+                            "display": true
+                        }
+                    ]
+                }
+            ],
+            "quote": {
+                "price": {
+                    "currency": "INR",
+                    "value": "231800"
+                },
+                "breakup": [
+                    {
+                        "title": "Principal",
+                        "price": {
+                            "value": "200000",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "title": "Interest",
+                        "price": {
+                            "value": "30000",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "title": "Processing fee",
+                        "price": {
+                            "value": "1800",
+                            "currency": "INR"
+                        }
+                    }
+                ]
+            },
+            "payments": [
+                {
+                    "params": {
+                        "amount": "46360",
+                        "currency": "INR"
+                    },
+                    "status": "NOT-PAID",
+                    "source_bank_code": "SBIN0001234",
+                    "source_bank_account_number": "1800002341",
+                    "time": {
+                        "range": {
+                            "start": "01-06-2023 00:00:00",
+                            "end": "30-06-2023 23:59:59"
+                        }
+                    }
+                },
+                {
+                    "params": {
+                        "amount": "46360",
+                        "currency": "INR"
+                    },
+                    "status": "NOT-PAID",
+                    "source_bank_code": "SBIN0001234",
+                    "source_bank_account_number": "1800002341",
+                    "time": {
+                        "range": {
+                            "start": "01-07-2023 00:00:00",
+                            "end": "31-07-2023 23:59:59"
+                        }
+                    }
+                },
+                {
+                    "params": {
+                        "amount": "46360",
+                        "currency": "INR"
+                    },
+                    "status": "NOT-PAID",
+                    "source_bank_code": "SBIN0001234",
+                    "source_bank_account_number": "1800002341",
+                    "time": {
+                        "range": {
+                            "start": "01-08-2023 00:00:00",
+                            "end": "31-08-2023 23:59:59"
+                        }
+                    }
+                },
+                {
+                    "params": {
+                        "amount": "46360",
+                        "currency": "INR"
+                    },
+                    "status": "NOT-PAID",
+                    "source_bank_code": "SBIN0001234",
+                    "source_bank_account_number": "1800002341",
+                    "time": {
+                        "range": {
+                            "start": "01-09-2023 00:00:00",
+                            "end": "30-09-2023 23:59:59"
+                        }
+                    }
+                },
+                {
+                    "params": {
+                        "amount": "46360",
+                        "currency": "INR"
+                    },
+                    "status": "NOT-PAID",
+                    "source_bank_code": "SBIN0001234",
+                    "source_bank_account_number": "1800002341",
+                    "time": {
+                        "range": {
+                            "start": "01-10-2023 00:00:00",
+                            "end": "31-10-2023 23:59:59"
+                        }
+                    }
+                }
+            ],
+            "cancellation_terms": [
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "name": "Loan sanctioned"
+                        }
+                    },
+                    "cancellation_fee": {
+                        "percentage": "3%"
+                    },
+                    "external_ref": {
+                        "mimetype": "text/html",
+                        "url": "https://icicibank.com/loan/tnc.html"
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "name": "Loan disbursed"
+                        }
+                    },
+                    "cancellation_fee": {
+                        "percentage": "5%"
+                    },
+                    "external_ref": {
+                        "mimetype": "text/html",
+                        "url": "https://icicibank.com/loan/cancellation_policy.html"
+                    }
+                }
+            ],
+            "xinput": {
+                "progress": {
+                    "submitted" : "2",
+                    "total" : "2"
+                },
+                "form": {
+                    "name" : "Loan Agreement",
+                    "mime_type" : "text/html",
+                    "url" : "https://icicibank.com/loanAgreement?id=afyrq9fbH",
+                    "data" : {
+                        "firstName": "John",
+                        "lastName": "Doe",
+                        "dob": "1986-11-15",
+                        "maritalStatus": "married",
+                        "occupation": "Software Engineer",
+                        "idValue": "123412341234",
+                        "idType": "Aadhaar",
+                        "incomeProofType": "salary_slip",
+                        "incomeProof": "data:application/pdf;base64,JVBERi0xLjQNCiWhs8XXDQoxIDAgb2Jq.....IgL01lZGlhQm94Wy"
+                        "income": "INR 6,00,000",
+                        "address": "KB102, Oak Block, Green Springs Apartments, No 7, MG Road, Bengaluru - 560068",
+                        "aa_id": "9999999999@onemoney",
+                        "ifsc": "SBIN0001234",
+                        "accountNo": "1800002341",
+                        "iAgree": "true"
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+Now the lender has all the information to sanction the loan. The only thing that remains is for the lender to generate an authorization code based on the borrower's identity. 
+
+### Borrower Confirms Loan Application by providing the KYC details, with authorization code Lender to Disburse Loan (`confirm`)
 
 ```
 {
@@ -770,14 +1162,6 @@ Now the lender has all the information to make an offer to the borrower.
                             }
                         }
                     ]
-                }
-            ],
-            "payments": [
-                {
-                    "params": {
-                        "source_bank_code": "SBIN0001234",
-                        "source_bank_account_number": "1800002341"
-                    }
                 }
             ]
         }
@@ -937,7 +1321,6 @@ Now the lender has all the information to make an offer to the borrower.
             ],
             "payments": [
                 {
-                    "type": "ON-ORDER",
                     "url": "https://emandate.icicibank.in",
                     "params": {
                         "amount": "46360",
@@ -1070,6 +1453,7 @@ In this stage the lender deposits the loan amount in the borrower's bank account
     }
 }
 ```
+
 ## Loan Repayment ( Post-Fulfillment )
 
 ### Lender provides status update regarding EMI Received
@@ -1115,6 +1499,3 @@ In this stage the lender deposits the loan amount in the borrower's bank account
     }
 }
 ```
-
-
-
