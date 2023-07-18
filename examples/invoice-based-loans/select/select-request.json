@@ -28,10 +28,9 @@
         }
       ],
       "xinput": {
-        "form": {
-          "data": {
-            "accountAggregatorId": "9999999999@onemoney"
-          }
+        "form_response": {
+          "status": true,
+          "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
         }
       },
       "tags": [

@@ -27,6 +27,18 @@
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
         }
       ],
+      "fulfillments": [
+        {
+          "stops": [
+            {
+              "authorization": {
+                "type": "OTP",
+                "token": "535346"
+              }
+            }
+          ]
+        }
+      ],
       "payments": [
         {
           "params": {

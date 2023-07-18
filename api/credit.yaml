@@ -204,9 +204,9 @@ paths:
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                       xinput:
-                        form:
-                          data:
-                            accountAggregatorId: 9999999999@onemoney
+                        form_response:
+                          status: true
+                          submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
               Selecting a Invoice based loan offer from a lender:
                 value:
                   context:
@@ -231,9 +231,9 @@ paths:
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                       xinput:
-                        form:
-                          data:
-                            accountAggregatorId: 9999999999@onemoney
+                        form_response:
+                          status: true
+                          submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
                       tags:
                         - descriptor:
                             name: GSTIN_PROFILE
@@ -329,27 +329,14 @@ paths:
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                       fulfillments:
-                        - customer:
-                            id: 9999999999@onemoney
                         - stops:
                             authorization:
                               type: OTP
                               token: 143532
                       xinput:
-                        form:
-                          mime_type: text/html
-                          data:
-                            firstName: John
-                            lastName: Doe
-                            dob: 1986-11-15
-                            maritalStatus: married
-                            occupation: Software Engineer
-                            idValue: ABCDS1234E
-                            idType: PAN
-                            incomeProofType: salary_slip
-                            incomeProof: data:application/pdf;base64,JVBERi0xLjQNCiWhs8XXDQoxIDAgb2Jq.....IgL01lZGlhQm94Wy
-                            income: INR 6,00,000
-                            address: KB102, Oak Block, Green Springs Apartments, No 7, MG Road, Bengaluru - 560068
+                        form_response:
+                          status: true
+                          submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
               Initialing the Invoice based loan offer from the lender:
                 value:
                   context:
@@ -374,20 +361,14 @@ paths:
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                       fulfillments:
-                        - customer:
-                            id: 9999999999@onemoney
                         - stops:
                             authorization:
                               type: OTP
                               token: 143532
                       xinput:
-                        form:
-                          mime_type: text/html
-                          data:
-                            GSTIN: ABCDS1234E
-                            udyamNumber: UDYAM-HR-1234567
-                            mobile: "+91987654321"
-                            requestedLoanAmount: INR 2,00,000
+                        form_response:
+                          status: true
+                          submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -468,6 +449,11 @@ paths:
                         id: "1"
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                      fulfillments:
+                        - stops:
+                            authorization:
+                              type: OTP
+                              token: 535346
                       payments:
                         - params:
                             source_bank_code: SBIN0001234
@@ -495,6 +481,11 @@ paths:
                         id: "1"
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                      fulfillments:
+                        - stops:
+                            authorization:
+                              type: OTP
+                              token: 535346
                       payments:
                         - params:
                             source_bank_code: SBIN0001234
@@ -1039,6 +1030,7 @@ paths:
                                 form:
                                   mime_type: text/html
                                   url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
+                                  submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
                                 required: true
                             - id: c8e3968c-cd78-4e46-aa34-0d541e46bd73
                               descriptor:
@@ -1057,6 +1049,7 @@ paths:
                                 form:
                                   mime_type: text/html
                                   url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f
+                                  submission_id: 1c46b168-83ae-46ad-ac8a-d3c05870252c
                                 required: true
                             - id: 80414936-a06d-49ae-9475-f99448c77014
                               descriptor:
@@ -1075,6 +1068,7 @@ paths:
                                 form:
                                   mime_type: text/html
                                   url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf253fd
+                                  submission_id: b83babc1-b2fa-4e95-959f-b1d6ebdc2a48
                                 required: true
               Lender sends its catalog in response to a search request for invoice based loans:
                 value:
@@ -1128,6 +1122,7 @@ paths:
                                 form:
                                   mime_type: text/html
                                   url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf253fd
+                                  submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -1259,6 +1254,7 @@ paths:
                         form:
                           mime_type: text/html
                           url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
+                          submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
                         required: true
               Selected lender sends offer details for the invoice based loan:
                 value:
@@ -1335,6 +1331,7 @@ paths:
                         form:
                           mime_type: text/html
                           url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
+                          submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
                         required: true
       responses:
         "200":
@@ -4257,6 +4254,22 @@ components:
         submission_id:
           type: string
           format: uuid
+    FormResponse:
+      description: Describes the response to a form submission
+      type: object
+      properties:
+        status:
+          description: Contains the status of form submission.
+          type: boolean
+          default: true
+        submission_id:
+          description: This contains a UUID generated by the BPP on successful submission of the form. 
+          type: string
+          format: uuid
+        errors:
+          type: array
+          items:
+            $ref: "#/components/schemas/Error"
     Fulfillment:
       description: Describes how a an order will be rendered/fulfilled to the end-customer
       type: object
@@ -5309,6 +5322,8 @@ components:
       properties:
         form:
           $ref: "#/components/schemas/Form"
+        form_response:
+          $ref: "#/components/schemas/FormResponse"
         required:
           description: Indicates whether the form data is mandatorily required by the BPP to confirm the order.
           type: boolean

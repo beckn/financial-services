@@ -157,7 +157,15 @@ To discover a loan product on a beckn-enabled network, the BAP must fire a `sear
                   "display": true
                 }
               ],
-              "matched": true
+              "matched": true,
+              "xinput": {
+                "form": {
+                  "mime_type": "text/html",
+                  "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+                  "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+                },
+                "required": true
+              }
             }
           ]
         }
@@ -206,13 +214,12 @@ The BAP sends the loan product, the loan provider, and the customer's identity t
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
         }
       ],
-      "fulfillments": [
-        {
-          "customer": {
-            "id": "9999999999@onemoney"
-          }
+      "xinput": {
+        "form_response": {
+          "status": true,
+          "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
         }
-      ]
+      }
     }
   }
 }
@@ -226,85 +233,143 @@ In this interaction, the Lender Platform (BPP) generates a consent request, and 
 ```
 {
   "context": {
-      "domain": "financial-services:0.2.0",
-      "location": {
-          "country": {
-              "code": "IND"
-          }
-      },
-      "action": "on_select",
-      "version": "1.1.0",
-      "bap_id": "credit-protocol.becknprotocol.io",
-      "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
-      "bpp_id": "bpp.credit.icicibank.io",
-      "bpp_uri": "https://bpp.credit.icicibank.io",
-      "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62195",
-      "message_id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
-      "timestamp": "2023-05-25T05:23:03.443Z",
-      "ttl": "P30M"
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "action": "on_select",
+    "version": "1.1.0",
+    "bap_id": "credit-protocol.becknprotocol.io",
+    "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+    "bpp_id": "bpp.credit.icicibank.io",
+    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62195",
+    "message_id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "ttl": "P30M"
   },
   "message": {
-      "order": {
-          "provider": {
-              "id": "1",
-              "descriptor": {
-                  "images": [
-                      {
-                          "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
-                      }
-                  ],
-                  "code": "ICICIBANK",
-                  "name": "ICICI Bank",
-                  "short_desc": "ICICI Bank Ltd",
-                  "long_desc": "ICICI Bank Ltd, India."
-              }
+    "order": {
+      "provider": {
+        "id": "1",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+            }
+          ],
+          "code": "ICICIBANK",
+          "name": "ICICI Bank",
+          "short_desc": "ICICI Bank Ltd",
+          "long_desc": "ICICI Bank Ltd, India."
+        }
+      },
+      "items": [
+        {
+          "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+          "descriptor": {
+            "name": "Loan Offer : INR 2,00,000",
+            "short_desc": "Invoice based loan of INR 2 Lakhs"
           },
-          "items": [
-              {
-                  "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
-                  "descriptor": {
-                      "name": "Invoice based loan",
-                      "short_desc": "Invoice based loan of INR 2 Lakhs at price INR 2,45,000"
-                  },
-                  "price" : {
-                      "value": "245000",
-                      "currency": "INR"
-                  }
-              }
-          ],
-          "type": "DEFAULT",
+          "price": {
+            "value": "230000",
+            "currency": "INR"
+          },
           "tags": [
-              {
-                  "descriptor": {
-                      "code": "consent_request"
-                  },
-                  "list": [
-                      {
-                          "descriptor": {
-                              "code": "consent_url"
-                          },
-                          "value": "https://fiu-uat.setu.co/consents/webview/c8f6e545-4627-4e4e-b47f-e8b11f299fb7"
-                      }
-                  ],
-                  "display": false
-              }
-          ],
-          "xinput": {
-              "form": {
-                  "mime_type": "text/html",
-                  "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75"
+            {
+              "descriptor": {
+                "name": "General Information"
               },
-              "required": true
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "Interest Rate",
+                    "short_desc": "Rate of Interest (p.a)"
+                  },
+                  "value": "12%"
+                }
+              ],
+              "display": true
+            }
+          ]
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "231800"
+        },
+        "breakup": [
+          {
+            "title": "Principal",
+            "price": {
+              "value": "200000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Interest",
+            "price": {
+              "value": "30000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Processing fee",
+            "price": {
+              "value": "1800",
+              "currency": "INR"
+            }
           }
+        ]
+      },
+      "type": "DEFAULT",
+      "tags": [
+        {
+          "descriptor": {
+            "code": "kyc_request"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "name": "KYC Request",
+                "short_desc": "Click on this link to submit your KYC Details"
+              },
+              "value": "https://dg-sandbox.setu.co/okyc/initiate/95e3d7ae-45fa-47f5-8a7a-55f4dc20fd7f/"
+            }
+          ],
+          "display": false
+        }
+      ],
+      "xinput": {
+        "form": {
+          "mime_type": "text/html",
+          "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75",
+          "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+        },
+        "required": true
       }
+    }
   }
 }
 ```
 Below is an example `XInput` form used to collect additional data from the customer.
 
 ```
-
-
+<form>
+  <label for="gstin">GSTIN</label>
+  <input type="text" id="gstin" name="gstin" />
+  <label for="udyamNumber">UDYAM Number</label>
+  <input type="text" id="udyamNumber" name="udyamNumber" />
+  <label for="mobNo">Mobile Number</label>
+  <input type="date" id="mobNo" name="mobNo" />
+  <label for="requestAmount">Requested Loan Amount</label>
+  <input type="text" id="requestAmount" name="requestAmount" />
+  <label for="address">Address</label>
+  <input type="text" id="address" name="address" />
+</form>
 ```
 
 > **Note:** Some of these fields like Organization name etc may already have been provided by the BAP during the `select` call inside the `Customer` object. In case the BPP already has this information, it can a) prepopulate the values for these fields, b) Not send these fields as an input requirement. In other cases, the BPP might simply generate a consent request against the customer's ID to share financial information or profile information with the BPP. 
@@ -363,21 +428,20 @@ Here the BAP submits the additional information that was requested by the BPP in
       ],
       "fulfillments": [
         {
-          "customer": {
-            "id": "9999999999@onemoney"
-          }
+          "stops": [
+            {
+              "authorization": {
+                "type": "OTP",
+                "token": "143532"
+              }
+            }
+          ]
         }
       ],
       "xinput": {
-        "form": {
-          "mime_type": "text/html",
-          "data": {
-            "GSTIN": "ABCDS1234E",
-            "udyamNumber": "UDYAM-HR-1234567",
-            "mobile": "+91987654321",
-            "requestedLoanAmount": "INR 2,00,000"
-            "address": "Alpha Manufacturing, Hebbal SEZ, Industrial Park, Bangalore-560045"
-          }
+        "form_response": {
+          "status": true,
+          "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
         }
       }
     }
@@ -622,13 +686,6 @@ Now the lender has all the information to make an offer to the borrower.
           "list": [
             {
               "descriptor": {
-                "name": "KYC Request",
-                "short_desc": "Click on this link to submit your KYC Details"
-              },
-              "value": "https://dg-sandbox.setu.co/okyc/initiate/95e3d7ae-45fa-47f5-8a7a-55f4dc20fd7f/"
-            },
-            {
-              "descriptor": {
                 "name": "Loan Agreement",
                 "short_desc": "Click on this link to view and sign your Loan Agreement"
               },
@@ -646,57 +703,56 @@ Now the lender has all the information to make an offer to the borrower.
 
 ```
 {
-    "context": {
-        "domain": "financial-services:0.2.0",
-        "location": {
-            "country": {
-                "code": "IND"
-            }
-        },
-        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-        "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
-        "action": "confirm",
-        "timestamp": "2023-05-25T05:23:03.443Z",
-        "version": "1.1.0",
-        "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
-        "bap_id": "credit-protocol.becknprotocol.io",
-        "bpp_id": "bpp.credit.icicibank.io",
-        "bpp_uri": "https://bpp.credit.icicibank.io",
-        "ttl": "PT10M"
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
     },
-    "message": {
-        "order": {
-            "provider": {
-                "id": "1"
-            },
-            "items": [
-                {
-                    "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
-                }
-            ],
-            "fulfillments": [
-                {
-                    "stops": [
-                        {
-                            "type": "start",
-                            "authorization": {
-                                "type": "OTP",
-                                "token": "143532"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "payments": [
-                {
-                    "params": {
-                        "source_bank_code": "SBIN0001234",
-                        "source_bank_account_number": "1800002341"
-                    }
-                }
-            ]
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "confirm",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+    "bap_id": "credit-protocol.becknprotocol.io",
+    "bpp_id": "bpp.credit.icicibank.io",
+    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "ttl": "PT10M"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "1"
+      },
+      "items": [
+        {
+          "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
         }
+      ],
+      "fulfillments": [
+        {
+          "stops": [
+            {
+              "authorization": {
+                "type": "OTP",
+                "token": "535346"
+              }
+            }
+          ]
+        }
+      ],
+      "payments": [
+        {
+          "params": {
+            "source_bank_code": "SBIN0001234",
+            "source_bank_account_number": "1800002341"
+          }
+        }
+      ]
     }
+  }
 }
 ```
 ### Lender confirms loan application and sanctions loan
@@ -873,6 +929,7 @@ Now the lender has all the information to make an offer to the borrower.
           }
         },
         {
+          "url": "https://emandate.icicibank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -886,6 +943,7 @@ Now the lender has all the information to make an offer to the borrower.
           }
         },
         {
+          "url": "https://emandate.icicibank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -899,6 +957,7 @@ Now the lender has all the information to make an offer to the borrower.
           }
         },
         {
+          "url": "https://emandate.icicibank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -912,6 +971,7 @@ Now the lender has all the information to make an offer to the borrower.
           }
         },
         {
+          "url": "https://emandate.icicibank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -1035,5 +1095,700 @@ In this stage the lender deposits the loan amount in the borrower's bank account
             ]
         }
     }
+}
+```
+
+## Loan Cancellation
+
+### Borrower cancels loan
+
+The borrower could cancel a loan based on multiple reasons, the reason would be specified in the request along with the order ID. Here is the `cancel` request for it. 
+
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "cancel",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+    "bap_id": "credit-protocol.becknprotocol.io",
+    "ttl": "PT10M",
+    "bpp_id": "bpp.credit.icicibank.io",
+    "bpp_uri": "https://bpp.credit.icicibank.io"
+  },
+  "message": {
+    "order_id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+    "cancellation_reason_id": "5",
+    "descriptor": {
+      "short_desc": "Invoice was cancelled"
+    }
+  }
+}
+```
+
+The `on_cancel` response would be as follows
+
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "on_cancel",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+    "bap_id": "credit-protocol.becknprotocol.io",
+    "ttl": "PT10M",
+    "bpp_id": "bpp.credit.icicibank.io",
+    "bpp_uri": "https://bpp.credit.icicibank.io"
+  },
+  "message": {
+    "order": {
+      "id": "66B7AEDF45",
+      "provider": {
+        "id": "1",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+            }
+          ],
+          "code": "ICICIBANK",
+          "name": "ICICI Bank",
+          "short_desc": "ICICI Bank Ltd",
+          "long_desc": "ICICI Bank Ltd, India."
+        }
+      },
+      "items": [
+        {
+          "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+          "descriptor": {
+            "name": "Loan Offer : INR 2,00,000"
+          },
+          "price": {
+            "currency": "INR",
+            "value": "230000"
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Invoice based loan terms"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "Interest Rate",
+                    "short_desc": "Rate of Interest (p.a)"
+                  },
+                  "value": "12%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Interest Type",
+                    "short_desc": "Type of Interest Rate"
+                  },
+                  "value": "FLOATING"
+                },
+                {
+                  "descriptor": {
+                    "name": "Term",
+                    "short_desc": "Max Loan Term"
+                  },
+                  "value": "5 months"
+                },
+                {
+                  "descriptor": {
+                    "name": "Foreclosure Penalty",
+                    "short_desc": "Loan Foreclosure Penalty"
+                  },
+                  "value": "0.5%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Delayed payments penalty",
+                    "short_desc": "Delayed payments penalty"
+                  },
+                  "value": "5%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Terms & Conditions",
+                    "short_desc": "Terms and Conditions"
+                  },
+                  "value": "https://icicibank.com/loan/tnc.html"
+                }
+              ],
+              "display": true
+            }
+          ]
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "231800"
+        },
+        "breakup": [
+          {
+            "title": "Principal",
+            "price": {
+              "value": "200000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Interest",
+            "price": {
+              "value": "30000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Processing fee",
+            "price": {
+              "value": "1800",
+              "currency": "INR"
+            }
+          }
+        ]
+      },
+      "fulfillments": [
+        {
+          "customer": {
+            "organization": {
+              "address": "Industrial Park, Bangalore",
+              "state": {
+                "name": "Karnataka"
+              },
+              "city": {
+                "name": "Bangalore",
+                "code": "560045"
+              },
+              "contact": {
+                "phone": "+919876543210",
+                "email": "alpha.manufacturing@gmail.com"
+              }
+            }
+          },
+          "state": {
+            "descriptor": {
+              "name": "Loan Cancelled"
+            }
+          }
+        }
+      ],
+      "payments": [
+        {
+          "type": "ON-ORDER",
+          "url": "https://emandate.icicibank.in",
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-06-2023 00:00:00",
+              "end": "30-06-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "url": "https://emandate.icicibank.in",
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-07-2023 00:00:00",
+              "end": "31-07-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "url": "https://emandate.icicibank.in",
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-08-2023 00:00:00",
+              "end": "31-08-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "url": "https://emandate.icicibank.in",
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-09-2023 00:00:00",
+              "end": "30-09-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "url": "https://emandate.icicibank.in",
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-10-2023 00:00:00",
+              "end": "31-10-2023 23:59:59"
+            }
+          }
+        }
+      ],
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "name": "Loan sanctioned"
+            }
+          },
+          "cancellation_fee": {
+            "percentage": "3%"
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "https://icicibank.com/loan/tnc.html"
+          }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "name": "Loan disbursed"
+            }
+          },
+          "cancellation_fee": {
+            "percentage": "5%"
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "https://icicibank.com/loan/tnc.html"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+## Updates to a loan
+
+### Borrower updating loan details
+
+The borrower (BAP) sends the `update` request by sending the order ID to be updated along with the object in the order to be updated as `update_target`
+
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "update",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+    "bap_id": "credit-protocol.becknprotocol.io",
+    "ttl": "PT10M",
+    "bpp_id": "bpp.credit.icicibank.io",
+    "bpp_uri": "https://bpp.credit.icicibank.io"
+  },
+  "message": {
+    "update_target": "fulfillment",
+    "order": {
+      "id": "66B7AEDF45",
+      "fulfillments": [
+        {
+          "customer": {
+            "organization": {
+              "address": "Industrial Park, Udupi",
+              "state": {
+                "name": "Karnataka"
+              },
+              "city": {
+                "name": "Udupi",
+                "code": "576101"
+              },
+              "contact": {
+                "phone": "+919876543210",
+                "email": "alpha.manufacturinofficialg@gmail.com"
+              }
+            },
+            "state": {
+              "descriptor": {
+                "name": "Loan application updated"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+The subsequent `on_update` response is
+
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "version": "1.1.0",
+    "action": "on_update",
+    "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+    "bap_id": "credit-protocol.becknprotocol.io",
+    "bpp_id": "bpp.credit.icicibank.io",
+    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6",
+    "ttl": "PT10M",
+    "timestamp": "2023-05-25T05:23:03.443Z"
+  },
+  "message": {
+    "order": {
+      "id": "66B7AEDF45",
+      "provider": {
+        "id": "1",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+            }
+          ],
+          "code": "ICICIBANK",
+          "name": "ICICI Bank",
+          "short_desc": "ICICI Bank Ltd",
+          "long_desc": "ICICI Bank Ltd, India."
+        }
+      },
+      "items": [
+        {
+          "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+          "descriptor": {
+            "name": "Loan Offer : INR 2,00,000"
+          },
+          "price": {
+            "currency": "INR",
+            "value": "230000"
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Invoice based loan terms"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "Interest Rate",
+                    "short_desc": "Rate of Interest (p.a)"
+                  },
+                  "value": "12%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Interest Type",
+                    "short_desc": "Type of Interest Rate"
+                  },
+                  "value": "FLOATING"
+                },
+                {
+                  "descriptor": {
+                    "name": "Term",
+                    "short_desc": "Max Loan Term"
+                  },
+                  "value": "5 months"
+                },
+                {
+                  "descriptor": {
+                    "name": "Foreclosure Penalty",
+                    "short_desc": "Loan Foreclosure Penalty"
+                  },
+                  "value": "0.5%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Delayed payments penalty",
+                    "short_desc": "Delayed payments penalty"
+                  },
+                  "value": "5%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Terms & Conditions",
+                    "short_desc": "Terms and Conditions"
+                  },
+                  "value": "https://icicibank.com/loan/tnc.html"
+                }
+              ],
+              "display": true
+            }
+          ]
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "231800"
+        },
+        "breakup": [
+          {
+            "title": "Principal",
+            "price": {
+              "value": "200000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Interest",
+            "price": {
+              "value": "30000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Processing fee",
+            "price": {
+              "value": "1800",
+              "currency": "INR"
+            }
+          }
+        ]
+      },
+      "fulfillments": [
+        {
+          "customer": {
+            "organization": {
+              "address": "Industrial Park, Udupi",
+              "state": {
+                "name": "Karnataka"
+              },
+              "city": {
+                "name": "Udupi",
+                "code": "576101"
+              },
+              "contact": {
+                "phone": "+919876543210",
+                "email": "alpha.manufacturinofficialg@gmail.com"
+              }
+            },
+            "state": {
+              "descriptor": {
+                "name": "Loan application updated"
+              }
+            }
+          }
+        }
+      ],
+      "payments": [
+        {
+          "type": "ON-ORDER",
+          "url": "https://emandate.icicibank.in",
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-06-2023 00:00:00",
+              "end": "30-06-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "url": "https://emandate.icicibank.in",
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-07-2023 00:00:00",
+              "end": "31-07-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "url": "https://emandate.icicibank.in",
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-08-2023 00:00:00",
+              "end": "31-08-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "url": "https://emandate.icicibank.in",
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-09-2023 00:00:00",
+              "end": "30-09-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "url": "https://emandate.icicibank.in",
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-10-2023 00:00:00",
+              "end": "31-10-2023 23:59:59"
+            }
+          }
+        }
+      ],
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "name": "Loan sanctioned"
+            }
+          },
+          "cancellation_fee": {
+            "percentage": "3%"
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "https://icicibank.com/loan/tnc.html"
+          }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "name": "Loan disbursed"
+            }
+          },
+          "cancellation_fee": {
+            "percentage": "5%"
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "https://icicibank.com/loan/tnc.html"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+## Support
+
+### Loan Support
+
+In case the borrower (BAP) wants support regarding their application, they can use the following `support` request.
+
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "support",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+    "bap_id": "credit-protocol.becknprotocol.io",
+    "ttl": "PT10M",
+    "bpp_id": "bpp.credit.icicibank.io",
+    "bpp_uri": "https://bpp.credit.icicibank.io"
+  },
+  "message": {
+    "support": {
+      "order_id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+      "phone": "+919876543210",
+      "email": "alpha.manufacturing@gmail.com"
+    }
+  }
+}
+```
+
+This is the 'on_support' request for that support request.
+
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "on_support",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
+    "bap_id": "credit-protocol.becknprotocol.io",
+    "ttl": "PT10M",
+    "bpp_id": "bpp.credit.icicibank.io",
+    "bpp_uri": "https://bpp.credit.icicibank.io"
+  },
+  "message": {
+    "support": {
+      "order_id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+      "phone": "1800 1080",
+      "email": "customer.care@icicibank.com",
+      "url": "https://www.icicibank.com/helpdesk"
+    }
+  }
 }
 ```
