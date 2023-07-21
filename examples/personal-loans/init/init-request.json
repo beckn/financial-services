@@ -29,23 +29,20 @@
       ],
       "fulfillments": [
         {
-          "customer": {
-            "id": "9999999999@onemoney"
-          }
+          "stops": [
+            {
+              "authorization": {
+                "type": "OTP",
+                "token": "143532"
+              }
+            }
+          ]
         }
       ],
       "xinput": {
-        "form": {
-          "mime_type": "text/html",
-          "data": {
-            "primaryId": "ABCDS1234E",
-            "primaryIdType": "PAN",
-            "income": "INR 6,00,000",
-            "requestedLoanAmount": "INR 2,00,000",
-            "fullAddress": "House no 1, ABC Cross, Alpha Nagar",
-            "city": "Udupi",
-            "pinCode": "576106"
-          }
+        "form_response": {
+          "status": true,
+          "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
         }
       }
     }

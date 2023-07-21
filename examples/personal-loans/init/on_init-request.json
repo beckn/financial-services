@@ -37,140 +37,203 @@
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
           "descriptor": {
-            "name": "Personal Loan",
-            "short_desc": "Personal Loan of INR 2,00,000 at price INR 2,45,000"
+            "name": "Loan Offer : INR 2,00,000"
           },
           "price": {
             "currency": "INR",
-            "offered_value": "2,00,000",
-            "computed_value": "2,45,000"
-          }
+            "value": "230000"
+          },
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Personal loan terms"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "Interest Rate",
+                    "short_desc": "Rate of Interest (p.a)"
+                  },
+                  "value": "12%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Interest Type",
+                    "short_desc": "Type of Interest Rate"
+                  },
+                  "value": "FLOATING"
+                },
+                {
+                  "descriptor": {
+                    "name": "Term",
+                    "short_desc": "Max Loan Term"
+                  },
+                  "value": "5 months"
+                },
+                {
+                  "descriptor": {
+                    "name": "Foreclosure Penalty",
+                    "short_desc": "Loan Foreclosure Penalty"
+                  },
+                  "value": "0.5%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Delayed payments penalty",
+                    "short_desc": "Delayed payments penalty"
+                  },
+                  "value": "5%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Terms & Conditions",
+                    "short_desc": "Terms and Conditions"
+                  },
+                  "value": "https://icicibank.com/loan/tnc.html"
+                }
+              ],
+              "display": true
+            }
+          ]
         }
       ],
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "2,00,000"
+          "value": "231800"
         },
         "breakup": [
+          {
+            "title": "Principal",
+            "price": {
+              "value": "200000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Interest",
+            "price": {
+              "value": "30000",
+              "currency": "INR"
+            }
+          },
           {
             "title": "Processing fee",
             "price": {
               "value": "1800",
               "currency": "INR"
             }
-          },
-          {
-            "title": "Installment 1",
-            "price": {
-              "value": "50,000",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Installment 2",
-            "price": {
-              "value": "50,000",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Installment 3",
-            "price": {
-              "value": "50,000",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Installment 4",
-            "price": {
-              "value": "50,000",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Installment 5",
-            "price": {
-              "value": "45,000",
-              "currency": "INR"
-            }
           }
         ]
       },
+      "payments": [
+        {
+          "type": "ON-ORDER",
+          "url": "https://emandate.icicibank.in",
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-06-2023 00:00:00",
+              "end": "30-06-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-07-2023 00:00:00",
+              "end": "31-07-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-08-2023 00:00:00",
+              "end": "31-08-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-09-2023 00:00:00",
+              "end": "30-09-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-10-2023 00:00:00",
+              "end": "31-10-2023 23:59:59"
+            }
+          }
+        }
+      ],
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "name": "Loan sanctioned"
+            }
+          },
+          "cancellation_fee": {
+            "percentage": "3%"
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "https://icicibank.com/loan/tnc.html"
+          }
+        },
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "name": "Loan disbursed"
+            }
+          },
+          "cancellation_fee": {
+            "percentage": "5%"
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "https://icicibank.com/loan/tnc.html"
+          }
+        }
+      ],
       "tags": [
         {
-          "descriptor": {
-            "name": "Personal loan terms"
-          },
           "list": [
-            {
-              "descriptor": {
-                "name": "Interest Rate",
-                "short_desc": "Rate of Interest (p.a)"
-              },
-              "value": "12%"
-            },
-            {
-              "descriptor": {
-                "name": "Interest Type",
-                "short_desc": "Type of Interest Rate"
-              },
-              "value": "FLOATING"
-            },
-            {
-              "descriptor": {
-                "name": "Term",
-                "short_desc": "Loan Term"
-              },
-              "value": "5 months"
-            },
-            {
-              "descriptor": {
-                "name": "Foreclosure Penalty",
-                "short_desc": "Loan Foreclosure Penalty"
-              },
-              "value": "0.5%"
-            },
-            {
-              "descriptor": {
-                "name": "Delayed payments penalty",
-                "short_desc": "Delayed payments penalty"
-              },
-              "value": "5%"
-            },
             {
               "descriptor": {
                 "name": "Loan Agreement",
-                "short_desc": "Loan Agreement"
+                "short_desc": "Click on this link to view and sign your Loan Agreement"
               },
               "value": "https://icicibank.com/loanAgreement?id=afyrq9fbH"
-            },
-            {
-              "descriptor": {
-                "name": "Terms & Conditions",
-                "short_desc": "Terms and Conditions"
-              },
-              "value": "https://icicibank.com/loan/tnc.html"
-            }
-          ],
-          "display": true
-        },
-        {
-          "descriptor": {
-            "code": "consentRequest"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "name": "KYC Request"
-              },
-              "value": "https://dg-sandbox.setu.co/okyc/initiate/95e3d7ae-45fa-47f5-8a7a-55f4dc20fd7f/"
-            },
-            {
-              "descriptor": {
-                "name": "AA Consent Request"
-              },
-              "value": "Accepted"
             }
           ]
         }

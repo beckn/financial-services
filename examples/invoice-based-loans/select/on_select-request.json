@@ -37,13 +37,12 @@
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
           "descriptor": {
-            "name": "Invoice based Loan",
-            "short_desc": "Invoice based Loan of INR 2,00,000 at price INR 2,45,000"
+            "name": "Loan Offer : INR 2,00,000",
+            "short_desc": "Invoice based loan of INR 2 Lakhs"
           },
           "price": {
-            "currency": "INR",
-            "offered_value": "2,00,000",
-            "computed_value": "2,45,000"
+            "value": "230000",
+            "currency": "INR"
           },
           "tags": [
             {
@@ -57,34 +56,6 @@
                     "short_desc": "Rate of Interest (p.a)"
                   },
                   "value": "12%"
-                },
-                {
-                  "descriptor": {
-                    "name": "Interest Type",
-                    "short_desc": "Type of Interest Rate"
-                  },
-                  "value": "FIXED"
-                },
-                {
-                  "descriptor": {
-                    "name": "Term",
-                    "short_desc": "Loan Term"
-                  },
-                  "value": "5 months"
-                },
-                {
-                  "descriptor": {
-                    "name": "Foreclosure Penalty",
-                    "short_desc": "Loan Foreclosure Penalty"
-                  },
-                  "value": "0.5%"
-                },
-                {
-                  "descriptor": {
-                    "name": "Delayed payments penalty",
-                    "short_desc": "Delayed payments penalty"
-                  },
-                  "value": "5%"
                 }
               ],
               "display": true
@@ -92,29 +63,60 @@
           ]
         }
       ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "231800"
+        },
+        "breakup": [
+          {
+            "title": "Principal",
+            "price": {
+              "value": "200000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Interest",
+            "price": {
+              "value": "30000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Processing fee",
+            "price": {
+              "value": "1800",
+              "currency": "INR"
+            }
+          }
+        ]
+      },
       "type": "DEFAULT",
       "tags": [
         {
           "descriptor": {
-            "code": "consentRequest"
+            "code": "kyc_request"
           },
           "list": [
             {
               "descriptor": {
-                "code": "consentUrl"
+                "name": "KYC Request",
+                "short_desc": "Click on this link to submit your KYC Details"
               },
-              "value": "https://fiu-uat.setu.co/consents/webview/c8f6e545-4627-4e4e-b47f-e8b11f299fb7"
+              "value": "https://dg-sandbox.setu.co/okyc/initiate/95e3d7ae-45fa-47f5-8a7a-55f4dc20fd7f/"
             }
           ],
-          "display": "false"
+          "display": false
         }
       ],
       "xinput": {
         "form": {
           "mime_type": "text/html",
-          "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75"
+          "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75",
+          "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
         },
-        "required": "true"
+        "required": true
       }
     }
   }

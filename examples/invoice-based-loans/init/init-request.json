@@ -29,20 +29,20 @@
       ],
       "fulfillments": [
         {
-          "customer": {
-            "id": "9999999999@onemoney"
-          }
+          "stops": [
+            {
+              "authorization": {
+                "type": "OTP",
+                "token": "143532"
+              }
+            }
+          ]
         }
       ],
       "xinput": {
-        "form": {
-          "mime_type": "text/html",
-          "data": {
-            "GSTIN": "ABCDS1234E",
-            "udyamNumber": "UDYAM-HR-1234567",
-            "mobile": "+91987654321",
-            "requestedLoanAmount": "INR 2,00,000"
-          }
+        "form_response": {
+          "status": true,
+          "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
         }
       }
     }
