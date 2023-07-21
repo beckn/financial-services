@@ -7,7 +7,7 @@
       }
     },
     "version": "1.1.0",
-    "action": "on_confirm",
+    "action": "on_cancel",
     "bap_id": "mutual-fund-protocol.becknprotocol.io",
     "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
@@ -20,6 +20,7 @@
   "message": {
     "order": {
       "id": "66B7AEDF45",
+      "status": "CANCELLED",
       "provider": {
         "id": "MF001",
         "descriptor": {
@@ -172,7 +173,7 @@
           },
           "state": {
             "descriptor": {
-              "name": "Mutual Fund order confirmed"
+              "name": "SIP cancelled"
             }
           }
         }
