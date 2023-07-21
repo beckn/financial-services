@@ -13,7 +13,7 @@ paths:
       tags:
         - Beckn Provider Platform (BPP)
         - Beckn Gateway (BG)
-      description: This allows the customers to search for different types of credit
+      description: This allows the customers to search for different types of financial products, e.g. Loans, Mutual Funds, Insurance
       requestBody:
         description: BAP searches for services
         content:
@@ -123,6 +123,26 @@ paths:
                         price:
                           value: 200000
                           currency: INR
+              Search for Mutual Funds:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: search
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    intent:
+                      category:
+                        descriptor:
+                          name: Mutual Funds
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -152,9 +172,8 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Select lender from the catalog and one or more credit products.
+      description: Select a product from the catalog returned by a financial service provider.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -248,6 +267,33 @@ paths:
                             - descriptor:
                                 name: GSTR3B
                               value: 43B34JJ
+              Select a mutual fund from a provider:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: select
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    ttl: PT10M
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      provider:
+                        id: MF001
+                      items:
+                        - id: MFLC001
+                      xinput:
+                        form_response:
+                          status: true
+                          submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -277,9 +323,8 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Initialize a loan application for a loan product offered by the lender. Borrower will share additional personal/business details and approve any consent request shared by the lender.
+      description: Intialize an order for a product offered. Customer will share additional personal/business details and approve any consent request shared by the financial service provider.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -337,7 +382,7 @@ paths:
                         form_response:
                           status: true
                           submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
-              Initialing the Invoice based loan offer from the lender:
+              Initializing the Invoice based loan offer from the lender:
                 value:
                   context:
                     domain: financial-services:0.2.0
@@ -365,6 +410,102 @@ paths:
                             authorization:
                               type: OTP
                               token: 143532
+                      xinput:
+                        form_response:
+                          status: true
+                          submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
+              Initializing an systemic investment plan (SIP) mutual fund order:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: init
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    ttl: PT10M
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      provider:
+                        id: MF001
+                      items:
+                        - id: MFLC001
+                      payments:
+                        - tags:
+                            - descriptor:
+                                name: Investment Method
+                              list:
+                                - descriptor:
+                                    name: Type
+                                  value: SIP
+                                - descriptor:
+                                    name: Amount
+                                  value: "500"
+                                - descriptor:
+                                    name: SIP Start Date
+                                  value: "2023-01-07"
+                                - descriptor:
+                                    name: SIP Frequency
+                                  value: Monthly
+                                - descriptor:
+                                    name: SIP End Date
+                                  value: "2026-01-07"
+                      quote:
+                        price:
+                          currency: INR
+                          value: "500"
+                      xinput:
+                        form_response:
+                          status: true
+                          submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
+              Initializing a lumpsum mutual fund order:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: init
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    ttl: PT10M
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      provider:
+                        id: MF001
+                      items:
+                        - id: MFLC001
+                      payments:
+                        - tags:
+                            - descriptor:
+                                name: Investment Method
+                              list:
+                                - descriptor:
+                                    name: Type
+                                  value: Lumpsum
+                                - descriptor:
+                                    name: Amount
+                                  value: "5000"
+                                - descriptor:
+                                    name: Investment Date
+                                  value: "2023-01-07"
+                      quote:
+                        price:
+                          currency: INR
+                          value: "5000"
                       xinput:
                         form_response:
                           status: true
@@ -398,9 +539,8 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Confirm the loan application, with the actual amount, agree to terms & conditions, provide disbursement account details and repayment (EMI) details. Lender may request approval of additional consents or one-time password.
+      description: Confirm the placement of the order with the actual amount, agree to terms & conditions, provide bank account and payment details. Financial Services provider may request approval of additional consents or one-time password.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -490,6 +630,78 @@ paths:
                         - params:
                             source_bank_code: SBIN0001234
                             source_bank_account_number: "1800002341"
+              Confirming the Systemic Investment Plan mutual Funds:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: confirm
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    ttl: PT10M
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      provider:
+                        id: MF001
+                      items:
+                        - id: MFLC001
+                      fulfillments:
+                        - stops:
+                            - authorization:
+                                type: OTP
+                                token: "535346"
+                      payments:
+                        - params:
+                            source_bank_code: SBIN0001234
+                            source_bank_account_number: "1800002341"
+                      quote:
+                        price:
+                          currency: INR
+                          value: "500"
+              Confirming the lumpsum mutual fund:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: confirm
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    ttl: PT10M
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      provider:
+                        id: MF001
+                      items:
+                        - id: MFLC001
+                      fulfillments:
+                        - stops:
+                            - authorization:
+                                type: OTP
+                                token: "535346"
+                      payments:
+                        - params:
+                            source_bank_code: SBIN0001234
+                            source_bank_account_number: "1800002341"
+                      quote:
+                        price:
+                          currency: INR
+                          value: "5000"
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -519,9 +731,8 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Fetch status of the loan application.
+      description: Fetch status of the order.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -585,6 +796,25 @@ paths:
                     bpp_uri: https://bpp.credit.icicibank.io
                   message:
                     order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+              Fetch the status of the mutual fund:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: status
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    ttl: PT10M
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order_id: 66B7AEDF45
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -614,9 +844,8 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Cancel a loan application.
+      description: Cancel the financial service order.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -690,6 +919,28 @@ paths:
                     cancellation_reason_id: "5"
                     descriptor:
                       short_desc: Invoice was cancelled
+              Cancel the mutual fund order:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: cancel
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    ttl: PT10M
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                    cancellation_reason_id: "5"
+                    descriptor:
+                      short_desc: Fund returns not optimal
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -719,9 +970,8 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Request a change in the loan application, or personal/business details submitted at the time of applying.
+      description: Request a change in the financial services order/product, or personal/business details submitted at the time of applying.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -820,6 +1070,51 @@ paths:
                             state:
                               descriptor:
                                 name: Loan application updated
+              Request a change in the systemic investment plan amount in the mutual fund:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: update
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    ttl: PT10M
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    update_target: order.quote
+                    order:
+                      id: 66B7AEDF45
+                      payments:
+                        - tags:
+                            - descriptor:
+                                name: Investment Method
+                              list:
+                                - descriptor:
+                                    name: Type
+                                  value: SIP
+                                - descriptor:
+                                    name: Amount
+                                  value: "500"
+                                - descriptor:
+                                    name: SIP Start Date
+                                  value: "2023-01-07"
+                                - descriptor:
+                                    name: SIP Frequency
+                                  value: Monthly
+                                - descriptor:
+                                    name: SIP End Date
+                                  value: "2026-01-07"
+                      quote:
+                        price:
+                          currency: INR
+                          value: "1000"
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -851,7 +1146,6 @@ paths:
         - Beckn Provider Platform (BPP)
       description: Contact customer support
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -919,6 +1213,28 @@ paths:
                       order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                       phone: "+919876543210"
                       email: alpha.manufacturing@gmail.com
+              Get support for the mutual fund order:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: support
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    ttl: PT10M
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    support:
+                      order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                      phone: "+919876543210"
+                      email: alpha.manufacturing@gmail.com
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -949,9 +1265,8 @@ paths:
       tags:
         - Beckn Application Platform (BAP)
         - Beckn Gateway (BG)
-      description: Lender sends its catalog in response to a search request.
+      description: Financial services provider sends its catalog in response to a search request.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -1123,6 +1438,281 @@ paths:
                                   mime_type: text/html
                                   url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf253fd
                                   submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
+              Mutual Fund provider sends a catalog in response to the search requestBody:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_search
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+                    ttl: PT30M
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    catalog:
+                      descriptor:
+                        name: ABC Mutual Funds
+                      providers:
+                        - id: MF001
+                          descriptor:
+                            images:
+                              - url: https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png
+                            code: ABCMF
+                            name: ABC Mutual Funds
+                            short_desc: ABC Mutual Funds Ltd
+                            long_desc: ABC Mutual Funds Ltd, India.
+                          categories:
+                            - id: CAT101
+                              descriptor:
+                                name: Large Cap
+                                long_desc: This mutual fund aims to provide long-term capital growth by investing in large-cap equities.
+                            - id: CAT102
+                              descriptor:
+                                name: Corporate Bonds
+                                long_desc: This mutual fund aims to generate income by investing in high-quality corporate bonds.
+                            - id: CAT103
+                              descriptor:
+                                name: Balanced
+                                long_desc: This mutual fund aims to provide a balance between capital growth and income by investing in a mix of equities and bonds.
+                          items:
+                            - id: MFLC001
+                              descriptor:
+                                name: ABC Large Cap Mutual Fund
+                              category_ids:
+                                - CAT101
+                              tags:
+                                - descriptor:
+                                    name: Mutual Fund Information
+                                  list:
+                                    - descriptor:
+                                        name: Type
+                                        short_desc: Fund Type
+                                      value: Equity
+                                    - descriptor:
+                                        name: Manager
+                                        short_desc: Fund Manager
+                                      value: John Doe
+                                    - descriptor:
+                                        name: Rating
+                                        short_desc: Fund Rating
+                                      value: "4.5"
+                                    - descriptor:
+                                        name: Inception Date
+                                        short_desc: Fund Inception Date
+                                      value: "2020-01-15"
+                                    - descriptor:
+                                        name: AUM
+                                        short_desc: Fund AUM
+                                      value: 250,000,000
+                                    - descriptor:
+                                        name: Expense Ratio
+                                        short_desc: Fund Expense Ratio
+                                      value: 1.25%
+                                    - descriptor:
+                                        name: 1 month returns
+                                        short_desc: Fund 1 month returns
+                                      value: 2.25%
+                                    - descriptor:
+                                        name: 3 month returns
+                                        short_desc: Fund 3 month returns
+                                      value: 6%
+                                    - descriptor:
+                                        name: 6 month returns
+                                        short_desc: Fund 5 month returns
+                                      value: 7%
+                                    - descriptor:
+                                        name: 1 year returns
+                                        short_desc: Fund 1 year returns
+                                      value: 15.25%
+                                    - descriptor:
+                                        name: 3 year returns
+                                        short_desc: Fund 3 year returns
+                                      value: 45%
+                                    - descriptor:
+                                        name: 5 year returns
+                                        short_desc: Fund 5 year returns
+                                      value: 60%
+                                    - descriptor:
+                                        name: Investment Options
+                                        short_desc: Fund Investment Options
+                                      value: SIP, Lumpsum
+                                    - descriptor:
+                                        name: SIP minimum investment amount
+                                        short_desc: Fund SIP minimum investment amount
+                                      value: "500"
+                                    - descriptor:
+                                        name: Lumpsum minimum investment amount
+                                        short_desc: Fund lumpsum minimum investment amount
+                                      value: "5000"
+                                  display: true
+                              matched: true
+                              xinput:
+                                form:
+                                  mime_type: text/html
+                                  url: https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bfd54f
+                                  submission_id: 1c46b168-83ae-46ad-ac8a-d3c05870252c
+                                required: true
+                            - id: MFCB002
+                              descriptor:
+                                name: ABC Corporate Bonds Mutual Fund
+                              category_ids:
+                                - CAT102
+                              tags:
+                                - descriptor:
+                                    name: Mutual Fund Information
+                                  list:
+                                    - descriptor:
+                                        name: Type
+                                        short_desc: Fund Type
+                                      value: Fixed Income
+                                    - descriptor:
+                                        name: Manager
+                                        short_desc: Fund Manager
+                                      value: Jane Smith
+                                    - descriptor:
+                                        name: Rating
+                                        short_desc: Fund Rating
+                                      value: "4.2"
+                                    - descriptor:
+                                        name: Inception Date
+                                        short_desc: Fund Inception Date
+                                      value: "2015-08-15"
+                                    - descriptor:
+                                        name: AUM
+                                        short_desc: Fund AUM
+                                      value: 120,000,000
+                                    - descriptor:
+                                        name: Expense Ratio
+                                        short_desc: Fund Expense Ratio
+                                      value: 0.95%
+                                    - descriptor:
+                                        name: 1 month returns
+                                        short_desc: Fund 1 month returns
+                                      value: 2.25%
+                                    - descriptor:
+                                        name: 3 month returns
+                                        short_desc: Fund 3 month returns
+                                      value: 6%
+                                    - descriptor:
+                                        name: 6 month returns
+                                        short_desc: Fund 5 month returns
+                                      value: 7%
+                                    - descriptor:
+                                        name: 1 year returns
+                                        short_desc: Fund 1 year returns
+                                      value: 5.25%
+                                    - descriptor:
+                                        name: 3 year returns
+                                        short_desc: Fund 3 year returns
+                                      value: 15.2%
+                                    - descriptor:
+                                        name: 5 year returns
+                                        short_desc: Fund 5 year returns
+                                      value: 20%
+                                    - descriptor:
+                                        name: Investment Options
+                                        short_desc: Fund Investment Options
+                                      value: SIP, Lumpsum
+                                    - descriptor:
+                                        name: SIP minimum investment amount
+                                        short_desc: Fund SIP minimum investment amount
+                                      value: "500"
+                                    - descriptor:
+                                        name: Lumpsum minimum investment amount
+                                        short_desc: Fund lumpsum minimum investment amount
+                                      value: "5000"
+                                  display: true
+                              matched: true
+                              xinput:
+                                form:
+                                  mime_type: text/html
+                                  url: https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bfd54f
+                                  submission_id: 1c46b168-83ae-46ad-ac8a-d3c05870252c
+                                required: true
+                            - id: MFBF002
+                              descriptor:
+                                name: ABC Balanced Mutual Fund
+                              category_ids:
+                                - CAT103
+                              tags:
+                                - descriptor:
+                                    name: Mutual Fund Information
+                                  list:
+                                    - descriptor:
+                                        name: Type
+                                        short_desc: Fund Type
+                                      value: Hybrid
+                                    - descriptor:
+                                        name: Manager
+                                        short_desc: Fund Manager
+                                      value: Robert Johnson
+                                    - descriptor:
+                                        name: Rating
+                                        short_desc: Fund Rating
+                                      value: "4"
+                                    - descriptor:
+                                        name: Inception Date
+                                        short_desc: Fund Inception Date
+                                      value: "2012-04-05"
+                                    - descriptor:
+                                        name: AUM
+                                        short_desc: Fund AUM
+                                      value: 80,000,000
+                                    - descriptor:
+                                        name: Expense Ratio
+                                        short_desc: Fund Expense Ratio
+                                      value: 1.1%
+                                    - descriptor:
+                                        name: 1 month returns
+                                        short_desc: Fund 1 month returns
+                                      value: 2.25%
+                                    - descriptor:
+                                        name: 3 month returns
+                                        short_desc: Fund 3 month returns
+                                      value: 6%
+                                    - descriptor:
+                                        name: 6 month returns
+                                        short_desc: Fund 5 month returns
+                                      value: 7%
+                                    - descriptor:
+                                        name: 1 year returns
+                                        short_desc: Fund 1 year returns
+                                      value: 8.25%
+                                    - descriptor:
+                                        name: 3 year returns
+                                        short_desc: Fund 3 year returns
+                                      value: 25.2%
+                                    - descriptor:
+                                        name: 5 year returns
+                                        short_desc: Fund 5 year returns
+                                      value: 30%
+                                    - descriptor:
+                                        name: Investment Options
+                                        short_desc: Fund Investment Options
+                                      value: SIP, Lumpsum
+                                    - descriptor:
+                                        name: SIP minimum investment amount
+                                        short_desc: Fund SIP minimum investment amount
+                                      value: "500"
+                                    - descriptor:
+                                        name: Lumpsum minimum investment amount
+                                        short_desc: Fund lumpsum minimum investment amount
+                                      value: "5000"
+                                  display: true
+                              matched: true
+                              xinput:
+                                form:
+                                  mime_type: text/html
+                                  url: https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bfd54f
+                                  submission_id: 1c46b168-83ae-46ad-ac8a-d3c05870252c
+                                required: true
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -1152,9 +1742,8 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Selected lender sends details for the selected loan
+      description: Selected provider sends details for the selected financial services product.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -1333,6 +1922,120 @@ paths:
                           url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
                           submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
                         required: true
+              Mutual Fund house sends product details for the selected product:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_select
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+                    ttl: PT30M
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      provider:
+                        id: MF001
+                        descriptor:
+                          images:
+                            - url: https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png
+                          code: ABCMF
+                          name: ABC Mutual Funds
+                          short_desc: ABC Mutual Funds Ltd
+                          long_desc: ABC Mutual Funds Ltd, India.
+                      items:
+                        - id: MFLC001
+                          descriptor:
+                            name: ABC Large Cap Mutual Fund
+                          category_ids:
+                            - CAT101
+                          tags:
+                            - descriptor:
+                                name: Mutual Fund Information
+                              list:
+                                - descriptor:
+                                    name: Type
+                                    short_desc: Fund Type
+                                  value: Equity
+                                - descriptor:
+                                    name: Manager
+                                    short_desc: Fund Manager
+                                  value: John Doe
+                                - descriptor:
+                                    name: Rating
+                                    short_desc: Fund Rating
+                                  value: "4.5"
+                                - descriptor:
+                                    name: Inception Date
+                                    short_desc: Fund Inception Date
+                                  value: "2020-01-15"
+                                - descriptor:
+                                    name: NAV
+                                    short_desc: NAV
+                                  value: 120 rupees
+                                - descriptor:
+                                    name: AUM
+                                    short_desc: Fund AUM
+                                  value: 250,000,000
+                                - descriptor:
+                                    name: Expense Ratio
+                                    short_desc: Fund Expense Ratio
+                                  value: 1.25%
+                                - descriptor:
+                                    name: 1 month returns
+                                    short_desc: Fund 1 month returns
+                                  value: 2.25%
+                                - descriptor:
+                                    name: 3 month returns
+                                    short_desc: Fund 3 month returns
+                                  value: 6%
+                                - descriptor:
+                                    name: 6 month returns
+                                    short_desc: Fund 5 month returns
+                                  value: 7%
+                                - descriptor:
+                                    name: 1 year returns
+                                    short_desc: Fund 1 year returns
+                                  value: 15.25%
+                                - descriptor:
+                                    name: 3 year returns
+                                    short_desc: Fund 3 year returns
+                                  value: 45%
+                                - descriptor:
+                                    name: 5 year returns
+                                    short_desc: Fund 5 year returns
+                                  value: 60%
+                                - descriptor:
+                                    name: Investment Options
+                                    short_desc: Fund Investment Options
+                                  value: SIP, Lumpsum
+                                - descriptor:
+                                    name: SIP minimum investment amount
+                                    short_desc: Fund SIP minimum investment amount
+                                  value: "500"
+                                - descriptor:
+                                    name: Lumpsum minimum investment amount
+                                    short_desc: Fund lumpsum minimum investment amount
+                                  value: "5000"
+                              display: true
+                          matched: true
+                          xinput:
+                            form:
+                              mime_type: text/html
+                              url: https://6vs8xnx5i7.abcmf.co.in/mf-kyc/xinput/formid/a23f2fdfbbb8ac402bfd54f
+                              submission_id: 1c46b168-83ae-46ad-ac8a-d3c05870252c
+                            required: true
+                      quote:
+                        price:
+                          currency: INR
+                          value: "120"
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -1362,9 +2065,8 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Lender initiates loan application along with consent requests, and generates the loan agreement
+      description: Provider initiates the order. along with consent requests, and generates an agreement.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -1685,6 +2387,302 @@ paths:
                                 name: Loan Agreement
                                 short_desc: Click on this link to view and sign your Loan Agreement
                               value: https://icicibank.com/loanAgreement?id=afyrq9fbH
+              Mutual Fund provider initiates an SIP mutual fund order:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_init
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+                    ttl: PT30M
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      provider:
+                        id: MF001
+                        descriptor:
+                          images:
+                            - url: https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png
+                          code: ABCMF
+                          name: ABC Mutual Funds
+                          short_desc: ABC Mutual Funds Ltd
+                          long_desc: ABC Mutual Funds Ltd, India.
+                      items:
+                        - id: MFLC001
+                          descriptor:
+                            name: ABC Large Cap Mutual Fund
+                          category_ids:
+                            - CAT101
+                          tags:
+                            - descriptor:
+                                name: Mutual Fund Information
+                              list:
+                                - descriptor:
+                                    name: Type
+                                    short_desc: Fund Type
+                                  value: Equity
+                                - descriptor:
+                                    name: Manager
+                                    short_desc: Fund Manager
+                                  value: John Doe
+                                - descriptor:
+                                    name: Rating
+                                    short_desc: Fund Rating
+                                  value: "4.5"
+                                - descriptor:
+                                    name: Inception Date
+                                    short_desc: Fund Inception Date
+                                  value: "2020-01-15"
+                                - descriptor:
+                                    name: AUM
+                                    short_desc: Fund AUM
+                                  value: 250,000,000
+                                - descriptor:
+                                    name: Expense Ratio
+                                    short_desc: Fund Expense Ratio
+                                  value: 1.25%
+                                - descriptor:
+                                    name: 1 month returns
+                                    short_desc: Fund 1 month returns
+                                  value: 2.25%
+                                - descriptor:
+                                    name: 3 month returns
+                                    short_desc: Fund 3 month returns
+                                  value: 6%
+                                - descriptor:
+                                    name: 6 month returns
+                                    short_desc: Fund 5 month returns
+                                  value: 7%
+                                - descriptor:
+                                    name: 1 year returns
+                                    short_desc: Fund 1 year returns
+                                  value: 15.25%
+                                - descriptor:
+                                    name: 3 year returns
+                                    short_desc: Fund 3 year returns
+                                  value: 45%
+                                - descriptor:
+                                    name: 5 year returns
+                                    short_desc: Fund 5 year returns
+                                  value: 60%
+                                - descriptor:
+                                    name: Investment Options
+                                    short_desc: Fund Investment Options
+                                  value: SIP, Lumpsum
+                                - descriptor:
+                                    name: SIP minimum investment amount
+                                    short_desc: Fund SIP minimum investment amount
+                                  value: "500"
+                                - descriptor:
+                                    name: Lumpsum minimum investment amount
+                                    short_desc: Fund lumpsum minimum investment amount
+                                  value: "5000"
+                              display: true
+                          matched: true
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          state:
+                            descriptor:
+                              name: Mutual Fund Order Initialized
+                      quote:
+                        price:
+                          currency: INR
+                          value: "500"
+                        tags:
+                          - descriptor:
+                              name: NAV Details
+                            list:
+                              - descriptor:
+                                  name: Unit price
+                                value: "120"
+                              - descriptor:
+                                  name: Units allocated
+                                value: "4.15"
+                      payments:
+                        - type: ON-ORDER
+                          url: https://emandate.abcmutalfunds.in
+                          params:
+                            amount: "500"
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-07-2023 00:00:00
+                              end: 30-07-2023 23:59:59
+                      cancellation_terms:
+                        - fulfillment_state:
+                            descriptor:
+                              name: Terms
+                          external_ref:
+                            mimetype: text/html
+                            url: https://abcmutalfunds.com/mf/tnc.html
+                      tags:
+                        - list:
+                            - descriptor:
+                                name: Mutual Fund Agreement
+                                short_desc: Click on this link to view and sign your Agreement
+                              value: https://abcmutualfunds.com/agreement?id=afyrq9fbH
+              Mutual Fund provider initiates a lumpsum mutual fund order:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_init
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+                    ttl: PT30M
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      provider:
+                        id: MF001
+                        descriptor:
+                          images:
+                            - url: https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png
+                          code: ABCMF
+                          name: ABC Mutual Funds
+                          short_desc: ABC Mutual Funds Ltd
+                          long_desc: ABC Mutual Funds Ltd, India.
+                      items:
+                        - id: MFLC001
+                          descriptor:
+                            name: ABC Large Cap Mutual Fund
+                          category_ids:
+                            - CAT101
+                          tags:
+                            - descriptor:
+                                name: Mutual Fund Information
+                              list:
+                                - descriptor:
+                                    name: Type
+                                    short_desc: Fund Type
+                                  value: Equity
+                                - descriptor:
+                                    name: Manager
+                                    short_desc: Fund Manager
+                                  value: John Doe
+                                - descriptor:
+                                    name: Rating
+                                    short_desc: Fund Rating
+                                  value: "4.5"
+                                - descriptor:
+                                    name: Inception Date
+                                    short_desc: Fund Inception Date
+                                  value: "2020-01-15"
+                                - descriptor:
+                                    name: AUM
+                                    short_desc: Fund AUM
+                                  value: 250,000,000
+                                - descriptor:
+                                    name: Expense Ratio
+                                    short_desc: Fund Expense Ratio
+                                  value: 1.25%
+                                - descriptor:
+                                    name: 1 month returns
+                                    short_desc: Fund 1 month returns
+                                  value: 2.25%
+                                - descriptor:
+                                    name: 3 month returns
+                                    short_desc: Fund 3 month returns
+                                  value: 6%
+                                - descriptor:
+                                    name: 6 month returns
+                                    short_desc: Fund 5 month returns
+                                  value: 7%
+                                - descriptor:
+                                    name: 1 year returns
+                                    short_desc: Fund 1 year returns
+                                  value: 15.25%
+                                - descriptor:
+                                    name: 3 year returns
+                                    short_desc: Fund 3 year returns
+                                  value: 45%
+                                - descriptor:
+                                    name: 5 year returns
+                                    short_desc: Fund 5 year returns
+                                  value: 60%
+                                - descriptor:
+                                    name: Investment Options
+                                    short_desc: Fund Investment Options
+                                  value: SIP, Lumpsum
+                                - descriptor:
+                                    name: SIP minimum investment amount
+                                    short_desc: Fund SIP minimum investment amount
+                                  value: "500"
+                                - descriptor:
+                                    name: Lumpsum minimum investment amount
+                                    short_desc: Fund lumpsum minimum investment amount
+                                  value: "5000"
+                              display: true
+                          matched: true
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          state:
+                            descriptor:
+                              name: Mutual Fund Order Initialized
+                      quote:
+                        price:
+                          currency: INR
+                          value: "5000"
+                        tags:
+                          - descriptor:
+                              name: NAV Details
+                            list:
+                              - descriptor:
+                                  name: Unit price
+                                value: "120"
+                              - descriptor:
+                                  name: Units allocated
+                                value: "41.50"
+                      payments:
+                        - type: ON-ORDER
+                          url: https://payment.abcmutalfunds.in
+                          params:
+                            amount: "5000"
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-07-2023 00:00:00
+                              end: 30-07-2023 23:59:59
+                      cancellation_terms:
+                        - fulfillment_state:
+                            descriptor:
+                              name: Terms
+                          external_ref:
+                            mimetype: text/html
+                            url: https://abcmutalfunds.com/mf/tnc.html
+                      tags:
+                        - list:
+                            - descriptor:
+                                name: Mutual Fund Agreement
+                                short_desc: Click on this link to view and sign your Agreement
+                              value: https://abcmutualfunds.com/agreement?id=afyrq9fbH
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -1714,9 +2712,8 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Lender checks eligibility, and approves the loan application after a successful consent validation.
+      description: Provider validates the order, and approves it after a successful consent approval.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -2060,6 +3057,292 @@ paths:
                           external_ref:
                             mimetype: text/html
                             url: https://icicibank.com/loan/tnc.html
+              Mutual fund provider approves the SIP mutual fund Order:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_confirm
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+                    ttl: PT30M
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      id: 66B7AEDF45
+                      provider:
+                        id: MF001
+                        descriptor:
+                          images:
+                            - url: https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png
+                          code: ABCMF
+                          name: ABC Mutual Funds
+                          short_desc: ABC Mutual Funds Ltd
+                          long_desc: ABC Mutual Funds Ltd, India.
+                      items:
+                        - id: MFLC001
+                          descriptor:
+                            name: ABC Large Cap Mutual Fund
+                          category_ids:
+                            - CAT101
+                          tags:
+                            - descriptor:
+                                name: Mutual Fund Information
+                              list:
+                                - descriptor:
+                                    name: Type
+                                    short_desc: Fund Type
+                                  value: Equity
+                                - descriptor:
+                                    name: Manager
+                                    short_desc: Fund Manager
+                                  value: John Doe
+                                - descriptor:
+                                    name: Rating
+                                    short_desc: Fund Rating
+                                  value: "4.5"
+                                - descriptor:
+                                    name: Inception Date
+                                    short_desc: Fund Inception Date
+                                  value: "2020-01-15"
+                                - descriptor:
+                                    name: AUM
+                                    short_desc: Fund AUM
+                                  value: 250,000,000
+                                - descriptor:
+                                    name: Expense Ratio
+                                    short_desc: Fund Expense Ratio
+                                  value: 1.25%
+                                - descriptor:
+                                    name: 1 month returns
+                                    short_desc: Fund 1 month returns
+                                  value: 2.25%
+                                - descriptor:
+                                    name: 3 month returns
+                                    short_desc: Fund 3 month returns
+                                  value: 6%
+                                - descriptor:
+                                    name: 6 month returns
+                                    short_desc: Fund 5 month returns
+                                  value: 7%
+                                - descriptor:
+                                    name: 1 year returns
+                                    short_desc: Fund 1 year returns
+                                  value: 15.25%
+                                - descriptor:
+                                    name: 3 year returns
+                                    short_desc: Fund 3 year returns
+                                  value: 45%
+                                - descriptor:
+                                    name: 5 year returns
+                                    short_desc: Fund 5 year returns
+                                  value: 60%
+                                - descriptor:
+                                    name: Investment Options
+                                    short_desc: Fund Investment Options
+                                  value: SIP, Lumpsum
+                                - descriptor:
+                                    name: SIP minimum investment amount
+                                    short_desc: Fund SIP minimum investment amount
+                                  value: "500"
+                                - descriptor:
+                                    name: Lumpsum minimum investment amount
+                                    short_desc: Fund lumpsum minimum investment amount
+                                  value: "5000"
+                              display: true
+                          matched: true
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          state:
+                            descriptor:
+                              name: Mutual Fund order confirmed
+                      quote:
+                        price:
+                          currency: INR
+                          value: "500"
+                        tags:
+                          - descriptor:
+                              name: NAV Details
+                            list:
+                              - descriptor:
+                                  name: Unit price
+                                value: "120"
+                              - descriptor:
+                                  name: Units allocated
+                                value: "4.15"
+                      payments:
+                        - type: ON-FULFILLMENT
+                          url: https://emandate.abcmutalfunds.in
+                          params:
+                            amount: "500"
+                            currency: INR
+                          status: PAID
+                          time:
+                            range:
+                              start: 01-07-2023 00:00:00
+                              end: 30-07-2023 23:59:59
+                      cancellation_terms:
+                        - fulfillment_state:
+                            descriptor:
+                              name: Terms
+                          external_ref:
+                            mimetype: text/html
+                            url: https://abcmutalfunds.com/mf/tnc.html
+              Mutual fund provider approves the lumpsum mutual fund Order:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_confirm
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+                    ttl: PT30M
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      id: 66B7AEDF45
+                      provider:
+                        id: MF001
+                        descriptor:
+                          images:
+                            - url: https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png
+                          code: ABCMF
+                          name: ABC Mutual Funds
+                          short_desc: ABC Mutual Funds Ltd
+                          long_desc: ABC Mutual Funds Ltd, India.
+                      items:
+                        - id: MFLC001
+                          descriptor:
+                            name: ABC Large Cap Mutual Fund
+                          category_ids:
+                            - CAT101
+                          tags:
+                            - descriptor:
+                                name: Mutual Fund Information
+                              list:
+                                - descriptor:
+                                    name: Type
+                                    short_desc: Fund Type
+                                  value: Equity
+                                - descriptor:
+                                    name: Manager
+                                    short_desc: Fund Manager
+                                  value: John Doe
+                                - descriptor:
+                                    name: Rating
+                                    short_desc: Fund Rating
+                                  value: "4.5"
+                                - descriptor:
+                                    name: Inception Date
+                                    short_desc: Fund Inception Date
+                                  value: "2020-01-15"
+                                - descriptor:
+                                    name: AUM
+                                    short_desc: Fund AUM
+                                  value: 250,000,000
+                                - descriptor:
+                                    name: Expense Ratio
+                                    short_desc: Fund Expense Ratio
+                                  value: 1.25%
+                                - descriptor:
+                                    name: 1 month returns
+                                    short_desc: Fund 1 month returns
+                                  value: 2.25%
+                                - descriptor:
+                                    name: 3 month returns
+                                    short_desc: Fund 3 month returns
+                                  value: 6%
+                                - descriptor:
+                                    name: 6 month returns
+                                    short_desc: Fund 5 month returns
+                                  value: 7%
+                                - descriptor:
+                                    name: 1 year returns
+                                    short_desc: Fund 1 year returns
+                                  value: 15.25%
+                                - descriptor:
+                                    name: 3 year returns
+                                    short_desc: Fund 3 year returns
+                                  value: 45%
+                                - descriptor:
+                                    name: 5 year returns
+                                    short_desc: Fund 5 year returns
+                                  value: 60%
+                                - descriptor:
+                                    name: Investment Options
+                                    short_desc: Fund Investment Options
+                                  value: SIP, Lumpsum
+                                - descriptor:
+                                    name: SIP minimum investment amount
+                                    short_desc: Fund SIP minimum investment amount
+                                  value: "500"
+                                - descriptor:
+                                    name: Lumpsum minimum investment amount
+                                    short_desc: Fund lumpsum minimum investment amount
+                                  value: "5000"
+                              display: true
+                          matched: true
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          state:
+                            descriptor:
+                              name: Mutual Fund order confirmed
+                      quote:
+                        price:
+                          currency: INR
+                          value: "5000"
+                        tags:
+                          - descriptor:
+                              name: NAV Details
+                            list:
+                              - descriptor:
+                                  name: Unit price
+                                value: "120"
+                              - descriptor:
+                                  name: Units allocated
+                                value: "41.50"
+                      payments:
+                        - type: ON-ORDER
+                          url: https://payment.abcmutalfunds.in
+                          params:
+                            amount: "5000"
+                            currency: INR
+                          status: PAID
+                          time:
+                            range:
+                              start: 01-07-2023 00:00:00
+                              end: 30-07-2023 23:59:59
+                      cancellation_terms:
+                        - fulfillment_state:
+                            descriptor:
+                              name: Terms
+                          external_ref:
+                            mimetype: text/html
+                            url: https://abcmutalfunds.com/mf/tnc.html
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -2089,9 +3372,8 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled loan application.
+      description: Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -2435,6 +3717,150 @@ paths:
                           external_ref:
                             mimetype: text/html
                             url: https://icicibank.com/loan/tnc.html
+              Mutual fund provider cancels the SIP order:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_cancel
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+                    ttl: PT30M
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      id: 66B7AEDF45
+                      status: CANCELLED
+                      provider:
+                        id: MF001
+                        descriptor:
+                          images:
+                            - url: https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png
+                          code: ABCMF
+                          name: ABC Mutual Funds
+                          short_desc: ABC Mutual Funds Ltd
+                          long_desc: ABC Mutual Funds Ltd, India.
+                      items:
+                        - id: MFLC001
+                          descriptor:
+                            name: ABC Large Cap Mutual Fund
+                          category_ids:
+                            - CAT101
+                          tags:
+                            - descriptor:
+                                name: Mutual Fund Information
+                              list:
+                                - descriptor:
+                                    name: Type
+                                    short_desc: Fund Type
+                                  value: Equity
+                                - descriptor:
+                                    name: Manager
+                                    short_desc: Fund Manager
+                                  value: John Doe
+                                - descriptor:
+                                    name: Rating
+                                    short_desc: Fund Rating
+                                  value: "4.5"
+                                - descriptor:
+                                    name: Inception Date
+                                    short_desc: Fund Inception Date
+                                  value: "2020-01-15"
+                                - descriptor:
+                                    name: AUM
+                                    short_desc: Fund AUM
+                                  value: 250,000,000
+                                - descriptor:
+                                    name: Expense Ratio
+                                    short_desc: Fund Expense Ratio
+                                  value: 1.25%
+                                - descriptor:
+                                    name: 1 month returns
+                                    short_desc: Fund 1 month returns
+                                  value: 2.25%
+                                - descriptor:
+                                    name: 3 month returns
+                                    short_desc: Fund 3 month returns
+                                  value: 6%
+                                - descriptor:
+                                    name: 6 month returns
+                                    short_desc: Fund 5 month returns
+                                  value: 7%
+                                - descriptor:
+                                    name: 1 year returns
+                                    short_desc: Fund 1 year returns
+                                  value: 15.25%
+                                - descriptor:
+                                    name: 3 year returns
+                                    short_desc: Fund 3 year returns
+                                  value: 45%
+                                - descriptor:
+                                    name: 5 year returns
+                                    short_desc: Fund 5 year returns
+                                  value: 60%
+                                - descriptor:
+                                    name: Investment Options
+                                    short_desc: Fund Investment Options
+                                  value: SIP, Lumpsum
+                                - descriptor:
+                                    name: SIP minimum investment amount
+                                    short_desc: Fund SIP minimum investment amount
+                                  value: "500"
+                                - descriptor:
+                                    name: Lumpsum minimum investment amount
+                                    short_desc: Fund lumpsum minimum investment amount
+                                  value: "5000"
+                              display: true
+                          matched: true
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          state:
+                            descriptor:
+                              name: SIP cancelled
+                      quote:
+                        price:
+                          currency: INR
+                          value: "5000"
+                        tags:
+                          - descriptor:
+                              name: NAV Details
+                            list:
+                              - descriptor:
+                                  name: Unit price
+                                value: "120"
+                              - descriptor:
+                                  name: Units allocated
+                                value: "41.50"
+                      payments:
+                        - type: ON-ORDER
+                          url: https://payment.abcmutalfunds.in
+                          params:
+                            amount: "5000"
+                            currency: INR
+                          status: PAID
+                          time:
+                            range:
+                              start: 01-07-2023 00:00:00
+                              end: 30-07-2023 23:59:59
+                      cancellation_terms:
+                        - fulfillment_state:
+                            descriptor:
+                              name: Terms
+                          external_ref:
+                            mimetype: text/html
+                            url: https://abcmutalfunds.com/mf/tnc.html
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -2464,9 +3890,8 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Lender approves or denies update to loan application. If the loan agreement was modified, an updated terms & conditions will be sent.
+      description: Provider approves or denies update to the order/product. If the agreement was modified, an updated terms & conditions will be sent.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -2810,6 +4235,149 @@ paths:
                           external_ref:
                             mimetype: text/html
                             url: https://icicibank.com/loan/tnc.html
+              Mutual fund provider updates the SIP amount and sends the response:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_update
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+                    ttl: PT30M
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      id: 66B7AEDF45
+                      provider:
+                        id: MF001
+                        descriptor:
+                          images:
+                            - url: https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png
+                          code: ABCMF
+                          name: ABC Mutual Funds
+                          short_desc: ABC Mutual Funds Ltd
+                          long_desc: ABC Mutual Funds Ltd, India.
+                      items:
+                        - id: MFLC001
+                          descriptor:
+                            name: ABC Large Cap Mutual Fund
+                          category_ids:
+                            - CAT101
+                          tags:
+                            - descriptor:
+                                name: Mutual Fund Information
+                              list:
+                                - descriptor:
+                                    name: Type
+                                    short_desc: Fund Type
+                                  value: Equity
+                                - descriptor:
+                                    name: Manager
+                                    short_desc: Fund Manager
+                                  value: John Doe
+                                - descriptor:
+                                    name: Rating
+                                    short_desc: Fund Rating
+                                  value: "4.5"
+                                - descriptor:
+                                    name: Inception Date
+                                    short_desc: Fund Inception Date
+                                  value: "2020-01-15"
+                                - descriptor:
+                                    name: AUM
+                                    short_desc: Fund AUM
+                                  value: 250,000,000
+                                - descriptor:
+                                    name: Expense Ratio
+                                    short_desc: Fund Expense Ratio
+                                  value: 1.25%
+                                - descriptor:
+                                    name: 1 month returns
+                                    short_desc: Fund 1 month returns
+                                  value: 2.25%
+                                - descriptor:
+                                    name: 3 month returns
+                                    short_desc: Fund 3 month returns
+                                  value: 6%
+                                - descriptor:
+                                    name: 6 month returns
+                                    short_desc: Fund 5 month returns
+                                  value: 7%
+                                - descriptor:
+                                    name: 1 year returns
+                                    short_desc: Fund 1 year returns
+                                  value: 15.25%
+                                - descriptor:
+                                    name: 3 year returns
+                                    short_desc: Fund 3 year returns
+                                  value: 45%
+                                - descriptor:
+                                    name: 5 year returns
+                                    short_desc: Fund 5 year returns
+                                  value: 60%
+                                - descriptor:
+                                    name: Investment Options
+                                    short_desc: Fund Investment Options
+                                  value: SIP, Lumpsum
+                                - descriptor:
+                                    name: SIP minimum investment amount
+                                    short_desc: Fund SIP minimum investment amount
+                                  value: "500"
+                                - descriptor:
+                                    name: Lumpsum minimum investment amount
+                                    short_desc: Fund lumpsum minimum investment amount
+                                  value: "5000"
+                              display: true
+                          matched: true
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          state:
+                            descriptor:
+                              name: SIP amount modified
+                      quote:
+                        price:
+                          currency: INR
+                          value: "1000"
+                        tags:
+                          - descriptor:
+                              name: NAV Details
+                            list:
+                              - descriptor:
+                                  name: Unit price
+                                value: "120"
+                              - descriptor:
+                                  name: Units allocated
+                                value: "8.3"
+                      payments:
+                        - type: ON-ORDER
+                          url: https://payment.abcmutalfunds.in
+                          params:
+                            amount: "1000"
+                            currency: INR
+                          status: NOT-PAID
+                          time:
+                            range:
+                              start: 01-07-2023 00:00:00
+                              end: 30-07-2023 23:59:59
+                      cancellation_terms:
+                        - fulfillment_state:
+                            descriptor:
+                              name: Terms
+                          external_ref:
+                            mimetype: text/html
+                            url: https://abcmutalfunds.com/mf/tnc.html
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -2839,9 +4407,8 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Fetch the status of the loan application.
+      description: Fetch the status of the financial services order.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -3496,6 +5063,150 @@ paths:
                           external_ref:
                             mimetype: text/html
                             url: https://icicibank.com/loan/tnc.html
+              Returns the status of the mutual fund order after an SIP has been initiated:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_status
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+                    ttl: PT30M
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
+                  message:
+                    order:
+                      id: 66B7AEDF45
+                      status: PROCESSING
+                      provider:
+                        id: MF001
+                        descriptor:
+                          images:
+                            - url: https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png
+                          code: ABCMF
+                          name: ABC Mutual Funds
+                          short_desc: ABC Mutual Funds Ltd
+                          long_desc: ABC Mutual Funds Ltd, India.
+                      items:
+                        - id: MFLC001
+                          descriptor:
+                            name: ABC Large Cap Mutual Fund
+                          category_ids:
+                            - CAT101
+                          tags:
+                            - descriptor:
+                                name: Mutual Fund Information
+                              list:
+                                - descriptor:
+                                    name: Type
+                                    short_desc: Fund Type
+                                  value: Equity
+                                - descriptor:
+                                    name: Manager
+                                    short_desc: Fund Manager
+                                  value: John Doe
+                                - descriptor:
+                                    name: Rating
+                                    short_desc: Fund Rating
+                                  value: "4.5"
+                                - descriptor:
+                                    name: Inception Date
+                                    short_desc: Fund Inception Date
+                                  value: "2020-01-15"
+                                - descriptor:
+                                    name: AUM
+                                    short_desc: Fund AUM
+                                  value: 250,000,000
+                                - descriptor:
+                                    name: Expense Ratio
+                                    short_desc: Fund Expense Ratio
+                                  value: 1.25%
+                                - descriptor:
+                                    name: 1 month returns
+                                    short_desc: Fund 1 month returns
+                                  value: 2.25%
+                                - descriptor:
+                                    name: 3 month returns
+                                    short_desc: Fund 3 month returns
+                                  value: 6%
+                                - descriptor:
+                                    name: 6 month returns
+                                    short_desc: Fund 5 month returns
+                                  value: 7%
+                                - descriptor:
+                                    name: 1 year returns
+                                    short_desc: Fund 1 year returns
+                                  value: 15.25%
+                                - descriptor:
+                                    name: 3 year returns
+                                    short_desc: Fund 3 year returns
+                                  value: 45%
+                                - descriptor:
+                                    name: 5 year returns
+                                    short_desc: Fund 5 year returns
+                                  value: 60%
+                                - descriptor:
+                                    name: Investment Options
+                                    short_desc: Fund Investment Options
+                                  value: SIP, Lumpsum
+                                - descriptor:
+                                    name: SIP minimum investment amount
+                                    short_desc: Fund SIP minimum investment amount
+                                  value: "500"
+                                - descriptor:
+                                    name: Lumpsum minimum investment amount
+                                    short_desc: Fund lumpsum minimum investment amount
+                                  value: "5000"
+                              display: true
+                          matched: true
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          state:
+                            descriptor:
+                              name: Units being allocated
+                      quote:
+                        price:
+                          currency: INR
+                          value: "5000"
+                        tags:
+                          - descriptor:
+                              name: NAV Details
+                            list:
+                              - descriptor:
+                                  name: Unit price
+                                value: "120"
+                              - descriptor:
+                                  name: Units allocated
+                                value: "41.50"
+                      payments:
+                        - type: ON-ORDER
+                          url: https://payment.abcmutalfunds.in
+                          params:
+                            amount: "5000"
+                            currency: INR
+                          status: PAID
+                          time:
+                            range:
+                              start: 01-07-2023 00:00:00
+                              end: 30-07-2023 23:59:59
+                      cancellation_terms:
+                        - fulfillment_state:
+                            descriptor:
+                              name: Terms
+                          external_ref:
+                            mimetype: text/html
+                            url: https://abcmutalfunds.com/mf/tnc.html
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -3527,7 +5238,6 @@ paths:
         - Beckn Application Platform (BAP)
       description: Provides customer support details.
       requestBody:
-        description: TODO
         content:
           application/json:
             schema:
@@ -3592,6 +5302,29 @@ paths:
                     ttl: PT10M
                     bpp_id: bpp.credit.icicibank.io
                     bpp_uri: https://bpp.credit.icicibank.io
+                  message:
+                    support:
+                      order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                      phone: 1800 1080
+                      email: customer.care@icicibank.com
+                      url: https://www.icicibank.com/helpdesk
+              Provides support for the mutual fund order:
+                value:
+                  context:
+                    domain: financial-services:0.2.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: on_support
+                    timestamp: "2023-05-25T05:23:03.443Z"
+                    version: 1.1.0
+                    bap_id: mutual-fund-protocol.becknprotocol.io
+                    bap_uri: https://mutual-fund-protocol-network.becknprotocol.io/
+                    ttl: PT10M
+                    bpp_id: bpp.mutual-fund.abcmutualfunds.io
+                    bpp_uri: https://bpp.mutual-fund.abcmutualfunds.io
                   message:
                     support:
                       order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
@@ -4263,7 +5996,7 @@ components:
           type: boolean
           default: true
         submission_id:
-          description: This contains a UUID generated by the BPP on successful submission of the form. 
+          description: This contains a UUID generated by the BPP on successful submission of the form.
           type: string
           format: uuid
         errors:

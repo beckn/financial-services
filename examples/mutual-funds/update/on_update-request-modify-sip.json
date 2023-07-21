@@ -7,7 +7,7 @@
       }
     },
     "version": "1.1.0",
-    "action": "on_confirm",
+    "action": "on_update",
     "bap_id": "mutual-fund-protocol.becknprotocol.io",
     "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
@@ -172,7 +172,7 @@
           },
           "state": {
             "descriptor": {
-              "name": "Mutual Fund order confirmed"
+              "name": "SIP amount modified"
             }
           }
         }
@@ -180,7 +180,7 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "5000"
+          "value": "1000"
         },
         "tags": [
           {
@@ -198,7 +198,7 @@
                 "descriptor": {
                   "name": "Units allocated"
                 },
-                "value": "41.50"
+                "value": "8.3"
               }
             ]
           }
@@ -209,10 +209,10 @@
           "type": "ON-ORDER",
           "url": "https://payment.abcmutalfunds.in",
           "params": {
-            "amount": "5000",
+            "amount": "1000",
             "currency": "INR"
           },
-          "status": "PAID",
+          "status": "NOT-PAID",
           "time": {
             "range": {
               "start": "01-07-2023 00:00:00",
