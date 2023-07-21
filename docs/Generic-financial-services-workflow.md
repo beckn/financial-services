@@ -38,11 +38,38 @@ In this stage, the FSC selects a particular financial product and begins the pro
 ### 2.1 FSC selects a service
 In this step, the FSC requests an offer made by the FSP. In contrast to typical commercial transactions, in financial services, the application typically begins by providing the FSP with some information. This information is provided via a form submission containing all the relevant information. Sometimes, the provider might also request the consumer to share financial records like  transaction records, invoicing history, or any other information that belongs to the FSC. In some modern financial service applications, the fetching of information can also happen via an electronic consent request made by the FSP to the FSC. Once the consent is given by the consumer, the FSP pulls the financial records through the consent infrastructure.
 
-### 2.2 FSP processes the financial information
+### 2.2 FSP processes the financial information and returns an offer
 Once the financial information is fetched, the FSP processes the financial information provided by the FSC and returns an offer. This offer may not necessarily be the final offer, but more like an indication of what the FSC is eligible for. Receipt of an offer is not a guarantee of the final offer made by the FSP to the FSC.
 
-The borrower fills out an application form provided by the chosen lender.
-The application form typically requires personal details such as name, address, contact information, employment details, income, and other relevant information.
+### 2.3 FSC accepts the offer
+In this step, the FSC accepts the offer. Sometimes, the FSP requests for additional information from the FSC in order to finalize the application. This too can happen via a simple form submission or via a consent request, or both. 
+
+### 2.4 FSP generates the final agreement
+In this step, the FSP generates the final agreement with the final offer, the terms of service.
+
+### 2.5 FSC signs the agreement
+In this step, the FSC signs the agreement and confirms the application.
+
+### 2.6 FSP confirms the application
+In this step, the FSP returns the finalized application with the latest status.
+
+## 3. Fulfillment of the Financial Service
+In this stage, the application is confirmed and the FSP initiates the fulfillment of the financial service. In the case of credit, it could mean the actual disbursal of the loan. In the case of insurance, it could mean claiming an insurance, or a request for a premium to be deposited. In the case of mutual funds, it could be a request for a SIP payment. Furthermore, in this stage, the FSC can also cancel the service due to various reasons. Sometimes, the FSP can also update the terms of service based on events at the FSP or the FSC's end like an advance payment of the loan. Update of bank account, etc. As always, the Fulfillment stage of a financial service can be composed of further sub-interactions. Let us look at the types of interactions possible at this stage. 
+
+### 3.1 Status Updates
+
+### 3.2 Terms Update
+
+### 3.3 Cancellation of Service
+
+### 3.4 Tracking
+
+## 4. Post-fulfillment of Financial Services
+In this stage, all the events that happen after the financial service is fulfilled can happen. For example, rating a service, contacting support, settlements, and defaults. 
+
+### 4.1 Rating a service
+
+### 4.2 Contacting Support
 
 #### Step 3: Lender reviews the loan application
 The lender reviews the loan application submitted by the borrower.
