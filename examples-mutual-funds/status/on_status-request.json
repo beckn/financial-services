@@ -20,6 +20,7 @@
   "message": {
     "order": {
       "id": "66B7AEDF45",
+      "status": "PROCESSING",
       "provider": {
         "id": "MF001",
         "descriptor": {
@@ -172,7 +173,7 @@
           },
           "state": {
             "descriptor": {
-              "name": "Mutual Fund order confirmed"
+              "name": "Units being allocated"
             }
           }
         }
@@ -180,7 +181,7 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "500"
+          "value": "5000"
         },
         "tags": [
           {
@@ -198,7 +199,7 @@
                 "descriptor": {
                   "name": "Units allocated"
                 },
-                "value": "4.15"
+                "value": "41.50"
               }
             ]
           }
@@ -206,10 +207,10 @@
       },
       "payments": [
         {
-          "type": "ON-FULFILLMENT",
-          "url": "https://emandate.abcmutalfunds.in",
+          "type": "ON-ORDER",
+          "url": "https://payment.abcmutalfunds.in",
           "params": {
-            "amount": "500",
+            "amount": "5000",
             "currency": "INR"
           },
           "status": "PAID",

@@ -58,6 +58,12 @@
           ]
         }
       ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "5000"
+        }
+      },
       "xinput": {
         "form_response": {
           "status": true,
