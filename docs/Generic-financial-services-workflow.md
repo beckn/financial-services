@@ -1,4 +1,4 @@
-# A Generic Workflow for a Decentralized Credit Application
+# A Generic Workflow for Availing Financial Services
 
 ## Authors
 1. Ravi Prakash - FIDE
@@ -7,28 +7,40 @@
 
 ## Overview
 
-Any financial services application consists of the following steps. 
+Any financial services application consists of the following flow. 
 
 ```mermaid
-
-
-
+graph TD
+    A[Start] --> B[Discovery of Financial Services];
+    B[Discovery of Financial Services] --> C[Application for financial service];
+    C[Application for financial service] --> D[Fulfillment of financial service];
+    D[Fulfillment of financial service] --> E[Post-fulfillment of financial service];
+    E[Post-fulfillment of financial service] --> F[Stop];
 ```
 
-1. Discovery of financial service products
-2. Application for financial services
-3. Fulfillment of financial service
-4. Post-fulfillment of financial service
+Each of these steps consist of one or more interactions that allow a financial service consumer (FSC) to avail services offered by a financial services provide (FSP). These financial services can be anything ranging from Insurance, Mutual Funds, Credit, or any other service. 
 
+> Note: Bear in mind, this is just an example workflow for a simple transaction between a Consumer and a Provider. The order of interactions between the two parties is arbitratrily selected on the basis of several interviews with subject matter experts.
 
-Bear in mind, this is just an example workflow for a simple transaction between a Lender and a Borrower. The order of interactions between the two parties is arbitratrily selected on the basis of several interviews with subject matter experts.
+A typical workflow for a financial service transaction consits of the following steps
 
-A typical workflow for a loan application consits of the following steps
-
-#### Step 1: Borrower researches and selects a lender
+## 1. Discovery of Financial Services
+### 1.1: FSC discovers an FSP 
 The borrower researches various lenders to find the most suitable options for a personal loan. They compare interest rates, loan terms, eligibility criteria, and customer reviews to make an informed decision.
 
-#### Step 12: Borrower submits a loan application
+### 1.2 FSC browses through various products of an FSP
+
+### 1.3 FSC views a particular product of an FSP
+
+## 2. Application for a Financial Service
+In this stage, the FSC selects a particular financial product and begins the process of applying for it. During the process of application, there are several sub-interactions that happen between the FSC and the FSP. 
+
+### 2.1 FSC selects a service
+In this step, the FSC requests an offer made by the FSP. In contrast to typical commercial transactions, in financial services, the application typically begins by providing the FSP with some information. This information is provided via a form submission containing all the relevant information. Sometimes, the provider might also request the consumer to share financial records like  transaction records, invoicing history, or any other information that belongs to the FSC. In some modern financial service applications, the fetching of information can also happen via an electronic consent request made by the FSP to the FSC. Once the consent is given by the consumer, the FSP pulls the financial records through the consent infrastructure.
+
+### 2.2 FSP processes the financial information
+Once the financial information is fetched, the FSP processes the financial information provided by the FSC and returns an offer. This offer may not necessarily be the final offer, but more like an indication of what the FSC is eligible for. Receipt of an offer is not a guarantee of the final offer made by the FSP to the FSC.
+
 The borrower fills out an application form provided by the chosen lender.
 The application form typically requires personal details such as name, address, contact information, employment details, income, and other relevant information.
 
