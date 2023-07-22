@@ -2,8 +2,6 @@
 
 ## Authors
 1. Ravi Prakash - FIDE
-2. Hrushikesh Mehta - ONDC
-3. Antriksh Parmar - ONDC
 
 ## Overview
 
@@ -28,6 +26,25 @@ A typical workflow for a financial service transaction consits of the following 
 3. Fulfillment of the Financial Service
 4. Post-fulfillment of Financial Services
 
+## 1. Architecture
+Typically, transactions in financial services occur across multiple layers like,
+1. Transaction Layer : To facilitate the discovery, application, fulfillment, and post-fulfillment interactions
+2. Forms Layer : To transmit form-based information requested by either party during a transaction
+3. Consent Layer : To manage consented data sharing, especially when sharing financial records
+4. Payments Layer : To facilitate payments 
+5. Identity Layer : To declare and verify identities for KYC purposes
+6. Credentials Layer : To declare and verify credentials for calculation of premiums, credit worthiness, etc
+
+Depending on the sophistication of implementation, the user on either side might interact with each layer independently, or on a single user interface. This document does not assume any particular architecture. 
+
+The recommendations of Decentralized Financial Services Protocol is limited only to the transaction layer and to some extent, the forms layer. Interactions in the remaining layers like Consent, Payments, Identity, Credentials, etc are managed by their respective protocols. Implementers are recommended to adhere to the protocols mandated or recommended by their respective network facilitator organizations for such layers.
+
+Below is an illustration of how a decentralized multi-layered financial services ecosystem might look like.
+
+
+![Financial Services Architecture](https://github.com/beckn/financial-services/assets/52468749/190e5b7e-0cbf-4a5d-b2a2-177795c33db2)
+
+
 ## 1. Discovery of Financial Services
 
 The logical workflow for the discovery of a financial service is shown below
@@ -51,7 +68,7 @@ sequenceDiagram
 
 Let us look at these steps in detail. 
 
-### 1.1: FSC discovers an FSP 
+### 1.1 FSC discovers an FSP 
 The consumer researches various financial service providers through known  aggregators, search engines, broadcast media, personal connections etc. 
 
 An FSC can search for an FSP in many ways like
