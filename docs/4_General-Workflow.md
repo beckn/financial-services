@@ -1,4 +1,4 @@
-# A Generic Workflow for Availing Financial Services
+# A General Workflow for Availing Financial Services
 
 ## Authors
 1. Ravi Prakash - FIDE
