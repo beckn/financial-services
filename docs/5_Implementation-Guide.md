@@ -1,19 +1,33 @@
 # 5. Implementation Guide for BPPs
 
-This document contains the REQUIRED and RECOMMENDED standard functionality that must be implemented by any Financial Service Provider Platform a.k.a BPPs. 
+This document contains the REQUIRED and RECOMMENDED standard functionality that must be implemented by any Financial Service Provider Platform a.k.a BPPs and Financial Service Consumer Platform a.k.a BAPs.
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 [RFC2119].
 
 ## 5.1 Discovery of Financial Services
+
+### 5.1.1 Recommendations for BPPs
 The following recommendations need to be considered when implementing discovery functionality for a Financial Service BPP
 
-- REQUIRED. The platform MUST implement the `search` endpoint as per specifications described in beckn protocol specification.
-- REQUIRED. The plaform MUST return a catalog of financial service products on the `on_search` callback endpoint implemented by the BAP.
-- REQUIRED. The platform MUST map its financial service products to the `Item` schema.
+- REQUIRED. The BPP MUST implement the `search` endpoint to receive an `Intent` object sent by BAPs
+- REQUIRED. The BPP MUST return a catalog of financial service products on the `on_search` callback endpoint specified in the `context.bpp_uri` field of the `search` request body.
+- REQUIRED. The BPP MUST map its financial service products to the `Item` schema.
 - REQUIRED. Any financial service provider-related information like name, logo, short description must be mapped to the `Provider.descriptor` schema
 - REQUIRED. Any form that must be filled before receiving a quotation must be mapped to the `XInput` schema
-- RECOMMENDED. If the platform wants to group its products under a specific category, it must map each category to the `Category` schema
-- RECOMMENDED. Any service fulfillment-related information MUST be mapped to the `Fulfillment` schema.
+- REQUIRED. If the platform wants to group its products under a specific category, it must map each category to the `Category` schema
+- REQUIRED. Any service fulfillment-related information MUST be mapped to the `Fulfillment` schema.
+- REQUIRED. If the BPP does not want to respond to a search request, it MUST return a `ack.status` value equal to `NACK`
+- RECOMMENDED. Upon receiving a `search` request, the BPP SHOULD return a catalog that best matches the intent. This can be done by indexing the catalog against the various probable paths in the `Intent` schema relevant to typical financial service use cases
+
+### 5.1.2 Recommendations for BAPs
+- REQUIRED. The BAP MUST call the `search` endpoint of the BG to discover multiple BPPs on a network
+- REQUIRED. The BAP MUST implement the `on_search` endpoint to consume the `Catalog` objects containing Financial Service Products sent by BPPs.
+- REQUIRED. The BAP MUST expect multiple catalogs sent by the respective Financial Service Providers on the network
+- REQUIRED. The financial service products can be found in the `Catalog.providers[].items[]` array in the `on_search` request
+- REQUIRED. If the `catalog.providers[].items[].xinput` object is present, then the BAP MUST redirect the user to, or natively render the form present on the link specified on the `items[].xinput.form.url` field.
+- REQUIRED. If the `catalog.providers[].items[].xinput.required` field is set to `"true"` , then the BAP MUST NOT fire a `select`, `init` or `confirm` call until the form is submitted and a successful response is received
+- RECOMMENDED. If the `catalog.providers[].items[].xinput.required` field is set to `"false"` , then the BAP SHOULD allow the user to skip filling the form
+
 
 ### Example
 A search request for a mutual fund purchase may look like this
