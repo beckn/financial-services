@@ -258,6 +258,9 @@ This section provides recommendations for implementing the APIs related to apply
 
 #### 5.2.1.1 Selecting a financial service from the catalog
 - REQUIRED. The BPP MUST implement the `select` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
+- REQUIRED. The BPP MUST check for a form submission at the URL specified on the `xinput.form.url` before acknowledging a `select` request.
+- REQUIRED. If the financial service provider has successfully received the information submitted by the financial service consumer, the BPP must return an acknowledgement with `ack.status` set to `ACK` in response to the `select` request
+- REQUIRED. If the financial service provider has returned a successful acknowledgement to a `select` request, it MUST send the offer encapsulated in an `Order` object
 
 #### 5.2.1.2 Initializing an application for a financial service
 - REQUIRED. The BPP MUST implement the `init` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
@@ -272,6 +275,22 @@ This section provides recommendations for implementing the APIs related to apply
 #### 5.2.2.2 Initializing an application for a financial service
 
 #### 5.2.2.3 Confirming the application for the financial service
+
+### 5.2.3 Example Workflow
+
+### 5.2.3 Example Requests
+
+Below is an example of a `select` request
+
+Below is an example of an `on_select` callback
+
+Below is an example of a `init` request
+
+Below is an example of an `on_init` callback
+
+Below is an example of a `confirm` request
+
+Below is an example of an `on_confirm` callback
 
 ## 5.3 Fulfillment of Financial Services
 This section contains recommendations for implementing the APIs related to fulfilling a financial service
@@ -301,6 +320,26 @@ This section contains recommendations for implementing the APIs related to fulfi
 
 #### 5.3.2.4 Real-time tracking
 
+### 5.3.3 Example Workflow
+
+### 5.3.4 Example Requests
+
+Below is an example of a `status` request
+
+Below is an example of an `on_status` callback
+
+Below is an example of a `update` request
+
+Below is an example of an `on_update` callback
+
+Below is an example of a `cancel` request
+
+Below is an example of an `on_cancel` callback
+
+Below is an example of a `track` request
+
+Below is an example of an `on_track` callback
+
 ## 5.4 Post-fulfillment of Financial Services
 This section contains recommendations for implementing the APIs after fulfilling a financial service
 
@@ -318,3 +357,15 @@ This section contains recommendations for implementing the APIs after fulfilling
 #### 5.4.2.1 Rating and Feedback
 
 #### 5.4.2.2 Providing Support
+
+### 5.4.3 Example Workflow
+
+### 5.4.4 Example Requests
+
+Below is an example of a `status` request
+
+Below is an example of an `on_status` callback
+
+Below is an example of a `update` request
+
+Below is an example of an `on_update` callback
