@@ -257,10 +257,13 @@ This section provides recommendations for implementing the APIs related to apply
 ### 5.2.1 Recommendations for BPPs
 
 #### 5.2.1.1 Selecting a financial service from the catalog
+- REQUIRED. The BPP MUST implement the `select` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
 
 #### 5.2.1.2 Initializing an application for a financial service
+- REQUIRED. The BPP MUST implement the `init` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
 
 #### 5.2.1.3 Confirming the application for the financial service
+- REQUIRED. The BPP MUST implement the `confirm` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
 
 ### 5.2.2 Recommendations for BAPs
 
@@ -276,12 +279,17 @@ This section contains recommendations for implementing the APIs related to fulfi
 ### 5.3.1 Recommendations for BPPs
 
 #### 5.3.1.1 Sending status updates
+- REQUIRED. The BPP MUST implement the `status` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
 
 #### 5.3.1.2 Updating an application for financial service
+- REQUIRED. The BPP MUST implement the `update` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
 
 #### 5.3.1.3 Cancelling a financial service application
+- REQUIRED. The BPP MUST implement the `cancel` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
+- REQUIRED. The BPP MUST implement the `get_cancellation_reasons` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
 
 #### 5.3.1.4 Real-time tracking
+- REQUIRED. The BPP MUST implement the `track` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
 
 ### 5.3.2 Recommendations for BAPs
 
@@ -299,8 +307,11 @@ This section contains recommendations for implementing the APIs after fulfilling
 ### 5.4.1 Recommendations for BPPs
 
 #### 5.4.1.1 Rating and Feedback
+- REQUIRED. The BPP MUST implement the `rating` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
+- REQUIRED. The BPP MUST implement the `get_rating_categories` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
 
 #### 5.4.1.2 Providing Support
+- REQUIRED. The BPP MUST implement the `support` endpoint on the url specified in URL specified in the `context.bpp_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
 
 ### 5.4.2 Recommendations for BAPs
 
