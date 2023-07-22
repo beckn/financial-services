@@ -1,4 +1,4 @@
-# 5. Implementation Guide for BPPs
+# 5. Implementation Guide
 
 This document contains the REQUIRED and RECOMMENDED standard functionality that must be implemented by any Financial Service Provider Platform a.k.a BPPs and Financial Service Consumer Platform a.k.a BAPs.
 
@@ -252,7 +252,58 @@ An example catalog of mutual funds may look like this
 ```
 
 ## 5.2 Application for Financial Services
+This section provides recommendations for implementing the APIs related to applying for a financial service.
+
+### 5.2.1 Recommendations for BPPs
+
+#### 5.2.1.1 Selecting a financial service from the catalog
+
+#### 5.2.1.2 Initializing an application for a financial service
+
+#### 5.2.1.3 Confirming the application for the financial service
+
+### 5.2.2 Recommendations for BAPs
+
+#### 5.2.2.1 Selecting a financial service from the catalog
+
+#### 5.2.2.2 Initializing an application for a financial service
+
+#### 5.2.2.3 Confirming the application for the financial service
 
 ## 5.3 Fulfillment of Financial Services
+This section contains recommendations for implementing the APIs related to fulfilling a financial service
+
+### 5.3.1 Recommendations for BPPs
+
+#### 5.3.1.1 Sending status updates
+
+#### 5.3.1.2 Updating an application for financial service
+
+#### 5.3.1.3 Cancelling a financial service application
+
+#### 5.3.1.4 Real-time tracking
+
+### 5.3.2 Recommendations for BAPs
+
+#### 5.3.2.1 Sending status updates
+
+#### 5.3.2.2 Updating an application for financial service
+
+#### 5.3.2.3 Cancelling a financial service application
+
+#### 5.3.2.4 Real-time tracking
 
 ## 5.4 Post-fulfillment of Financial Services
+This section contains recommendations for implementing the APIs after fulfilling a financial service
+
+### 5.4.1 Recommendations for BPPs
+
+#### 5.4.1.1 Rating and Feedback
+
+#### 5.4.1.2 Providing Support
+
+### 5.4.2 Recommendations for BAPs
+
+#### 5.4.2.1 Rating and Feedback
+
+#### 5.4.2.2 Providing Support
