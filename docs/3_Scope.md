@@ -1,6 +1,7 @@
-# Types of Financial Services
+# Scope
+This document outlines the various use cases that are in and out of scope for this specification. 
 
-## In Scope
+## Use Cases In Scope
 
 This version of the specification covers the following categories of financial services
 
@@ -8,7 +9,7 @@ This version of the specification covers the following categories of financial s
 2. **Mutual Funds**:  The buying and selling of mutual fund products, such as tax saving funds, SIPs, index funds, etc
 3. **Credit**: The buying and selling of credit services 
 
-## Out of Scope
+## Use Cases Out of Scope
 
 The following financial services are _out of scope_ of this version 
 
