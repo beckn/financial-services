@@ -281,16 +281,885 @@ This section provides recommendations for implementing the APIs related to apply
 ### 5.2.3 Example Requests
 
 Below is an example of a `select` request
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "select",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+    "bap_id": "mutual-fund-protocol.becknprotocol.io",
+    "ttl": "PT10M",
+    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
+    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "MF001"
+      },
+      "items": [
+        {
+          "id": "MFLC001"
+        }
+      ],
+      "xinput": {
+        "form_response": {
+          "status": true,
+          "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+        }
+      }
+    }
+  }
+}
+```
 
 Below is an example of an `on_select` callback
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "version": "1.1.0",
+    "action": "on_select",
+    "bap_id": "mutual-fund-protocol.becknprotocol.io",
+    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "ttl": "PT30M",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
+    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "MF001",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png"
+            }
+          ],
+          "code": "ABCMF",
+          "name": "ABC Mutual Funds",
+          "short_desc": "ABC Mutual Funds Ltd",
+          "long_desc": "ABC Mutual Funds Ltd, India."
+        }
+      },
+      "items": [
+        {
+          "id": "MFLC001",
+          "descriptor": {
+            "name": "ABC Large Cap Mutual Fund"
+          },
+          "category_ids": ["CAT101"],
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Mutual Fund Information"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "Type",
+                    "short_desc": "Fund Type"
+                  },
+                  "value": "Equity"
+                },
+                {
+                  "descriptor": {
+                    "name": "Manager",
+                    "short_desc": "Fund Manager"
+                  },
+                  "value": "John Doe"
+                },
+                {
+                  "descriptor": {
+                    "name": "Rating",
+                    "short_desc": "Fund Rating"
+                  },
+                  "value": "4.5"
+                },
+                {
+                  "descriptor": {
+                    "name": "Inception Date",
+                    "short_desc": "Fund Inception Date"
+                  },
+                  "value": "2020-01-15"
+                },
+                {
+                  "descriptor": {
+                    "name": "NAV",
+                    "short_desc": "NAV"
+                  },
+                  "value": "120 rupees"
+                },
+                {
+                  "descriptor": {
+                    "name": "AUM",
+                    "short_desc": "Fund AUM"
+                  },
+                  "value": "250,000,000"
+                },
+                {
+                  "descriptor": {
+                    "name": "Expense Ratio",
+                    "short_desc": "Fund Expense Ratio"
+                  },
+                  "value": "1.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "1 month returns",
+                    "short_desc": "Fund 1 month returns"
+                  },
+                  "value": "2.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "3 month returns",
+                    "short_desc": "Fund 3 month returns"
+                  },
+                  "value": "6%"
+                },
+                {
+                  "descriptor": {
+                    "name": "6 month returns",
+                    "short_desc": "Fund 5 month returns"
+                  },
+                  "value": "7%"
+                },
+                {
+                  "descriptor": {
+                    "name": "1 year returns",
+                    "short_desc": "Fund 1 year returns"
+                  },
+                  "value": "15.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "3 year returns",
+                    "short_desc": "Fund 3 year returns"
+                  },
+                  "value": "45%"
+                },
+                {
+                  "descriptor": {
+                    "name": "5 year returns",
+                    "short_desc": "Fund 5 year returns"
+                  },
+                  "value": "60%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Investment Options",
+                    "short_desc": "Fund Investment Options"
+                  },
+                  "value": "SIP, Lumpsum"
+                },
+                {
+                  "descriptor": {
+                    "name": "SIP minimum investment amount",
+                    "short_desc": "Fund SIP minimum investment amount"
+                  },
+                  "value": "500"
+                },
+                {
+                  "descriptor": {
+                    "name": "Lumpsum minimum investment amount",
+                    "short_desc": "Fund lumpsum minimum investment amount"
+                  },
+                  "value": "5000"
+                }
+              ],
+              "display": true
+            }
+          ],
+          "matched": true,
+          "xinput": {
+            "form": {
+              "mime_type": "text/html",
+              "url": "https://6vs8xnx5i7.abcmf.co.in/mf-kyc/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+              "submission_id": "1c46b168-83ae-46ad-ac8a-d3c05870252c"
+            },
+            "required": true
+          }
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "120"
+        }
+      }
+    }
+  }
+}
+```
+
 
 Below is an example of a `init` request
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "init",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+    "bap_id": "mutual-fund-protocol.becknprotocol.io",
+    "ttl": "PT10M",
+    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
+    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "MF001"
+      },
+      "items": [
+        {
+          "id": "MFLC001"
+        }
+      ],
+      "payments": [
+        {
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Investment Method"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "Type"
+                  },
+                  "value": "SIP"
+                },
+                {
+                  "descriptor": {
+                    "name": "Amount"
+                  },
+                  "value": "500"
+                },
+                {
+                  "descriptor": {
+                    "name": "SIP Start Date"
+                  },
+                  "value": "2023-01-07"
+                },
+                {
+                  "descriptor": {
+                    "name": "SIP Frequency"
+                  },
+                  "value": "Monthly"
+                },
+                {
+                  "descriptor": {
+                    "name": "SIP End Date"
+                  },
+                  "value": "2026-01-07"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "500"
+        }
+      },
+      "xinput": {
+        "form_response": {
+          "status": true,
+          "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+        }
+      }
+    }
+  }
+}
+```
 
 Below is an example of an `on_init` callback
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "version": "1.1.0",
+    "action": "on_init",
+    "bap_id": "mutual-fund-protocol.becknprotocol.io",
+    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "ttl": "PT30M",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
+    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "MF001",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png"
+            }
+          ],
+          "code": "ABCMF",
+          "name": "ABC Mutual Funds",
+          "short_desc": "ABC Mutual Funds Ltd",
+          "long_desc": "ABC Mutual Funds Ltd, India."
+        }
+      },
+      "items": [
+        {
+          "id": "MFLC001",
+          "descriptor": {
+            "name": "ABC Large Cap Mutual Fund"
+          },
+          "category_ids": ["CAT101"],
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Mutual Fund Information"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "Type",
+                    "short_desc": "Fund Type"
+                  },
+                  "value": "Equity"
+                },
+                {
+                  "descriptor": {
+                    "name": "Manager",
+                    "short_desc": "Fund Manager"
+                  },
+                  "value": "John Doe"
+                },
+                {
+                  "descriptor": {
+                    "name": "Rating",
+                    "short_desc": "Fund Rating"
+                  },
+                  "value": "4.5"
+                },
+                {
+                  "descriptor": {
+                    "name": "Inception Date",
+                    "short_desc": "Fund Inception Date"
+                  },
+                  "value": "2020-01-15"
+                },
+                {
+                  "descriptor": {
+                    "name": "AUM",
+                    "short_desc": "Fund AUM"
+                  },
+                  "value": "250,000,000"
+                },
+                {
+                  "descriptor": {
+                    "name": "Expense Ratio",
+                    "short_desc": "Fund Expense Ratio"
+                  },
+                  "value": "1.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "1 month returns",
+                    "short_desc": "Fund 1 month returns"
+                  },
+                  "value": "2.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "3 month returns",
+                    "short_desc": "Fund 3 month returns"
+                  },
+                  "value": "6%"
+                },
+                {
+                  "descriptor": {
+                    "name": "6 month returns",
+                    "short_desc": "Fund 5 month returns"
+                  },
+                  "value": "7%"
+                },
+                {
+                  "descriptor": {
+                    "name": "1 year returns",
+                    "short_desc": "Fund 1 year returns"
+                  },
+                  "value": "15.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "3 year returns",
+                    "short_desc": "Fund 3 year returns"
+                  },
+                  "value": "45%"
+                },
+                {
+                  "descriptor": {
+                    "name": "5 year returns",
+                    "short_desc": "Fund 5 year returns"
+                  },
+                  "value": "60%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Investment Options",
+                    "short_desc": "Fund Investment Options"
+                  },
+                  "value": "SIP, Lumpsum"
+                },
+                {
+                  "descriptor": {
+                    "name": "SIP minimum investment amount",
+                    "short_desc": "Fund SIP minimum investment amount"
+                  },
+                  "value": "500"
+                },
+                {
+                  "descriptor": {
+                    "name": "Lumpsum minimum investment amount",
+                    "short_desc": "Fund lumpsum minimum investment amount"
+                  },
+                  "value": "5000"
+                }
+              ],
+              "display": true
+            }
+          ],
+          "matched": true
+        }
+      ],
+      "fulfillments": [
+        {
+          "customer": {
+            "person": {
+              "name": "John Doe"
+            },
+            "contact": {
+              "phone": "+91-9999999999",
+              "email": "john.doe@example.com"
+            }
+          },
+          "state": {
+            "descriptor": {
+              "name": "Mutual Fund Order Initialized"
+            }
+          }
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "5000"
+        },
+        "tags": [
+          {
+            "descriptor": {
+              "name": "NAV Details"
+            },
+            "list": [
+              {
+                "descriptor": {
+                  "name": "Unit price"
+                },
+                "value": "120"
+              },
+              {
+                "descriptor": {
+                  "name": "Units allocated"
+                },
+                "value": "41.50"
+              }
+            ]
+          }
+        ]
+      },
+      "payments": [
+        {
+          "type": "ON-ORDER",
+          "url": "https://payment.abcmutalfunds.in",
+          "params": {
+            "amount": "5000",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-07-2023 00:00:00",
+              "end": "30-07-2023 23:59:59"
+            }
+          }
+        }
+      ],
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "name": "Terms"
+            }
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "https://abcmutalfunds.com/mf/tnc.html"
+          }
+        }
+      ],
+      "tags": [
+        {
+          "list": [
+            {
+              "descriptor": {
+                "name": "Mutual Fund Agreement",
+                "short_desc": "Click on this link to view and sign your Agreement"
+              },
+              "value": "https://abcmutualfunds.com/agreement?id=afyrq9fbH"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
 
 Below is an example of a `confirm` request
-
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "init",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+    "bap_id": "mutual-fund-protocol.becknprotocol.io",
+    "ttl": "PT10M",
+    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
+    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "MF001"
+      },
+      "items": [
+        {
+          "id": "MFLC001"
+        }
+      ],
+      "fulfillments": [
+        {
+          "stops": [
+            {
+              "authorization": {
+                "type": "OTP",
+                "token": "535346"
+              }
+            }
+          ]
+        }
+      ],
+      "payments": [
+        {
+          "params": {
+            "source_bank_code": "SBIN0001234",
+            "source_bank_account_number": "1800002341"
+          }
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "500"
+        }
+      }
+    }
+  }
+}
+```
 Below is an example of an `on_confirm` callback
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "version": "1.1.0",
+    "action": "on_init",
+    "bap_id": "mutual-fund-protocol.becknprotocol.io",
+    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "ttl": "PT30M",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
+    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+  },
+  "message": {
+    "order": {
+      "id": "66B7AEDF45",
+      "provider": {
+        "id": "MF001",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png"
+            }
+          ],
+          "code": "ABCMF",
+          "name": "ABC Mutual Funds",
+          "short_desc": "ABC Mutual Funds Ltd",
+          "long_desc": "ABC Mutual Funds Ltd, India."
+        }
+      },
+      "items": [
+        {
+          "id": "MFLC001",
+          "descriptor": {
+            "name": "ABC Large Cap Mutual Fund"
+          },
+          "category_ids": ["CAT101"],
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Mutual Fund Information"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "Type",
+                    "short_desc": "Fund Type"
+                  },
+                  "value": "Equity"
+                },
+                {
+                  "descriptor": {
+                    "name": "Manager",
+                    "short_desc": "Fund Manager"
+                  },
+                  "value": "John Doe"
+                },
+                {
+                  "descriptor": {
+                    "name": "Rating",
+                    "short_desc": "Fund Rating"
+                  },
+                  "value": "4.5"
+                },
+                {
+                  "descriptor": {
+                    "name": "Inception Date",
+                    "short_desc": "Fund Inception Date"
+                  },
+                  "value": "2020-01-15"
+                },
+                {
+                  "descriptor": {
+                    "name": "AUM",
+                    "short_desc": "Fund AUM"
+                  },
+                  "value": "250,000,000"
+                },
+                {
+                  "descriptor": {
+                    "name": "Expense Ratio",
+                    "short_desc": "Fund Expense Ratio"
+                  },
+                  "value": "1.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "1 month returns",
+                    "short_desc": "Fund 1 month returns"
+                  },
+                  "value": "2.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "3 month returns",
+                    "short_desc": "Fund 3 month returns"
+                  },
+                  "value": "6%"
+                },
+                {
+                  "descriptor": {
+                    "name": "6 month returns",
+                    "short_desc": "Fund 5 month returns"
+                  },
+                  "value": "7%"
+                },
+                {
+                  "descriptor": {
+                    "name": "1 year returns",
+                    "short_desc": "Fund 1 year returns"
+                  },
+                  "value": "15.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "3 year returns",
+                    "short_desc": "Fund 3 year returns"
+                  },
+                  "value": "45%"
+                },
+                {
+                  "descriptor": {
+                    "name": "5 year returns",
+                    "short_desc": "Fund 5 year returns"
+                  },
+                  "value": "60%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Investment Options",
+                    "short_desc": "Fund Investment Options"
+                  },
+                  "value": "SIP, Lumpsum"
+                },
+                {
+                  "descriptor": {
+                    "name": "SIP minimum investment amount",
+                    "short_desc": "Fund SIP minimum investment amount"
+                  },
+                  "value": "500"
+                },
+                {
+                  "descriptor": {
+                    "name": "Lumpsum minimum investment amount",
+                    "short_desc": "Fund lumpsum minimum investment amount"
+                  },
+                  "value": "5000"
+                }
+              ],
+              "display": true
+            }
+          ],
+          "matched": true
+        }
+      ],
+      "fulfillments": [
+        {
+          "customer": {
+            "person": {
+              "name": "John Doe"
+            },
+            "contact": {
+              "phone": "+91-9999999999",
+              "email": "john.doe@example.com"
+            }
+          },
+          "state": {
+            "descriptor": {
+              "name": "Mutual Fund order confirmed"
+            }
+          }
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "500"
+        },
+        "tags": [
+          {
+            "descriptor": {
+              "name": "NAV Details"
+            },
+            "list": [
+              {
+                "descriptor": {
+                  "name": "Unit price"
+                },
+                "value": "120"
+              },
+              {
+                "descriptor": {
+                  "name": "Units allocated"
+                },
+                "value": "4.15"
+              }
+            ]
+          }
+        ]
+      },
+      "payments": [
+        {
+          "type": "ON-FULFILLMENT",
+          "url": "https://emandate.abcmutalfunds.in",
+          "params": {
+            "amount": "500",
+            "currency": "INR"
+          },
+          "status": "PAID",
+          "time": {
+            "range": {
+              "start": "01-07-2023 00:00:00",
+              "end": "30-07-2023 23:59:59"
+            }
+          }
+        }
+      ],
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "name": "Terms"
+            }
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "https://abcmutalfunds.com/mf/tnc.html"
+          }
+        }
+      ]
+    }
+  }
+}
+```
 
 ## 5.3 Fulfillment of Financial Services
 This section contains recommendations for implementing the APIs related to fulfilling a financial service
@@ -325,20 +1194,293 @@ This section contains recommendations for implementing the APIs related to fulfi
 ### 5.3.4 Example Requests
 
 Below is an example of a `status` request
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "status",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+    "bap_id": "mutual-fund-protocol.becknprotocol.io",
+    "ttl": "PT10M",
+    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
+    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+  },
+  "message": {
+    "order_id": "66B7AEDF45"
+  }
+}
+```
 
 Below is an example of an `on_status` callback
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "version": "1.1.0",
+    "action": "on_init",
+    "bap_id": "mutual-fund-protocol.becknprotocol.io",
+    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "ttl": "PT30M",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
+    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+  },
+  "message": {
+    "order": {
+      "id": "66B7AEDF45",
+      "status": "PROCESSING",
+      "provider": {
+        "id": "MF001",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png"
+            }
+          ],
+          "code": "ABCMF",
+          "name": "ABC Mutual Funds",
+          "short_desc": "ABC Mutual Funds Ltd",
+          "long_desc": "ABC Mutual Funds Ltd, India."
+        }
+      },
+      "items": [
+        {
+          "id": "MFLC001",
+          "descriptor": {
+            "name": "ABC Large Cap Mutual Fund"
+          },
+          "category_ids": ["CAT101"],
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Mutual Fund Information"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "Type",
+                    "short_desc": "Fund Type"
+                  },
+                  "value": "Equity"
+                },
+                {
+                  "descriptor": {
+                    "name": "Manager",
+                    "short_desc": "Fund Manager"
+                  },
+                  "value": "John Doe"
+                },
+                {
+                  "descriptor": {
+                    "name": "Rating",
+                    "short_desc": "Fund Rating"
+                  },
+                  "value": "4.5"
+                },
+                {
+                  "descriptor": {
+                    "name": "Inception Date",
+                    "short_desc": "Fund Inception Date"
+                  },
+                  "value": "2020-01-15"
+                },
+                {
+                  "descriptor": {
+                    "name": "AUM",
+                    "short_desc": "Fund AUM"
+                  },
+                  "value": "250,000,000"
+                },
+                {
+                  "descriptor": {
+                    "name": "Expense Ratio",
+                    "short_desc": "Fund Expense Ratio"
+                  },
+                  "value": "1.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "1 month returns",
+                    "short_desc": "Fund 1 month returns"
+                  },
+                  "value": "2.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "3 month returns",
+                    "short_desc": "Fund 3 month returns"
+                  },
+                  "value": "6%"
+                },
+                {
+                  "descriptor": {
+                    "name": "6 month returns",
+                    "short_desc": "Fund 5 month returns"
+                  },
+                  "value": "7%"
+                },
+                {
+                  "descriptor": {
+                    "name": "1 year returns",
+                    "short_desc": "Fund 1 year returns"
+                  },
+                  "value": "15.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "3 year returns",
+                    "short_desc": "Fund 3 year returns"
+                  },
+                  "value": "45%"
+                },
+                {
+                  "descriptor": {
+                    "name": "5 year returns",
+                    "short_desc": "Fund 5 year returns"
+                  },
+                  "value": "60%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Investment Options",
+                    "short_desc": "Fund Investment Options"
+                  },
+                  "value": "SIP, Lumpsum"
+                },
+                {
+                  "descriptor": {
+                    "name": "SIP minimum investment amount",
+                    "short_desc": "Fund SIP minimum investment amount"
+                  },
+                  "value": "500"
+                },
+                {
+                  "descriptor": {
+                    "name": "Lumpsum minimum investment amount",
+                    "short_desc": "Fund lumpsum minimum investment amount"
+                  },
+                  "value": "5000"
+                }
+              ],
+              "display": true
+            }
+          ],
+          "matched": true
+        }
+      ],
+      "fulfillments": [
+        {
+          "customer": {
+            "person": {
+              "name": "John Doe"
+            },
+            "contact": {
+              "phone": "+91-9999999999",
+              "email": "john.doe@example.com"
+            }
+          },
+          "state": {
+            "descriptor": {
+              "name": "Units being allocated"
+            }
+          }
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "5000"
+        },
+        "tags": [
+          {
+            "descriptor": {
+              "name": "NAV Details"
+            },
+            "list": [
+              {
+                "descriptor": {
+                  "name": "Unit price"
+                },
+                "value": "120"
+              },
+              {
+                "descriptor": {
+                  "name": "Units allocated"
+                },
+                "value": "41.50"
+              }
+            ]
+          }
+        ]
+      },
+      "payments": [
+        {
+          "type": "ON-ORDER",
+          "url": "https://payment.abcmutalfunds.in",
+          "params": {
+            "amount": "5000",
+            "currency": "INR"
+          },
+          "status": "PAID",
+          "time": {
+            "range": {
+              "start": "01-07-2023 00:00:00",
+              "end": "30-07-2023 23:59:59"
+            }
+          }
+        }
+      ],
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "name": "Terms"
+            }
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "https://abcmutalfunds.com/mf/tnc.html"
+          }
+        }
+      ]
+    }
+  }
+}
+```
 
 Below is an example of a `update` request
+> This section is currently under development
 
 Below is an example of an `on_update` callback
+> This section is currently under development
 
 Below is an example of a `cancel` request
+> This section is currently under development
 
 Below is an example of an `on_cancel` callback
+> This section is currently under development
 
 Below is an example of a `track` request
+> This section is currently under development
 
 Below is an example of an `on_track` callback
+> This section is currently under development
 
 ## 5.4 Post-fulfillment of Financial Services
 This section contains recommendations for implementing the APIs after fulfilling a financial service
@@ -362,10 +1504,73 @@ This section contains recommendations for implementing the APIs after fulfilling
 
 ### 5.4.4 Example Requests
 
-Below is an example of a `status` request
+Below is an example of a `get_rating_categories` request
 
-Below is an example of an `on_status` callback
+Below is an example of an `rating_categories` callback
 
-Below is an example of a `update` request
+Below is an example of a `rating` request
 
-Below is an example of an `on_update` callback
+Below is an example of an `on_rating` callback
+
+Below is an example of a `support` request
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "support",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+    "bap_id": "mutual-fund-protocol.becknprotocol.io",
+    "ttl": "PT10M",
+    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
+    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+  },
+  "message": {
+    "support": {
+      "order_id": "66b7b9bad166",
+      "phone": "+919876543210",
+      "email": "john.doe@gmail.com"
+    }
+  }
+}
+```
+
+Below is an example of an `on_support` callback
+```
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "on_support",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+    "bap_id": "mutual-fund-protocol.becknprotocol.io",
+    "ttl": "PT10M",
+    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
+    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+  },
+  "message": {
+    "support": {
+      "order_id": "66b7b9bad166",
+      "phone": "1800 1080",
+      "email": "customer.care@abcmutualfunds.com",
+      "url": "https://www.abcmutualfunds.com/helpdesk"
+    }
+  }
+}
+```
