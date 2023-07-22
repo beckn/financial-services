@@ -1,11 +1,15 @@
 # Decentralized Financial Services Protocol
-The Decentralized Financial Services Protocol or DFSP is an adaptation of beckn protocol for use cases in the financial services sector. 
+## Introduction
+
+The financial services sector plays a pivotal role in the global economy, encompassing a wide array of institutions and services that facilitate the management, investment, and movement of money. These services cater to the diverse needs of individuals, businesses, and governments alike. As of today, the financial services sector has evolved and diversified, offering a range of essential services. The financial services sector's continued growth and adaptation to emerging technologies are crucial for fostering economic development and prosperity on a global scale. As technology continues to advance, new types of financial services may emerge, further reshaping the landscape of this vital sector.
+
+The **Decentralized Financial Service Protocol** of DFSP is an adaptation of [beckn protocol](https://github.com/beckn/protocol-specifications) that aims to unify various financial services that exist today by implementing an interoperable API specification.
 
 ## Release History
 
 | Version | Release Date    | Adaptation to Core Spec Version | Authors      |
 |:-------:|-----------------|---------------------------------|--------------|
-| 0.1.0   | 18th June, 2023 | 1.1.0                           | Ravi Prakash |
+| 0.1.0   | 22nd July, 2023 | 1.1.0                           | Ravi Prakash |
 
 ## Working Group Members
 
@@ -16,11 +20,6 @@ The Decentralized Financial Services Protocol or DFSP is an adaptation of beckn 
 | Sujith Nair      | Reviewer                       | @sjthnrk        |
 | Hrushikesh Mehta | Subject Matter Expert          |                 |
 | Antriksh Parmar  | Subject Matter Expert          |                 |
-
-
-## Introduction
-
-The credit sector is a vital component of any economy, providing individuals and businesses with access to funds through loans, credit cards, and other financial products. This sector includes banks, non-banking financial companies (NBFCs), and other lending institutions. These entities assess borrowers' creditworthiness based on factors like income, credit history, and collateral. Interest rates charged on credit reflect the risk associated with lending and market conditions. Interest rates in the credit sector are influenced by market conditions, monetary policies, and regulatory guidelines set by the Regulatory body. The local regulatory body plays a significant role in regulating the credit sector and implementing measures to ensure its stability and healthy functioning.
 
 ## Implementing the specification
 
