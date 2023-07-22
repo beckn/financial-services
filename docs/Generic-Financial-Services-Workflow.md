@@ -26,11 +26,33 @@ A typical workflow for a financial service transaction consits of the following 
 
 ## 1. Discovery of Financial Services
 ### 1.1: FSC discovers an FSP 
-The borrower researches various lenders to find the most suitable options for a personal loan. They compare interest rates, loan terms, eligibility criteria, and customer reviews to make an informed decision.
+The consumer researches various financial service providers through known  aggregators, search engines, broadcast media, personal connections etc. After that, the FSC discovers an FSP that matches their requirement.
 
 ### 1.2 FSC browses through various products of an FSP
+In this step, the FSC discovers an FSP and browses through the various financial sevice products in its catalog.
 
 ### 1.3 FSC views a particular product of an FSP
+In this step, the FSC discovers a desired financial service in the catalog and views its details. 
+
+### Logical Workflow
+
+```mermaid
+sequenceDiagram
+    Actor Financial Service Consumer
+    participant Online & Offline Media
+    participant Financial Service Provider
+    loop Open Search
+        Financial Service Consumer->> Online & Offline Media: Research financial service providers (FSPs)
+        Online & Offline Media->>Financial Service Consumer: Return financial service providers
+    end
+    Financial Service Consumer->>Financial Service Provider: Express intent to avail financial service
+    Financial Service Provider->>Financial Service Consumer: Provide catalog of financial services
+    loop Browse Catalog
+        Financial Service Consumer->>Financial Service Provider: View a desired financial service
+        Financial Service Provider->>Financial Service Consumer: Display detailed information of the service
+    end
+```
+
 
 ## 2. Application for a Financial Service
 In this stage, the FSC selects a particular financial product and begins the process of applying for it. During the process of application, there are several sub-interactions that happen between the FSC and the FSP. 
