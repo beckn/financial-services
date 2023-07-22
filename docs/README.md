@@ -1,7 +1,7 @@
 # Table of Contents
 
-1. [Terminology](./Terminology.md)
-2. [Types of Credit](./Types-of-Credit.md)
-3. [Generic Credit Workflow - Use Case](Generic-Credit-Application-Workflow.md)
-4. [Consent-based Loan Application Workflow - Example Implementation](./Consent-Based-Loan-Workflow.md)
-5. [Invoice-based Loan Application - Example Implementation](./Invoice-based-Loan-Workflow.md)
+1. [Introduction](./1_Introduction.md)
+2. [Terminology](./2_Terminology.md)
+3. [Scope](./3_Scope.md)
+4. [General Workflow](./4_General_Workflow.md)
+5. [Implementation Guide](./5_Implementation-Guide.md)
