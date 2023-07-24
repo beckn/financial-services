@@ -54,7 +54,7 @@
                         }
                     },
                     "id": "NEW_FULFILMENT_ID",
-                    "type": "RENEW"
+                    "type": "NEW"
                 },
                 {
                     "tags": [

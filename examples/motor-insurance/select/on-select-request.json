@@ -31,7 +31,7 @@
                         }
                     },
                     "id": "NEW_FULFILMENT_ID",
-                    "type": "RENEW"
+                    "type": "NEW"
                 }
             ],
             "items": [
@@ -240,16 +240,6 @@
                 },
                 {
                     "descriptor": {
-                        "code": "ADDON"
-                    },
-                    "id": "PERSONAL_ACCIDENT_COVER",
-                    "time": {
-                        "duration": "P1Y",
-                        "label": "TENURE"
-                    }
-                },
-                {
-                    "descriptor": {
                         "code": "ADDON",
                         "name": "Personal Accident Cover",
                         "short_desc": "short description"
@@ -343,7 +333,7 @@
             ],
             "provider": {
                 "descriptor": {
-                    "long_desc": "Insurance Provider Long[789 Description",
+                    "long_desc": "Insurance Provider Long Description",
                     "name": "Insurance Provider Name",
                     "short_desc": "Insurance Provider Short Description"
                 },

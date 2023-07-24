@@ -31,7 +31,7 @@
                         }
                     },
                     "id": "NEW_FULFILMENT_ID",
-                    "type": "RENEW"
+                    "type": "NEW"
                 }
             ],
             "items": [
@@ -106,7 +106,7 @@
             ],
             "provider": {
                 "descriptor": {
-                    "long_desc": "Insurance Provider Long[789 Description",
+                    "long_desc": "Insurance Provider Long Description",
                     "name": "Insurance Provider Name",
                     "short_desc": "Insurance Provider Short Description"
                 },
