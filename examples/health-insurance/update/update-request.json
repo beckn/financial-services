@@ -1,0 +1,103 @@
+{
+    "context": {
+        "action": "update",
+        "bap_id": "fis.test.bap.io",
+        "bap_uri": "https://fis.test.bap.io/",
+        "bpp_id": "fis.test.bpp.io",
+        "bpp_uri": "https://fis.test.bpp.io/",
+        "domain": "ONDC:FIS12",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "message_id": "6c7121e2-e137-473f-ba96-809b62019f43",
+        "timestamp": "2023-07-24T05:42:54.121Z",
+        "transaction_id": "c04a04ee-d892-400f-bbe6-479a43b4448a",
+        "ttl": "PT50M",
+        "version": "1.1.0"
+    },
+    "message": {
+        "order": {
+            "id":"04389d8c-6a50-4664-9c08-4ee45fef44e8",
+            "fulfillments": [
+                {
+                    "customer": {
+                        "contact": {
+                            "email": "joe.adam@abc.org",
+                            "phone": "+91-9999999999"
+                        },
+                        "person": {
+                            "dob": "1990-01-21",
+                            "gender": "male",
+                            "name": "Joe Adam",
+                            "tags": [
+                                {
+                                    "descriptor": {
+                                        "code": "PERSON_ADDITIONAL_DETAILS"
+                                    },
+                                    "list": [
+                                        {
+                                            "descriptor": {
+                                                "name": "Politically exposed person"
+                                            },
+                                            "value": "false"
+                                        },
+                                        {
+                                            "descriptor": {
+                                                "name": "GSTIN"
+                                            },
+                                            "value": "20JDVIEHVJDSN"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "id": "NEW_FULFILMENT_ID",
+                    "type": "NEW",
+                    "tags": [
+                        {
+                            "descriptor":{
+                                "name": "Process Workflow"
+                            },
+                            "list":[
+                                {
+                                    "descriptor":{
+                                        "name":"Manual evaluation flag"
+                                    },
+                                    "value":"false"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "name": "Claim Details"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "amount"
+                                    },
+                                    "value": "10000"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "reason"
+                                    },
+                                    "value": "Accident"
+                                }
+                            ]
+                        }
+                    ],
+                    "type": "CLAIM"
+                }
+            ]
+        },
+        "updated_target": "order.fulfillments"
+    }
+}

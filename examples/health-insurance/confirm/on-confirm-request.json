@@ -11,9 +11,9 @@
                 "code": "IND"
             }
         },
-        "message_id": "52c7871e-4977-4f3b-833b-4a203fb7493a",
-        "timestamp": "2023-07-22T15:06:45.430Z",
-        "transaction_id": "a4db048b-d07c-40e0-9c0b-b7f006c4df74",
+        "message_id": "953c3fdc-09e3-44b6-a391-67463c17d7d2",
+        "timestamp": "2023-07-24T05:41:32.487Z",
+        "transaction_id": "c04a04ee-d892-400f-bbe6-479a43b4448a",
         "ttl": "PT24H",
         "version": "1.1.0"
     },
@@ -54,57 +54,38 @@
                         }
                     },
                     "id": "NEW_FULFILMENT_ID",
-                    "type": "NEW"
+                    "type": "NEW",
+                    "tags": [
+                        {
+                            "descriptor":{
+                                "name": "Process Workflow"
+                            },
+                            "list":[
+                                {
+                                    "descriptor":{
+                                        "name":"Manual evaluation flag"
+                                    },
+                                    "value":"false"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ],
-            "id": "5adadc9a-48a0-4ff6-8779-084272d9d2bc",
             "items": [
                 {
                     "add_ons": [
                         {
-                            "id": "CONSUMABLES_COVER"
-                        },
-                        {
-                            "id": "DEPRECIATION_COVER"
-                        },
-                        {
-                            "id": "ELECTRICAL_ACCESSORIES_COVER"
-                        },
-                        {
-                            "id": "ENGINE_COVER"
-                        },
-                        {
-                            "id": "EXTERNAL_CNG/LPG_COVER"
-                        },
-                        {
-                            "id": "KEY_COVER"
-                        },
-                        {
-                            "id": "NON_ELECTRICAL_ACCESSORIES_COVER"
-                        },
-                        {
-                            "id": "PERSONAL_ACCIDENT_COVER"
-                        },
-                        {
-                            "id": "PERSONAL_BAGGAGE_COVER"
-                        },
-                        {
-                            "id": "PER_DAY_CASH"
-                        },
-                        {
-                            "id": "RETURN_TO_INVOICE"
-                        },
-                        {
-                            "id": "ROAD_SIDE_ASSISTANCE"
-                        },
-                        {
-                            "id": "TYRE_COVER"
+                            "id": "NO_CLAIM_BONUS"
                         }
+                    ],
+                    "category_ids": [
+                        "CAT_INDIVIDUAL_INSURANCE"
                     ],
                     "descriptor": {
                         "code": "BASE",
-                        "name": "Re-new Motor Insurance",
-                        "short_desc": "short description of the Motor Insurance Type 1"
+                        "name": "Individaul Health Insurance",
+                        "short_desc": "short description of the Individaul Health Insurance Type 1"
                     },
                     "fulfillment_ids": [
                         "NEW_FULFILMENT_ID"
@@ -120,117 +101,86 @@
                             },
                             "list": [
                                 {
-                                    "value": "PERSONAL_ACCIDENT_COVER"
+                                    "value": "NO_CLAIM_BONUS"
                                 },
                                 {
-                                    "value": "DEPRECIATION_COVER"
+                                    "value": "DAYCARE_COVER"
                                 },
                                 {
-                                    "value": "ROAD_SIDE_ASSISTANCE"
+                                    "value": "DAILY_CASH_ALLOWANCE"
                                 },
                                 {
-                                    "value": "CONSUMABLES_COVER"
+                                    "value": "DOMICILIARY_EXPENSES"
                                 },
                                 {
-                                    "value": "ELECTRICAL_ACCESSORIES_COVER"
-                                },
-                                {
-                                    "value": "NON_ELECTRICAL_ACCESSORIES_COVER"
-                                },
-                                {
-                                    "value": "ENGINE_COVER"
-                                },
-                                {
-                                    "value": "EXTERNAL_CNG/LPG_COVER"
-                                },
-                                {
-                                    "value": "KEY_COVER"
-                                },
-                                {
-                                    "value": "PERSONAL_BAGGAGE_COVER"
-                                },
-                                {
-                                    "value": "TYRE_COVER"
-                                },
-                                {
-                                    "value": "RETURN_TO_INVOICE"
-                                },
-                                {
-                                    "value": "PER_DAY_CASH"
+                                    "value": "HEALTH_CHECK_UPS"
                                 }
                             ]
                         },
                         {
                             "descriptor": {
-                                "code": "BUYER_DTLS",
-                                "name": "VAHAN Details"
+                                "name": "Policy Inclusive Offers"
                             },
-                            "list": [
+                            "list":[
                                 {
                                     "descriptor": {
-                                        "name": "Model"
+                                        "name": "Coverage amount"
                                     },
-                                    "value": "X100"
+                                    "value": "10000000"
                                 },
                                 {
                                     "descriptor": {
-                                        "name": "Make"
+                                        "name": "Co-payment"
                                     },
-                                    "value": "BMX"
+                                    "value": "true"
                                 },
                                 {
-                                    "descriptor": {
-                                        "name": "Fuel Type"
+                                    "descriptor":{
+                                        "name":"Room rent cap"
                                     },
-                                    "value": "Petrol"
+                                    "value":"25000"
                                 },
                                 {
-                                    "descriptor": {
-                                        "name": "Variant"
+                                    "descriptor":{
+                                        "name":"Restoration benefit"
                                     },
-                                    "value": "ZX"
+                                    "value":"false"
                                 },
                                 {
-                                    "descriptor": {
-                                        "name": "Registered city"
+                                    "descriptor":{
+                                        "name":"Claim settlement ratio"
                                     },
-                                    "value": "Bangalore"
+                                    "value":"0.8"
                                 },
                                 {
-                                    "descriptor": {
-                                        "name": "Registered date"
+                                    "descriptor":{
+                                        "name":"Pre-hospitalization coverage days"
                                     },
-                                    "value": "2022-01-13"
+                                    "value":"2"
                                 },
                                 {
-                                    "descriptor": {
-                                        "name": "Chassis number"
+                                    "descriptor":{
+                                        "name":"Post-hospitalization coverage days"
                                     },
-                                    "value": "nvuwi3n23io90"
+                                    "value":"5"
                                 },
                                 {
-                                    "descriptor": {
-                                        "name": "Engine number"
+                                    "descriptor":{
+                                        "name":"Maternity coverage"
                                     },
-                                    "value": "98vd98e32"
+                                    "value":"true"
                                 },
                                 {
-                                    "descriptor": {
-                                        "name": "Previous policy number"
+                                    "descriptor":{
+                                        "name":"Initial waiting period"
                                     },
-                                    "value": "f5f90d6e8f924"
+                                    "value":"false"
                                 },
                                 {
-                                    "descriptor": {
-                                        "name": "Previous insurer"
+                                    "descriptor":{
+                                        "name":"Cashless hospitals"
                                     },
-                                    "value": "XYZ"
-                                },
-                                {
-                                    "descriptor": {
-                                        "name": "Previous policy end date"
-                                    },
-                                    "value": "2022-01-02"
+                                    "value":"50"
                                 }
                             ]
                         }
@@ -239,20 +189,10 @@
                         "duration": "P1Y",
                         "label": "TENURE"
                     }
-                },
-                {
-                    "descriptor": {
-                        "code": "ADDON",
-                        "name": "Personal Accident Cover",
-                        "short_desc": "short description"
-                    },
-                    "id": "PERSONAL_ACCIDENT_COVER",
-                    "time": {
-                        "duration": "P1Y",
-                        "label": "TENURE"
-                    }
+    
                 }
             ],
+            "id":"04389d8c-6a50-4664-9c08-4ee45fef44e8",
             "payments": [
                 {
                     "collected_by": "BPP",
@@ -262,20 +202,14 @@
                         "bank_code": "SBIN0001234",
                         "currency": "INR"
                     },
-                    "status": "NOT-PAID",
-                    "time": {
-                        "range": {
-                            "end": "2023-07-30T15:44:19.166Z",
-                            "start": "2023-07-01T15:44:19.166Z"
-                        }
-                    },
+                    "status": "PAID",
                     "type": "PRE-ORDER",
-                    "url": "https://payment.fis.test.bpp.io"
+                    "transaction_id": "85742a36-6636-4dcf-ae56-c47d3387d1d0"
                 }
             ],
             "provider": {
                 "descriptor": {
-                    "long_desc": "Insurance Provider Long Description",
+                    "long_desc": "Insurance Provider Long[789 Description",
                     "name": "Insurance Provider Name",
                     "short_desc": "Insurance Provider Short Description"
                 },
@@ -305,9 +239,9 @@
                 "price": {
                     "currency": "INR",
                     "value": "1000"
-                }
-            },
-            "status": "PROCESSING"
+                },
+                "status": "PROCESSING"
+            }
         }
     }
 }
