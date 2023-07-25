@@ -3,7 +3,7 @@
         "action": "search",
         "bap_id": "fis.test.bap.io",
         "bap_uri": "https://fis.test.bap.io/",
-        "domain": "ONDC:FIS12",
+        "domain": "financial-services:0.2.0",
         "location": {
             "country": {
                 "code": "IND"
