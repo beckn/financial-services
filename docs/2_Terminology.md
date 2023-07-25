@@ -1,5 +1,5 @@
 # Terminology (Citations Needed)
-The following table lists some commonly used terminology in the financial services sector that will frequently be encountered in descriptions, discussions and other communication. Volunteers are encourage to contribute to this list with citations from internationally recognized sources.
+The following table lists some commonly used terminology in the financial services sector that will frequently be encountered in descriptions, discussions and other communication. Volunteers are encouraged to contribute to this list with citations from internationally recognized sources.
 
 > Note: The below definitions have been publish on the basis of information collected from Subject Matter Experts. Contributors are requested to further refine these terms with appropriate citations placed in the **References** section of this document. 
 
@@ -18,6 +18,7 @@ The following table lists some commonly used terminology in the financial servic
 | Sales Tax Information Providers                | Service providers that facilitate sales tax related services and data retrieval.                                                                                                                                                        |
 | Bureau data                                    | Information obtained from credit bureaus to evaluate a borrower's creditworthiness.                                                                                                                                                     |
 | Soft bureau data pull                          | Retrieving relevant credit information from credit bureaus without impacting the borrower's credit score.                                                                                                                               |
+| Hard bureau data pull                          | Retrieving credit information from the credit bureau and leaving an enquiry on the applicant's credit report. Multiple enquiries in a short time period reduce a borrower's credit score.                                            |
 | Credit bureau                                  | An organisation that collects and maintains credit information on individuals and businesses.                                                                                                                                           |
 | Underwriting criteria                          | Specific guidelines and factors used by lenders to assess the risk and eligibility of a borrower.                                                                                                                                       |
 | Direct Debit                                   | Electronic payment system used for automating loan repayment through regular debits from the borrower's bank account. Examples are Direct Debit, eNACH (Electronic National Automated Clearing House) or Automated Clearing House (ACH) |
