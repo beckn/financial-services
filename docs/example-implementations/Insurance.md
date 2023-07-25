@@ -3,7 +3,6 @@
 ### Table of Contents
 
 - [Introduction](#introduction)
-- [Terminology](#terminology)
 - [Insurance Types](#insurance-types)
 - [Use Cases considered](#use-cases-considered)
 - [Out of Scope](#out-of-scope)
@@ -20,32 +19,6 @@
 ### Introduction
 
 The insurance industry plays a crucial role in society, offering essential protection to individuals and businesses against unexpected risks. The fundamental idea behind insurance is for the insurer to provide assurance of payment in the face of an unpredictable future event. Simultaneously, the insured or policyholder pays a smaller premium to the insurer in return for safeguarding against that uncertain future incident. The insurance sector provides a wide range of options, such as life, health, property, and motor insurance, ensuring financial security during difficult times. Factors like growing incomes, increased awareness, and government support contribute to the sector's robust growth. Regulatory bodies in different countries diligently oversee the sector, ensuring transparency and protecting consumer interests. By fostering economic stability and empowering businesses to operate confidently, insurance plays a crucial role in society's well-being.
-
-### Terminology
-
-**Policyholder:** The person who holds the insurance policy and is entitled to the benefits provided by the policy.
-
-**Beneficiaries:** The individuals or entities designated by the policyholder to receive the proceeds of the insurance policy in the event of the insured's death.
-
-**Insurer:** The insurance company offering the health insurance plans.
-
-**Premiums:** The amount of money paid by the buyer to the insurer to maintain the health insurance coverage.
-
-**Pre-existing Conditions:** Medical conditions or illnesses that the buyer already has before purchasing the health insurance plan.
-
-**KYC (Know Your Customer):** A verification process where the insurance company collects personal information and identification documents to comply with regulatory requirements and prevent fraud.
-
-**Medical Underwriting:** The process of assessing the buyer's health status to determine the risk associated with providing them health insurance coverage.
-
-**Policy Document:** The written contract that contains all the terms, conditions, and coverage details of the health insurance policy.
-
-**Coverage Terms:** The specific conditions and limitations of the health insurance coverage.
-
-**Third-Party Liability:** Coverage that protects the insured from legal liabilities and financial responsibilities arising from injury or property damage caused to third parties.
-
-**Comprehensive Insurance Policy:** A type of motor insurance policy that covers both third-party liability and own damage.
-
-**Own Damage:** Coverage that protects the insured's vehicle against damages caused by accidents, theft, natural calamities, etc.
 
 ### Insurance Types
 
@@ -219,7 +192,7 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     title Marine Insurance
-    Buyer ->> Insurer: Provides Provides cargo details
+    Buyer ->> Insurer: Provider provides cargo details
     Insurer ->> Buyer: Returns available plans
     Buyer ->> Insurer: Selects plan and provides additional shipping details
     Insurer ->> Buyer: Requests for KYC details

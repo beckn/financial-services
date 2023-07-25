@@ -3,7 +3,6 @@
 ### Table of contents
 
 - [Introduction](#introduction)
-- [Terminology](#terminology)
 - [Investment Types](#investment-types)
 - [Use Cases Considered](#use-cases-considered)
 - [Out of Scope](#use-cases-considered)
@@ -23,39 +22,7 @@ Key benefits for individual investors
 6. **Transparency:** Fund companies must disclose their holdings regularly, providing transparency to investors about the underlying assets.
 7. **Regulatory Oversight:** Mutual funds are subject to regulatory supervision, providing a level of protection to investors and ensuring compliance with rules and regulations.
 8. **Long-Term Growth Potential:** Mutual funds can offer the potential for long-term capital appreciation and steady income, making them a popular choice for retirement planning and wealth creation.
-9. **Tax Benefits:** Some mutual funds offer tax advantages, such as tax-free or tax-deferred growth, depending on the fund type and the investor's tax jurisdiction
-
-### Terminology
-
-**Mutual Funds (MF)** <br/>
-A mutual fund is an investment vehicle that pools money from multiple investors to create a diversified portfolio managed by professionals. Investors buy shares in the fund, providing access to various securities and benefiting from expert management
-
-**Equity Mutual Fund** <br/>
-An equity mutual fund is a type of investment fund that primarily invests in stocks and represents ownership in a diversified portfolio of publicly-traded companies, offering the potential for capital appreciation and dividends. Investors buy shares in the fund to gain exposure to a diverse range of equities while benefiting from professional management
-
-**Debt Mutual Fund** <br/>
-A debt mutual fund is an investment fund that primarily invests in fixed-income securities such as bonds, government securities, and money market instruments, providing investors with regular income and relatively lower risk compared to equity funds. Investors buy shares in the fund to participate in a diversified portfolio of debt securities, professionally managed to maximize returns while maintaining capital stability.
-
-**Expense Ratio** <br/>
-The expense ratio is a measure of the annual operating expenses of a mutual fund, expressed as a percentage of its total assets, representing the fees investors pay for fund management and administration.
-
-**AUM** <br/>
-AUM stands for "Assets Under Management" and refers to the total value of investments, including securities and other assets, that a financial institution or investment company manages on behalf of its clients or investors. It is a key metric that reflects the size and growth of a fund or investment firm's portfolio.
-
-**SIP Investment** <br />
-A systematic Investment Plan (SIP) is a method of investing in mutual funds, allowing investors to contribute a fixed amount regularly (daily, monthly or quarterly) over time, promoting disciplined and affordable investment while averaging the cost of investments
-
-**Lumpsum Investment** <br />
-Lumpsum Investment refers to a one-time investment of a significant sum of money in a financial instrument, such as mutual funds or stocks, providing an immediate exposure to the market without a regular contribution schedule
-
-**AMC** <br />
-An Asset Management Company (AMC) is a financial institution or company that manages and oversees investment funds, including mutual funds and other investment portfolios, on behalf of individual and institutional investors, making investment decisions and handling day-to-day operations. AMCs aim to maximize returns for investors by diversifying and actively managing the funds' assets
-
-**KYC** <br />
-KYC stands for "Know Your Customer" and refers to the process by which financial institutions verify and collect information about their clients' identity and financial activities to prevent money laundering, fraud, and other illegal activities.
-
-**NAV** <br />
-NAV stands for "Net Asset Value," and it represents the per-share value of a mutual fund or an exchange-traded fund (ETF) calculated by dividing the total value of the fund's assets minus its liabilities by the number of outstanding shares. It serves as an essential indicator of the fund's performance and is used to determine the buying and selling price of fund shares
+9. **Tax Benefits:** Some mutual funds offer tax advantages, such as tax-free or tax-deferred growth, depending on the fund type and the investor's tax jurisdiction.
 
 ### Investment Types
 
