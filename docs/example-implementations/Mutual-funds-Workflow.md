@@ -67,14 +67,13 @@ NAV stands for "Net Asset Value," and it represents the per-share value of a mut
 
 ### Use Cases Considered:
 
-Mutual Funds Investments with real-time order placement with a broker or an Asset Management Company
-
-Investor Profile: Single Account Owner
+- Mutual Funds Investments with real-time order placement with a broker or an Asset Management Company
+- Investor Profile: Single Account Owner
 
 ### Out of Scope:
 
-Corporate/ Treasury Investments <br />
-Multiple owner investment Accounts
+- Corporate/ Treasury Investments
+- Multiple owner investment Accounts
 
 ### Generic Mutual Funds Investments Workflow
 
