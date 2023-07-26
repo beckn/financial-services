@@ -58,8 +58,7 @@
                             "address": "1/4 ABC Society, XYZ Locality, Bangalore, Karnataka"
                         }
                     },
-                    "id": "NEW_FULFILMENT_ID",
-                    "type": "NEW"
+                    "id": "FULFILMENT_ID"
                 }
             ],
             "items": [
@@ -72,7 +71,7 @@
                         "short_desc": "short description of the Marine Insurance Type 1"
                     },
                     "fulfillment_ids": [
-                        "NEW_FULFILMENT_ID"
+                        "FULFILMENT_ID"
                     ],
                     "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
                     "price": {
@@ -82,102 +81,102 @@
                         "label": "Coverage Time",
                         "range": {
                             "start": "2023-07-01T07:12:29.429Z",
-                            "end":"2023-07-30T07:12:47.419Z"
+                            "end": "2023-07-30T07:12:47.419Z"
                         }
                     },
-                    "tags":[
+                    "tags": [
                         {
                             "descriptor": {
-                                "name":"Policy Details"
+                                "name": "Policy Details"
                             },
-                            "list":[
+                            "list": [
                                 {
-                                    "descriptor":{
-                                        "name":"Commodity type"
+                                    "descriptor": {
+                                        "name": "Commodity type"
                                     },
-                                    "value":"FOOD"
+                                    "value": "FOOD"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Sum insured"
+                                    "descriptor": {
+                                        "name": "Sum insured"
                                     },
-                                    "value":"100000"
+                                    "value": "100000"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Mode of conveyance"
+                                    "descriptor": {
+                                        "name": "Mode of conveyance"
                                     },
-                                    "value":"Cargo"
+                                    "value": "Cargo"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Basis of valuation %"
+                                    "descriptor": {
+                                        "name": "Basis of valuation %"
                                     },
-                                    "value":"5"
+                                    "value": "5"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Policy start date"
+                                    "descriptor": {
+                                        "name": "Policy start date"
                                     },
-                                    "value":"2023-07-01"
+                                    "value": "2023-07-01"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Invoice number"
+                                    "descriptor": {
+                                        "name": "Invoice number"
                                     },
-                                    "value":"08790dd7"
+                                    "value": "08790dd7"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Invoice date"
+                                    "descriptor": {
+                                        "name": "Invoice date"
                                     },
-                                    "value":"2023-06-21"
+                                    "value": "2023-06-21"
                                 }
                             ]
                         },
                         {
-                            "descriptor":{
-                                "name":"Cargo details"
+                            "descriptor": {
+                                "name": "Cargo details"
                             },
-                            "list":[
+                            "list": [
                                 {
-                                    "descriptor":{
+                                    "descriptor": {
                                         "name": "Cargo Carrier Name"
                                     },
                                     "value": "MAARK"
                                 },
                                 {
-                                    "descriptor":{
+                                    "descriptor": {
                                         "name": "Cargo Type"
                                     },
-                                    "value":"Full Container"
+                                    "value": "Full Container"
                                 }
                             ]
                         },
                         {
-                            "descriptor":{
-                                "name":"Packaging details"
+                            "descriptor": {
+                                "name": "Packaging details"
                             },
-                            "list":[
+                            "list": [
                                 {
-                                    "descriptor":{
+                                    "descriptor": {
                                         "name": "Package Type"
                                     },
-                                    "value":"Box"
+                                    "value": "Box"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Package Dimension cm"
+                                    "descriptor": {
+                                        "name": "Package Dimension cm"
                                     },
-                                    "value":"10x40x5"
+                                    "value": "10x40x5"
                                 }
                             ]
                         },
                         {
-                            "descriptor":{
-                                "name":"Inclusion"
+                            "descriptor": {
+                                "name": "Inclusion"
                             },
-                            "list":[
+                            "list": [
                                 {
                                     "value": "Delay Covered"
                                 },
@@ -212,9 +211,14 @@
             ],
             "provider": {
                 "descriptor": {
-                    "long_desc": "Insurance Provider Long Description",
-                    "name": "Insurance Provider Name",
-                    "short_desc": "Insurance Provider Short Description"
+                    "long_desc": "ABC Insurance Ltd. Deals in multiple Insurance Services like Health, Motor, Marine etc",
+                    "name": "ABC Insurance Ltd.",
+                    "short_desc": "ABC Insurance Ltd. India ",
+                    "images": [
+                        {
+                            "url": "https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png"
+                        }
+                    ]
                 },
                 "id": "e5585415-bce5-46b5-aeba-9f6b83df5ffa"
             },

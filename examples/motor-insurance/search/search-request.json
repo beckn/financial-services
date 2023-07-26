@@ -19,7 +19,7 @@
         "intent": {
             "category": {
                 "descriptor": {
-                    "name": "Motor Insurance"
+                    "code": "MOTOR_INSURANCE"
                 }
             }
         }

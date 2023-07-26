@@ -54,8 +54,7 @@
                             ]
                         }
                     },
-                    "id": "NEW_FULFILMENT_ID",
-                    "type": "NEW",
+                    "id": "FULFILMENT_ID",
                     "tags": [
                         {
                             "descriptor":{

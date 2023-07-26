@@ -20,44 +20,50 @@
     "message": {
         "catalog": {
             "descriptor": {
-                "name": "Insurance BPP Name"
+                "name": "ABC Insurance Ltd"
             },
             "providers": [
                 {
                     "categories": [
                         {
                             "descriptor": {
-                                "name": "Comprehensive"
+                                "name": "Comprehensive",
+                                "code": "COMPRIHENSIVE_INSURANCE"
                             },
                             "id": "CAT_COMPRIHENSIVE_INSURANCE"
                         },
                         {
                             "descriptor": {
-                                "name": "FOUR WHEELER"
+                                "name": "FOUR WHEELER",
+                                "code": "FOUR_WHEELER_INSURANCE"
                             },
                             "id": "CAT_FOUR_WHEELER_INSURANCE"
                         },
                         {
                             "descriptor": {
-                                "name": "Motor Insurance"
+                                "name": "Motor Insurance",
+                                "code": "MOTOR_INSURANCE"
                             },
                             "id": "CAT_MOTOR_INSURANCE"
                         },
                         {
                             "descriptor": {
-                                "name": "Own Damage"
+                                "name": "Own Damage",
+                                "code": "OWN_DAMAGE_INSURANCE"
                             },
                             "id": "CAT_OWN_DAMAGE_INSURANCE"
                         },
                         {
                             "descriptor": {
-                                "name": "Third Party"
+                                "name": "Third Party",
+                                "code": "THIRD_PARTY_INSURANCE"
                             },
                             "id": "CAT_THIRD_PARTY_INSURANCE"
                         },
                         {
                             "descriptor": {
-                                "name": "TWO WHEELER"
+                                "name": "TWO WHEELER",
+                                "code": "TWO_WHEELER_INSURANCE"
                             },
                             "id": "CAT_TWO_WHEELER_INSURANCE"
                         }
@@ -69,8 +75,7 @@
                     },
                     "fulfillments": [
                         {
-                            "id": "NEW_FULFILMENT_ID",
-                            "type": "NEW"
+                            "id": "FULFILMENT_ID"
                         }
                     ],
                     "id": "e5585415-bce5-46b5-aeba-9f6b83df5ffa",
@@ -83,11 +88,11 @@
                             ],
                             "descriptor": {
                                 "code": "BASE",
-                                "name": "Re-new Motor Insurance",
-                                "short_desc": "short description of the Motor Insurance Type 1"
+                                "name": "2-Wheeler 3rd Party Motor Insurance",
+                                "short_desc": "2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider"
                             },
                             "fulfillment_ids": [
-                                "NEW_FULFILMENT_ID"
+                                "FULFILMENT_ID"
                             ],
                             "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
                             "tags": [
@@ -154,15 +159,15 @@
                             "category_ids": [
                                 "CAT_MOTOR_INSURANCE",
                                 "CAT_THIRD_PARTY_INSURANCE",
-                                "CAT_TWO_WHEELER_INSURANCE"
+                                "CAT_FOUR_WHEELER_INSURANCE"
                             ],
                             "descriptor": {
                                 "code": "BASE",
-                                "name": "New Motor Insurance",
-                                "short_desc": "short description of the Motor Insurance Type 1"
+                                "name": "4-Wheeler 3rd Party Motor Insurance",
+                                "short_desc": "4-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider"
                             },
                             "fulfillment_ids": [
-                                "NEW_FULFILMENT_ID"
+                                "FULFILMENT_ID"
                             ],
                             "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
                             "tags": [

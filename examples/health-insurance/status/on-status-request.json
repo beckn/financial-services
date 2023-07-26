@@ -53,19 +53,18 @@
                             ]
                         }
                     },
-                    "id": "NEW_FULFILMENT_ID",
-                    "type": "NEW",
+                    "id": "FULFILMENT_ID",
                     "tags": [
                         {
-                            "descriptor":{
+                            "descriptor": {
                                 "name": "Process Workflow"
                             },
-                            "list":[
+                            "list": [
                                 {
-                                    "descriptor":{
-                                        "name":"Manual evaluation flag"
+                                    "descriptor": {
+                                        "name": "Manual evaluation flag"
                                     },
-                                    "value":"false"
+                                    "value": "false"
                                 }
                             ]
                         }
@@ -84,11 +83,11 @@
                     ],
                     "descriptor": {
                         "code": "BASE",
-                        "name": "Individaul Health Insurance",
-                        "short_desc": "short description of the Individaul Health Insurance Type 1"
+                        "name": "ABC Individaul Health Insurance Policy",
+                        "short_desc": "ABC Individaul Health Insurance Class A with custom addon"
                     },
                     "fulfillment_ids": [
-                        "NEW_FULFILMENT_ID"
+                        "FULFILMENT_ID"
                     ],
                     "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
                     "price": {
@@ -121,7 +120,7 @@
                             "descriptor": {
                                 "name": "Policy Inclusive Offers"
                             },
-                            "list":[
+                            "list": [
                                 {
                                     "descriptor": {
                                         "name": "Coverage amount"
@@ -135,52 +134,52 @@
                                     "value": "true"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Room rent cap"
+                                    "descriptor": {
+                                        "name": "Room rent cap"
                                     },
-                                    "value":"25000"
+                                    "value": "25000"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Restoration benefit"
+                                    "descriptor": {
+                                        "name": "Restoration benefit"
                                     },
-                                    "value":"false"
+                                    "value": "false"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Claim settlement ratio"
+                                    "descriptor": {
+                                        "name": "Claim settlement ratio"
                                     },
-                                    "value":"0.8"
+                                    "value": "0.8"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Pre-hospitalization coverage days"
+                                    "descriptor": {
+                                        "name": "Pre-hospitalization coverage days"
                                     },
-                                    "value":"2"
+                                    "value": "2"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Post-hospitalization coverage days"
+                                    "descriptor": {
+                                        "name": "Post-hospitalization coverage days"
                                     },
-                                    "value":"5"
+                                    "value": "5"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Maternity coverage"
+                                    "descriptor": {
+                                        "name": "Maternity coverage"
                                     },
-                                    "value":"true"
+                                    "value": "true"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Initial waiting period"
+                                    "descriptor": {
+                                        "name": "Initial waiting period"
                                     },
-                                    "value":"false"
+                                    "value": "false"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Cashless hospitals"
+                                    "descriptor": {
+                                        "name": "Cashless hospitals"
                                     },
-                                    "value":"50"
+                                    "value": "50"
                                 }
                             ]
                         }
@@ -189,10 +188,9 @@
                         "duration": "P1Y",
                         "label": "TENURE"
                     }
-    
                 }
             ],
-            "id":"04389d8c-6a50-4664-9c08-4ee45fef44e8",
+            "id": "04389d8c-6a50-4664-9c08-4ee45fef44e8",
             "payments": [
                 {
                     "collected_by": "BPP",
@@ -209,9 +207,14 @@
             ],
             "provider": {
                 "descriptor": {
-                    "long_desc": "Insurance Provider Long[789 Description",
-                    "name": "Insurance Provider Name",
-                    "short_desc": "Insurance Provider Short Description"
+                    "long_desc": "ABC Insurance Ltd. Deals in multiple Insurance Services like Health, Motor, Marine etc",
+                    "name": "ABC Insurance Ltd.",
+                    "short_desc": "ABC Insurance Ltd. India ",
+                    "images": [
+                        {
+                            "url": "https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png"
+                        }
+                    ]
                 },
                 "id": "e5585415-bce5-46b5-aeba-9f6b83df5ffa"
             },

@@ -19,7 +19,7 @@
         "intent": {
             "category": {
                 "descriptor": {
-                    "name": "Marine Insurance"
+                    "code": "MARINE_INSURANCE"
                 }
             }
         }
