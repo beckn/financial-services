@@ -65,8 +65,8 @@
                         "CAT_MARINE_INSURANCE"
                     ],
                     "descriptor": {
-                        "name": "Marine Insurance",
-                        "short_desc": "short description of the Marine Insurance Type 1"
+                        "name": "ABC Marine Insurance Policy",
+                        "short_desc": "ABC Marine Insurance Class A"
                     },
                     "fulfillment_ids": [
                         "FULFILMENT_ID"
