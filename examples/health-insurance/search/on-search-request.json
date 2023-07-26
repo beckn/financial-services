@@ -57,26 +57,6 @@
                             }
                         ]
                     },
-                    "fulfillments": [
-                        {
-                            "id": "FULFILMENT_ID",
-                            "tags": [
-                                {
-                                    "descriptor": {
-                                        "name": "Process Workflow"
-                                    },
-                                    "list": [
-                                        {
-                                            "descriptor": {
-                                                "name": "Manual evaluation flag"
-                                            },
-                                            "value": "false"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ],
                     "id": "e5585415-bce5-46b5-aeba-9f6b83df5ffa",
                     "items": [
                         {
@@ -89,9 +69,6 @@
                                 "name": "ABC Individaul Health Insurance Policy",
                                 "short_desc": "ABC Individaul Health Insurance Class A with custom addon"
                             },
-                            "fulfillment_ids": [
-                                "FULFILMENT_ID"
-                            ],
                             "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
                             "tags": [
                                 {
@@ -206,9 +183,6 @@
                                 "name": "Family Insurance",
                                 "short_desc": "short description of the Family Insurance Type 1"
                             },
-                            "fulfillment_ids": [
-                                "FULFILMENT_ID"
-                            ],
                             "id": "1b0fb502-630d-4650-a195-9262c1436e2d",
                             "tags": [
                                 {

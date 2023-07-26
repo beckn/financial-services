@@ -43,11 +43,6 @@
                             }
                         ]
                     },
-                    "fulfillments": [
-                        {
-                            "id": "FULFILMENT_ID"
-                        }
-                    ],
                     "id": "e5585415-bce5-46b5-aeba-9f6b83df5ffa",
                     "items": [
                         {
@@ -58,9 +53,6 @@
                                 "name": "ABC Marine Insurance Policy",
                                 "short_desc": "ABC Marine Insurance Class A"
                             },
-                            "fulfillment_ids": [
-                                "FULFILMENT_ID"
-                            ],
                             "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
                             "xinput": {
                                 "form": {
