@@ -18,9 +18,9 @@ The **Decentralized Financial Service Protocol** of DFSP is an adaptation of [be
 | Ravi Prakash     | Maintainer, Protocol Architect | @ravi-prakash-v |
 | Pramod Varma     | Maintainer, Reviewer           | @pramodkvarma   |
 | Sujith Nair      | Reviewer                       | @sjthnrk        |
-| Hrushikesh Mehta | Subject Matter Expert          |                 |
-| Antriksh Parmar  | Subject Matter Expert          |                 |
-| Mohit Monga      | Subject Matter Expert          |                 |
+| Hrushikesh Mehta | Subject Matter Expert          | @hrushmehta     |
+| Antriksh Parmar  | Subject Matter Expert          | @Ratonhnhake-ton|
+| Mohit Monga      | Subject Matter Expert          | @Mmonga12       |
 | Ashish Desai     | Subject Matter Expert          |                 |
 
 ## Implementing the specification
