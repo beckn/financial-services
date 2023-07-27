@@ -20,6 +20,8 @@ The **Decentralized Financial Service Protocol** of DFSP is an adaptation of [be
 | Sujith Nair      | Reviewer                       | @sjthnrk        |
 | Hrushikesh Mehta | Subject Matter Expert          |                 |
 | Antriksh Parmar  | Subject Matter Expert          |                 |
+| Mohit Monga      | Subject Matter Expert          |                 |
+| Ashish Desai     | Subject Matter Expert          |                 |
 
 ## Implementing the specification
 
@@ -32,6 +34,8 @@ The author(s) of this specification would like to thank the following volunteers
 ### Version 0.1.0
 - Hrushikesh Mehta - ONDC
 - Antriksh Parmar - ONDC
+- Mohit Monga - ONDC
+- Ashish Desai - ONDC
 
 
 
