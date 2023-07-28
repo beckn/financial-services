@@ -141,24 +141,10 @@
                 },
                 {
                   "descriptor": {
-                    "name": "Investment Options",
-                    "short_desc": "Fund Investment Options"
-                  },
-                  "value": "SIP, Lumpsum"
-                },
-                {
-                  "descriptor": {
                     "name": "SIP minimum investment amount",
                     "short_desc": "Fund SIP minimum investment amount"
                   },
                   "value": "500"
-                },
-                {
-                  "descriptor": {
-                    "name": "Lumpsum minimum investment amount",
-                    "short_desc": "Fund lumpsum minimum investment amount"
-                  },
-                  "value": "5000"
                 }
               ],
               "display": true

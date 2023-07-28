@@ -1140,6 +1140,64 @@ paths:
                     $ref: "#/components/schemas/Error"
                 required:
                   - message
+  /track:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: Track the value of the order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  allOf:
+                    - $ref: '#/components/schemas/Context'
+                    - properties:
+                        action:
+                          enum:
+                            - track
+                      required:
+                        - action
+                message:
+                  type: object
+                  properties:
+                    order_id:
+                      $ref: '#/components/schemas/Order/properties/id'
+                    callback_url:
+                      type: string
+                      format: uri
+                  required:
+                    - order_id
+              required:
+                - context
+                - message
+      responses:
+        "200":
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
   /support:
     post:
       tags:
@@ -5207,6 +5265,62 @@ paths:
                           external_ref:
                             mimetype: text/html
                             url: https://abcmutalfunds.com/mf/tnc.html
+      responses:
+        "200":
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: "#/components/schemas/Ack"
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+  /on_track:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Send tracking details of an active order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  allOf:
+                    - $ref: '#/components/schemas/Context'
+                    - properties:
+                        action:
+                          enum:
+                            - on_track
+                      required:
+                        - action
+                message:
+                  type: object
+                  properties:
+                    tracking:
+                      $ref: '#/components/schemas/Tracking'
+                  required:
+                    - tracking
+                error:
+                  $ref: '#/components/schemas/Error'
+              required:
+                - context
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature

@@ -21,6 +21,29 @@
         "descriptor": {
           "code": "mf-equity"
         }
+      },
+      "item": {
+        "tags": [
+          {
+            "descriptor": {
+              "name": "mutual fund type"
+            },
+            "list": [
+              {
+                "descriptor": {
+                  "code": "fund-type"
+                },
+                "value": "equity"
+              },
+              {
+                "descriptor": {
+                  "code": "fund-category"
+                },
+                "value": "large cap"
+              }
+            ]
+          }
+        ]
       }
     }
   }
