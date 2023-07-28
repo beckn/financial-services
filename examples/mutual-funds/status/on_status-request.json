@@ -26,7 +26,8 @@
         "descriptor": {
           "images": [
             {
-              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png"
+              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+              "size_type": "sm"
             }
           ],
           "name": "ABC Mutual Funds",
