@@ -75,47 +75,28 @@
                 {
                     "add_ons": [
                         {
-                            "id": "NO_CLAIM_BONUS"
+                            "id": "1",
+                            "descriptor": {
+                                "code": "NO_CLAIM_BONUS",
+                                "name": "No Claim Bonus"
+                            },
+                            "quantity": {
+                                "selected": {
+                                    "count": 1
+                                }
+                            }
                         }
-                    ],
-                    "category_ids": [
-                        "CAT_INDIVIDUAL_INSURANCE"
                     ],
                     "descriptor": {
                         "code": "BASE",
                         "name": "ABC Individaul Health Insurance Policy",
                         "short_desc": "ABC Individaul Health Insurance Class A with custom addon"
                     },
-                    "fulfillment_ids": [
-                        "FULFILMENT_ID"
-                    ],
                     "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
                     "price": {
                         "value": "1000"
                     },
                     "tags": [
-                        {
-                            "descriptor": {
-                                "code": "ASSOCIATED_ADDON_ID"
-                            },
-                            "list": [
-                                {
-                                    "value": "NO_CLAIM_BONUS"
-                                },
-                                {
-                                    "value": "DAYCARE_COVER"
-                                },
-                                {
-                                    "value": "DAILY_CASH_ALLOWANCE"
-                                },
-                                {
-                                    "value": "DOMICILIARY_EXPENSES"
-                                },
-                                {
-                                    "value": "HEALTH_CHECK_UPS"
-                                }
-                            ]
-                        },
                         {
                             "descriptor": {
                                 "name": "Policy Inclusive Offers"
@@ -194,46 +175,6 @@
                         },
                         "required": true
                     }
-                },
-                {
-                    "descriptor": {
-                        "code": "ADDON",
-                        "name": "No Claim Bonus",
-                        "short_desc": "short description"
-                    },
-                    "id": "NO_CLAIM_BONUS"
-                },
-                {
-                    "descriptor": {
-                        "code": "ADDON",
-                        "name": "Daycare coverage",
-                        "short_desc": "short description"
-                    },
-                    "id": "DAYCARE_COVER"
-                },
-                {
-                    "descriptor": {
-                        "code": "ADDON",
-                        "name": "Daily cash allowance",
-                        "short_desc": "short description"
-                    },
-                    "id": "DAILY_CASH_ALLOWANCE"
-                },
-                {
-                    "descriptor": {
-                        "code": "ADDON",
-                        "name": "Domiciliary expenses",
-                        "short_desc": "short description"
-                    },
-                    "id": "DOMICILIARY_EXPENSES"
-                },
-                {
-                    "descriptor": {
-                        "code": "ADDON",
-                        "name": "health check ups",
-                        "short_desc": "short description"
-                    },
-                    "id": "HEALTH_CHECK_UPS"
                 }
             ],
             "payments": [
