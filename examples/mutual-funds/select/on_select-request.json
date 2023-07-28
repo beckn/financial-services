@@ -24,10 +24,10 @@
         "descriptor": {
           "images": [
             {
-              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png"
+              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+              "size_type": "sm"
             }
           ],
-          "code": "ABCMF",
           "name": "ABC Mutual Funds",
           "short_desc": "ABC Mutual Funds Ltd",
           "long_desc": "ABC Mutual Funds Ltd, India."
@@ -39,7 +39,9 @@
           "descriptor": {
             "name": "ABC Large Cap Mutual Fund"
           },
-          "category_ids": ["CAT101"],
+          "category_ids": [
+            "CAT101"
+          ],
           "tags": [
             {
               "descriptor": {
@@ -164,10 +166,25 @@
           ],
           "matched": true,
           "xinput": {
+            "head": {
+              "descriptor": {
+                "name": "KYC"
+              },
+              "index": {
+                "min": 0,
+                "cur": 0,
+                "max": 0
+              },
+              "headings": [
+                "KYC"
+              ]
+            },
             "form": {
               "mime_type": "text/html",
               "url": "https://6vs8xnx5i7.abcmf.co.in/mf-kyc/xinput/formid/a23f2fdfbbb8ac402bfd54f",
-              "submission_id": "1c46b168-83ae-46ad-ac8a-d3c05870252c"
+              "id": "1c46b168-83ae-46ad-ac8a-d3c05870252c",
+              "resubmit": false,
+              "multiple_sumbissions": false
             },
             "required": true
           }

@@ -24,7 +24,13 @@
       },
       "items": [
         {
-          "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321"
+          "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+          "xinput": {
+            "form_response": {
+              "status": true,
+              "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+            }
+          }
         }
       ],
       "fulfillments": [
@@ -37,14 +43,6 @@
               }
             }
           ]
-        }
-      ],
-      "payments": [
-        {
-          "params": {
-            "source_bank_code": "SBIN0001234",
-            "source_bank_account_number": "1800002341"
-          }
         }
       ]
     }

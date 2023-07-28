@@ -6,16 +6,16 @@
         "code": "IND"
       }
     },
-    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
-    "action": "on_status",
-    "timestamp": "2023-05-25T05:23:03.443Z",
     "version": "1.1.0",
+    "action": "on_status",
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
-    "ttl": "PT10M",
     "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io"
+    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "166a5633-66d2-4ec8-bdcb-65cfeb1e4697",
+    "ttl": "PT10M",
+    "timestamp": "2023-05-25T05:23:03.443Z"
   },
   "message": {
     "order": {
@@ -25,10 +25,10 @@
         "descriptor": {
           "images": [
             {
-              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png",
+              "size_type": "sm"
             }
           ],
-          "code": "ICICIBANK",
           "name": "ICICI Bank",
           "short_desc": "ICICI Bank Ltd",
           "long_desc": "ICICI Bank Ltd, India."
@@ -38,16 +38,17 @@
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
           "descriptor": {
-            "name": "Loan Offer : INR 2,00,000"
+            "code": "invoice-based-loan",
+            "name": "Invoice Based Loan Offer: INR 2,00,000"
           },
           "price": {
             "currency": "INR",
-            "value": "230000"
+            "value": "231800"
           },
           "tags": [
             {
               "descriptor": {
-                "name": "Invoice based loan terms"
+                "name": "Invoice Based Loan terms"
               },
               "list": [
                 {
@@ -99,29 +100,44 @@
         }
       ],
       "quote": {
+        "id": "b469bb12-9f67-4898-8f39-ea7816f54289",
         "price": {
           "currency": "INR",
           "value": "231800"
         },
         "breakup": [
           {
-            "title": "Principal",
+            "title": "Installment 1",
             "price": {
-              "value": "200000",
+              "value": "46360",
               "currency": "INR"
             }
           },
           {
-            "title": "Interest",
+            "title": "Installment 2",
             "price": {
-              "value": "30000",
+              "value": "46360",
               "currency": "INR"
             }
           },
           {
-            "title": "Processing fee",
+            "title": "Installment 3",
             "price": {
-              "value": "1800",
+              "value": "46360",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Installment 4",
+            "price": {
+              "value": "46360",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Installment 5",
+            "price": {
+              "value": "46360",
               "currency": "INR"
             }
           }
@@ -130,19 +146,12 @@
       "fulfillments": [
         {
           "customer": {
-            "organization": {
-              "address": "Industrial Park, Bangalore",
-              "state": {
-                "name": "Karnataka"
-              },
-              "city": {
-                "name": "Bangalore",
-                "code": "560045"
-              },
-              "contact": {
-                "phone": "+919876543210",
-                "email": "alpha.manufacturing@gmail.com"
-              }
+            "person": {
+              "name": "John Doe"
+            },
+            "contact": {
+              "phone": "+91-9999999999",
+              "email": "john.doe@example.com"
             }
           },
           "state": {
@@ -154,75 +163,12 @@
       ],
       "payments": [
         {
-          "type": "ON-ORDER",
           "url": "https://emandate.icicibank.in",
           "params": {
-            "amount": "46360",
+            "amount": "231800",
             "currency": "INR"
           },
-          "status": "PAID",
-          "time": {
-            "range": {
-              "start": "01-06-2023 00:00:00",
-              "end": "30-06-2023 23:59:59"
-            }
-          }
-        },
-        {
-          "url": "https://emandate.icicibank.in",
-          "params": {
-            "amount": "46360",
-            "currency": "INR"
-          },
-          "status": "NOT-PAID",
-          "time": {
-            "range": {
-              "start": "01-07-2023 00:00:00",
-              "end": "31-07-2023 23:59:59"
-            }
-          }
-        },
-        {
-          "url": "https://emandate.icicibank.in",
-          "params": {
-            "amount": "46360",
-            "currency": "INR"
-          },
-          "status": "NOT-PAID",
-          "time": {
-            "range": {
-              "start": "01-08-2023 00:00:00",
-              "end": "31-08-2023 23:59:59"
-            }
-          }
-        },
-        {
-          "url": "https://emandate.icicibank.in",
-          "params": {
-            "amount": "46360",
-            "currency": "INR"
-          },
-          "status": "NOT-PAID",
-          "time": {
-            "range": {
-              "start": "01-09-2023 00:00:00",
-              "end": "30-09-2023 23:59:59"
-            }
-          }
-        },
-        {
-          "url": "https://emandate.icicibank.in",
-          "params": {
-            "amount": "46360",
-            "currency": "INR"
-          },
-          "status": "NOT-PAID",
-          "time": {
-            "range": {
-              "start": "01-10-2023 00:00:00",
-              "end": "31-10-2023 23:59:59"
-            }
-          }
+          "status": "5 installments pending"
         }
       ],
       "cancellation_terms": [

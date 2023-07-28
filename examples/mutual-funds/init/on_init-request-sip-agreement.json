@@ -1,0 +1,284 @@
+{
+  "context": {
+    "domain": "financial-services:0.2.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "version": "1.1.0",
+    "action": "on_init",
+    "bap_id": "mutual-fund-protocol.becknprotocol.io",
+    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "ttl": "PT30M",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
+    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "MF001",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+              "size_type": "sm"
+            }
+          ],
+          "name": "ABC Mutual Funds",
+          "short_desc": "ABC Mutual Funds Ltd",
+          "long_desc": "ABC Mutual Funds Ltd, India."
+        }
+      },
+      "items": [
+        {
+          "id": "MFLC001",
+          "descriptor": {
+            "name": "ABC Large Cap Mutual Fund"
+          },
+          "category_ids": [
+            "CAT101"
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Mutual Fund Information"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "name": "Type",
+                    "short_desc": "Fund Type"
+                  },
+                  "value": "Equity"
+                },
+                {
+                  "descriptor": {
+                    "name": "Manager",
+                    "short_desc": "Fund Manager"
+                  },
+                  "value": "John Doe"
+                },
+                {
+                  "descriptor": {
+                    "name": "Rating",
+                    "short_desc": "Fund Rating"
+                  },
+                  "value": "4.5"
+                },
+                {
+                  "descriptor": {
+                    "name": "Inception Date",
+                    "short_desc": "Fund Inception Date"
+                  },
+                  "value": "2020-01-15"
+                },
+                {
+                  "descriptor": {
+                    "name": "AUM",
+                    "short_desc": "Fund AUM"
+                  },
+                  "value": "250,000,000"
+                },
+                {
+                  "descriptor": {
+                    "name": "Expense Ratio",
+                    "short_desc": "Fund Expense Ratio"
+                  },
+                  "value": "1.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "1 month returns",
+                    "short_desc": "Fund 1 month returns"
+                  },
+                  "value": "2.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "3 month returns",
+                    "short_desc": "Fund 3 month returns"
+                  },
+                  "value": "6%"
+                },
+                {
+                  "descriptor": {
+                    "name": "6 month returns",
+                    "short_desc": "Fund 5 month returns"
+                  },
+                  "value": "7%"
+                },
+                {
+                  "descriptor": {
+                    "name": "1 year returns",
+                    "short_desc": "Fund 1 year returns"
+                  },
+                  "value": "15.25%"
+                },
+                {
+                  "descriptor": {
+                    "name": "3 year returns",
+                    "short_desc": "Fund 3 year returns"
+                  },
+                  "value": "45%"
+                },
+                {
+                  "descriptor": {
+                    "name": "5 year returns",
+                    "short_desc": "Fund 5 year returns"
+                  },
+                  "value": "60%"
+                },
+                {
+                  "descriptor": {
+                    "name": "Investment Options",
+                    "short_desc": "Fund Investment Options"
+                  },
+                  "value": "SIP, Lumpsum"
+                },
+                {
+                  "descriptor": {
+                    "name": "SIP minimum investment amount",
+                    "short_desc": "Fund SIP minimum investment amount"
+                  },
+                  "value": "500"
+                },
+                {
+                  "descriptor": {
+                    "name": "Lumpsum minimum investment amount",
+                    "short_desc": "Fund lumpsum minimum investment amount"
+                  },
+                  "value": "5000"
+                }
+              ],
+              "display": true
+            }
+          ],
+          "matched": true,
+          "xinput": {
+            "head": {
+              "descriptor": {
+                "name": "Account Information"
+              },
+              "index": {
+                "min": 0,
+                "cur": 0,
+                "max": 1
+              },
+              "headings": [
+                "Account Information",
+                "Agreement"
+              ]
+            },
+            "form": {
+              "mime_type": "text/html",
+              "url": "https://6vs8xnx5i7.abcmf.co.in/mf-agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+              "id": "1c46b168-83ae-46ad-ac8a-d3c05870252c",
+              "resubmit": false,
+              "multiple_sumbissions": false
+            },
+            "required": true
+          }
+        }
+      ],
+      "fulfillments": [
+        {
+          "customer": {
+            "person": {
+              "name": "John Doe"
+            },
+            "contact": {
+              "phone": "+91-9999999999",
+              "email": "john.doe@example.com"
+            }
+          },
+          "state": {
+            "descriptor": {
+              "name": "Mutual Fund Order Initialized"
+            }
+          },
+          "stops": [
+            {
+              "authorization": {
+                "type": "OTP"
+              }
+            }
+          ]
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "500"
+        },
+        "tags": [
+          {
+            "descriptor": {
+              "name": "NAV Details"
+            },
+            "list": [
+              {
+                "descriptor": {
+                  "name": "Unit price"
+                },
+                "value": "120"
+              },
+              {
+                "descriptor": {
+                  "name": "Units allocated"
+                },
+                "value": "4.15"
+              }
+            ]
+          }
+        ]
+      },
+      "payments": [
+        {
+          "type": "ON-ORDER",
+          "url": "https://emandate.abcmutalfunds.in",
+          "params": {
+            "amount": "500",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-07-2023 00:00:00",
+              "end": "30-07-2023 23:59:59"
+            }
+          }
+        }
+      ],
+      "cancellation_terms": [
+        {
+          "fulfillment_state": {
+            "descriptor": {
+              "name": "Terms"
+            }
+          },
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "https://abcmutalfunds.com/mf/tnc.html"
+          }
+        }
+      ],
+      "tags": [
+        {
+          "list": [
+            {
+              "descriptor": {
+                "name": "Mutual Fund Agreement",
+                "short_desc": "Click on this link to view and sign your Agreement"
+              },
+              "value": "https://abcmutualfunds.com/agreement?id=afyrq9fbH"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

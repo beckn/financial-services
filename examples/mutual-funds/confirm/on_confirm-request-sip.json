@@ -25,10 +25,10 @@
         "descriptor": {
           "images": [
             {
-              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png"
+              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+              "size_type": "sm"
             }
           ],
-          "code": "ABCMF",
           "name": "ABC Mutual Funds",
           "short_desc": "ABC Mutual Funds Ltd",
           "long_desc": "ABC Mutual Funds Ltd, India."

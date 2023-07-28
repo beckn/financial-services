@@ -24,10 +24,10 @@
         "descriptor": {
           "images": [
             {
-              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png",
+              "size_type": "sm"
             }
           ],
-          "code": "ICICIBANK",
           "name": "ICICI Bank",
           "short_desc": "ICICI Bank Ltd",
           "long_desc": "ICICI Bank Ltd, India."
@@ -37,11 +37,12 @@
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
           "descriptor": {
-            "name": "Loan Offer : INR 2,00,000"
+            "code": "personal-loan",
+            "name": "Personal Loan Offer: INR 2,00,000"
           },
           "price": {
             "currency": "INR",
-            "value": "230000"
+            "value": "231800"
           },
           "tags": [
             {
@@ -94,10 +95,34 @@
               ],
               "display": true
             }
-          ]
+          ],
+          "xinput": {
+            "head": {
+              "descriptor": {
+                "name": "Account Information"
+              },
+              "index": {
+                "min": 0,
+                "cur": 1,
+                "max": 1
+              },
+              "headings": [
+                "Account Information",
+                "Loan Agreement"
+              ]
+            },
+            "form": {
+              "mime_type": "text/html",
+              "url": "https://6vs8xnx5i7.icicibank.co.in/loan-agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+              "resubmit": false,
+              "multiple_sumbissions": false
+            },
+            "required": true
+          }
         }
       ],
       "quote": {
+        "id": "b469bb12-9f67-4898-8f39-ea7816f54289",
         "price": {
           "currency": "INR",
           "value": "231800"
@@ -126,6 +151,31 @@
           }
         ]
       },
+      "fulfillments": [
+        {
+          "customer": {
+            "person": {
+              "name": "John Doe"
+            },
+            "contact": {
+              "phone": "+91-9999999999",
+              "email": "john.doe@example.com"
+            }
+          },
+          "stops": [
+            {
+              "authorization": {
+                "type": "OTP"
+              }
+            }
+          ],
+          "state": {
+            "descriptor": {
+              "name": "Loan Initiated"
+            }
+          }
+        }
+      ],
       "payments": [
         {
           "type": "ON-ORDER",
@@ -223,19 +273,6 @@
             "mimetype": "text/html",
             "url": "https://icicibank.com/loan/tnc.html"
           }
-        }
-      ],
-      "tags": [
-        {
-          "list": [
-            {
-              "descriptor": {
-                "name": "Loan Agreement",
-                "short_desc": "Click on this link to view and sign your Loan Agreement"
-              },
-              "value": "https://icicibank.com/loanAgreement?id=afyrq9fbH"
-            }
-          ]
         }
       ]
     }
