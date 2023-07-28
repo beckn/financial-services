@@ -28,7 +28,7 @@
           "xinput": {
             "form_response": {
               "status": true,
-              "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+              "submission_id": "5cd00c5c-892f-4a36-b092-3e4c6535fd49"
             }
           }
         }
@@ -45,31 +45,19 @@
                   "descriptor": {
                     "name": "Type"
                   },
-                  "value": "SIP"
+                  "value": "Lumpsum"
                 },
                 {
                   "descriptor": {
                     "name": "Amount"
                   },
-                  "value": "500"
+                  "value": "5000"
                 },
                 {
                   "descriptor": {
-                    "name": "SIP Start Date"
+                    "name": "Investment Date"
                   },
                   "value": "2023-01-07"
-                },
-                {
-                  "descriptor": {
-                    "name": "SIP Frequency"
-                  },
-                  "value": "Monthly"
-                },
-                {
-                  "descriptor": {
-                    "name": "SIP End Date"
-                  },
-                  "value": "2026-01-07"
                 }
               ]
             }
@@ -79,7 +67,7 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "500"
+          "value": "5000"
         }
       }
     }

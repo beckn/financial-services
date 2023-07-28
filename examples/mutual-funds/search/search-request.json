@@ -19,7 +19,7 @@
     "intent": {
       "category": {
         "descriptor": {
-          "name": "Mutual Funds"
+          "code": "mutual-funds"
         }
       }
     }

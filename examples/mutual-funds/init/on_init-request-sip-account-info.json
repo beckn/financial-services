@@ -27,7 +27,6 @@
               "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png"
             }
           ],
-          "code": "ABCMF",
           "name": "ABC Mutual Funds",
           "short_desc": "ABC Mutual Funds Ltd",
           "long_desc": "ABC Mutual Funds Ltd, India."
@@ -155,7 +154,31 @@
               "display": true
             }
           ],
-          "matched": true
+          "matched": true,
+          "xinput": {
+            "head": {
+              "descriptor": {
+                "name": "Account Information"
+              },
+              "index": {
+                "min": 0,
+                "cur": 0,
+                "max": 1
+              },
+              "headings": [
+                "Account Information",
+                "Agreement"
+              ]
+            },
+            "form": {
+              "mime_type": "text/html",
+              "url": "https://6vs8xnx5i7.abcmf.co.in/mf-agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+              "id": "1c46b168-83ae-46ad-ac8a-d3c05870252c",
+              "resubmit": false,
+              "multiple_sumbissions": false
+            },
+            "required": true
+          }
         }
       ],
       "fulfillments": [

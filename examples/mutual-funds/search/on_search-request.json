@@ -28,10 +28,10 @@
           "descriptor": {
             "images": [
               {
-                "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png"
+                "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+                "size_type": "sm"
               }
             ],
-            "code": "ABCMF",
             "name": "ABC Mutual Funds",
             "short_desc": "ABC Mutual Funds Ltd",
             "long_desc": "ABC Mutual Funds Ltd, India."
@@ -183,10 +183,25 @@
               ],
               "matched": true,
               "xinput": {
+                "head": {
+                  "descriptor": {
+                    "name": "Customer Information"
+                  },
+                  "index": {
+                    "min": 0,
+                    "cur": 0,
+                    "max": 0
+                  },
+                  "headings": [
+                    "Personal Information"
+                  ]
+                },
                 "form": {
+                  "id": "d097c2f5-cb8d-42fe-900e-dfecdede16fb",
                   "mime_type": "text/html",
-                  "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bfd54f",
-                  "submission_id": "1c46b168-83ae-46ad-ac8a-d3c05870252c"
+                  "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bf259d75",
+                  "resubmit": false,
+                  "multiple_sumbissions": false
                 },
                 "required": true
               }
@@ -314,10 +329,25 @@
               ],
               "matched": true,
               "xinput": {
+                "head": {
+                  "descriptor": {
+                    "name": "Customer Information"
+                  },
+                  "index": {
+                    "min": 0,
+                    "cur": 0,
+                    "max": 0
+                  },
+                  "headings": [
+                    "Personal Information"
+                  ]
+                },
                 "form": {
+                  "id": "d097c2f5-cb8d-42fe-900e-dfecdede16fb",
                   "mime_type": "text/html",
-                  "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bfd54f",
-                  "submission_id": "1c46b168-83ae-46ad-ac8a-d3c05870252c"
+                  "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bf259d75",
+                  "resubmit": false,
+                  "multiple_sumbissions": false
                 },
                 "required": true
               }
@@ -445,10 +475,25 @@
               ],
               "matched": true,
               "xinput": {
+                "head": {
+                  "descriptor": {
+                    "name": "Customer Information"
+                  },
+                  "index": {
+                    "min": 0,
+                    "cur": 0,
+                    "max": 0
+                  },
+                  "headings": [
+                    "Personal Information"
+                  ]
+                },
                 "form": {
+                  "id": "d097c2f5-cb8d-42fe-900e-dfecdede16fb",
                   "mime_type": "text/html",
-                  "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bfd54f",
-                  "submission_id": "1c46b168-83ae-46ad-ac8a-d3c05870252c"
+                  "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bf259d75",
+                  "resubmit": false,
+                  "multiple_sumbissions": false
                 },
                 "required": true
               }
