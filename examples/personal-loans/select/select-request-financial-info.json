@@ -8,14 +8,14 @@
     },
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
-    "action": "confirm",
+    "action": "select",
     "timestamp": "2023-05-25T05:23:03.443Z",
     "version": "1.1.0",
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
+    "ttl": "PT10M",
     "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io",
-    "ttl": "PT10M"
+    "bpp_uri": "https://bpp.credit.icicibank.io"
   },
   "message": {
     "order": {
@@ -28,21 +28,9 @@
           "xinput": {
             "form_response": {
               "status": true,
-              "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+              "submission_id": "cc9aa874-fcf9-4497-aa1d-33419134f9a2"
             }
           }
-        }
-      ],
-      "fulfillments": [
-        {
-          "stops": [
-            {
-              "authorization": {
-                "type": "OTP",
-                "token": "535346"
-              }
-            }
-          ]
         }
       ]
     }

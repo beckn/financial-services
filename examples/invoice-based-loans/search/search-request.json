@@ -19,7 +19,7 @@
     "intent": {
       "category": {
         "descriptor": {
-          "name": "Invoice based loan"
+          "code": "invoice-based-loan"
         }
       }
     }

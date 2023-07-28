@@ -7,19 +7,18 @@
       }
     },
     "version": "1.1.0",
-    "action": "on_update",
+    "action": "on_init",
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
     "bpp_id": "bpp.credit.icicibank.io",
     "bpp_uri": "https://bpp.credit.icicibank.io",
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-    "message_id": "0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6",
+    "message_id": "166a5633-66d2-4ec8-bdcb-65cfeb1e4697",
     "ttl": "PT10M",
     "timestamp": "2023-05-25T05:23:03.443Z"
   },
   "message": {
     "order": {
-      "id": "66B7AEDF45",
       "provider": {
         "id": "1",
         "descriptor": {
@@ -96,7 +95,30 @@
               ],
               "display": true
             }
-          ]
+          ],
+          "xinput": {
+            "head": {
+              "descriptor": {
+                "name": "Account Information"
+              },
+              "index": {
+                "min": 0,
+                "cur": 0,
+                "max": 1
+              },
+              "headings": [
+                "Account Information",
+                "Loan Agreement"
+              ]
+            },
+            "form": {
+              "mime_type": "text/html",
+              "url": "https://6vs8xnx5i7.icicibank.co.in/account-details/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+              "resubmit": false,
+              "multiple_sumbissions": false
+            },
+            "required": true
+          }
         }
       ],
       "quote": {
@@ -107,37 +129,23 @@
         },
         "breakup": [
           {
-            "title": "Installment 1",
+            "title": "Principal",
             "price": {
-              "value": "46360",
+              "value": "200000",
               "currency": "INR"
             }
           },
           {
-            "title": "Installment 2",
+            "title": "Interest",
             "price": {
-              "value": "46360",
+              "value": "30000",
               "currency": "INR"
             }
           },
           {
-            "title": "Installment 3",
+            "title": "Processing fee",
             "price": {
-              "value": "46360",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Installment 4",
-            "price": {
-              "value": "46360",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Installment 5",
-            "price": {
-              "value": "46360",
+              "value": "1800",
               "currency": "INR"
             }
           }
@@ -156,19 +164,78 @@
           },
           "state": {
             "descriptor": {
-              "name": "Loan application updated"
+              "name": "Loan Initiated"
             }
           }
         }
       ],
       "payments": [
         {
+          "type": "ON-ORDER",
           "url": "https://emandate.icicibank.in",
           "params": {
-            "amount": "185440",
+            "amount": "46360",
             "currency": "INR"
           },
-          "status": "4 installments pending"
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-06-2023 00:00:00",
+              "end": "30-06-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-07-2023 00:00:00",
+              "end": "31-07-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-08-2023 00:00:00",
+              "end": "31-08-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-09-2023 00:00:00",
+              "end": "30-09-2023 23:59:59"
+            }
+          }
+        },
+        {
+          "params": {
+            "amount": "46360",
+            "currency": "INR"
+          },
+          "status": "NOT-PAID",
+          "time": {
+            "range": {
+              "start": "01-10-2023 00:00:00",
+              "end": "31-10-2023 23:59:59"
+            }
+          }
         }
       ],
       "cancellation_terms": [

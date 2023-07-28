@@ -7,13 +7,13 @@
       }
     },
     "version": "1.1.0",
-    "action": "on_update",
+    "action": "on_status",
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
     "bpp_id": "bpp.credit.icicibank.io",
     "bpp_uri": "https://bpp.credit.icicibank.io",
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-    "message_id": "0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6",
+    "message_id": "166a5633-66d2-4ec8-bdcb-65cfeb1e4697",
     "ttl": "PT10M",
     "timestamp": "2023-05-25T05:23:03.443Z"
   },
@@ -38,8 +38,8 @@
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
           "descriptor": {
-            "code": "personal-loan",
-            "name": "Personal Loan Offer: INR 2,00,000"
+            "code": "invoice-based-loan",
+            "name": "Invoice Based Loan Offer: INR 2,00,000"
           },
           "price": {
             "currency": "INR",
@@ -48,7 +48,7 @@
           "tags": [
             {
               "descriptor": {
-                "name": "Personal loan terms"
+                "name": "Invoice Based Loan terms"
               },
               "list": [
                 {
@@ -107,6 +107,13 @@
         },
         "breakup": [
           {
+            "title": "Late fee for the month of August",
+            "price": {
+              "value": "4636",
+              "currency": "INR"
+            }
+          },
+          {
             "title": "Installment 1",
             "price": {
               "value": "46360",
@@ -156,7 +163,7 @@
           },
           "state": {
             "descriptor": {
-              "name": "Loan application updated"
+              "name": "Installment 1/5 received"
             }
           }
         }
@@ -165,10 +172,10 @@
         {
           "url": "https://emandate.icicibank.in",
           "params": {
-            "amount": "185440",
+            "amount": "236160",
             "currency": "INR"
           },
-          "status": "4 installments pending"
+          "status": "5 installments pending"
         }
       ],
       "cancellation_terms": [

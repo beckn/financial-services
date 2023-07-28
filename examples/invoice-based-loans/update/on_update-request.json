@@ -25,10 +25,10 @@
         "descriptor": {
           "images": [
             {
-              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png",
+              "size_type": "sm"
             }
           ],
-          "code": "ICICIBANK",
           "name": "ICICI Bank",
           "short_desc": "ICICI Bank Ltd",
           "long_desc": "ICICI Bank Ltd, India."
@@ -38,11 +38,12 @@
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
           "descriptor": {
-            "name": "Loan Offer : INR 2,00,000"
+            "code": "invoice-based-loan",
+            "name": "Invoice based Loan Offer: INR 2,00,000"
           },
           "price": {
             "currency": "INR",
-            "value": "230000"
+            "value": "231800"
           },
           "tags": [
             {
@@ -99,29 +100,44 @@
         }
       ],
       "quote": {
+        "id": "b469bb12-9f67-4898-8f39-ea7816f54289",
         "price": {
           "currency": "INR",
           "value": "231800"
         },
         "breakup": [
           {
-            "title": "Principal",
+            "title": "Installment 1",
             "price": {
-              "value": "200000",
+              "value": "46360",
               "currency": "INR"
             }
           },
           {
-            "title": "Interest",
+            "title": "Installment 2",
             "price": {
-              "value": "30000",
+              "value": "46360",
               "currency": "INR"
             }
           },
           {
-            "title": "Processing fee",
+            "title": "Installment 3",
             "price": {
-              "value": "1800",
+              "value": "46360",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Installment 4",
+            "price": {
+              "value": "46360",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Installment 5",
+            "price": {
+              "value": "46360",
               "currency": "INR"
             }
           }
@@ -154,75 +170,12 @@
       ],
       "payments": [
         {
-          "type": "ON-ORDER",
           "url": "https://emandate.icicibank.in",
           "params": {
-            "amount": "46360",
+            "amount": "185440",
             "currency": "INR"
           },
-          "status": "NOT-PAID",
-          "time": {
-            "range": {
-              "start": "01-06-2023 00:00:00",
-              "end": "30-06-2023 23:59:59"
-            }
-          }
-        },
-        {
-          "url": "https://emandate.icicibank.in",
-          "params": {
-            "amount": "46360",
-            "currency": "INR"
-          },
-          "status": "NOT-PAID",
-          "time": {
-            "range": {
-              "start": "01-07-2023 00:00:00",
-              "end": "31-07-2023 23:59:59"
-            }
-          }
-        },
-        {
-          "url": "https://emandate.icicibank.in",
-          "params": {
-            "amount": "46360",
-            "currency": "INR"
-          },
-          "status": "NOT-PAID",
-          "time": {
-            "range": {
-              "start": "01-08-2023 00:00:00",
-              "end": "31-08-2023 23:59:59"
-            }
-          }
-        },
-        {
-          "url": "https://emandate.icicibank.in",
-          "params": {
-            "amount": "46360",
-            "currency": "INR"
-          },
-          "status": "NOT-PAID",
-          "time": {
-            "range": {
-              "start": "01-09-2023 00:00:00",
-              "end": "30-09-2023 23:59:59"
-            }
-          }
-        },
-        {
-          "url": "https://emandate.icicibank.in",
-          "params": {
-            "amount": "46360",
-            "currency": "INR"
-          },
-          "status": "NOT-PAID",
-          "time": {
-            "range": {
-              "start": "01-10-2023 00:00:00",
-              "end": "31-10-2023 23:59:59"
-            }
-          }
+          "status": "4 installments pending"
         }
       ],
       "cancellation_terms": [
