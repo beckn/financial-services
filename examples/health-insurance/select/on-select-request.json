@@ -19,41 +19,12 @@
     },
     "message": {
         "order": {
-            "fulfillments": [
-                {
-                    "customer": {
-                        "contact": {
-                            "email": "joe.adam@abc.org",
-                            "phone": "+91-9999999999"
-                        },
-                        "person": {
-                            "name": "Joe Adam"
-                        }
-                    },
-                    "id": "1",
-                    "tags": [
-                        {
-                            "descriptor": {
-                                "name": "Process Workflow"
-                            },
-                            "list": [
-                                {
-                                    "descriptor": {
-                                        "name": "Manual evaluation flag"
-                                    },
-                                    "value": "false"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ],
             "items": [
                 {
                     "descriptor": {
                         "code": "BASE",
                         "name": "ABC Individaul Health Insurance Policy",
-                        "short_desc": "ABC Individaul Health Insurance Class A with custom addon"
+                        "short_desc": "ABC Individual Health Insurance Class A with custom addon"
                     },
                     "fulfillment_ids": [
                         "1"
