@@ -23,7 +23,7 @@
                 {
                     "add_ons": [
                         {
-                            "id": "NO_CLAIM_BONUS"
+                            "id": "1"
                         }
                     ],
                     "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
@@ -33,8 +33,7 @@
                     },
                     "xinput": {
                         "form": {
-                            "submission_id": "e9a3b4a5-10f8-42c7-b888-dbf0e2edd684",
-                            "url": "https://fis.test.bpp.io/form/buyer_dtls"
+                            "submission_id": "e9a3b4a5-10f8-42c7-b888-dbf0e2edd684"
                         }
                     }
                 }
