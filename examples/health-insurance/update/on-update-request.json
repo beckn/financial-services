@@ -34,8 +34,8 @@
                     },
                     "state": {
                         "descriptor" : {
-                            "name": "Claim Initiated",
-                            "code": "CLAIM-INITIATED"
+                            "name": "Policy Details Update",
+                            "code": "POLICY-UPDATED"
                         }
                     },
                     "id": "1"
@@ -63,7 +63,7 @@
                         "short_desc": "ABC Individaul Health Insurance Class A with custom addon"
                     },
                     "fulfillment_ids": [
-                        "FULFILMENT_ID"
+                        "1"
                     ],
                     "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
                     "price": {
@@ -199,7 +199,19 @@
                     "currency": "INR",
                     "value": "1000"
                 }
-            }
+            },
+            "docs": [
+                {
+                    "descriptor": {
+                        "code": "policy-doc",
+                        "name": "Insurance Policy Document",
+                        "short_desc": "Download your digitally signed policy document here",
+                        "long_desc": "Download you digitally signed policy document here. This document is password protected. To open this document, please type in your password in DDMMMYYYYXXXX format where DDMMMYYYY represents your date of birth, and XXXX represents the first four letters of your name"
+                    },
+                    "mime_type": "application/pdf",
+                    "url": "https://abcinsurance.com/policies/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf"
+                }
+            ]
         }
     }
 }
