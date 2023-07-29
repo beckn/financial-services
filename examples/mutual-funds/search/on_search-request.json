@@ -1,461 +1,309 @@
 {
-  "context": {
-    "domain": "financial-services:0.2.0",
-    "location": {
-      "country": {
-        "code": "IND"
-      }
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "version": "1.1.0",
+        "action": "on_search",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "ttl": "PT30M",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bpp_id": "stockwiz.com",
+        "bpp_uri": "https://stockwiz.com"
     },
-    "version": "1.1.0",
-    "action": "on_search",
-    "bap_id": "mutual-fund-protocol.becknprotocol.io",
-    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
-    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-    "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
-    "ttl": "PT30M",
-    "timestamp": "2023-05-25T05:23:03.443Z",
-    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
-    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
-  },
-  "message": {
-    "catalog": {
-      "descriptor": {
-        "name": "ABC Mutual Funds"
-      },
-      "providers": [
-        {
-          "id": "MF001",
-          "descriptor": {
-            "images": [
-              {
-                "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png"
-              }
-            ],
-            "code": "ABCMF",
-            "name": "ABC Mutual Funds",
-            "short_desc": "ABC Mutual Funds Ltd",
-            "long_desc": "ABC Mutual Funds Ltd, India."
-          },
-          "categories": [
-            {
-              "id": "CAT101",
-              "descriptor": {
-                "name": "Large Cap",
-                "long_desc": "This mutual fund aims to provide long-term capital growth by investing in large-cap equities."
-              }
+    "message": {
+        "catalog": {
+            "descriptor": {
+                "name": "Stockwiz Corp"
             },
-            {
-              "id": "CAT102",
-              "descriptor": {
-                "name": "Corporate Bonds",
-                "long_desc": "This mutual fund aims to generate income by investing in high-quality corporate bonds."
-              }
-            },
-            {
-              "id": "CAT103",
-              "descriptor": {
-                "name": "Balanced",
-                "long_desc": "This mutual fund aims to provide a balance between capital growth and income by investing in a mix of equities and bonds."
-              }
-            }
-          ],
-          "items": [
-            {
-              "id": "MFLC001",
-              "descriptor": {
-                "name": "ABC Large Cap Mutual Fund"
-              },
-              "category_ids": ["CAT101"],
-              "tags": [
+            "providers": [
                 {
-                  "descriptor": {
-                    "name": "Mutual Fund Information"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "name": "Type",
-                        "short_desc": "Fund Type"
-                      },
-                      "value": "Equity"
+                    "id": "1",
+                    "descriptor": {
+                        "images": [
+                            {
+                                "url": "https://www.hdfcfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+                                "size_type": "sm"
+                            }
+                        ],
+                        "name": "HDFC Midcap Opportunities Fund",
+                        "short_desc": "HDFC Midcap Opportunities Fund"
                     },
-                    {
-                      "descriptor": {
-                        "name": "Manager",
-                        "short_desc": "Fund Manager"
-                      },
-                      "value": "John Doe"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Rating",
-                        "short_desc": "Fund Rating"
-                      },
-                      "value": "4.5"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Inception Date",
-                        "short_desc": "Fund Inception Date"
-                      },
-                      "value": "2020-01-15"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "AUM",
-                        "short_desc": "Fund AUM"
-                      },
-                      "value": "250,000,000"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Expense Ratio",
-                        "short_desc": "Fund Expense Ratio"
-                      },
-                      "value": "1.25%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "1 month returns",
-                        "short_desc": "Fund 1 month returns"
-                      },
-                      "value": "2.25%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "3 month returns",
-                        "short_desc": "Fund 3 month returns"
-                      },
-                      "value": "6%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "6 month returns",
-                        "short_desc": "Fund 5 month returns"
-                      },
-                      "value": "7%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "1 year returns",
-                        "short_desc": "Fund 1 year returns"
-                      },
-                      "value": "15.25%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "3 year returns",
-                        "short_desc": "Fund 3 year returns"
-                      },
-                      "value": "45%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "5 year returns",
-                        "short_desc": "Fund 5 year returns"
-                      },
-                      "value": "60%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Investment Options",
-                        "short_desc": "Fund Investment Options"
-                      },
-                      "value": "SIP, Lumpsum"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "SIP minimum investment amount",
-                        "short_desc": "Fund SIP minimum investment amount"
-                      },
-                      "value": "500"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Lumpsum minimum investment amount",
-                        "short_desc": "Fund lumpsum minimum investment amount"
-                      },
-                      "value": "5000"
-                    }
-                  ],
-                  "display": true
+                    "categories": [
+                        {
+                            "id": "1",
+                            "descriptor": {
+                                "name": "Large Cap",
+                                "long_desc": "This mutual fund aims to provide long-term capital growth by investing in large-cap equities."
+                            }
+                        },
+                        {
+                            "id": "2",
+                            "descriptor": {
+                                "name": "Corporate Bonds",
+                                "long_desc": "This mutual fund aims to generate income by investing in high-quality corporate bonds."
+                            }
+                        },
+                        {
+                            "id": "3",
+                            "descriptor": {
+                                "name": "Balanced",
+                                "long_desc": "This mutual fund aims to provide a balance between capital growth and income by investing in a mix of equities and bonds."
+                            }
+                        }
+                    ],
+                    "items": [
+                        {
+                            "id": "1",
+                            "descriptor": {
+                                "name": "ABC Large Cap Mutual Fund - SIP",
+                                "code": "sip"
+                            },
+                            "price": {
+                                "value": "1",
+                                "currency": "INR"
+                            },
+                            "quantity": {
+                                "minimum": {
+                                    "count": 100
+                                }
+                            },
+                            "category_ids": [
+                                "1"
+                            ],
+                            "fulfillment_ids": [
+                                "1"
+                            ],
+                            "matched": true,
+                            "xinput": {
+                                "head": {
+                                    "descriptor": {
+                                        "name": "Customer Information"
+                                    },
+                                    "index": {
+                                        "min": 0,
+                                        "cur": 0,
+                                        "max": 0
+                                    },
+                                    "headings": [
+                                        "Personal Information"
+                                    ]
+                                },
+                                "form": {
+                                    "id": "d097c2f5-cb8d-42fe-900e-dfecdede16fb",
+                                    "mime_type": "text/html",
+                                    "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bf259d75",
+                                    "resubmit": false,
+                                    "multiple_sumbissions": false
+                                },
+                                "required": true
+                            }
+                        },
+                        {
+                            "id": "2",
+                            "descriptor": {
+                                "name": "ABC Large Cap Mutual Fund - Lumpsum",
+                                "code": "lumpsum"
+                            },
+                            "price": {
+                                "value": "5000",
+                                "currency": "INR"
+                            },
+                            "category_ids": [
+                                "1"
+                            ],
+                            "fulfillment_ids": [
+                                "1"
+                            ],
+                            "matched": true,
+                            "xinput": {
+                                "head": {
+                                    "descriptor": {
+                                        "name": "Customer Information"
+                                    },
+                                    "index": {
+                                        "min": 0,
+                                        "cur": 0,
+                                        "max": 0
+                                    },
+                                    "headings": [
+                                        "Personal Information"
+                                    ]
+                                },
+                                "form": {
+                                    "id": "d097c2f5-cb8d-42fe-900e-dfecdede16fb",
+                                    "mime_type": "text/html",
+                                    "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bf259d75",
+                                    "resubmit": false,
+                                    "multiple_sumbissions": false
+                                },
+                                "required": true
+                            }
+                        }
+                    ],
+                    "fulfillments": [
+                        {
+                            "id": "1",
+                            "type": "SIP",
+                            "agent": {
+                                "person": {
+                                    "name": "John Doe"
+                                }
+                            }
+                        },
+                        {
+                            "id": "2",
+                            "type": "ONE-TIME",
+                            "agent": {
+                                "person": {
+                                    "name": "John Doe"
+                                }
+                            }
+                        }
+                    ], 
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "name": "Fund Information",
+                                "code": "fund-info"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "Type"
+                                    },
+                                    "value": "Equity"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Fund Manager"
+                                    },
+                                    "value": "HDFC Asset Management Company"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Fund Rating"
+                                    },
+                                    "value": "4.5"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Inception Date"
+                                    },
+                                    "value": "2020-01-15"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "AUM"
+                                    },
+                                    "value": "250,000,000"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Expense Ratio"
+                                    },
+                                    "value": "1.25%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "1 month returns"
+                                    },
+                                    "value": "2.25%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "3 month returns"
+                                    },
+                                    "value": "6%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "6 month returns"
+                                    },
+                                    "value": "7%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "1 year returns"
+                                    },
+                                    "value": "15.25%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "3 year returns"
+                                    },
+                                    "value": "45%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "5 year returns"
+                                    },
+                                    "value": "60%"
+                                }
+                            ],
+                            "display": true
+                        },
+                        {
+                            "descriptor": {
+                                "name": "Sectors",
+                                "code": "sector-allocation"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "Financials"
+                                    },
+                                    "value": "18.54%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "IT"
+                                    },
+                                    "value": "10.18%"
+                                },
+                                {
+                                    "descriptor":{
+                                        "name": "Pharmaceuticals"
+                                    },
+                                    "value": "2.32%"
+                                }
+                            ]
+                        },
+                        {
+                            "descriptor": {
+                                "name": "Fund Holdings",
+                                "code": "fund-holdings"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "Max Financial Services Ltd"
+                                    },
+                                    "value": "2.30%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Dixon Technologies (India) Ltd"
+                                    },
+                                    "value": "1.00%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Mankind Pharma Ltd"
+                                    },
+                                    "value": "< 1%"
+                                }
+                            ]
+                        }
+                    ]
                 }
-              ],
-              "matched": true,
-              "xinput": {
-                "form": {
-                  "mime_type": "text/html",
-                  "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bfd54f",
-                  "submission_id": "1c46b168-83ae-46ad-ac8a-d3c05870252c"
-                },
-                "required": true
-              }
-            },
-            {
-              "id": "MFCB002",
-              "descriptor": {
-                "name": "ABC Corporate Bonds Mutual Fund"
-              },
-              "category_ids": ["CAT102"],
-              "tags": [
-                {
-                  "descriptor": {
-                    "name": "Mutual Fund Information"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "name": "Type",
-                        "short_desc": "Fund Type"
-                      },
-                      "value": "Fixed Income"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Manager",
-                        "short_desc": "Fund Manager"
-                      },
-                      "value": "Jane Smith"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Rating",
-                        "short_desc": "Fund Rating"
-                      },
-                      "value": "4.2"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Inception Date",
-                        "short_desc": "Fund Inception Date"
-                      },
-                      "value": "2015-08-15"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "AUM",
-                        "short_desc": "Fund AUM"
-                      },
-                      "value": "120,000,000"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Expense Ratio",
-                        "short_desc": "Fund Expense Ratio"
-                      },
-                      "value": "0.95%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "1 month returns",
-                        "short_desc": "Fund 1 month returns"
-                      },
-                      "value": "2.25%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "3 month returns",
-                        "short_desc": "Fund 3 month returns"
-                      },
-                      "value": "6%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "6 month returns",
-                        "short_desc": "Fund 5 month returns"
-                      },
-                      "value": "7%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "1 year returns",
-                        "short_desc": "Fund 1 year returns"
-                      },
-                      "value": "5.25%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "3 year returns",
-                        "short_desc": "Fund 3 year returns"
-                      },
-                      "value": "15.2%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "5 year returns",
-                        "short_desc": "Fund 5 year returns"
-                      },
-                      "value": "20%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Investment Options",
-                        "short_desc": "Fund Investment Options"
-                      },
-                      "value": "SIP, Lumpsum"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "SIP minimum investment amount",
-                        "short_desc": "Fund SIP minimum investment amount"
-                      },
-                      "value": "500"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Lumpsum minimum investment amount",
-                        "short_desc": "Fund lumpsum minimum investment amount"
-                      },
-                      "value": "5000"
-                    }
-                  ],
-                  "display": true
-                }
-              ],
-              "matched": true,
-              "xinput": {
-                "form": {
-                  "mime_type": "text/html",
-                  "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bfd54f",
-                  "submission_id": "1c46b168-83ae-46ad-ac8a-d3c05870252c"
-                },
-                "required": true
-              }
-            },
-            {
-              "id": "MFBF002",
-              "descriptor": {
-                "name": "ABC Balanced Mutual Fund"
-              },
-              "category_ids": ["CAT103"],
-              "tags": [
-                {
-                  "descriptor": {
-                    "name": "Mutual Fund Information"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "name": "Type",
-                        "short_desc": "Fund Type"
-                      },
-                      "value": "Hybrid"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Manager",
-                        "short_desc": "Fund Manager"
-                      },
-                      "value": "Robert Johnson"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Rating",
-                        "short_desc": "Fund Rating"
-                      },
-                      "value": "4"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Inception Date",
-                        "short_desc": "Fund Inception Date"
-                      },
-                      "value": "2012-04-05"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "AUM",
-                        "short_desc": "Fund AUM"
-                      },
-                      "value": "80,000,000"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Expense Ratio",
-                        "short_desc": "Fund Expense Ratio"
-                      },
-                      "value": "1.1%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "1 month returns",
-                        "short_desc": "Fund 1 month returns"
-                      },
-                      "value": "2.25%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "3 month returns",
-                        "short_desc": "Fund 3 month returns"
-                      },
-                      "value": "6%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "6 month returns",
-                        "short_desc": "Fund 5 month returns"
-                      },
-                      "value": "7%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "1 year returns",
-                        "short_desc": "Fund 1 year returns"
-                      },
-                      "value": "8.25%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "3 year returns",
-                        "short_desc": "Fund 3 year returns"
-                      },
-                      "value": "25.2%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "5 year returns",
-                        "short_desc": "Fund 5 year returns"
-                      },
-                      "value": "30%"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Investment Options",
-                        "short_desc": "Fund Investment Options"
-                      },
-                      "value": "SIP, Lumpsum"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "SIP minimum investment amount",
-                        "short_desc": "Fund SIP minimum investment amount"
-                      },
-                      "value": "500"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Lumpsum minimum investment amount",
-                        "short_desc": "Fund lumpsum minimum investment amount"
-                      },
-                      "value": "5000"
-                    }
-                  ],
-                  "display": true
-                }
-              ],
-              "matched": true,
-              "xinput": {
-                "form": {
-                  "mime_type": "text/html",
-                  "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bfd54f",
-                  "submission_id": "1c46b168-83ae-46ad-ac8a-d3c05870252c"
-                },
-                "required": true
-              }
-            }
-          ]
+            ]
         }
-      ]
     }
-  }
 }

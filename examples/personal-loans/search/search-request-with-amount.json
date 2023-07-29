@@ -17,10 +17,12 @@
   },
   "message": {
     "intent": {
-      "item": {
+      "category": {
         "descriptor": {
-          "name": "Personal loan"
-        },
+          "code": "personal-loan"
+        }
+      },
+      "item": {
         "price": {
           "value": "200000",
           "currency": "INR"

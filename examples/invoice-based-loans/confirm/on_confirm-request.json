@@ -25,10 +25,10 @@
         "descriptor": {
           "images": [
             {
-              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png",
+              "size_type": "sm"
             }
           ],
-          "code": "ICICIBANK",
           "name": "ICICI Bank",
           "short_desc": "ICICI Bank Ltd",
           "long_desc": "ICICI Bank Ltd, India."
@@ -38,11 +38,12 @@
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
           "descriptor": {
-            "name": "Loan Offer : INR 2,00,000"
+            "code": "invoice-based-loan",
+            "name": "Invoice based Loan Offer: INR 2,00,000"
           },
           "price": {
             "currency": "INR",
-            "value": "230000"
+            "value": "231800"
           },
           "tags": [
             {
@@ -99,6 +100,7 @@
         }
       ],
       "quote": {
+        "id": "b469bb12-9f67-4898-8f39-ea7816f54289",
         "price": {
           "currency": "INR",
           "value": "231800"
@@ -169,7 +171,6 @@
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -183,7 +184,6 @@
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -197,7 +197,6 @@
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -211,7 +210,6 @@
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
