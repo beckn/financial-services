@@ -1,187 +1,83 @@
 {
-  "context": {
-    "domain": "financial-services:0.2.0",
-    "location": {
-      "country": {
-        "code": "IND"
-      }
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "version": "1.1.0",
+        "action": "on_select",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "ttl": "PT30M",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bpp_id": "stockwiz.com",
+        "bpp_uri": "https://stockwiz.com"
     },
-    "version": "1.1.0",
-    "action": "on_select",
-    "bap_id": "mutual-fund-protocol.becknprotocol.io",
-    "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
-    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-    "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
-    "ttl": "PT30M",
-    "timestamp": "2023-05-25T05:23:03.443Z",
-    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
-    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
-  },
-  "message": {
-    "order": {
-      "provider": {
-        "id": "MF001",
-        "descriptor": {
-          "images": [
-            {
-              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png",
-              "size_type": "sm"
-            }
-          ],
-          "name": "ABC Mutual Funds",
-          "short_desc": "ABC Mutual Funds Ltd",
-          "long_desc": "ABC Mutual Funds Ltd, India."
-        }
-      },
-      "items": [
-        {
-          "id": "MFLCLS001",
-          "descriptor": {
-            "name": "ABC Large Cap Mutual Fund Lumpsum"
-          },
-          "category_ids": [
-            "CAT101"
-          ],
-          "tags": [
-            {
-              "descriptor": {
-                "name": "Mutual Fund Information"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "name": "Type",
-                    "short_desc": "Fund Type"
-                  },
-                  "value": "Equity"
-                },
-                {
-                  "descriptor": {
-                    "name": "Manager",
-                    "short_desc": "Fund Manager"
-                  },
-                  "value": "John Doe"
-                },
-                {
-                  "descriptor": {
-                    "name": "Rating",
-                    "short_desc": "Fund Rating"
-                  },
-                  "value": "4.5"
-                },
-                {
-                  "descriptor": {
-                    "name": "Inception Date",
-                    "short_desc": "Fund Inception Date"
-                  },
-                  "value": "2020-01-15"
-                },
-                {
-                  "descriptor": {
-                    "name": "NAV",
-                    "short_desc": "NAV"
-                  },
-                  "value": "120 rupees"
-                },
-                {
-                  "descriptor": {
-                    "name": "AUM",
-                    "short_desc": "Fund AUM"
-                  },
-                  "value": "250,000,000"
-                },
-                {
-                  "descriptor": {
-                    "name": "Expense Ratio",
-                    "short_desc": "Fund Expense Ratio"
-                  },
-                  "value": "1.25%"
-                },
-                {
-                  "descriptor": {
-                    "name": "1 month returns",
-                    "short_desc": "Fund 1 month returns"
-                  },
-                  "value": "2.25%"
-                },
-                {
-                  "descriptor": {
-                    "name": "3 month returns",
-                    "short_desc": "Fund 3 month returns"
-                  },
-                  "value": "6%"
-                },
-                {
-                  "descriptor": {
-                    "name": "6 month returns",
-                    "short_desc": "Fund 5 month returns"
-                  },
-                  "value": "7%"
-                },
-                {
-                  "descriptor": {
-                    "name": "1 year returns",
-                    "short_desc": "Fund 1 year returns"
-                  },
-                  "value": "15.25%"
-                },
-                {
-                  "descriptor": {
-                    "name": "3 year returns",
-                    "short_desc": "Fund 3 year returns"
-                  },
-                  "value": "45%"
-                },
-                {
-                  "descriptor": {
-                    "name": "5 year returns",
-                    "short_desc": "Fund 5 year returns"
-                  },
-                  "value": "60%"
-                },
-                {
-                  "descriptor": {
-                    "name": "Lumpsum minimum investment amount",
-                    "short_desc": "Fund lumpsum minimum investment amount"
-                  },
-                  "value": "5000"
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1",
+                "descriptor": {
+                    "images": [
+                        {
+                            "url": "https://www.hdfcfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+                            "size_type": "sm"
+                        }
+                    ],
+                    "name": "HDFC Midcap Opportunities Fund",
+                    "short_desc": "HDFC Midcap Opportunities Fund"
                 }
-              ],
-              "display": true
+            },
+            "items": [
+                {
+                    "id": "2",
+                    "descriptor": {
+                        "name": "HDFC Midcap Opportunities Fund - Lumpsum"
+                    },
+                    "price": {
+                        "value": "5000",
+                        "currency": "INR"
+                    },
+                    "quantity": {
+                        "selected": {
+                            "count": 20
+                        }
+                    },
+                    "xinput": {
+                        "head": {
+                            "descriptor": {
+                                "name": "Set up SIP"
+                            },
+                            "index": {
+                                "min": 0,
+                                "cur": 0,
+                                "max": 0
+                            },
+                            "headings": [
+                                "Know Your Customer"
+                            ]
+                        },
+                        "form": {
+                            "mime_type": "text/html",
+                            "url": "https://6vs8xnx5i7.abcmf.co.in/mf-kyc/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+                            "id": "1c46b168-83ae-46ad-ac8a-d3c05870252c",
+                            "resubmit": false,
+                            "multiple_sumbissions": false
+                        },
+                        "required": true
+                    }
+                }
+            ],
+            "quote": {
+                "price": {
+                    "currency": "INR",
+                    "value": "100000"
+                }
             }
-          ],
-          "matched": true,
-          "xinput": {
-            "head": {
-              "descriptor": {
-                "name": "KYC"
-              },
-              "index": {
-                "min": 0,
-                "cur": 0,
-                "max": 0
-              },
-              "headings": [
-                "KYC"
-              ]
-            },
-            "form": {
-              "mime_type": "text/html",
-              "url": "https://6vs8xnx5i7.abcmf.co.in/mf-kyc/xinput/formid/a23f2fdfbbb8ac402bfd54f",
-              "id": "1c46b168-83ae-46ad-ac8a-d3c05870252c",
-              "resubmit": false,
-              "multiple_sumbissions": false
-            },
-            "required": true
-          }
         }
-      ],
-      "quote": {
-        "price": {
-          "currency": "INR",
-          "value": "120"
-        }
-      }
     }
-  }
 }

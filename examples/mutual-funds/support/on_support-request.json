@@ -14,8 +14,8 @@
     "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
     "bap_id": "mutual-fund-protocol.becknprotocol.io",
     "ttl": "PT10M",
-    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
-    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+    "bpp_id": "stockwiz.com",
+    "bpp_uri": "https://stockwiz.com"
   },
   "message": {
     "support": {

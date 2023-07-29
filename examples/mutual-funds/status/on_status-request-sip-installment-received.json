@@ -7,7 +7,7 @@
             }
         },
         "version": "1.1.0",
-        "action": "on_init",
+        "action": "on_confirm",
         "bap_id": "mutual-fund-protocol.becknprotocol.io",
         "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
         "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
@@ -19,6 +19,7 @@
     },
     "message": {
         "order": {
+            "id": "66B7AEDF45",
             "provider": {
                 "id": "1",
                 "descriptor": {
@@ -49,32 +50,6 @@
                         "selected": {
                             "count": 200
                         }
-                    },
-                    "xinput": {
-                        "head": {
-                            "descriptor": {
-                                "name": "Begin SIP"
-                            },
-                            "index": {
-                                "min": 0,
-                                "cur": 3,
-                                "max": 3
-                            },
-                            "headings": [
-                                "Know Your Customer",
-                                "Account Information",
-                                "SIP Setup",
-                                "Review and Submit"
-                            ]
-                        },
-                        "form": {
-                            "mime_type": "text/html",
-                            "url": "https://6vs8xnx5i7.abcmf.co.in/mf-agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f",
-                            "id": "1c46b168-83ae-46ad-ac8a-d3c05870252c",
-                            "resubmit": false,
-                            "multiple_sumbissions": false
-                        },
-                        "required": true
                     }
                 }
             ],
@@ -92,27 +67,51 @@
                     },
                     "state": {
                         "descriptor": {
-                            "name": "Mutual Fund Order Initialized"
+                            "name": "February SIP Amount Received",
+                            "code": "installment-received"
                         }
                     },
-                    "stops": [
-                        {
-                            "authorization": {
-                                "type": "OTP"
+                    "agent": {
+                        "person": {
+                            "name": "John Williams"
+                        },
+                        "organization": {
+                            "descriptor": {
+                                "name": "HDFC Fund"
                             }
+                        },
+                        "contact": {
+                            "phone": "+91-9999999999"
                         }
-                    ]
+                    }
                 }
             ],
             "quote": {
                 "price": {
                     "currency": "INR",
-                    "value": "200"
+                    "value": "2400"
                 },
                 "breakup": [
                     {
                         "descriptor": {
-                            "name": "Unit price"
+                            "name": "Jan'23 SIP Installment"
+                        },
+                        "price": {
+                            "value": "80",
+                            "currency": "INR"
+                        },
+                        "quantity": {
+                            "allocated": {
+                                "measure": {
+                                    "value": "2.5",
+                                    "unit": "units"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "descriptor": {
+                            "name": "Feb'23 Investment"
                         },
                         "price": {
                             "value": "80",
@@ -131,32 +130,48 @@
             },
             "billing": {
                 "name": "Charles D'Souza",
-                "email": "charles@equitygrow.in"
+                "email": "charles@equitygrow.in",
+                "phone": "+91-988777632"
             },
             "payments": [
                 {
-                    "type": "ON-ORDER",
-                    "url": "https://emandate.abcmutalfunds.in",
+                    "collected_by": "BPP",
+                    "method": "E-Mandate",
+                    "type": "ON-FULFILLMENT",
                     "params": {
-                        "amount": "500",
-                        "currency": "INR"
+                        "amount": "200",
+                        "currency": "INR",
+                        "transaction_id": "bh767iygx65u76iyg",
+                        "source_virtual_payment_address": "charles@oksbi",
+                        "timestamp": "2023-05-25T05:23:03.443Z"
                     },
-                    "status": "NOT-PAID",
-                    "time": {
-                        "range": {
-                            "start": "01-07-2023 00:00:00",
-                            "end": "30-07-2023 23:59:59"
-                        }
-                    }
+                    "status": "PAID"
+                },
+                {
+                    "collected_by": "BPP",
+                    "method": "E-Mandate",
+                    "type": "ON-FULFILLMENT",
+                    "params": {
+                        "amount": "200",
+                        "currency": "INR",
+                        "transaction_id": "bh767iygx65u76iyg",
+                        "source_virtual_payment_address": "charles@oksbi",
+                        "timestamp": "2023-05-25T05:23:03.443Z"
+                    },
+                    "status": "PAID"
+                }
+            ],
+            "docs": [
+                {
+                    "mime_type": "application/pdf",
+                    "descriptor": {
+                        "name": "Mutual Fund Purchase Order"
+                    },
+                    "url": "https://www.hdfcfunds.com/orders/invoice-66B7AEDF45.pdf"
                 }
             ],
             "cancellation_terms": [
                 {
-                    "fulfillment_state": {
-                        "descriptor": {
-                            "name": "Terms"
-                        }
-                    },
                     "external_ref": {
                         "mimetype": "text/html",
                         "url": "https://abcmutalfunds.com/mf/tnc.html"

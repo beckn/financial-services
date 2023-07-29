@@ -14,150 +14,32 @@
     "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
     "ttl": "PT30M",
     "timestamp": "2023-05-25T05:23:03.443Z",
-    "bpp_id": "bpp.mutual-fund.abcmutualfunds.io",
-    "bpp_uri": "https://bpp.mutual-fund.abcmutualfunds.io"
+    "bpp_id": "stockwiz.com",
+    "bpp_uri": "https://stockwiz.com"
   },
   "message": {
     "order": {
       "id": "66B7AEDF45",
       "status": "CANCELLED",
       "provider": {
-        "id": "MF001",
+        "id": "1",
         "descriptor": {
-          "images": [
-            {
-              "url": "https://www.abcmutualfunds.com/content/dam/abc/india/assets/images/header/logo.png",
-              "size_type": "sm"
-            }
-          ],
-          "name": "ABC Mutual Funds",
-          "short_desc": "ABC Mutual Funds Ltd",
-          "long_desc": "ABC Mutual Funds Ltd, India."
+            "images": [
+                {
+                    "url": "https://www.hdfcfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+                    "size_type": "sm"
+                }
+            ],
+            "name": "HDFC Midcap Opportunities Fund",
+            "short_desc": "HDFC Midcap Opportunities Fund"
         }
-      },
+    },
       "items": [
         {
           "id": "MFLC001",
           "descriptor": {
             "name": "ABC Large Cap Mutual Fund"
-          },
-          "category_ids": ["CAT101"],
-          "tags": [
-            {
-              "descriptor": {
-                "name": "Mutual Fund Information"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "name": "Type",
-                    "short_desc": "Fund Type"
-                  },
-                  "value": "Equity"
-                },
-                {
-                  "descriptor": {
-                    "name": "Manager",
-                    "short_desc": "Fund Manager"
-                  },
-                  "value": "John Doe"
-                },
-                {
-                  "descriptor": {
-                    "name": "Rating",
-                    "short_desc": "Fund Rating"
-                  },
-                  "value": "4.5"
-                },
-                {
-                  "descriptor": {
-                    "name": "Inception Date",
-                    "short_desc": "Fund Inception Date"
-                  },
-                  "value": "2020-01-15"
-                },
-                {
-                  "descriptor": {
-                    "name": "AUM",
-                    "short_desc": "Fund AUM"
-                  },
-                  "value": "250,000,000"
-                },
-                {
-                  "descriptor": {
-                    "name": "Expense Ratio",
-                    "short_desc": "Fund Expense Ratio"
-                  },
-                  "value": "1.25%"
-                },
-                {
-                  "descriptor": {
-                    "name": "1 month returns",
-                    "short_desc": "Fund 1 month returns"
-                  },
-                  "value": "2.25%"
-                },
-                {
-                  "descriptor": {
-                    "name": "3 month returns",
-                    "short_desc": "Fund 3 month returns"
-                  },
-                  "value": "6%"
-                },
-                {
-                  "descriptor": {
-                    "name": "6 month returns",
-                    "short_desc": "Fund 5 month returns"
-                  },
-                  "value": "7%"
-                },
-                {
-                  "descriptor": {
-                    "name": "1 year returns",
-                    "short_desc": "Fund 1 year returns"
-                  },
-                  "value": "15.25%"
-                },
-                {
-                  "descriptor": {
-                    "name": "3 year returns",
-                    "short_desc": "Fund 3 year returns"
-                  },
-                  "value": "45%"
-                },
-                {
-                  "descriptor": {
-                    "name": "5 year returns",
-                    "short_desc": "Fund 5 year returns"
-                  },
-                  "value": "60%"
-                },
-                {
-                  "descriptor": {
-                    "name": "Investment Options",
-                    "short_desc": "Fund Investment Options"
-                  },
-                  "value": "SIP, Lumpsum"
-                },
-                {
-                  "descriptor": {
-                    "name": "SIP minimum investment amount",
-                    "short_desc": "Fund SIP minimum investment amount"
-                  },
-                  "value": "500"
-                },
-                {
-                  "descriptor": {
-                    "name": "Lumpsum minimum investment amount",
-                    "short_desc": "Fund lumpsum minimum investment amount"
-                  },
-                  "value": "5000"
-                }
-              ],
-              "display": true
-            }
-          ],
-          "matched": true
+          }
         }
       ],
       "fulfillments": [

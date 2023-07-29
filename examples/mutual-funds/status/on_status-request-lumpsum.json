@@ -7,7 +7,7 @@
             }
         },
         "version": "1.1.0",
-        "action": "on_init",
+        "action": "on_status",
         "bap_id": "mutual-fund-protocol.becknprotocol.io",
         "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
         "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
@@ -19,6 +19,8 @@
     },
     "message": {
         "order": {
+            "id": "66B7AEDF45",
+            "status": "PROCESSING",
             "provider": {
                 "id": "1",
                 "descriptor": {
@@ -34,47 +36,9 @@
             },
             "items": [
                 {
-                    "id": "1",
+                    "id": "MFLCLS001",
                     "descriptor": {
-                        "name": "HDFC Midcap Opportunities Fund - SIP"
-                    },
-                    "price": {
-                        "value": "1",
-                        "currency": "INR"
-                    },
-                    "quantity": {
-                        "minimum": {
-                            "count": 100
-                        },
-                        "selected": {
-                            "count": 200
-                        }
-                    },
-                    "xinput": {
-                        "head": {
-                            "descriptor": {
-                                "name": "Begin SIP"
-                            },
-                            "index": {
-                                "min": 0,
-                                "cur": 3,
-                                "max": 3
-                            },
-                            "headings": [
-                                "Know Your Customer",
-                                "Account Information",
-                                "SIP Setup",
-                                "Review and Submit"
-                            ]
-                        },
-                        "form": {
-                            "mime_type": "text/html",
-                            "url": "https://6vs8xnx5i7.abcmf.co.in/mf-agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f",
-                            "id": "1c46b168-83ae-46ad-ac8a-d3c05870252c",
-                            "resubmit": false,
-                            "multiple_sumbissions": false
-                        },
-                        "required": true
+                        "name": "ABC Large Cap Mutual Fund Lumpsum"
                     }
                 }
             ],
@@ -92,40 +56,35 @@
                     },
                     "state": {
                         "descriptor": {
-                            "name": "Mutual Fund Order Initialized"
+                            "name": "Units being allocated"
                         }
-                    },
-                    "stops": [
-                        {
-                            "authorization": {
-                                "type": "OTP"
-                            }
-                        }
-                    ]
+                    }
                 }
             ],
             "quote": {
                 "price": {
                     "currency": "INR",
-                    "value": "200"
+                    "value": "5000"
                 },
-                "breakup": [
+                "tags": [
                     {
                         "descriptor": {
-                            "name": "Unit price"
+                            "name": "NAV Details"
                         },
-                        "price": {
-                            "value": "80",
-                            "currency": "INR"
-                        },
-                        "quantity": {
-                            "allocated": {
-                                "measure": {
-                                    "value": "2.5",
-                                    "unit": "units"
-                                }
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "name": "Unit price"
+                                },
+                                "value": "120"
+                            },
+                            {
+                                "descriptor": {
+                                    "name": "Units allocated"
+                                },
+                                "value": "41.50"
                             }
-                        }
+                        ]
                     }
                 ]
             },
@@ -136,12 +95,12 @@
             "payments": [
                 {
                     "type": "ON-ORDER",
-                    "url": "https://emandate.abcmutalfunds.in",
+                    "url": "https://payment.abcmutalfunds.in",
                     "params": {
-                        "amount": "500",
+                        "amount": "5000",
                         "currency": "INR"
                     },
-                    "status": "NOT-PAID",
+                    "status": "PAID",
                     "time": {
                         "range": {
                             "start": "01-07-2023 00:00:00",
