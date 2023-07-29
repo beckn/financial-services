@@ -112,7 +112,7 @@
                                     "descriptor": {
                                         "name": "Co-payment"
                                     },
-                                    "value": "true"
+                                    "value": "Yes"
                                 },
                                 {
                                     "descriptor": {
@@ -124,7 +124,7 @@
                                     "descriptor": {
                                         "name": "Restoration benefit"
                                     },
-                                    "value": "false"
+                                    "value": "No"
                                 },
                                 {
                                     "descriptor": {
@@ -148,13 +148,13 @@
                                     "descriptor": {
                                         "name": "Maternity coverage"
                                     },
-                                    "value": "true"
+                                    "value": "Yes"
                                 },
                                 {
                                     "descriptor": {
                                         "name": "Initial waiting period"
                                     },
-                                    "value": "false"
+                                    "value": "No"
                                 },
                                 {
                                     "descriptor": {
