@@ -27,44 +27,33 @@
                             "phone": "+91-9999999999"
                         },
                         "person": {
+                            "id" : "gstin:20JDVIEHVJDSN",
                             "dob": "1990-01-21",
                             "gender": "male",
-                            "name": "Joe Adam",
-                            "tags": [
-                                {
-                                    "descriptor": {
-                                        "code": "PERSON_ADDITIONAL_DETAILS"
-                                    },
-                                    "list": [
-                                        {
-                                            "descriptor": {
-                                                "name": "Politically exposed person"
-                                            },
-                                            "value": "false"
-                                        },
-                                        {
-                                            "descriptor": {
-                                                "name": "GSTIN"
-                                            },
-                                            "value": "20JDVIEHVJDSN"
-                                        }
-                                    ]
-                                }
-                            ]
+                            "name": "Joe Adam"
                         }
                     },
-                    "id": "FULFILMENT_ID"
+                    "id": "1"
                 }
             ],
             "items": [
                 {
                     "add_ons": [
                         {
-                            "id": "NO_CLAIM_BONUS"
+                            "id": "1",
+                            "descriptor": {
+                                "code": "NO_CLAIM_BONUS",
+                                "name": "No Claim Bonus"
+                            },
+                            "quantity": {
+                                "selected": {
+                                    "count": 1
+                                }
+                            }
                         }
                     ],
                     "fulfillment_ids": [
-                        "FULFILMENT_ID"
+                        "1"
                     ],
                     "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
                     "time": {
