@@ -26,14 +26,8 @@
                         "contact": {
                             "email": "joe.adam@abc.org",
                             "phone": "+91-9999999999"
-                        },
-                        "person": {
-                            "dob": "1990-01-21",
-                            "gender": "male",
-                            "name": "Joe Adam"
                         }
-                    },
-                    "id": "1"
+                    }
                 }
             ],
             "items": [
@@ -56,9 +50,6 @@
                         "name": "ABC Individaul Health Insurance Policy",
                         "short_desc": "ABC Individaul Health Insurance Class A with custom addon"
                     },
-                    "fulfillment_ids": [
-                        "1"
-                    ],
                     "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
                     "price": {
                         "value": "1000"
@@ -69,7 +60,7 @@
                                 "name": "General Information",
                                 "code": "general-info"
                             },
-                            "list":[
+                            "list": [
                                 {
                                     "descriptor": {
                                         "name": "Coverage amount"
@@ -83,52 +74,52 @@
                                     "value": "Yes"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Room rent cap"
+                                    "descriptor": {
+                                        "name": "Room rent cap"
                                     },
-                                    "value":"25000"
+                                    "value": "25000"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Restoration benefit"
+                                    "descriptor": {
+                                        "name": "Restoration benefit"
                                     },
-                                    "value":"No"
+                                    "value": "No"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Claim settlement ratio"
+                                    "descriptor": {
+                                        "name": "Claim settlement ratio"
                                     },
-                                    "value":"0.8"
+                                    "value": "0.8"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Pre-hospitalization coverage days"
+                                    "descriptor": {
+                                        "name": "Pre-hospitalization coverage days"
                                     },
-                                    "value":"2"
+                                    "value": "2"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Post-hospitalization coverage days"
+                                    "descriptor": {
+                                        "name": "Post-hospitalization coverage days"
                                     },
-                                    "value":"5"
+                                    "value": "5"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Maternity coverage"
+                                    "descriptor": {
+                                        "name": "Maternity coverage"
                                     },
-                                    "value":"Yes"
+                                    "value": "Yes"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Initial waiting period"
+                                    "descriptor": {
+                                        "name": "Initial waiting period"
                                     },
-                                    "value":"No"
+                                    "value": "No"
                                 },
                                 {
-                                    "descriptor":{
-                                        "name":"Cashless hospitals"
+                                    "descriptor": {
+                                        "name": "Cashless hospitals"
                                     },
-                                    "value":"50"
+                                    "value": "50"
                                 }
                             ]
                         }
@@ -137,10 +128,9 @@
                         "duration": "P1Y",
                         "label": "TENURE"
                     }
-    
                 }
             ],
-            "id":"04389d8c-6a50-4664-9c08-4ee45fef44e8",
+            "id": "04389d8c-6a50-4664-9c08-4ee45fef44e8",
             "payments": [
                 {
                     "collected_by": "BPP",
@@ -157,34 +147,45 @@
             ],
             "provider": {
                 "descriptor": {
-                        "long_desc": "ABC Insurance Ltd. Deals in multiple Insurance Services like Health, Motor, Marine etc",
-                        "name": "ABC Insurance Ltd.",
-                        "short_desc": "ABC Insurance Ltd. India ",
-                        "images": [
-                            {
-                                "url": "https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png"
-                            }
-                        ]
-                    },
+                    "long_desc": "ABC Insurance Ltd. Deals in multiple Insurance Services like Health, Motor, Marine etc",
+                    "name": "ABC Insurance Ltd.",
+                    "short_desc": "ABC Insurance Ltd. India ",
+                    "images": [
+                        {
+                            "url": "https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png",
+                            "size_type": "xs"
+                        }
+                    ]
+                },
                 "id": "e5585415-bce5-46b5-aeba-9f6b83df5ffa"
             },
             "quote": {
+                "id": "ef01df28-e483-46dd-8a0d-cb0619cef116",
                 "breakup": [
                     {
                         "price": {
-                            "value": "900"
+                            "value": "900",
+                            "currency": "INR"
                         },
                         "title": "Base Price"
                     },
                     {
                         "price": {
-                            "value": "50"
+                            "value": "50",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "price": {
+                            "value": "40",
+                            "currency": "INR"
                         },
                         "title": "Tax"
                     },
                     {
                         "price": {
-                            "value": "50"
+                            "value": "10",
+                            "currency": "INR"
                         },
                         "title": "Processing Fee"
                     }
@@ -194,6 +195,7 @@
                     "value": "1000"
                 }
             },
+            "status": "Processing",
             "docs": [
                 {
                     "descriptor": {

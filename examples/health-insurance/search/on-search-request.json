@@ -53,7 +53,8 @@
                         "short_desc": "ABC Insurance Ltd. India ",
                         "images": [
                             {
-                                "url": "https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png"
+                                "url": "https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png",
+                                "size_type": "xs"
                             }
                         ]
                     },
@@ -65,11 +66,10 @@
                                 "2"
                             ],
                             "descriptor": {
-                                "code": "BASE",
-                                "name": "ABC Individual Health Insurance Policy",
+                                "name": "Health Gain Plus Individual",
                                 "short_desc": "ABC Individaul Health Insurance Class A with custom addon"
                             },
-                            "id": "1",
+                            "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
                             "tags": [
                                 {
                                     "descriptor": {
@@ -145,15 +145,35 @@
                                 "label": "TENURE"
                             },
                             "xinput": {
+                                "head": {
+                                    "descriptor": {
+                                        "name": "Customer Information"
+                                    },
+                                    "index": {
+                                        "min": 0,
+                                        "cur": 0,
+                                        "max": 0
+                                    },
+                                    "headings": [
+                                        "Individaul Information"
+                                    ]
+                                },
                                 "form": {
                                     "mime_type": "text/html",
-                                    "url": "https://fis.test.bpp.io/form/buyer_dtls"
+                                    "url": "https://fis.test.bpp.io/form/buyer_dtls",
+                                    "resubmit": true,
+                                    "multiple_sumbissions": false
                                 },
                                 "required": true
                             },
                             "add_ons": [
                                 {
                                     "id": "1",
+                                    "quantity": {
+                                        "available": {
+                                            "count": 1
+                                        }
+                                    },
                                     "descriptor": {
                                         "name": "No Claim Bonus",
                                         "code": "NO_CLAIM_BONUS"
@@ -161,6 +181,11 @@
                                 },
                                 {
                                     "id": "2",
+                                    "quantity": {
+                                        "available": {
+                                            "count": 1
+                                        }
+                                    },
                                     "descriptor": {
                                         "name": "Daycare Cover",
                                         "code": "DAYCARE_COVER"
@@ -168,6 +193,11 @@
                                 },
                                 {
                                     "id": "3",
+                                    "quantity": {
+                                        "available": {
+                                            "count": 1
+                                        }
+                                    },
                                     "descriptor": {
                                         "name": "Daily Cash Allowance",
                                         "code": "DAILY_CASH_ALLOWANCE"
@@ -175,6 +205,11 @@
                                 },
                                 {
                                     "id": "4",
+                                    "quantity": {
+                                        "available": {
+                                            "count": 1
+                                        }
+                                    },
                                     "descriptor": {
                                         "name": "Domicialiary Expenses",
                                         "code": "DOMICILIARY_EXPENSES"
@@ -182,6 +217,11 @@
                                 },
                                 {
                                     "id": "5",
+                                    "quantity": {
+                                        "available": {
+                                            "count": 1
+                                        }
+                                    },
                                     "descriptor": {
                                         "name": "Health Check-ups",
                                         "code": "HEALTH_CHECK_UPS"
@@ -195,8 +235,7 @@
                                 "CAT_HEALTH_INSURANCE"
                             ],
                             "descriptor": {
-                                "code": "BASE",
-                                "name": "Family Insurance",
+                                "name": "Health Gain Plus Family",
                                 "short_desc": "short description of the Family Insurance Type 1"
                             },
                             "id": "1b0fb502-630d-4650-a195-9262c1436e2d",
@@ -253,7 +292,7 @@
                                             "descriptor": {
                                                 "name": "Maternity coverage"
                                             },
-                                            "value": "YYes"
+                                            "value": "Yes"
                                         },
                                         {
                                             "descriptor": {
@@ -273,6 +312,11 @@
                             "add_ons": [
                                 {
                                     "id": "1",
+                                    "quantity": {
+                                        "available": {
+                                            "count": 1
+                                        }
+                                    },
                                     "descriptor": {
                                         "name": "No Claim Bonus",
                                         "code": "NO_CLAIM_BONUS"
@@ -280,6 +324,11 @@
                                 },
                                 {
                                     "id": "2",
+                                    "quantity": {
+                                        "available": {
+                                            "count": 1
+                                        }
+                                    },
                                     "descriptor": {
                                         "name": "Daycare Cover",
                                         "code": "DAYCARE_COVER"
@@ -287,6 +336,12 @@
                                 },
                                 {
                                     "id": "3",
+                                    
+                                    "quantity": {
+                                        "available": {
+                                            "count": 1
+                                        }
+                                    },
                                     "descriptor": {
                                         "name": "Daily Cash Allowance",
                                         "code": "DAILY_CASH_ALLOWANCE"
@@ -294,6 +349,11 @@
                                 },
                                 {
                                     "id": "4",
+                                    "quantity": {
+                                        "available": {
+                                            "count": 1
+                                        }
+                                    },
                                     "descriptor": {
                                         "name": "Domicialiary Expenses",
                                         "code": "DOMICILIARY_EXPENSES"
@@ -301,6 +361,11 @@
                                 },
                                 {
                                     "id": "5",
+                                    "quantity": {
+                                        "available": {
+                                            "count": 1
+                                        }
+                                    },
                                     "descriptor": {
                                         "name": "Health Check-ups",
                                         "code": "HEALTH_CHECK_UPS"
@@ -312,9 +377,24 @@
                                 "label": "TENURE"
                             },
                             "xinput": {
+                                "head": {
+                                    "descriptor": {
+                                        "name": "Customer Information"
+                                    },
+                                    "index": {
+                                        "min": 0,
+                                        "cur": 0,
+                                        "max": 0
+                                    },
+                                    "headings": [
+                                        "Family Information"
+                                    ]
+                                },
                                 "form": {
                                     "mime_type": "text/html",
-                                    "url": "https://fis.test.bpp.io/form/family_dtls"
+                                    "url": "https://fis.test.bpp.io/form/family_dtls/",
+                                    "resubmit": true,
+                                    "multiple_sumbissions": false
                                 },
                                 "required": true
                             }

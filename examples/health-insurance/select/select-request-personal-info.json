@@ -1,6 +1,6 @@
 {
     "context": {
-        "action": "init",
+        "action": "select",
         "bap_id": "fis.test.bap.io",
         "bap_uri": "https://fis.test.bap.io/",
         "bpp_id": "fis.test.bpp.io",
@@ -11,27 +11,14 @@
                 "code": "IND"
             }
         },
-        "message_id": "a214954f-fa49-4e10-baf4-c51b3dd22fd7",
-        "timestamp": "2023-07-24T05:40:48.432Z",
+        "message_id": "1425f3a1-420d-4c38-9b47-234c7bfa68ea",
+        "timestamp": "2023-07-24T05:40:18.651Z",
         "transaction_id": "c04a04ee-d892-400f-bbe6-479a43b4448a",
         "ttl": "PT24H",
         "version": "1.1.0"
     },
     "message": {
         "order": {
-            "fulfillments": [
-                {
-                    "customer": {
-                        "contact": {
-                            "email": "joe.adam@abc.org",
-                            "phone": "+91-9999999999"
-                        },
-                        "person": {
-                            "name": "Joe Adam"
-                        }
-                    }
-                }
-            ],
             "items": [
                 {
                     "add_ons": [
@@ -46,7 +33,8 @@
                     ],
                     "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
                     "xinput": {
-                        "form": {
+                        "form_response": {
+                            "status": "false",
                             "submission_id": "e9a3b4a5-10f8-42c7-b888-dbf0e2edd684"
                         }
                     }
