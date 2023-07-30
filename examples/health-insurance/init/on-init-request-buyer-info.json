@@ -123,7 +123,7 @@
                             },
                             "index": {
                                 "min": 0,
-                                "cur": 0,
+                                "cur": 1,
                                 "max": 3
                             },
                             "headings": [
@@ -135,7 +135,7 @@
                         },
                         "form": {
                             "mime_type": "text/html",
-                            "url": "https://fis.test.bpp.io/form/prop_dtls",
+                            "url": "https://fis.test.bpp.io/form/medical_dtls",
                             "resubmit": true,
                             "multiple_sumbissions": false
                         },
