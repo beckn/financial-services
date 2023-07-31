@@ -37,8 +37,8 @@
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
           "descriptor": {
-            "code": "personal-loan",
-            "name": "Personal Loan Offer: INR 2,00,000"
+            "code": "invoice-based-loan",
+            "short_desc": "Invoice based loan of INR 2 Lakhs"
           },
           "price": {
             "currency": "INR",
@@ -47,7 +47,7 @@
           "tags": [
             {
               "descriptor": {
-                "name": "Personal loan terms"
+                "name": "Invoice based loan terms"
               },
               "list": [
                 {
@@ -103,7 +103,7 @@
               },
               "index": {
                 "min": 0,
-                "cur": 0,
+                "cur": 1,
                 "max": 2
               },
               "headings": [
@@ -114,7 +114,7 @@
             },
             "form": {
               "mime_type": "text/html",
-              "url": "https://6vs8xnx5i7.icicibank.co.in/account-details/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+              "url": "https://6vs8xnx5i7.icicibank.co.in/loan-agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f",
               "resubmit": false,
               "multiple_sumbissions": false
             },
@@ -155,12 +155,19 @@
       "fulfillments": [
         {
           "customer": {
-            "person": {
-              "name": "John Doe"
-            },
-            "contact": {
-              "phone": "+91-9999999999",
-              "email": "john.doe@example.com"
+            "organization": {
+              "address": "Industrial Park, Bangalore",
+              "state": {
+                "name": "Karnataka"
+              },
+              "city": {
+                "name": "Bangalore",
+                "code": "560045"
+              },
+              "contact": {
+                "phone": "+919876543210",
+                "email": "alpha.manufacturing@gmail.com"
+              }
             }
           },
           "state": {

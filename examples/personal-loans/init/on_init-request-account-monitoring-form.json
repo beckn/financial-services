@@ -103,7 +103,7 @@
               },
               "index": {
                 "min": 0,
-                "cur": 0,
+                "cur": 1,
                 "max": 2
               },
               "headings": [
@@ -114,7 +114,7 @@
             },
             "form": {
               "mime_type": "text/html",
-              "url": "https://6vs8xnx5i7.icicibank.co.in/account-details/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+              "url": "https://6vs8xnx5i7.icicibank.co.in/loan-agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f",
               "resubmit": false,
               "multiple_sumbissions": false
             },
@@ -163,6 +163,13 @@
               "email": "john.doe@example.com"
             }
           },
+          "stops": [
+            {
+              "authorization": {
+                "type": "OTP"
+              }
+            }
+          ],
           "state": {
             "descriptor": {
               "name": "Loan Initiated"
