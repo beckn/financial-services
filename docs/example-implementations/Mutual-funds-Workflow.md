@@ -42,11 +42,19 @@ Key benefits for individual investors
 - Corporate/ Treasury Investments
 - Multiple owner investment Accounts
 
+### Example Mutual Funds Network
+
+![Mutual Fund Network](https://github.com/beckn/financial-services/assets/52468749/243e32e2-ca35-4eb0-b003-19ab83fb1ad1)
+
+
 ### Generic Mutual Funds Investments Workflow
 
 ```mermaid
 sequenceDiagram
     title MF Investments
+    Actor Investor
+    Participant AMC
+    Participant MFU /  Fund
     Investor ->> AMC: Research and Select MF
     Investor ->> AMC: Mode of investment and Amount to be invested
     AMC ->> AMC: Check if investor needs KYC
