@@ -1,6 +1,6 @@
-## Mutual Funds Investments
+# Mutual Funds Investment - Implementation Guide
 
-### Table of contents
+## Table of contents
 
 - [Introduction](#introduction)
 - [Investment Types](#investment-types)
@@ -8,11 +8,11 @@
 - [Out of Scope](#use-cases-considered)
 - [Generic Mutual Funds Investments Workflow](#generic-mutual-funds-investments-workflow)
 
-### Introduction
+## Introduction
 
 Mutual funds serve as an accessible and efficient way for individual investors to participate in the financial markets, achieve diversification, and work toward their financial objectives with the help of professional management.
 
-Key benefits for individual investors
+### Key benefits for individual investors
 
 1. **Diversification:** Mutual funds offer access to a diversified portfolio of assets, reducing risk by spreading investments across various securities and industries.
 2. **Professional Management:** With expert fund managers handling investment decisions, investors can benefit from their knowledge and experience, saving time and effort in researching individual investments.
@@ -32,31 +32,61 @@ Key benefits for individual investors
 4. Direct bonds investments
 5. Alternative Investments
 
-### Use Cases Considered:
+## Use Cases Considered:
 
-- Mutual Funds Investments with real-time order placement with a broker or an Asset Management Company
+### In Scope
+
+- Mutual Funds Investments with real-time order placement using a broker or an Asset Management Company
 - Investor Profile: Single Account Owner
 
 ### Out of Scope:
 
 - Corporate/ Treasury Investments
 - Multiple owner investment Accounts
+- Investment in Private Equity, Hedge Funds, etc
 
-### Example Mutual Funds Network
+## Example Mutual Funds Network
 
 ![Mutual Fund Network](https://github.com/beckn/financial-services/assets/52468749/243e32e2-ca35-4eb0-b003-19ab83fb1ad1)
 
 
-### Generic Mutual Funds Investments Workflow
+## Mutual Funds Investments Example Workflows
 
 ```mermaid
 sequenceDiagram
     title MF Investments
     Actor Investor
-    Participant AMC
-    Participant MFU /  Fund
-    Investor ->> AMC: Research and Select MF
-    Investor ->> AMC: Mode of investment and Amount to be invested
+    Participant Investment Platform
+    Participant Fund Aggregator / Direct Fund
+    rect rgb(191, 223, 255)
+    note right of Investor: Registration: <br/>Investor performs registration and KYC
+    Investor -->> Investment Platform : Provide KYC Details
+    Investor -->> Investment Platform : Create Profile
+    end
+    rect rgb(191, 223, 255)
+    note right of Investment Platform: Discovery: <br/> Investment Platform broadcasts intent - <br/> Budget, Risk, Sectors, etc
+    Investment Platform ->> Fund Aggregator / Direct Fund: search / browse funds
+    Fund Aggregator / Direct Fund ->>  Investment Platform : Return fund catalog
+    end
+    rect rgb(191, 223, 255)
+    note right of Investor: Ordering: <br/> Investment Platform invests in fund
+    Investor -->> Investment Platform: Investor selects fund
+    Investor -->> Investment Platform: Investor selects investment type and other details
+    Investment Platform ->> Fund Aggregator / Direct Fund: Investment Platform requests fund and product ex: SIP, Lumpsum
+    Fund Aggregator / Direct Fund ->>  Investment Platform : Fund returns quote
+    Investment Platform ->> Fund Aggregator / Direct Fund: Investment Platform intiializes order by providing consumer ID, billing and payment details
+    Fund Aggregator / Direct Fund ->>  Investment Platform : Fund returns final quote with payment amount, url, and other terms
+    Investment Platform -->> Fund Aggregator / Direct Fund: Performs KYC on behalf of investor if required
+    Investor -->> Fund Aggregator / Direct Fund: Investor pays or sets up payment
+    Investment Platform ->> Fund Aggregator / Direct Fund: Investment Platform places order by providing payment reference
+    Fund Aggregator / Direct Fund ->>  Investment Platform : Fund returns confirmed order with latest status
+    end
+    rect rgb(191, 223, 255)
+    note right of Investment Platform: Fulfillment: <br/> Fund returns state of order
+    Fund Aggregator / Direct Fund ->>  Investment Platform : Return fund status
+    Investment Platform ->> Fund Aggregator / Direct Fund: Investment Platform requests live tracking of funds
+    Fund Aggregator / Direct Fund ->>  Investment Platform : Return tracking link
+    end
     AMC ->> AMC: Check if investor needs KYC
     AMC ->> Investor: Ask KYC information
     AMC ->> Investor: Ask Bank A/C Information
@@ -67,6 +97,8 @@ sequenceDiagram
     AMC ->> Investor: Allocate MF NAV
     AMC ->> Investor: Provide updated NAV information\
 ```
+
+##
 
 **Step 1: Research and Select MF** <br />
 The investor views various Mutual Funds options available, researches basis key parameters such as historical returns, expense ratio, AUM etc. and decides the one (s) he/ she wants to invest.
