@@ -49,7 +49,6 @@ Mutual funds serve as an accessible and efficient way for individual investors t
 
 ![Mutual Fund Network](https://github.com/beckn/financial-services/assets/52468749/243e32e2-ca35-4eb0-b003-19ab83fb1ad1)
 
-
 ## Mutual Funds Investments Example Workflows
 
 ```mermaid
@@ -95,9 +94,328 @@ In this workflow. the Investment Platform signs up the customer on the platform 
 
 Most funds or fund aggregators today are centralized platforms that maintain their own customer database and hence require the customer to perform KYC before investing in a fund, therefore maintaining the investor's KYC details and other preferences allow investment platforms to automate the submission of the KYC form. 
 
-**Note:** However, in permissioned networks (for example, ONDC), each transaction is a dual-digitally signed contract between the BAP and the BPP, the BPP ideally does not need to explicitly request KYC on the customer. The network participation agreement signed by the NPs for financial services may require the BAP to mandatorily perform KYC of the investor before initiating any transaction. In such a setup, any transaction originating from a BAP can be considered to be a trusted transaction. The BPP will potentially require only a unique customer ID to create any order. In the case of ONDC, it could be the customer's PAN, Aadhaar, or any other ID, commonly accepted by the network participants. 
+To continously maintain updated profile information, the Investment Platform (BAP) can perform periodic scans of the network via the `search / on_search` interactions and fetch the various KYC forms of the various BPPs. The BAP can then keep its profile schema up-to-date with the latest fields and inputs required by each BPP. 
+
+Below is an example flow of how a Investment Platform (BAP) can continuously maintain an investor's profile with respect to the KYC requirements of the Funds (BPPs)
+
+```mermaid
+sequenceDiagram
+    title MF Investments
+    Actor Investor
+    Participant Investment Platform
+    Participant Gateway
+    Participant Fund Aggregator / Direct Fund
+    loop everyday
+        Investment Platform ->> Gateway: search
+        Gateway ->> Fund Aggregator / Direct Fund: search
+        Fund Aggregator / Direct Fund ->>  Investment Platform : on_search
+        Investment Platform ->> Fund Aggregator / Direct Fund: HTTP/GET KYC Form
+        Investment Platform ->> Investment Platform : Update profile form
+    end
+    rect rgb(191, 223, 255)
+    note right of Investor: Registration: <br/>Investor performs registration and KYC
+    Investor -->> Investment Platform : Provide KYC Details
+    Investor -->> Investment Platform : Create Profile
+    end
+```
+
+Below is an example of how a search request looks like while scanning the network for various funds. 
+
+```json
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "action": "search",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "version": "1.1.0",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "ttl": "PT10M"
+    },
+    "message": {
+        "intent": {
+            "category": {
+                "descriptor": {
+                    "code": "mutual-funds"
+                }
+            }
+        }
+    }
+}
+```
+
+There can be other search requests that contain the item as well such as SIP, Lumpsum etc. 
+
+**Note:** In permissioned networks (for example, ONDC), each transaction is a dual-digitally signed contract between the BAP and the BPP, the BPP ideally does not need to explicitly request KYC on the customer. The network participation agreement signed by the NPs for financial services may require the BAP to mandatorily perform KYC of the investor before initiating any transaction. In such a setup, any transaction originating from a BAP can be considered to be a trusted transaction. The BPP will potentially require only a unique customer ID to create any order. In the case of ONDC, it could be the customer's PAN, Aadhaar, or any other ID, commonly accepted by the network participants. 
 
 ## Discovery
+
+In this state, the BAP discovers multiple investment opportunites offered by different funds on the network by broadcasting a search intent. To do this, the BAP calls the `search` endpoint of the BG. The BG looks up the registry for platforms that offer financial service and broadcasts the search request to them. Each BPP that has catalogs that match the search intent, return their catalogs by calling the BAP's `on_search` endpoint. The BAP then aggregates the catalogs and renders the unified catalog on their BAP. Alternatively, the BAP can perform this operation in the back-end and cache the catalogs. It can further apply algorithmic recommendations on the aggregated catalog and render a more personalized experience to the investor. For example, the BAP can provide a "Top Picks of the Day" section on its app that is tailored towards the investor's preferences. 
+
+Below is an illustration of how discovery happens on the network.
+
+```mermaid
+sequenceDiagram
+    title MF Discovery
+    Participant Investment Platform
+    Participant Gateway
+    Participant Fund Aggregator
+    Participant Direct Fund 1
+    Participant Direct Fund 2
+    Investment Platform ->> Gateway: search
+    Gateway ->> Fund Aggregator: search
+    Gateway ->> Direct Fund 1: search
+    Gateway ->> Direct Fund 2: search
+    Fund Aggregator ->>  Investment Platform : on_search
+    Direct Fund 1 ->>  Investment Platform : on_search
+    Direct Fund 2 ->>  Investment Platform : on_search
+```
+
+### Declaring Intent (`search`)
+
+To perform discovery, the BAP can create various forms of search requests like shown below.
+
+#### Search for mutual funds, i.e Search by category
+In this use case, the BAP searches for all Financial Service BPPs that offer mutual funds as a category of services.
+```json
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "action": "search",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "version": "1.1.0",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "ttl": "PT10M"
+    },
+    "message": {
+        "intent": {
+            "category": {
+                "descriptor": {
+                    "code": "mutual-funds"
+                }
+            }
+        }
+    }
+}
+```
+
+#### Search for Systematic Investment Plans (SIPs), i.e Search by Item
+In this case, the BAP, specifies the name or code of the specific mutual fund product.
+
+```json
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "action": "search",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "version": "1.1.0",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "ttl": "PT10M"
+    },
+    "message": {
+        "intent": {
+            "category": {
+                "descriptor": {
+                    "code": "mutual-funds"
+                }
+            },
+            "item": {
+                "descriptor": {
+                    "code": "sip"
+                }
+            }
+        }
+    }
+}
+```
+
+#### Search for Mutual Fund Provider by name, i.e Search by Provider
+In this case, the BAP, specifies the name or code of the specific mutual fund product.
+
+```json
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "action": "search",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "version": "1.1.0",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "ttl": "PT10M"
+    },
+    "message": {
+        "intent": {
+            "category": {
+                "descriptor": {
+                    "code": "mutual-funds"
+                }
+            },
+            "provider": {
+                "descriptor": {
+                    "name": "Mirae Asset"
+                }
+            }
+        }
+    }
+}
+```
+### Returning a catalog (`on_search`)
+When BPPs receive a search intent, they respond with various catalogs
+
+#### Returning a catalog of Providers and Categories
+In this case, the BPP returns a catalog of providers and their categories without revealing the items. This is usually done when the search request is very vague. For example, a `search` request with only `context` and no `message.intent`. Below is an example of a provider catalog returned by Mutual Fund Utilities India, containing a list of funds.
+
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "version": "1.1.0",
+        "action": "on_search",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "ttl": "PT30M",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bpp_id": "mfuindia.com",
+        "bpp_uri": "https://mfuindia.com"
+    },
+    "message": {
+        "catalog": {
+            "descriptor": {
+                "name": "Mutual Fund Utilities India"
+            },
+            "providers": [
+                {
+                    "id": "1",
+                    "descriptor": {
+                        "images": [
+                            {
+                                "url": "https://www.hdfcfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+                                "size_type": "sm"
+                            }
+                        ],
+                        "name": "HDFC Asset Management Company",
+                        "code": "hdfcfund.com",
+                        "long_desc": "Discipline, good governance, and genuine care for our stakeholders have helped HDFC Asset Management Company Limited build a reputation for trust. Over the last two decades, HDFC AMC has become one of the most prominent mutual fund houses in India. We are committed to our mission of being a wealth creator for every Indian. Here is a brief snapshot of some of HDFC AMC's key milestones."
+                    },
+                    "rating": "4.5",
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "name": "General Information",
+                                "code": "general-info"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "Type"
+                                    },
+                                    "value": "Equity"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Inception Date"
+                                    },
+                                    "value": "2020-01-15"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "AUM"
+                                    },
+                                    "value": "250,000,000"
+                                }
+                            ],
+                            "display": true
+                        }
+                    ]
+                },
+                {
+                    "id": "2",
+                    "descriptor": {
+                        "images": [
+                            {
+                                "url": "https://www.hdfcfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+                                "size_type": "sm"
+                            }
+                        ],
+                        "name": "Axis Asset Management Company Limited",
+                        "code": "axismf.com",
+                        "long_desc": "Axis Mutual Fund launched its first scheme in October 2009. Since then Axis Mutual fund has grown strongly. We attribute our success thus far to our 3 founding principles - Long term wealth creation, Outside in (Customer) view and Long term relationship. Come join our growing family of investors and give shape to your desires."
+                    },
+                    "rating": "4.5",
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "name": "General Information",
+                                "code": "general-info"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "Type"
+                                    },
+                                    "value": "Equity"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Inception Date"
+                                    },
+                                    "value": "2009-10-15"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "AUM"
+                                    },
+                                    "value": "250,000,000"
+                                }
+                            ],
+                            "display": true
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
+
+
 
 **Step 1: Research and Select MF** <br />
 The investor views various Mutual Funds options available, researches basis key parameters such as historical returns, expense ratio, AUM etc. and decides the one (s) he/ she wants to invest.
