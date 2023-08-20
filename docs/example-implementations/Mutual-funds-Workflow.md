@@ -87,18 +87,17 @@ sequenceDiagram
     Investment Platform ->> Fund Aggregator / Direct Fund: Investment Platform requests live tracking of funds
     Fund Aggregator / Direct Fund ->>  Investment Platform : Return tracking link
     end
-    AMC ->> AMC: Check if investor needs KYC
-    AMC ->> Investor: Ask KYC information
-    AMC ->> Investor: Ask Bank A/C Information
-    AMC ->> AMC: Complete customer registration
-    AMC ->> Investor: Provide confirmation for successful registration
-    AMC ->> Investor: Provide MF Confirmation
-    AMC ->> Investor: Debit Amount/ Create payment mandate
-    AMC ->> Investor: Allocate MF NAV
-    AMC ->> Investor: Provide updated NAV information\
 ```
 
-##
+## Registration
+
+In this workflow. the Investment Platform signs up the customer on the platform and creates their profile and preferences. This workflow is not mandatory, but implementing this will enable the Investment platform to recommend smart investment strategies to its user. Maintaining an updated customer profile allows the investment platform to continuously scan the network for recommended funds to invest in therefore enabling maximum profitability for the investor.  
+
+Most funds or fund aggregators today are centralized platforms that maintain their own customer database and hence require the customer to perform KYC before investing in a fund, therefore maintaining the investor's KYC details and other preferences allow investment platforms to automate the submission of the KYC form. 
+
+**Note:** However, in permissioned networks (for example, ONDC), each transaction is a dual-digitally signed contract between the BAP and the BPP, the BPP ideally does not need to explicitly request KYC on the customer. The network participation agreement signed by the NPs for financial services may require the BAP to mandatorily perform KYC of the investor before initiating any transaction. In such a setup, any transaction originating from a BAP can be considered to be a trusted transaction. The BPP will potentially require only a unique customer ID to create any order. In the case of ONDC, it could be the customer's PAN, Aadhaar, or any other ID, commonly accepted by the network participants. 
+
+## Discovery
 
 **Step 1: Research and Select MF** <br />
 The investor views various Mutual Funds options available, researches basis key parameters such as historical returns, expense ratio, AUM etc. and decides the one (s) he/ she wants to invest.
