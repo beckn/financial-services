@@ -1079,27 +1079,16 @@ Below is an example of how an `on_init` request from a BPP might look like when 
             "payments": [
                 {
                     "type": "ON-ORDER",
-                    "url": "https://payment.abcmutalfunds.in",
+                    "url": "https://emandate.abcmutalfunds.in",
                     "params": {
                         "amount": "5000",
                         "currency": "INR"
                     },
-                    "status": "NOT-PAID",
-                    "time": {
-                        "range": {
-                            "start": "01-07-2023 00:00:00",
-                            "end": "30-07-2023 23:59:59"
-                        }
-                    }
+                    "status": "NOT-PAID"
                 }
             ],
             "cancellation_terms": [
                 {
-                    "fulfillment_state": {
-                        "descriptor": {
-                            "name": "Terms"
-                        }
-                    },
                     "external_ref": {
                         "mimetype": "text/html",
                         "url": "https://abcmutalfunds.com/mf/tnc.html"
@@ -1113,38 +1102,244 @@ Below is an example of how an `on_init` request from a BPP might look like when 
 
 **Note**: In the recommended scenario, the KYC process happens on a different infrastructure by initializing a KYC request using the `fulfillment.customer.id` sent during the `init` request. However in less advanced BPPs, the KYC request can be made by returning a form URL in the `item.xinput` field during `on_init` 
 
+### Order Confirmation (`confirm / on_confirm`)
+In this interaction, the BAP requests the BPP to confirm the purchase of a specific number units of a fund by providing proof payment, and acceptance of terms and conditions. the BPP then verifies the payment and acceptance of terms and conditions and creates the order. It then returns the latest state of the order along with the latest fulfillment state. Upon receipt of a signed on_confirm, the investor can consider the order to have been placed successfully. Depending upon when the order was created, the BPP can return the fulfillment state as "Order Placed" or "Order Complete", as funds usually allow orders to be placed within a specific time window, usually from morning to evening, or else the orders are scheduled to get fulfilled on the next day. These interactions are enabled through the `confirm / on_confirm` API endpoints implemented by the BPP and the BAP respectively. 
 
-**Step 1: Research and Select MF** <br />
-The investor views various Mutual Funds options available, researches basis key parameters such as historical returns, expense ratio, AUM etc. and decides the one (s) he/ she wants to invest.
+```mermaid
+sequenceDiagram
+    title MF Ordering - Initializing Order
+    Participant Investment Platform
+    Participant Fund Aggregator / Direct Fund
+    Investment Platform ->> Fund Aggregator / Direct Fund: confirm - BAP sends proof or payment, acceptance of T&Cs, authorization code    
+    Fund Aggregator / Direct Fund ->>  Investment Platform : on_confirm - BPP sends confirmed order with order ID and latest fulfillment state
+```
 
-**Step 2: Mode of investment and Amount to be invested** <br />
-For each fund, the investor has the option to invest in lumpsum or create a SIP (periodic payment option).
-The investor selects the mode of investment (lumpsum, or SIP) and the amount he/s she wants to invest.
+#### Placing the order (`confirm`)
+In this interaction, the BAP requests the BPP to confirm the order by sending proof of payment to indicate the acceptance of the terms and conditions.
 
-**Step 3: Check if an investor needs KYC** <br />
-The AMC checks if the investor has completed KYC with them in the past. If yes, there’s straight-through processing and AMC proceeds to Mutual Funds allocation process.
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "action": "confirm",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "version": "1.1.0",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "ttl": "PT10M",
+        "bpp_id": "mfuindia.com",
+        "bpp_uri": "https://mfuindia.com"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1"
+            },
+            "items": [
+                {
+                    "id": "1",
+                    "quantity": {
+                        "selected": {
+                            "count": 200
+                        }
+                    }
+                }
+            ],
+            "fulfillments": [
+                {
+                    "customer": {
+                        "id": "pan:ABCDE9999Z",
+                        "person": {
+                            "name": "Alice"
+                        },
+                        "contact": {
+                            "phone": "+91-9999199991",
+                            "email": "alice@example.com"
+                        }
+                    }
+                }
+            ],
+            "billing": {
+                "name": "Charles D'Souza",
+                "email": "charles@equitygrow.in"
+            },
+            "payments": [
+                {
+                    "type": "ON-ORDER",
+                    "params": {
+                        "amount": "200",
+                        "currency": "INR",
+                        "transaction_id": "929387629387468743"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
 
-**Step 4: Ask KYC information** <br />
-For investors who don’t have an active KYC, the AMC asks investors to share their identify proofs digitally and authenticate.
+#### Returning the confirmed order with fulfillment state (`on_confirm`)
+In this interaction, the BPP creates the order in its database, and initiates its purchase from the respective fund. Then it returns the order to the BAP by calling its `on_confirm` endpoint. Below is an example of a confirmed mutual fund order with its latest fulfillment state. 
 
-**Step 5: Ask Bank A/C Information** <br />
-The AMC needs to register the customer’s bank account in order to remit investment funds as lumpsum or to create a repeat payment mandate (for SIP’s).
-
-**Step 6: Complete customer registration** <br />
-Post KYC completion and Bank A/C registration, the AMC creates a Customer Registration Number before completing the registration process.
-
-**Step 7: Provide confirmation for successful registration** <br />
-AMC shares the customer registration with the investor via email.
-
-**Step 8: Provide MF Confirmation** <br />
-Post successful registration, the AMC provides a digital confirmation of successful order processing to the investor clearly mentioning the Amount Invested, MF NAV to be allocated and the processing fees if any.
-
-**Step 9: Debit Amount/ Create payment mandate** <br />
-For Lumpsum payment, the AMC deducts the invested amount from customer’s registered bank account
-For SIP payment, the AMC creates a periodic (daily, weekly, monthly) payment mandate with the registered bank account for a defined amount.
-
-**Step 10: Allocate MF NAV** <br />
-Post successful payment, the Mutual Fund company assigns calculated NAV against the investor’s registration number. In case, the investor opted for a SIP, the NAVs are assigned once the money is deducted successfully every time a SIP is due.
-
-**Step 11: Provide updated NAV information** <br />
-The AMC shares refreshed NAV information, as long as there is an active investment, with the investor on a defined periodicity.
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "version": "1.1.0",
+        "action": "on_confirm",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "ttl": "PT30M",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bpp_id": "mfuindia.com",
+        "bpp_uri": "https://mfuindia.com"
+    },
+    "message": {
+        "order": {
+            "id": "66B7AEDF45",
+            "provider": {
+                "id": "1",
+                "descriptor": {
+                    "images": [
+                        {
+                            "url": "https://www.hdfcfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+                            "size_type": "sm"
+                        }
+                    ],
+                    "name": "HDFC Midcap Opportunities Fund",
+                    "short_desc": "HDFC Midcap Opportunities Fund"
+                }
+            },
+            "items": [
+                {
+                    "id": "1",
+                    "descriptor": {
+                        "name": "HDFC Midcap Opportunities Fund - SIP"
+                    },
+                    "price": {
+                        "value": "1",
+                        "currency": "INR"
+                    },
+                    "quantity": {
+                        "minimum": {
+                            "count": 100
+                        },
+                        "selected": {
+                            "count": 200
+                        }
+                    }
+                }
+            ],
+            "fulfillments": [
+                {
+                    "customer": {
+                        "id": "pan:ABCDE9999Z",
+                        "person": {
+                            "name": "Alice"
+                        },
+                        "contact": {
+                            "phone": "+91-9999199991",
+                            "email": "alice@example.com"
+                        }
+                    },
+                    "state": {
+                        "descriptor": {
+                            "name": "Order placed",
+                            "code": "order-placed"
+                        }
+                    },
+                    "agent": {
+                        "person": {
+                            "name": "John Williams"
+                        },
+                        "organization": {
+                            "descriptor": {
+                                "name": "HDFC Fund"
+                            }
+                        },
+                        "contact": {
+                            "phone": "+91-9999999999"
+                        }
+                    }
+                }
+            ],
+            "quote": {
+                "price": {
+                    "currency": "INR",
+                    "value": "200"
+                },
+                "breakup": [
+                    {
+                        "descriptor": {
+                            "name": "Unit price"
+                        },
+                        "price": {
+                            "value": "80",
+                            "currency": "INR"
+                        },
+                        "quantity": {
+                            "allocated": {
+                                "measure": {
+                                    "value": "2.5",
+                                    "unit": "units"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "billing": {
+                "name": "Charles D'Souza",
+                "email": "charles@equitygrow.in",
+                "phone": "+91-988777632"
+            },
+            "payments": [
+                {
+                    "collected_by": "BPP",
+                    "method": "E-Mandate",
+                    "type": "ON-FULFILLMENT",
+                    "params": {
+                        "amount": "500",
+                        "currency": "INR",
+                        "transaction_id": "bh767iygx65u76iyg",
+                        "source_virtual_payment_address": "charles@oksbi",
+                        "timestamp": "2023-05-25T05:23:03.443Z"
+                    },
+                    "status": "PAID"
+                }
+            ],
+            "docs": [
+                {
+                    "mime_type": "application/pdf",
+                    "descriptor": {
+                        "name": "Mutual Fund Purchase Order"
+                    },
+                    "url": "https://www.hdfcfunds.com/orders/invoice-66B7AEDF45.pdf"
+                }
+            ],
+            "cancellation_terms": [
+                {
+                    "external_ref": {
+                        "mimetype": "text/html",
+                        "url": "https://abcmutalfunds.com/mf/tnc.html"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
