@@ -1110,7 +1110,7 @@ sequenceDiagram
     title MF Ordering - Initializing Order
     Participant Investment Platform
     Participant Fund Aggregator / Direct Fund
-    Investment Platform ->> Fund Aggregator / Direct Fund: confirm - BAP sends proof or payment, acceptance of T&Cs, authorization code    
+    Investment Platform ->> Fund Aggregator / Direct Fund: confirm - BAP sends proof or payment, acceptance of T&Cs    
     Fund Aggregator / Direct Fund ->>  Investment Platform : on_confirm - BPP sends confirmed order with order ID and latest fulfillment state
 ```
 
@@ -1184,6 +1184,8 @@ In this interaction, the BAP requests the BPP to confirm the order by sending pr
     }
 }
 ```
+
+**Note:** The signed `confirm` request from a BAP can be considered as an authorization by the investor to buy the SIP. No specific authorization code is required from the investor to sign the order. 
 
 #### Returning the confirmed order with fulfillment state (`on_confirm`)
 In this interaction, the BPP creates the order in its database, and initiates its purchase from the respective fund. Then it returns the order to the BAP by calling its `on_confirm` endpoint. Below is an example of a confirmed mutual fund order with its latest fulfillment state. 
@@ -1343,3 +1345,356 @@ In this interaction, the BPP creates the order in its database, and initiates it
     }
 }
 ```
+
+## Fulfillment
+This stage occurs after an order is confirmed. Bear in mind, a confirmed order does not necessarily mean the completion of an order. During this stage, depending upon the nature of the transaction, multiple interactions can occur like,
+1. Fetching the latest status of an order
+2. Sending various status updates regarding an order
+3. Tracking real-time metrics related to an order
+4. Cancellation of an investment plan
+5. Updating the terms of the plan
+Each of these interactions are enabled through four request/callback pairs namely `status/on_status`, `track / on_track`, `update / on_update`, `cancel / on_cancel`
+
+Let us take a look at some examples of each interaction
+
+### Fetching the latest status of an order (`status / on_status`)
+In this interaction, the BAP can fetch the latest state of the order by calling the `status` endpoint of the BPP. The BPP then responds with the latest state of the order by calling the `on_status` endpoint of the BAP. 
+
+Below is an example request to fetch the latest order state
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "action": "status",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "version": "1.1.0",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "ttl": "PT10M",
+        "bpp_id": "mfuindia.com",
+        "bpp_uri": "https://mfuindia.com"
+    },
+    "message": {
+        "order_id": "66B7AEDF45"
+    }
+}
+```
+The BPP then responds with the latest state of the order. Below is an example of an `on_status` request
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "version": "1.1.0",
+        "action": "on_confirm",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "ttl": "PT30M",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bpp_id": "mfuindia.com",
+        "bpp_uri": "https://mfuindia.com"
+    },
+    "message": {
+        "order": {
+            "id": "66B7AEDF45",
+            "provider": {
+                "id": "1",
+                "descriptor": {
+                    "images": [
+                        {
+                            "url": "https://www.hdfcfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+                            "size_type": "sm"
+                        }
+                    ],
+                    "name": "HDFC Midcap Opportunities Fund",
+                    "short_desc": "HDFC Midcap Opportunities Fund"
+                }
+            },
+            "items": [
+                {
+                    "id": "1",
+                    "descriptor": {
+                        "name": "HDFC Midcap Opportunities Fund - SIP"
+                    },
+                    "price": {
+                        "value": "1",
+                        "currency": "INR"
+                    },
+                    "quantity": {
+                        "minimum": {
+                            "count": 100
+                        },
+                        "selected": {
+                            "count": 200
+                        }
+                    }
+                }
+            ],
+            "fulfillments": [
+                {
+                    "customer": {
+                        "id": "pan:ABCDE9999Z",
+                        "person": {
+                            "name": "Alice"
+                        },
+                        "contact": {
+                            "phone": "+91-9999199991",
+                            "email": "alice@example.com"
+                        }
+                    },
+                    "state": {
+                        "descriptor": {
+                            "name": "February SIP Amount Received",
+                            "code": "installment-received"
+                        }
+                    },
+                    "agent": {
+                        "person": {
+                            "name": "John"
+                        },
+                        "organization": {
+                            "descriptor": {
+                                "name": "HDFC Fund"
+                            }
+                        },
+                        "contact": {
+                            "phone": "+91-9999999999"
+                        }
+                    }
+                }
+            ],
+            "quote": {
+                "price": {
+                    "currency": "INR",
+                    "value": "2400"
+                },
+                "breakup": [
+                    {
+                        "descriptor": {
+                            "name": "Jan'23 SIP Installment"
+                        },
+                        "price": {
+                            "value": "80",
+                            "currency": "INR"
+                        },
+                        "quantity": {
+                            "allocated": {
+                                "measure": {
+                                    "value": "2.5",
+                                    "unit": "units"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "billing": {
+                "name": "Charles D'Souza",
+                "email": "charles@equitygrow.in",
+                "phone": "+91-988777632"
+            },
+            "payments": [
+                {
+                    "type": "ON-ORDER",
+                    "params": {
+                        "amount": "200",
+                        "currency": "INR",
+                        "transaction_id": "bh767iygx65u76iyg",
+                        "source_virtual_payment_address": "charles@oksbi",
+                        "timestamp": "2023-01-25T05:23:03.443Z"
+                    },
+                    "status": "PAID"
+                }
+            ],
+            "docs": [
+                {
+                    "mime_type": "application/pdf",
+                    "descriptor": {
+                        "name": "Mutual Fund Purchase Order"
+                    },
+                    "url": "https://www.hdfcfunds.com/orders/invoice-66B7AEDF45.pdf"
+                }
+            ],
+            "cancellation_terms": [
+                {
+                    "external_ref": {
+                        "mimetype": "text/html",
+                        "url": "https://abcmutalfunds.com/mf/tnc.html"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+### Sending independent status updates (`on_status`)
+In this stage, the fund returns various notifications regarding the purchase of the investment plan. For example, if the order was placed outside of the time window, the fund can send the latest fulfillment state as "Order Placed". However, upon the successful purchase of the fund it can send a status update - "Order Complete" to the BAP. The BAP can invoke the necessary UI/internal workflows upon receipt of each fulfillment state from the BPP. 
+
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "version": "1.1.0",
+        "action": "on_confirm",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "ttl": "PT30M",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bpp_id": "mfuindia.com",
+        "bpp_uri": "https://mfuindia.com"
+    },
+    "message": {
+        "order": {
+            "id": "66B7AEDF45",
+            "provider": {
+                "id": "1",
+                "descriptor": {
+                    "images": [
+                        {
+                            "url": "https://www.hdfcfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+                            "size_type": "sm"
+                        }
+                    ],
+                    "name": "HDFC Midcap Opportunities Fund",
+                    "short_desc": "HDFC Midcap Opportunities Fund"
+                }
+            },
+            "items": [
+                {
+                    "id": "1",
+                    "descriptor": {
+                        "name": "HDFC Midcap Opportunities Fund - SIP"
+                    },
+                    "price": {
+                        "value": "1",
+                        "currency": "INR"
+                    },
+                    "quantity": {
+                        "minimum": {
+                            "count": 100
+                        },
+                        "selected": {
+                            "count": 200
+                        }
+                    }
+                }
+            ],
+            "fulfillments": [
+                {
+                    "customer": {
+                        "id": "pan:ABCDE9999Z",
+                        "person": {
+                            "name": "Alice"
+                        },
+                        "contact": {
+                            "phone": "+91-9999199991",
+                            "email": "alice@example.com"
+                        }
+                    },
+                    "state": {
+                        "descriptor": {
+                            "name": "Order complete",
+                            "code": "order-complete"
+                        }
+                    },
+                    "agent": {
+                        "person": {
+                            "name": "John"
+                        },
+                        "organization": {
+                            "descriptor": {
+                                "name": "HDFC Fund"
+                            }
+                        },
+                        "contact": {
+                            "phone": "+91-9999999999"
+                        }
+                    }
+                }
+            ],
+            "quote": {
+                "price": {
+                    "currency": "INR",
+                    "value": "2400"
+                },
+                "breakup": [
+                    {
+                        "descriptor": {
+                            "name": "Jan'23 SIP Installment"
+                        },
+                        "price": {
+                            "value": "80",
+                            "currency": "INR"
+                        },
+                        "quantity": {
+                            "allocated": {
+                                "measure": {
+                                    "value": "2.5",
+                                    "unit": "units"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "billing": {
+                "name": "Charles D'Souza",
+                "email": "charles@equitygrow.in",
+                "phone": "+91-988777632"
+            },
+            "payments": [
+                {
+                    "type": "ON-ORDER",
+                    "params": {
+                        "amount": "200",
+                        "currency": "INR",
+                        "transaction_id": "bh767iygx65u76iyg",
+                        "source_virtual_payment_address": "charles@oksbi",
+                        "timestamp": "2023-01-25T05:23:03.443Z"
+                    },
+                    "status": "PAID"
+                }
+            ],
+            "docs": [
+                {
+                    "mime_type": "application/pdf",
+                    "descriptor": {
+                        "name": "Mutual Fund Purchase Order"
+                    },
+                    "url": "https://www.hdfcfunds.com/orders/invoice-66B7AEDF45.pdf"
+                }
+            ],
+            "cancellation_terms": [
+                {
+                    "external_ref": {
+                        "mimetype": "text/html",
+                        "url": "https://abcmutalfunds.com/mf/tnc.html"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
