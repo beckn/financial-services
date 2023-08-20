@@ -415,6 +415,472 @@ In this case, the BPP returns a catalog of providers and their categories withou
 }
 ```
 
+#### Returning a catalog of Providers, Categories, and Items
+In this case, the BPP returns a catalog of funds and the various investment plans offered by them. This is usually returned when the search request contains `provider.id`.
+
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "version": "1.1.0",
+        "action": "on_search",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "ttl": "PT30M",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bpp_id": "mfuindia.com",
+        "bpp_uri": "https://mfuindia.com"
+    },
+    "message": {
+        "catalog": {
+            "descriptor": {
+                "name": "Mutual Fund Utilities India,
+                "images": [
+                    {
+                        "url": "https://www.mfuindia.com/content/dam/abc/india/assets/images/header/logo.png",
+                        "size_type": "sm"
+                    }
+                ],
+            },
+            "providers": [
+                {
+                    "id": "1",
+                    "descriptor": {
+                        "images": [
+                            {
+                                "url": "https://www.hdfcfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+                                "size_type": "sm"
+                            }
+                        ],
+                        "name": "HDFC Asset Management Company",
+                        "code": "hdfcfund.com",
+                        "long_desc": "Discipline, good governance, and genuine care for our stakeholders have helped HDFC Asset Management Company Limited build a reputation for trust. Over the last two decades, HDFC AMC has become one of the most prominent mutual fund houses in India. We are committed to our mission of being a wealth creator for every Indian. Here is a brief snapshot of some of HDFC AMC's key milestones."
+                    },
+                    "categories": [
+                        {
+                            "id": "1",
+                            "descriptor": {
+                                "name": "Large Cap",
+                                "long_desc": "This mutual fund aims to provide long-term capital growth by investing in large-cap equities."
+                            }
+                        },
+                        {
+                            "id": "2",
+                            "descriptor": {
+                                "name": "Corporate Bonds",
+                                "long_desc": "This mutual fund aims to generate income by investing in high-quality corporate bonds."
+                            }
+                        },
+                        {
+                            "id": "3",
+                            "descriptor": {
+                                "name": "HDFC Balanced Fund",
+                                "long_desc": "This mutual fund aims to provide a balance between capital growth and income by investing in a mix of equities and bonds."
+                            }
+                        }
+                    ],
+                    "items": [
+                        {
+                            "id": "1",
+                            "descriptor": {
+                                "name": "ABC Large Cap Mutual Fund - SIP",
+                                "code": "sip"
+                            },
+                            "price": {
+                                "value": "1",
+                                "currency": "INR"
+                            },
+                            "quantity": {
+                                "minimum": {
+                                    "count": 100
+                                }
+                            },
+                            "category_ids": [
+                                "1"
+                            ],
+                            "fulfillment_ids": [
+                                "1"
+                            ],
+                            "matched": true,
+                            "xinput": {
+                                "head": {
+                                    "descriptor": {
+                                        "name": "Customer Information"
+                                    },
+                                    "index": {
+                                        "min": 0,
+                                        "cur": 0,
+                                        "max": 0
+                                    },
+                                    "headings": [
+                                        "Personal Information"
+                                    ]
+                                },
+                                "form": {
+                                    "id": "d097c2f5-cb8d-42fe-900e-dfecdede16fb",
+                                    "mime_type": "text/html",
+                                    "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bf259d75",
+                                    "resubmit": false,
+                                    "multiple_sumbissions": false
+                                },
+                                "required": true
+                            }
+                        },
+                        {
+                            "id": "2",
+                            "descriptor": {
+                                "name": "ABC Large Cap Mutual Fund - Lumpsum",
+                                "code": "lumpsum"
+                            },
+                            "price": {
+                                "value": "5000",
+                                "currency": "INR"
+                            },
+                            "category_ids": [
+                                "1"
+                            ],
+                            "fulfillment_ids": [
+                                "1"
+                            ],
+                            "matched": true,
+                            "xinput": {
+                                "head": {
+                                    "descriptor": {
+                                        "name": "Customer Information"
+                                    },
+                                    "index": {
+                                        "min": 0,
+                                        "cur": 0,
+                                        "max": 0
+                                    },
+                                    "headings": [
+                                        "Personal Information"
+                                    ]
+                                },
+                                "form": {
+                                    "id": "d097c2f5-cb8d-42fe-900e-dfecdede16fb",
+                                    "mime_type": "text/html",
+                                    "url": "https://6vs8xnx5i7.abcmf.co.in/mf/xinput/formid/a23f2fdfbbb8ac402bf259d75",
+                                    "resubmit": false,
+                                    "multiple_sumbissions": false
+                                },
+                                "required": true
+                            }
+                        }
+                    ],
+                    "fulfillments": [
+                        {
+                            "id": "1",
+                            "type": "SIP",
+                            "agent": {
+                                "person": {
+                                    "name": "John Doe"
+                                }
+                            }
+                        },
+                        {
+                            "id": "2",
+                            "type": "ONE-TIME",
+                            "agent": {
+                                "person": {
+                                    "name": "John Doe"
+                                }
+                            }
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "name": "Fund Information",
+                                "code": "fund-info"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "Type"
+                                    },
+                                    "value": "Equity"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Fund Manager"
+                                    },
+                                    "value": "HDFC Asset Management Company"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Fund Rating"
+                                    },
+                                    "value": "4.5"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Inception Date"
+                                    },
+                                    "value": "2020-01-15"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "AUM"
+                                    },
+                                    "value": "250,000,000"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Expense Ratio"
+                                    },
+                                    "value": "1.25%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "1 month returns"
+                                    },
+                                    "value": "2.25%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "3 month returns"
+                                    },
+                                    "value": "6%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "6 month returns"
+                                    },
+                                    "value": "7%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "1 year returns"
+                                    },
+                                    "value": "15.25%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "3 year returns"
+                                    },
+                                    "value": "45%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "5 year returns"
+                                    },
+                                    "value": "60%"
+                                }
+                            ],
+                            "display": true
+                        },
+                        {
+                            "descriptor": {
+                                "name": "Sectors",
+                                "code": "sector-allocation"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "Financials"
+                                    },
+                                    "value": "18.54%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "IT"
+                                    },
+                                    "value": "10.18%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Pharmaceuticals"
+                                    },
+                                    "value": "2.32%"
+                                }
+                            ]
+                        },
+                        {
+                            "descriptor": {
+                                "name": "Fund Holdings",
+                                "code": "fund-holdings"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "name": "Max Financial Services Ltd"
+                                    },
+                                    "value": "2.30%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Dixon Technologies (India) Ltd"
+                                    },
+                                    "value": "1.00%"
+                                },
+                                {
+                                    "descriptor": {
+                                        "name": "Mankind Pharma Ltd"
+                                    },
+                                    "value": "< 1%"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
+**Note**: It is important to note that the BPP may choose to send each funds under an asset management company as individual `providers` or group them under a single provider and offer them as `items` grouped under various categories. The network facilitator is recommended to create recommended catalog structures to allow for a better discovery experience at the BAP.
+
+
+## Ordering
+
+In this stage, the Investment platform (BAP) selects the fund, performs KYC on behalf of the investor and places the order using SIP or lumpsum investments across various funds. This is done in three stages namely,
+
+1. Selection of investment option
+2. Initializing the order
+3. Confirming the purchase
+
+Let us take a look at example workflows for each of these in detail
+
+### Selection of the fund and plan (`select`)
+In this interaction, the BAP selects the fund (ex: HDFC Large Cap) and the investment plan (ex: SIP or Lumpsum). This interaction is enabled via the `select/ on_select` interactions. 
+
+In this interaction, the BAP calls the `select` endpoint of the BPP by transmitting the `provider.id` and the `item.id` and the `item.quantity.selected`. Below is the example of the `select` request.
+
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "action": "select",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "version": "1.1.0",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "ttl": "PT10M",
+        "bpp_id": "mfuindia.com",
+        "bpp_uri": "https://mfuindia.com"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1"
+            },
+            "items": [
+                {
+                    "id": "1",
+                    "quantity": {
+                        "selected": {
+                            "count": 200
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+### Returning a quote (`on_select`)
+In this interaction, the BPP returns the calculated quote by calling the `on_select` endpoint of the BAP.
+
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "version": "1.1.0",
+        "action": "on_select",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "ttl": "PT30M",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bpp_id": "mfuindia.com",
+        "bpp_uri": "https://mfuindia.com"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1",
+                "descriptor": {
+                    "images": [
+                        {
+                            "url": "https://www.hdfcfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+                            "size_type": "sm"
+                        }
+                    ],
+                    "name": "HDFC Midcap Opportunities Fund",
+                    "short_desc": "HDFC Midcap Opportunities Fund"
+                }
+            },
+            "items": [
+                {
+                    "id": "1",
+                    "descriptor": {
+                        "name": "HDFC Midcap Opportunities Fund - SIP"
+                    },
+                    "price": {
+                        "value": "1",
+                        "currency": "INR"
+                    },
+                    "quantity": {
+                        "minimum": {
+                            "count": 100
+                        },
+                        "selected": {
+                            "count": 200
+                        }
+                    }
+                }
+            ],
+            "quote": {
+                "price": {
+                    "currency": "INR",
+                    "value": "200"
+                },
+                "breakup": [
+                    {
+                        "descriptor": {
+                            "name": "Unit price"
+                        },
+                        "price": {
+                            "value": "80",
+                            "currency": "INR"
+                        },
+                        "quantity": {
+                            "allocated": {
+                                "measure": {
+                                    "value": "2.5",
+                                    "unit": "units"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
+```
 
 
 **Step 1: Research and Select MF** <br />
