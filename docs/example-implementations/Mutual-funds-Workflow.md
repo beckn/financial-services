@@ -752,7 +752,16 @@ Let us take a look at example workflows for each of these in detail
 ### Selection of the fund and plan (`select`)
 In this interaction, the BAP selects the fund (ex: HDFC Large Cap) and the investment plan (ex: SIP or Lumpsum). This interaction is enabled via the `select/ on_select` interactions. 
 
-In this interaction, the BAP calls the `select` endpoint of the BPP by transmitting the `provider.id` and the `item.id` and the `item.quantity.selected`. Below is the example of the `select` request.
+```mermaid
+sequenceDiagram
+    title MF Ordering - Selection
+    Participant Investment Platform
+    Participant Fund Aggregator / Direct Fund
+    Investment Platform ->> Fund Aggregator / Direct Fund: select
+    Fund Aggregator / Direct Fund ->>  Investment Platform : on_select
+```
+
+In this interaction, the BAP calls the `select` endpoint of the BPP by transmitting the `provider.id`, `item.id` and `item.quantity.selected`. Below is the example of the `select` request.
 
 ```
 {
@@ -881,6 +890,228 @@ In this interaction, the BPP returns the calculated quote by calling the `on_sel
     }
 }
 ```
+
+**Note**: Up till this stage, the BPP is expected to have no context of the customer. The interaction between the BAP and the BPP is purely on commercial context where the BAP selects the necessary funds and plans and the BPP returns the estimated cost of the transaction. During this stage, the BPP can potentiall cross-sell or up-sell multiple add-on products and promotions that the investor could choose from. However, these promotions will be agnostic of the investor. 
+
+### Initializing the order (`init / on_init`)
+In this interaction, the BAP provides the investor's ID to the BPP to initialize the order. Upon receipt of this request, the BPP can initiate any customer-specific workflows that may be required before placing the order like KYC, consent requests etc. Furthermore, the investor's ID can be any commonly accepted unique ID that can be used for KYC, consent etc. The BPP then returns the final quote, payment URL, form links, and any terms and conditions related to cancellation, or payments. These interactions are enabled via the `init` and `on_init` endpoints implemented by the BPP and the BAP respectively.
+
+```mermaid
+sequenceDiagram
+    title MF Ordering - Initializing Order
+    Participant Investment Platform
+    Participant Fund Aggregator / Direct Fund
+    Investment Platform ->> Fund Aggregator / Direct Fund: init - BAP sends consumer ID, <br/> billing details
+    Fund Aggregator / Direct Fund ->>  Investment Platform : on_init - BPP sends final quote, <br/> payment terms, and other form urls
+```
+
+#### Initializing order by sending customer details (`init`)
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "action": "init",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "version": "1.1.0",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "ttl": "PT10M",
+        "bpp_id": "mfuindia.com",
+        "bpp_uri": "https://mfuindia.com"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1"
+            },
+            "items": [
+                {
+                    "id": "1",
+                    "quantity": {
+                        "selected": {
+                            "count": 200
+                        }
+                    }
+                }
+            ],
+            "billing": {
+                "name": "Charles D'Souza",
+                "email": "charles@equitygrow.in"
+            },
+            "fulfillment": {
+                "customer": {
+                    "id": "pan:ANOPV2323R"
+                }
+            }
+        }
+    }
+}
+```
+
+#### Returning the final draft order with additional inputs and T&Cs (`on_init`)
+In this interaction, the BPP returns the final draft order with terms and conditions, and any additional information it may require to create the order like KYC, Payment Setup etc.
+
+Below is an example of how an `on_init` request from a BPP might look like when it requires the BAP to perform a KYC, and a recurring payment set up before the confirmation of the order. 
+
+```
+{
+    "context": {
+        "domain": "financial-services:0.2.0",
+        "location": {
+            "country": {
+                "code": "IND"
+            }
+        },
+        "version": "1.1.0",
+        "action": "on_init",
+        "bap_id": "mutual-fund-protocol.becknprotocol.io",
+        "bap_uri": "https://mutual-fund-protocol-network.becknprotocol.io/",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "ttl": "PT30M",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bpp_id": "mfuindia.com",
+        "bpp_uri": "https://mfuindia.com"
+    },
+    "message": {
+        "order": {
+            "provider": {
+                "id": "1",
+                "descriptor": {
+                    "images": [
+                        {
+                            "url": "https://www.hdfcfunds.com/content/dam/abc/india/assets/images/header/logo.png",
+                            "size_type": "sm"
+                        }
+                    ],
+                    "name": "HDFC Midcap Opportunities Fund",
+                    "short_desc": "HDFC Midcap Opportunities Fund"
+                }
+            },
+            "items": [
+                {
+                    "id": "MFLC001",
+                    "descriptor": {
+                        "name": "ABC Large Cap Mutual Fund",
+                        "code": "sip"
+                    },
+                    "xinput": {
+                        "head": {
+                            "descriptor": {
+                                "name": "Know Your Customer"
+                            },
+                            "index": {
+                                "min": 0,
+                                "cur": 0,
+                                "max": 1
+                            },
+                            "headings": [
+                                "Account Information",
+                                "Agreement"
+                            ]
+                        },
+                        "form": {
+                            "mime_type": "text/html",
+                            "url": "https://6vs8xnx5i7.abcmf.co.in/mf-accountinfo/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+                            "id": "1c46b168-83ae-46ad-ac8a-d3c05870252c",
+                            "resubmit": false,
+                            "multiple_sumbissions": false
+                        },
+                        "required": true
+                    }
+                }
+            ],
+            "fulfillments": [
+                {
+                    "customer": {
+                        "id": "pan:ABCDE9999Z",
+                        "person": {
+                            "name": "Alice"
+                        },
+                        "contact": {
+                            "phone": "+91-9999199991",
+                            "email": "alice@example.com"
+                        }
+                    },
+                    "state": {
+                        "descriptor": {
+                            "name": "Mutual Fund Order Initialized"
+                        }
+                    }
+                }
+            ],
+            "quote": {
+                "price": {
+                    "currency": "INR",
+                    "value": "100000"
+                },
+                "breakup": [
+                    {
+                        "descriptor": {
+                            "name": "Unit price"
+                        },
+                        "price": {
+                            "value": "80",
+                            "currency": "INR"
+                        },
+                        "quantity": {
+                            "allocated": {
+                                "measure": {
+                                    "value": "1250",
+                                    "unit": "units"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "billing": {
+                "name": "Charles D'Souza",
+                "email": "charles@equitygrow.in"
+            },
+            "payments": [
+                {
+                    "type": "ON-ORDER",
+                    "url": "https://payment.abcmutalfunds.in",
+                    "params": {
+                        "amount": "5000",
+                        "currency": "INR"
+                    },
+                    "status": "NOT-PAID",
+                    "time": {
+                        "range": {
+                            "start": "01-07-2023 00:00:00",
+                            "end": "30-07-2023 23:59:59"
+                        }
+                    }
+                }
+            ],
+            "cancellation_terms": [
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "name": "Terms"
+                        }
+                    },
+                    "external_ref": {
+                        "mimetype": "text/html",
+                        "url": "https://abcmutalfunds.com/mf/tnc.html"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+**Note**: In the recommended scenario, the KYC process happens on a different infrastructure by initializing a KYC request using the `fulfillment.customer.id` sent during the `init` request. However in less advanced BPPs, the KYC request can be made by returning a form URL in the `item.xinput` field during `on_init` 
 
 
 **Step 1: Research and Select MF** <br />
