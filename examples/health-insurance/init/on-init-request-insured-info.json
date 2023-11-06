@@ -11,7 +11,7 @@
                 "code": "IND"
             }
         },
-        "message_id": "a214954f-fa49-4e10-baf4-c51b3dd22fd7",
+        "message_id": "1015e8ce-a8c9-4533-9051-81725d3140f0",
         "timestamp": "2023-07-24T05:41:01.775Z",
         "transaction_id": "c04a04ee-d892-400f-bbe6-479a43b4448a",
         "ttl": "PT24H",
@@ -25,81 +25,28 @@
                         "contact": {
                             "email": "joe.adam@abc.org",
                             "phone": "+91-9999999999"
-                        },
-                        "person": {
-                            "dob": "1990-01-21",
-                            "gender": "male",
-                            "name": "Joe Adam",
-                            "tags": [
-                                {
-                                    "descriptor": {
-                                        "code": "PERSON_ADDITIONAL_DETAILS"
-                                    },
-                                    "list": [
-                                        {
-                                            "descriptor": {
-                                                "name": "Politically exposed person"
-                                            },
-                                            "value": "false"
-                                        },
-                                        {
-                                            "descriptor": {
-                                                "name": "GSTIN"
-                                            },
-                                            "value": "20JDVIEHVJDSN"
-                                        }
-                                    ]
-                                }
-                            ]
                         }
                     },
-                    "id": "FULFILMENT_ID",
-                    "tags": [
-                        {
-                            "descriptor": {
-                                "name": "Process Workflow"
-                            },
-                            "list": [
-                                {
-                                    "descriptor": {
-                                        "name": "Manual evaluation flag"
-                                    },
-                                    "value": "false"
-                                }
-                            ]
-                        }
-                    ]
+                    "id": "F1"
+                    
                 }
             ],
             "items": [
                 {
-                    "add_ons": [
-                        {
-                            "id": "1",
-                            "descriptor": {
-                                "code": "NO_CLAIM_BONUS",
-                                "name": "No Claim Bonus"
-                            },
-                            "quantity": {
-                                "selected": {
-                                    "count": 1
-                                }
-                            }
-                        }
+                    "category_ids": [
+                        "1",
+                        "2"
                     ],
                     "descriptor": {
-                        "code": "BASE",
-                        "name": "ABC Individaul Health Insurance Policy",
+                        "name": "Health Gain Plus Individual",
                         "short_desc": "ABC Individaul Health Insurance Class A with custom addon"
                     },
                     "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
-                    "price": {
-                        "value": "1000"
-                    },
                     "tags": [
                         {
                             "descriptor": {
-                                "name": "Policy Inclusive Offers"
+                                "name": "General Information",
+                                "code": "general-info"
                             },
                             "list": [
                                 {
@@ -170,11 +117,92 @@
                         "label": "TENURE"
                     },
                     "xinput": {
+                        "head": {
+                            "descriptor": {
+                                "name": "Customer Information"
+                            },
+                            "index": {
+                                "min": 0,
+                                "cur": 2,
+                                "max": 3
+                            },
+                            "headings": [
+                                "Buyer Details",
+                                "Insured Details",
+                                "Mediacl Details",
+                                "Nominee Details"
+                            ]
+                        },
                         "form": {
-                            "url": "https://fis.test.bpp.io/form/nominee_dtls"
+                            "mime_type": "text/html",
+                            "url": "https://fis.test.bpp.io/form/medical_dtls",
+                            "resubmit": true,
+                            "multiple_sumbissions": false
                         },
                         "required": true
-                    }
+                    },
+                    "add_ons": [
+                        {
+                            "id": "1",
+                            "quantity": {
+                                "selected": {
+                                    "count": 1
+                                }
+                            },
+                            "descriptor": {
+                                "name": "No Claim Bonus",
+                                "code": "NO_CLAIM_BONUS"
+                            }
+                        },
+                        {
+                            "id": "2",
+                            "quantity": {
+                                "available": {
+                                    "count": 1
+                                }
+                            },
+                            "descriptor": {
+                                "name": "Daycare Cover",
+                                "code": "DAYCARE_COVER"
+                            }
+                        },
+                        {
+                            "id": "3",
+                            "quantity": {
+                                "available": {
+                                    "count": 1
+                                }
+                            },
+                            "descriptor": {
+                                "name": "Daily Cash Allowance",
+                                "code": "DAILY_CASH_ALLOWANCE"
+                            }
+                        },
+                        {
+                            "id": "4",
+                            "quantity": {
+                                "available": {
+                                    "count": 1
+                                }
+                            },
+                            "descriptor": {
+                                "name": "Domicialiary Expenses",
+                                "code": "DOMICILIARY_EXPENSES"
+                            }
+                        },
+                        {
+                            "id": "5",
+                            "quantity": {
+                                "available": {
+                                    "count": 1
+                                }
+                            },
+                            "descriptor": {
+                                "name": "Health Check-ups",
+                                "code": "HEALTH_CHECK_UPS"
+                            }
+                        }
+                    ]
                 }
             ],
             "payments": [
@@ -197,29 +225,40 @@
                     "short_desc": "ABC Insurance Ltd. India ",
                     "images": [
                         {
-                            "url": "https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png"
+                            "url": "https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png",
+                            "size_type": "xs"
                         }
                     ]
                 },
                 "id": "e5585415-bce5-46b5-aeba-9f6b83df5ffa"
             },
             "quote": {
+                "id": "ef01df28-e483-46dd-8a0d-cb0619cef116",
                 "breakup": [
                     {
                         "price": {
-                            "value": "900"
+                            "value": "900",
+                            "currency": "INR"
                         },
                         "title": "Base Price"
                     },
                     {
                         "price": {
-                            "value": "50"
+                            "value": "50",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "price": {
+                            "value": "40",
+                            "currency": "INR"
                         },
                         "title": "Tax"
                     },
                     {
                         "price": {
-                            "value": "50"
+                            "value": "10",
+                            "currency": "INR"
                         },
                         "title": "Processing Fee"
                     }

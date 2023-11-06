@@ -25,15 +25,8 @@
                         "contact": {
                             "email": "joe.adam@abc.org",
                             "phone": "+91-9999999999"
-                        },
-                        "person": {
-                            "id" : "gstin:20JDVIEHVJDSN",
-                            "dob": "1990-01-21",
-                            "gender": "male",
-                            "name": "Joe Adam"
                         }
-                    },
-                    "id": "1"
+                    }
                 }
             ],
             "items": [
@@ -41,10 +34,6 @@
                     "add_ons": [
                         {
                             "id": "1",
-                            "descriptor": {
-                                "code": "NO_CLAIM_BONUS",
-                                "name": "No Claim Bonus"
-                            },
                             "quantity": {
                                 "selected": {
                                     "count": 1
@@ -52,18 +41,11 @@
                             }
                         }
                     ],
-                    "fulfillment_ids": [
-                        "1"
-                    ],
                     "id": "36db0d40-c7ca-47db-82d8-6cdadf671c3c",
-                    "time": {
-                        "duration": "P1Y",
-                        "label": "TENURE"
-                    },
                     "xinput": {
-                        "form": {
-                            "submission_id": "e9a3b4a5-10f8-42c7-b888-dbf0e2edd684",
-                            "url": "https://fis.test.bpp.io/form/ekyc"
+                        "form_response": {
+                            "status": "true",
+                            "submission_id": "6ae80f7d-1fe2-4bb2-8ead-8c3c2ded9358"
                         }
                     }
                 }
@@ -86,22 +68,32 @@
                 "id": "e5585415-bce5-46b5-aeba-9f6b83df5ffa"
             },
             "quote": {
+                "id": "ef01df28-e483-46dd-8a0d-cb0619cef116",
                 "breakup": [
                     {
                         "price": {
-                            "value": "900"
+                            "value": "900",
+                            "currency": "INR"
                         },
                         "title": "Base Price"
                     },
                     {
                         "price": {
-                            "value": "50"
+                            "value": "50",
+                            "currency": "INR"
+                        }
+                    },
+                    {
+                        "price": {
+                            "value": "40",
+                            "currency": "INR"
                         },
                         "title": "Tax"
                     },
                     {
                         "price": {
-                            "value": "50"
+                            "value": "10",
+                            "currency": "INR"
                         },
                         "title": "Processing Fee"
                     }
