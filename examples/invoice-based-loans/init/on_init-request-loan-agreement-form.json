@@ -103,11 +103,12 @@
               },
               "index": {
                 "min": 0,
-                "cur": 1,
-                "max": 1
+                "cur": 2,
+                "max": 2
               },
               "headings": [
                 "Account Information",
+                "Account Monitoring Consent",
                 "Loan Agreement"
               ]
             },
