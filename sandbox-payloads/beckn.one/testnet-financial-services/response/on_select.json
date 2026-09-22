@@ -4,8 +4,8 @@
     "action": "on_select",
     "senderId": "bap.lending.example.com",
     "bapUri": "https://bap.lending.example.com/beckn",
-    "receiverId": "bpp.icicibank.example.com",
-    "bppUri": "https://bpp.icicibank.example.com/beckn",
+    "receiverId": "bpp.northbridgebank.example.com",
+    "bppUri": "https://bpp.northbridgebank.example.com/beckn",
     "networkId": "nfh.global/testnet-fin-services",
     "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "messageId": "d1a2b3c4-1111-4a2b-9c3d-4e5f6a7b8c9d",
@@ -46,8 +46,8 @@
           "numberOfInstallments": 45,
           "installmentAmount": 46360,
           "coolOffPeriod": "P30D",
-          "termsAndConditionsUrl": "https://bpp.icicibank.example.com/loan/tnc.html",
-          "keyFactStatementUrl": "https://bpp.icicibank.example.com/loan/kfs-terms"
+          "termsAndConditionsUrl": "https://bpp.northbridgebank.example.com/loan/tnc.html",
+          "keyFactStatementUrl": "https://bpp.northbridgebank.example.com/loan/kfs-terms"
         }
       }
     ]

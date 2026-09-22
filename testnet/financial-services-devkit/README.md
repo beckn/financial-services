@@ -22,7 +22,7 @@ A developer toolkit for building and testing applications on the **beckn financi
 The Financial Services Devkit enables developers to simulate and test decentralised personal-loan
 transactions over the beckn protocol (v2.0.0 LTS). It models the the "Personal Loan" flow
 flow: a borrower-facing lending platform (CN / BAP, `bap.lending.example.com`) discovering loan
-products from a lender platform (PN / BPP, `bpp.icicibank.example.com`), selecting an offer,
+products from a lender platform (PN / BPP, `bpp.northbridgebank.example.com`), selecting an offer,
 completing an out-of-band KYC/application journey, and confirming a sanctioned loan contract. It
 bundles a Docker-based adapter setup and Postman collections so you can spin up a local environment
 and begin making beckn-compliant API calls within minutes.

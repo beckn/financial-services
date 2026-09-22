@@ -4,8 +4,8 @@
     "action": "select",
     "senderId": "bap.lending.example.com",
     "bapUri": "https://bap.lending.example.com/beckn",
-    "receiverId": "bpp.icicibank.example.com",
-    "bppUri": "https://bpp.icicibank.example.com/beckn",
+    "receiverId": "bpp.northbridgebank.example.com",
+    "bppUri": "https://bpp.northbridgebank.example.com/beckn",
     "networkId": "nfh.global/testnet-fin-services",
     "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "messageId": "d1a2b3c4-1111-4a2b-9c3d-4e5f6a7b8c9d",
@@ -19,7 +19,7 @@
         "ITEM_ID_PERSONAL_LOAN_1"
       ],
       "formSubmission": {
-        "id": "https://bpp.icicibank.example.com/xinput/formid/F01",
+        "id": "https://bpp.northbridgebank.example.com/xinput/formid/F01",
         "submissionId": "F01_SUBMISSION_ID",
         "data": {
           "status": "SUCCESS"

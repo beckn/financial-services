@@ -4,8 +4,8 @@
     "action": "on_discover",
     "senderId": "bap.lending.example.com",
     "bapUri": "https://bap.lending.example.com/beckn",
-    "receiverId": "bpp.icicibank.example.com",
-    "bppUri": "https://bpp.icicibank.example.com/beckn",
+    "receiverId": "bpp.northbridgebank.example.com",
+    "bppUri": "https://bpp.northbridgebank.example.com/beckn",
     "networkId": "nfh.global/testnet-fin-services",
     "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "messageId": "bb579fb8-cb82-4824-be12-fcbc405b6608",
@@ -15,13 +15,13 @@
   "message": {
     "catalogs": [
       {
-        "id": "CAT_ICICI_LOANS",
+        "id": "CAT_NORTHBRIDGE_LOANS",
         "descriptor": {
-          "name": "ICICI Bank",
-          "shortDesc": "ICICI Bank Ltd"
+          "name": "Northbridge Bank",
+          "shortDesc": "Northbridge Bank Ltd"
         },
-        "receiverId": "bpp.icicibank.example.com",
-        "bppUri": "https://bpp.icicibank.example.com/beckn",
+        "receiverId": "bpp.northbridgebank.example.com",
+        "bppUri": "https://bpp.northbridgebank.example.com/beckn",
         "providerId": "PROVIDER_ID",
         "resources": [
           {
@@ -34,9 +34,9 @@
             "provider": {
               "id": "PROVIDER_ID",
               "descriptor": {
-                "name": "ICICI Bank",
-                "shortDesc": "ICICI Bank Ltd",
-                "longDesc": "ICICI Bank Ltd, India."
+                "name": "Northbridge Bank",
+                "shortDesc": "Northbridge Bank Ltd",
+                "longDesc": "Northbridge Bank Ltd, India."
               }
             },
             "resourceAttributes": {
@@ -51,7 +51,7 @@
               "minLoanAmount": 50000,
               "maxLoanAmount": 5000000,
               "currency": "INR",
-              "applicationFormUrl": "https://bpp.icicibank.example.com/xinput/formid/F01",
+              "applicationFormUrl": "https://bpp.northbridgebank.example.com/xinput/formid/F01",
               "journeyType": "SEMI_ONLINE"
             }
           },
@@ -65,7 +65,7 @@
             "provider": {
               "id": "PROVIDER_ID",
               "descriptor": {
-                "name": "ICICI Bank"
+                "name": "Northbridge Bank"
               }
             },
             "resourceAttributes": {
@@ -85,7 +85,7 @@
             "provider": {
               "id": "PROVIDER_ID",
               "descriptor": {
-                "name": "ICICI Bank"
+                "name": "Northbridge Bank"
               }
             },
             "resourceAttributes": {

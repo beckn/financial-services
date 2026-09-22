@@ -8,9 +8,9 @@
   "provider": {
     "id": "PROVIDER_ID",
     "descriptor": {
-      "name": "ICICI Bank",
-      "shortDesc": "ICICI Bank Ltd",
-      "longDesc": "ICICI Bank Ltd, India."
+      "name": "Northbridge Bank",
+      "shortDesc": "Northbridge Bank Ltd",
+      "longDesc": "Northbridge Bank Ltd, India."
     }
   },
   "resourceAttributes": {
@@ -25,7 +25,7 @@
     "minLoanAmount": 50000,
     "maxLoanAmount": 5000000,
     "currency": "INR",
-    "applicationFormUrl": "https://bpp.icicibank.example.com/xinput/formid/F01",
+    "applicationFormUrl": "https://bpp.northbridgebank.example.com/xinput/formid/F01",
     "journeyType": "SEMI_ONLINE"
   }
 }

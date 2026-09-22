@@ -19,7 +19,7 @@
     "numberOfInstallments": 45,
     "installmentAmount": 46360,
     "coolOffPeriod": "P30D",
-    "termsAndConditionsUrl": "https://bpp.icicibank.example.com/loan/tnc.html",
-    "keyFactStatementUrl": "https://bpp.icicibank.example.com/loan/kfs-terms"
+    "termsAndConditionsUrl": "https://bpp.northbridgebank.example.com/loan/tnc.html",
+    "keyFactStatementUrl": "https://bpp.northbridgebank.example.com/loan/kfs-terms"
   }
 }

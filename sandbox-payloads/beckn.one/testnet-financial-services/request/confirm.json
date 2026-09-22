@@ -4,8 +4,8 @@
     "action": "confirm",
     "senderId": "bap.lending.example.com",
     "bapUri": "https://bap.lending.example.com/beckn",
-    "receiverId": "bpp.icicibank.example.com",
-    "bppUri": "https://bpp.icicibank.example.com/beckn",
+    "receiverId": "bpp.northbridgebank.example.com",
+    "bppUri": "https://bpp.northbridgebank.example.com/beckn",
     "networkId": "nfh.global/testnet-fin-services",
     "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "messageId": "a1b2c3d4-4444-4d5e-8f6a-7b8c9d0e1f2a",
@@ -35,7 +35,7 @@
             ]
           },
           "formSubmission": {
-            "id": "https://bpp.icicibank.example.com/xinput/formid/FO3",
+            "id": "https://bpp.northbridgebank.example.com/xinput/formid/FO3",
             "submissionId": "79850933-4e41-4c76-bbe6-c5a392481226",
             "data": {
               "status": "SUCCESS"
@@ -56,7 +56,7 @@
           "offlineContract": true
         },
         "lenderTerms": {
-          "staticTermsUrl": "https://bpp.icicibank.example.com/terms/personal-loan",
+          "staticTermsUrl": "https://bpp.northbridgebank.example.com/terms/personal-loan",
           "offlineContract": true
         }
       }

@@ -7,7 +7,7 @@
       "offlineContract": true
     },
     "lenderTerms": {
-      "staticTermsUrl": "https://bpp.icicibank.example.com/terms/personal-loan",
+      "staticTermsUrl": "https://bpp.northbridgebank.example.com/terms/personal-loan",
       "offlineContract": true
     }
   }

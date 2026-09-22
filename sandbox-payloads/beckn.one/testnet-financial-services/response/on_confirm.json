@@ -4,8 +4,8 @@
     "action": "on_confirm",
     "senderId": "bap.lending.example.com",
     "bapUri": "https://bap.lending.example.com/beckn",
-    "receiverId": "bpp.icicibank.example.com",
-    "bppUri": "https://bpp.icicibank.example.com/beckn",
+    "receiverId": "bpp.northbridgebank.example.com",
+    "bppUri": "https://bpp.northbridgebank.example.com/beckn",
     "networkId": "nfh.global/testnet-fin-services",
     "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "messageId": "166a5633-66d2-4ec8-bdcb-65cfeb1e4697",
@@ -17,7 +17,7 @@
       "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/Contract/v2.0/context.jsonld",
       "@type": "beckn:Contract",
       "id": "LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID",
-      "displayId": "ICICI-PL-2026-000123",
+      "displayId": "NORTHBRIDGE-PL-2026-000123",
       "status": {
         "code": "ACTIVE"
       },
@@ -30,7 +30,7 @@
         },
         {
           "id": "PROVIDER_ID",
-          "displayName": "ICICI Bank"
+          "displayName": "Northbridge Bank"
         }
       ],
       "commitments": [
