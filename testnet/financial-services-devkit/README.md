@@ -2,17 +2,21 @@
 
 A developer toolkit for building and testing applications on the **beckn financial-services testnet**. This devkit provides a pre-configured adapter stack and ready-to-use Postman collections to help you get started quickly with the "Personal Loan" flow, converted to Beckn Protocol v2.0.0 LTS.
 
-> **TEMPORARY, pre-merge only:** `subscriberId`/`senderId`/`receiverId` currently use the shared
-> `bap.example.com` / `bpp.example.com` testnet identities from `starter-kit`'s `generic-devkit`
-> (borrowing their already-registered keys) purely so the flow can be exercised end-to-end against
-> the real DeDi registry before dedicated `financial-services` participant entities exist. Once two
-> new entities are registered for this domain, these identities (and the matching keys in
-> `config/financial-services-bap.yaml` / `financial-services-bpp.yaml` and
-> `manifests/*-node-manifest.yaml`) must be replaced before this PR merges -- do not treat
-> `bap.example.com`/`bpp.example.com` as this domain's real, permanent identities. `networkId`
-> is likewise pinned to the registered `nfh.global/testnet` rather than this domain's eventual real
-> `networkId`, for the same reason -- see the `sandbox-bpp` note below for why that value is also
-> load-bearing for the mock's file lookup, not just registry membership.
+> **TEMPORARY identities, merged as-is by design:** `subscriberId`/`senderId`/`receiverId` currently
+> use the shared `bap.example.com` / `bpp.example.com` testnet identities from `starter-kit`'s
+> `generic-devkit` (borrowing their already-registered keys) purely so the flow could be exercised
+> end-to-end against the real DeDi registry before dedicated `financial-services` participant
+> entities exist. This was a deliberate call to merge now rather than block on entity registration --
+> do not treat `bap.example.com`/`bpp.example.com` as this domain's real, permanent identities.
+> `networkId` is likewise pinned to the registered `nfh.global/testnet` rather than this domain's
+> eventual real `networkId`, for the same reason -- see the `sandbox-bpp` note below for why that
+> value is also load-bearing for the mock's file lookup, not just registry membership.
+>
+> **Follow-up, once two new entities are registered for this domain:** replace these identities (and
+> the matching keys) together in `config/financial-services-bap.yaml` /
+> `financial-services-bpp.yaml`, `manifests/*-node-manifest.yaml`, every `sandbox-payloads/**/*.json`
+> and the Postman collection, and the `sandbox-bpp`/`sandbox-bap` volume mount targets in both
+> compose files -- then remove this note.
 
 ### Local schema resolution (dev mode)
 
