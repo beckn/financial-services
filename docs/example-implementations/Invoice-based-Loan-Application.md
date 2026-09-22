@@ -104,13 +104,13 @@ To discover a loan product on a beckn-enabled network, the BAP must fire a `sear
     "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
     "ttl": "PT30M",
     "timestamp": "2023-05-25T05:23:03.443Z",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io"
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io"
   },
   "message": {
     "catalog": {
       "descriptor": {
-        "name": "ICICI Bank"
+        "name": "Northbridge Bank"
       },
       "providers": [
         {
@@ -118,13 +118,13 @@ To discover a loan product on a beckn-enabled network, the BAP must fire a `sear
           "descriptor": {
             "images": [
               {
-                "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+                "url": "https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png"
               }
             ],
-            "code": "ICICIBANK",
-            "name": "ICICI Bank",
-            "short_desc": "ICICI Bank Ltd",
-            "long_desc": "ICICI Bank Ltd, India."
+            "code": "NORTHBRIDGEBANK",
+            "name": "Northbridge Bank",
+            "short_desc": "Northbridge Bank Ltd",
+            "long_desc": "Northbridge Bank Ltd, India."
           },
           "categories": [
             {
@@ -161,7 +161,7 @@ To discover a loan product on a beckn-enabled network, the BAP must fire a `sear
               "xinput": {
                 "form": {
                   "mime_type": "text/html",
-                  "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+                  "url": "https://6vs8xnx5i7.northbridgebank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f",
                   "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
                 },
                 "required": true
@@ -201,8 +201,8 @@ The BAP sends the loan product, the loan provider, and the customer's identity t
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
     "ttl": "PT10M",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io"
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io"
   },
   "message": {
     "order": {
@@ -243,8 +243,8 @@ In this interaction, the Lender Platform (BPP) generates a consent request, and 
     "version": "1.1.0",
     "bap_id": "credit-protocol.becknprotocol.io",
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io",
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62195",
     "message_id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
     "timestamp": "2023-05-25T05:23:03.443Z",
@@ -257,13 +257,13 @@ In this interaction, the Lender Platform (BPP) generates a consent request, and 
         "descriptor": {
           "images": [
             {
-              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+              "url": "https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png"
             }
           ],
-          "code": "ICICIBANK",
-          "name": "ICICI Bank",
-          "short_desc": "ICICI Bank Ltd",
-          "long_desc": "ICICI Bank Ltd, India."
+          "code": "NORTHBRIDGEBANK",
+          "name": "Northbridge Bank",
+          "short_desc": "Northbridge Bank Ltd",
+          "long_desc": "Northbridge Bank Ltd, India."
         }
       },
       "items": [
@@ -346,7 +346,7 @@ In this interaction, the Lender Platform (BPP) generates a consent request, and 
       "xinput": {
         "form": {
           "mime_type": "text/html",
-          "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75",
+          "url": "https://6vs8xnx5i7.northbridgebank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75",
           "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
         },
         "required": true
@@ -409,8 +409,8 @@ Here the BAP submits the additional information that was requested by the BPP in
     "action": "init",
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io",
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "message_id": "0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6",
     "ttl": "PT10M",
@@ -466,8 +466,8 @@ Now the lender has all the information to make an offer to the borrower.
     "action": "on_init",
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io",
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "message_id": "166a5633-66d2-4ec8-bdcb-65cfeb1e4697",
     "ttl": "PT10M",
@@ -480,13 +480,13 @@ Now the lender has all the information to make an offer to the borrower.
         "descriptor": {
           "images": [
             {
-              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+              "url": "https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png"
             }
           ],
-          "code": "ICICIBANK",
-          "name": "ICICI Bank",
-          "short_desc": "ICICI Bank Ltd",
-          "long_desc": "ICICI Bank Ltd, India."
+          "code": "NORTHBRIDGEBANK",
+          "name": "Northbridge Bank",
+          "short_desc": "Northbridge Bank Ltd",
+          "long_desc": "Northbridge Bank Ltd, India."
         }
       },
       "items": [
@@ -545,7 +545,7 @@ Now the lender has all the information to make an offer to the borrower.
                     "name": "Terms & Conditions",
                     "short_desc": "Terms and Conditions"
                   },
-                  "value": "https://icicibank.com/loan/tnc.html"
+                  "value": "https://northbridgebank.com/loan/tnc.html"
                 }
               ],
               "display": true
@@ -585,7 +585,7 @@ Now the lender has all the information to make an offer to the borrower.
       "payments": [
         {
           "type": "ON-ORDER",
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -663,7 +663,7 @@ Now the lender has all the information to make an offer to the borrower.
           },
           "external_ref": {
             "mimetype": "text/html",
-            "url": "https://icicibank.com/loan/tnc.html"
+            "url": "https://northbridgebank.com/loan/tnc.html"
           }
         },
         {
@@ -677,7 +677,7 @@ Now the lender has all the information to make an offer to the borrower.
           },
           "external_ref": {
             "mimetype": "text/html",
-            "url": "https://icicibank.com/loan/tnc.html"
+            "url": "https://northbridgebank.com/loan/tnc.html"
           }
         }
       ],
@@ -689,7 +689,7 @@ Now the lender has all the information to make an offer to the borrower.
                 "name": "Loan Agreement",
                 "short_desc": "Click on this link to view and sign your Loan Agreement"
               },
-              "value": "https://icicibank.com/loanAgreement?id=afyrq9fbH"
+              "value": "https://northbridgebank.com/loanAgreement?id=afyrq9fbH"
             }
           ]
         }
@@ -717,8 +717,8 @@ Now the lender has all the information to make an offer to the borrower.
     "version": "1.1.0",
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io",
     "ttl": "PT10M"
   },
   "message": {
@@ -770,8 +770,8 @@ Now the lender has all the information to make an offer to the borrower.
     "action": "on_confirm",
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io",
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "message_id": "0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6",
     "ttl": "PT10M",
@@ -785,13 +785,13 @@ Now the lender has all the information to make an offer to the borrower.
         "descriptor": {
           "images": [
             {
-              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+              "url": "https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png"
             }
           ],
-          "code": "ICICIBANK",
-          "name": "ICICI Bank",
-          "short_desc": "ICICI Bank Ltd",
-          "long_desc": "ICICI Bank Ltd, India."
+          "code": "NORTHBRIDGEBANK",
+          "name": "Northbridge Bank",
+          "short_desc": "Northbridge Bank Ltd",
+          "long_desc": "Northbridge Bank Ltd, India."
         }
       },
       "items": [
@@ -850,7 +850,7 @@ Now the lender has all the information to make an offer to the borrower.
                     "name": "Terms & Conditions",
                     "short_desc": "Terms and Conditions"
                   },
-                  "value": "https://icicibank.com/loan/tnc.html"
+                  "value": "https://northbridgebank.com/loan/tnc.html"
                 }
               ],
               "display": true
@@ -915,7 +915,7 @@ Now the lender has all the information to make an offer to the borrower.
       "payments": [
         {
           "type": "ON-ORDER",
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -929,7 +929,7 @@ Now the lender has all the information to make an offer to the borrower.
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -943,7 +943,7 @@ Now the lender has all the information to make an offer to the borrower.
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -957,7 +957,7 @@ Now the lender has all the information to make an offer to the borrower.
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -971,7 +971,7 @@ Now the lender has all the information to make an offer to the borrower.
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -997,7 +997,7 @@ Now the lender has all the information to make an offer to the borrower.
           },
           "external_ref": {
             "mimetype": "text/html",
-            "url": "https://icicibank.com/loan/tnc.html"
+            "url": "https://northbridgebank.com/loan/tnc.html"
           }
         },
         {
@@ -1011,7 +1011,7 @@ Now the lender has all the information to make an offer to the borrower.
           },
           "external_ref": {
             "mimetype": "text/html",
-            "url": "https://icicibank.com/loan/tnc.html"
+            "url": "https://northbridgebank.com/loan/tnc.html"
           }
         }
       ]
@@ -1078,7 +1078,7 @@ In this stage the lender deposits the loan amount in the borrower's bank account
             "payments": [
                 {
                     "type": "ON-ORDER",
-                    "url": "https://emandate.icicibank.in",
+                    "url": "https://emandate.northbridgebank.in",
                     "params": {
                         "amount": "46360",
                         "currency": "INR"
@@ -1121,8 +1121,8 @@ The borrower could cancel a loan based on multiple reasons, the reason would be 
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
     "ttl": "PT10M",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io"
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io"
   },
   "message": {
     "order_id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
@@ -1153,8 +1153,8 @@ The `on_cancel` response would be as follows
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
     "ttl": "PT10M",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io"
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io"
   },
   "message": {
     "order": {
@@ -1164,13 +1164,13 @@ The `on_cancel` response would be as follows
         "descriptor": {
           "images": [
             {
-              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+              "url": "https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png"
             }
           ],
-          "code": "ICICIBANK",
-          "name": "ICICI Bank",
-          "short_desc": "ICICI Bank Ltd",
-          "long_desc": "ICICI Bank Ltd, India."
+          "code": "NORTHBRIDGEBANK",
+          "name": "Northbridge Bank",
+          "short_desc": "Northbridge Bank Ltd",
+          "long_desc": "Northbridge Bank Ltd, India."
         }
       },
       "items": [
@@ -1229,7 +1229,7 @@ The `on_cancel` response would be as follows
                     "name": "Terms & Conditions",
                     "short_desc": "Terms and Conditions"
                   },
-                  "value": "https://icicibank.com/loan/tnc.html"
+                  "value": "https://northbridgebank.com/loan/tnc.html"
                 }
               ],
               "display": true
@@ -1294,7 +1294,7 @@ The `on_cancel` response would be as follows
       "payments": [
         {
           "type": "ON-ORDER",
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -1308,7 +1308,7 @@ The `on_cancel` response would be as follows
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -1322,7 +1322,7 @@ The `on_cancel` response would be as follows
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -1336,7 +1336,7 @@ The `on_cancel` response would be as follows
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -1350,7 +1350,7 @@ The `on_cancel` response would be as follows
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -1376,7 +1376,7 @@ The `on_cancel` response would be as follows
           },
           "external_ref": {
             "mimetype": "text/html",
-            "url": "https://icicibank.com/loan/tnc.html"
+            "url": "https://northbridgebank.com/loan/tnc.html"
           }
         },
         {
@@ -1390,7 +1390,7 @@ The `on_cancel` response would be as follows
           },
           "external_ref": {
             "mimetype": "text/html",
-            "url": "https://icicibank.com/loan/tnc.html"
+            "url": "https://northbridgebank.com/loan/tnc.html"
           }
         }
       ]
@@ -1422,8 +1422,8 @@ The borrower (BAP) sends the `update` request by sending the order ID to be upda
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
     "ttl": "PT10M",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io"
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io"
   },
   "message": {
     "update_target": "fulfillment",
@@ -1474,8 +1474,8 @@ The subsequent `on_update` response is
     "action": "on_update",
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io",
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "message_id": "0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6",
     "ttl": "PT10M",
@@ -1489,13 +1489,13 @@ The subsequent `on_update` response is
         "descriptor": {
           "images": [
             {
-              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png"
+              "url": "https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png"
             }
           ],
-          "code": "ICICIBANK",
-          "name": "ICICI Bank",
-          "short_desc": "ICICI Bank Ltd",
-          "long_desc": "ICICI Bank Ltd, India."
+          "code": "NORTHBRIDGEBANK",
+          "name": "Northbridge Bank",
+          "short_desc": "Northbridge Bank Ltd",
+          "long_desc": "Northbridge Bank Ltd, India."
         }
       },
       "items": [
@@ -1554,7 +1554,7 @@ The subsequent `on_update` response is
                     "name": "Terms & Conditions",
                     "short_desc": "Terms and Conditions"
                   },
-                  "value": "https://icicibank.com/loan/tnc.html"
+                  "value": "https://northbridgebank.com/loan/tnc.html"
                 }
               ],
               "display": true
@@ -1619,7 +1619,7 @@ The subsequent `on_update` response is
       "payments": [
         {
           "type": "ON-ORDER",
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -1633,7 +1633,7 @@ The subsequent `on_update` response is
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -1647,7 +1647,7 @@ The subsequent `on_update` response is
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -1661,7 +1661,7 @@ The subsequent `on_update` response is
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -1675,7 +1675,7 @@ The subsequent `on_update` response is
           }
         },
         {
-          "url": "https://emandate.icicibank.in",
+          "url": "https://emandate.northbridgebank.in",
           "params": {
             "amount": "46360",
             "currency": "INR"
@@ -1701,7 +1701,7 @@ The subsequent `on_update` response is
           },
           "external_ref": {
             "mimetype": "text/html",
-            "url": "https://icicibank.com/loan/tnc.html"
+            "url": "https://northbridgebank.com/loan/tnc.html"
           }
         },
         {
@@ -1715,7 +1715,7 @@ The subsequent `on_update` response is
           },
           "external_ref": {
             "mimetype": "text/html",
-            "url": "https://icicibank.com/loan/tnc.html"
+            "url": "https://northbridgebank.com/loan/tnc.html"
           }
         }
       ]
@@ -1747,8 +1747,8 @@ In case the borrower (BAP) wants support regarding their application, they can u
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
     "ttl": "PT10M",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io"
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io"
   },
   "message": {
     "support": {
@@ -1779,15 +1779,15 @@ This is the 'on_support' request for that support request.
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
     "ttl": "PT10M",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io"
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io"
   },
   "message": {
     "support": {
       "order_id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
       "phone": "1800 1080",
-      "email": "customer.care@icicibank.com",
-      "url": "https://www.icicibank.com/helpdesk"
+      "email": "customer.care@northbridgebank.com",
+      "url": "https://www.northbridgebank.com/helpdesk"
     }
   }
 }

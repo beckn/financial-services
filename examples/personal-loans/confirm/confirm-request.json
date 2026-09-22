@@ -13,8 +13,8 @@
     "version": "1.1.0",
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
     "bap_id": "credit-protocol.becknprotocol.io",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io",
     "ttl": "PT10M"
   },
   "message": {
