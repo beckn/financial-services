@@ -122,6 +122,23 @@ services:
   #   Health:                      http://localhost:3002/api/health
   #   Serves canned on_* responses from the sandbox-payloads tree so
   #   the flow can be exercised end-to-end without a real lender.
+  #
+  #   IMPORTANT: fidedocker/sandbox-2.0 resolves its response file path from
+  #   the INBOUND REQUEST's context.networkId at runtime -- it reads
+  #   /app/dist/webhook/jsons/<context.networkId>/response/<action>.json,
+  #   falling back to an empty {} (silently, just a console.warn) if that
+  #   exact path isn't mounted. The volume target below MUST match whatever
+  #   networkId the payloads you're sending actually carry, or callbacks will
+  #   ACK but silently carry no message. It is currently pinned to
+  #   nfh.global/testnet (v1) because that's what the TEMPORARY test identities
+  #   documented at the top of this devkit's README are actually registered
+  #   under -- source content still lives at its real permanent path
+  #   (sandbox-payloads/beckn.one/testnet-financial-services/response). Once
+  #   dedicated financial-services identities are registered under a real
+  #   networkId, update BOTH the payloads' context.networkId and this mount
+  #   target together (ideally to the same value the source path uses, so
+  #   they can't drift apart again -- see local-retail's retail-devkit for
+  #   that 1:1 convention).
   # ============================================================
   sandbox-bpp:
     container_name: sandbox-bpp
@@ -132,7 +149,7 @@ services:
     ports:
       - "3002:3002"
     volumes:
-      - ../../../sandbox-payloads/beckn.one/testnet-financial-services/response:/app/dist/webhook/jsons/beckn.one/testnet-financial-services/response
+      - ../../../sandbox-payloads/beckn.one/testnet-financial-services/response:/app/dist/webhook/jsons/nfh.global/testnet/response
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:3002/api/health"]
       interval: 10s

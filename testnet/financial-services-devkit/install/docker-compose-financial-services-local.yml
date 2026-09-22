@@ -121,6 +121,10 @@ services:
   #   Health:                      http://localhost:3002/api/health
   #   Serves canned on_* responses from the sandbox-payloads tree so
   #   the flow can be exercised end-to-end without a real lender.
+  #
+  #   IMPORTANT: the volume target's networkId segment must match whatever
+  #   context.networkId the payloads you send actually carry -- see the
+  #   detailed note on this same service in docker-compose-financial-services.yml.
   # ============================================================
   sandbox-bpp:
     container_name: sandbox-bpp
@@ -131,7 +135,7 @@ services:
     ports:
       - "3002:3002"
     volumes:
-      - ../../../sandbox-payloads/beckn.one/testnet-financial-services/response:/app/dist/webhook/jsons/beckn.one/testnet-financial-services/response
+      - ../../../sandbox-payloads/beckn.one/testnet-financial-services/response:/app/dist/webhook/jsons/nfh.global/testnet/response
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:3002/api/health"]
       interval: 10s

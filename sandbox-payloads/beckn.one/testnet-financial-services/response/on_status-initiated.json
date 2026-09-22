@@ -68,9 +68,7 @@
         {
           "id": "CONSIDERATION_1",
           "status": {
-            "descriptor": {
-              "code": "PENDING"
-            }
+            "code": "PENDING"
           },
           "considerationAttributes": {
             "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanCharges/v2.0/context.jsonld",

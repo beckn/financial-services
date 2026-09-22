@@ -72,9 +72,7 @@
         {
           "id": "CONSIDERATION_1",
           "status": {
-            "descriptor": {
-              "code": "SETTLED"
-            }
+            "code": "SETTLED"
           },
           "considerationAttributes": {
             "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanCharges/v2.0/context.jsonld",
