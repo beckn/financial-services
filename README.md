@@ -80,7 +80,7 @@ See **[testnet/financial-services-devkit/README.md](./testnet/financial-services
 
 | Name             | Role                           | Github Username |
 |------------------|--------------------------------|-----------------|
-| Mayuresh Nirhali | Contributor                    |                 |
+| Mayuresh Nirhali | Maintainer, Reviewer           | @nirmay         |
 | Ravi Prakash     | Maintainer, Protocol Architect | @ravi-prakash-v |
 | Pramod Varma     | Maintainer, Reviewer           | @pramodkvarma   |
 | Sujith Nair      | Reviewer                       | @sjthnrk        |
