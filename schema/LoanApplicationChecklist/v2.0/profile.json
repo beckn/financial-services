@@ -1,0 +1,26 @@
+{
+  "id": "https://schema.nfh.global/LoanApplicationChecklist/v2.0",
+  "name": "FIS Loan Application Checklist Attributes",
+  "version": "2.0.0",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "included_schemas": ["LoanApplicationChecklist"],
+  "discovery_fields": [
+    "stopType",
+    "stopStatus",
+    "sequence"
+  ],
+  "indexable_paths": [
+    "beckn:performanceAttributes.stopType",
+    "beckn:performanceAttributes.stopStatus",
+    "beckn:performanceAttributes.sequence"
+  ],
+  "filterable_paths": [
+    "beckn:performanceAttributes.stopType",
+    "beckn:performanceAttributes.stopStatus"
+  ],
+  "sortable_paths": [
+    "beckn:performanceAttributes.sequence"
+  ],
+  "privacy_notes": []
+}

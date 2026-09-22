@@ -1,0 +1,8 @@
+{
+  "schema": "LoanContractTerms",
+  "version": "2.0.0",
+  "card_template": "Offline Contract: {{beckn:contractAttributes.borrowerTerms.offlineContract}}",
+  "detail_template": "CN Terms: {{beckn:contractAttributes.borrowerTerms.staticTermsUrl}} (offline: {{beckn:contractAttributes.borrowerTerms.offlineContract}})\nPN Terms: {{beckn:contractAttributes.lenderTerms.staticTermsUrl}} (offline: {{beckn:contractAttributes.lenderTerms.offlineContract}})",
+  "html": "<div class=\"loan-contract-terms-card\" data-contract-id=\"{{beckn:id}}\">{{#if (get \"beckn:contractAttributes.borrowerTerms.offlineContract\")}}<span class=\"badge badge-offline\">Offline Contract</span>{{/if}}</div>",
+  "html_detail": "<div class=\"loan-contract-terms-detail\" data-contract-id=\"{{beckn:id}}\"><h2>Terms of Engagement</h2><section><h4>Consumer Node (CN)</h4><p><a href=\"{{get \\\"beckn:contractAttributes.borrowerTerms.staticTermsUrl\\\"}}\">Static Terms</a></p><p>Offline: {{get \"beckn:contractAttributes.borrowerTerms.offlineContract\"}}</p></section><section><h4>Provider Node (PN)</h4><p><a href=\"{{get \\\"beckn:contractAttributes.lenderTerms.staticTermsUrl\\\"}}\">Static Terms</a></p><p>Offline: {{get \"beckn:contractAttributes.lenderTerms.offlineContract\"}}</p></section></div>"
+}

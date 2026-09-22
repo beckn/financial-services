@@ -1,0 +1,49 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "lpra": "https://schema.nfh.global/LoanProduct#",
+    "@context": {
+      "@id": "lpra:@context"
+    },
+    "@type": {
+      "@id": "lpra:@type"
+    },
+    "LoanProduct": "lpra:LoanProduct",
+    "InterestRateType": "lpra:InterestRateType",
+    "JourneyType": "lpra:JourneyType",
+    "loanCategory": {
+      "@id": "lpra:loanCategory"
+    },
+    "interestRateType": {
+      "@id": "lpra:interestRateType"
+    },
+    "minInterestRate": {
+      "@id": "lpra:minInterestRate"
+    },
+    "maxInterestRate": {
+      "@id": "lpra:maxInterestRate"
+    },
+    "minTenureMonths": {
+      "@id": "lpra:minTenureMonths"
+    },
+    "maxTenureMonths": {
+      "@id": "lpra:maxTenureMonths"
+    },
+    "minLoanAmount": {
+      "@id": "lpra:minLoanAmount"
+    },
+    "maxLoanAmount": {
+      "@id": "lpra:maxLoanAmount"
+    },
+    "currency": {
+      "@id": "lpra:currency"
+    },
+    "applicationFormUrl": {
+      "@id": "lpra:applicationFormUrl"
+    },
+    "journeyType": {
+      "@id": "lpra:journeyType"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "https://schema.nfh.global/LoanProduct/v2.0",
+  "name": "FIS Loan Product Attributes",
+  "version": "2.0.0",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "included_schemas": ["LoanProduct"],
+  "discovery_fields": [
+    "loanCategory",
+    "journeyType",
+    "interestRateType",
+    "minLoanAmount",
+    "maxLoanAmount"
+  ],
+  "indexable_paths": [
+    "beckn:resourceAttributes.loanCategory",
+    "beckn:resourceAttributes.journeyType",
+    "beckn:resourceAttributes.interestRateType",
+    "beckn:resourceAttributes.minInterestRate",
+    "beckn:resourceAttributes.maxInterestRate",
+    "beckn:resourceAttributes.minTenureMonths",
+    "beckn:resourceAttributes.maxTenureMonths",
+    "beckn:resourceAttributes.minLoanAmount",
+    "beckn:resourceAttributes.maxLoanAmount"
+  ],
+  "filterable_paths": [
+    "beckn:resourceAttributes.loanCategory",
+    "beckn:resourceAttributes.journeyType",
+    "beckn:resourceAttributes.interestRateType",
+    "beckn:resourceAttributes.minLoanAmount",
+    "beckn:resourceAttributes.maxLoanAmount"
+  ],
+  "sortable_paths": [
+    "beckn:resourceAttributes.minInterestRate",
+    "beckn:resourceAttributes.maxLoanAmount"
+  ],
+  "privacy_notes": []
+}

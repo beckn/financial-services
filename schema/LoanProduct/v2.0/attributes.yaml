@@ -1,0 +1,76 @@
+openapi: 3.1.1
+info:
+  title: FIS — Loan Product Attributes (v2.0)
+  version: 2.0.0
+  description: >
+    Custom resourceAttributes extension for FIS12-style personal loan catalog listings
+    (the "Personal Loan" use case, converted to Beckn v2.0.0 LTS). Carries the
+    rate/tenure/amount bands, interest-rate type, application journey type, and a link
+    to the lender's out-of-band application form for a loan-product resource.
+    Attaches to beckn:Resource via resourceAttributes.
+
+components:
+  schemas:
+    LoanProduct:
+      type: object
+      x-beckn-container: resourceAttributes
+      x-jsonld:
+        "@context": "https://schema.nfh.global/LoanProduct/v2.0/context.jsonld"
+        "@type": lpra:LoanProduct
+      properties:
+        loanCategory:
+          type: string
+          description: >
+            Loan product/category taxonomy code (e.g. PERSONAL_LOAN, PRE_QUALIFIER).
+            Modeled as a flat code rather than a hierarchical category graph — v2.0.0
+            LTS catalogs do not carry an equivalent category-tree primitive.
+          example: PERSONAL_LOAN
+          x-jsonld-id: "lpra:loanCategory"
+        interestRateType:
+          type: string
+          enum: [FIXED, FLOATING]
+          description: Whether the product's rate band is fixed or floating.
+          x-jsonld-id: "lpra:interestRateType"
+        minInterestRate:
+          type: string
+          description: Lower bound of the product's interest-rate band (e.g. "9%").
+          x-jsonld-id: "lpra:minInterestRate"
+        maxInterestRate:
+          type: string
+          description: Upper bound of the product's interest-rate band (e.g. "15%").
+          x-jsonld-id: "lpra:maxInterestRate"
+        minTenureMonths:
+          type: integer
+          description: Minimum loan tenure offered, in months.
+          x-jsonld-id: "lpra:minTenureMonths"
+        maxTenureMonths:
+          type: integer
+          description: Maximum loan tenure offered, in months.
+          x-jsonld-id: "lpra:maxTenureMonths"
+        minLoanAmount:
+          type: number
+          description: Minimum principal amount offered under this product.
+          x-jsonld-id: "lpra:minLoanAmount"
+        maxLoanAmount:
+          type: number
+          description: Maximum principal amount offered under this product.
+          x-jsonld-id: "lpra:maxLoanAmount"
+        currency:
+          type: string
+          description: ISO 4217 currency code for the amount/rate fields.
+          example: INR
+          x-jsonld-id: "lpra:currency"
+        applicationFormUrl:
+          type: string
+          format: uri
+          description: >
+            Link to the lender's out-of-band application form (KYC/personal-info intake).
+            The submitted result of this form is captured separately as a core
+            FormSubmission object composed into select/message.selection — see the
+            financial-services schema/INDEX.md "Core types composed" note.
+          x-jsonld-id: "lpra:applicationFormUrl"
+        journeyType:
+          type: string
+          enum: [OFFLINE, ONLINE, SEMI_ONLINE]
+          description: Application journey type for this loan product listing.
+          x-jsonld-id: "lpra:journeyType"

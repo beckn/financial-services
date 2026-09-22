@@ -214,8 +214,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT24H
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     order:
                       provider:
@@ -241,8 +241,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT24H
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     order:
                       provider:
@@ -361,8 +361,8 @@ paths:
                     action: init
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
                     message_id: 0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6
                     ttl: PT10M
@@ -393,8 +393,8 @@ paths:
                     action: init
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
                     message_id: 0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6
                     ttl: PT10M
@@ -580,8 +580,8 @@ paths:
                     version: 1.1.0
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                     ttl: PT10M
                   message:
                     order:
@@ -612,8 +612,8 @@ paths:
                     version: 1.1.0
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                     ttl: PT10M
                   message:
                     order:
@@ -773,8 +773,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
               Fetch status of the application for the invoice based loan:
@@ -792,8 +792,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
               Fetch the status of the mutual fund:
@@ -890,8 +890,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                     cancellation_reason_id: "5"
@@ -912,8 +912,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                     cancellation_reason_id: "5"
@@ -1018,8 +1018,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     update_target: fulfillment
                     order:
@@ -1049,8 +1049,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     update_target: fulfillment
                     order:
@@ -1242,8 +1242,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     support:
                       order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
@@ -1264,8 +1264,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     support:
                       order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
@@ -1366,21 +1366,21 @@ paths:
                     message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
                     ttl: PT30M
                     timestamp: "2023-05-25T05:23:03.443Z"
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     catalog:
                       descriptor:
-                        name: ICICI Bank
+                        name: Northbridge Bank
                       providers:
                         - id: "1"
                           descriptor:
                             images:
-                              - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                            code: ICICIBANK
-                            name: ICICI Bank
-                            short_desc: ICICI Bank Ltd
-                            long_desc: ICICI Bank Ltd, India.
+                              - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                            code: NORTHBRIDGEBANK
+                            name: Northbridge Bank
+                            short_desc: Northbridge Bank Ltd
+                            long_desc: Northbridge Bank Ltd, India.
                           categories:
                             - id: "101123"
                               descriptor:
@@ -1402,7 +1402,7 @@ paths:
                               xinput:
                                 form:
                                   mime_type: text/html
-                                  url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
+                                  url: https://6vs8xnx5i7.northbridgebank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
                                   submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
                                 required: true
                             - id: c8e3968c-cd78-4e46-aa34-0d541e46bd73
@@ -1421,7 +1421,7 @@ paths:
                               xinput:
                                 form:
                                   mime_type: text/html
-                                  url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f
+                                  url: https://6vs8xnx5i7.northbridgebank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f
                                   submission_id: 1c46b168-83ae-46ad-ac8a-d3c05870252c
                                 required: true
                             - id: 80414936-a06d-49ae-9475-f99448c77014
@@ -1440,7 +1440,7 @@ paths:
                               xinput:
                                 form:
                                   mime_type: text/html
-                                  url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf253fd
+                                  url: https://6vs8xnx5i7.northbridgebank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf253fd
                                   submission_id: b83babc1-b2fa-4e95-959f-b1d6ebdc2a48
                                 required: true
               Lender sends its catalog in response to a search request for invoice based loans:
@@ -1458,21 +1458,21 @@ paths:
                     message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
                     ttl: PT30M
                     timestamp: "2023-05-25T05:23:03.443Z"
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     catalog:
                       descriptor:
-                        name: ICICI Bank
+                        name: Northbridge Bank
                       providers:
                         - id: "1"
                           descriptor:
                             images:
-                              - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                            code: ICICIBANK
-                            name: ICICI Bank
-                            short_desc: ICICI Bank Ltd
-                            long_desc: ICICI Bank Ltd, India.
+                              - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                            code: NORTHBRIDGEBANK
+                            name: Northbridge Bank
+                            short_desc: Northbridge Bank Ltd
+                            long_desc: Northbridge Bank Ltd, India.
                           categories:
                             - id: "102661"
                               descriptor:
@@ -1494,7 +1494,7 @@ paths:
                               xinput:
                                 form:
                                   mime_type: text/html
-                                  url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf253fd
+                                  url: https://6vs8xnx5i7.northbridgebank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf253fd
                                   submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
               Mutual Fund provider sends a catalog in response to the search requestBody:
                 value:
@@ -1837,8 +1837,8 @@ paths:
                     version: 1.1.0
                     bap_id: credit-protocol.becknprotocol.io
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62195
                     message_id: c8e3968c-cd78-4e46-aa34-0d541e46bd73
                     timestamp: "2023-05-25T05:23:03.443Z"
@@ -1849,11 +1849,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -1900,7 +1900,7 @@ paths:
                       xinput:
                         form:
                           mime_type: text/html
-                          url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
+                          url: https://6vs8xnx5i7.northbridgebank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
                           submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
                         required: true
               Selected lender sends offer details for the invoice based loan:
@@ -1914,8 +1914,8 @@ paths:
                     version: 1.1.0
                     bap_id: credit-protocol.becknprotocol.io
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62195
                     message_id: c8e3968c-cd78-4e46-aa34-0d541e46bd73
                     timestamp: "2023-05-25T05:23:03.443Z"
@@ -1926,11 +1926,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -1977,7 +1977,7 @@ paths:
                       xinput:
                         form:
                           mime_type: text/html
-                          url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
+                          url: https://6vs8xnx5i7.northbridgebank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
                           submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
                         required: true
               Mutual Fund house sends product details for the selected product:
@@ -2162,8 +2162,8 @@ paths:
                     action: on_init
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
                     message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
                     ttl: PT10M
@@ -2174,11 +2174,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -2213,7 +2213,7 @@ paths:
                                 - descriptor:
                                     name: Terms & Conditions
                                     short_desc: Terms and Conditions
-                                  value: https://icicibank.com/loan/tnc.html
+                                  value: https://northbridgebank.com/loan/tnc.html
                               display: true
                       quote:
                         price:
@@ -2234,7 +2234,7 @@ paths:
                               currency: INR
                       payments:
                         - type: ON-ORDER
-                          url: https://emandate.icicibank.in
+                          url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -2283,7 +2283,7 @@ paths:
                             percentage: 3%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                         - fulfillment_state:
                             descriptor:
                               name: Loan disbursed
@@ -2291,13 +2291,13 @@ paths:
                             percentage: 5%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                       tags:
                         - list:
                             - descriptor:
                                 name: Loan Agreement
                                 short_desc: Click on this link to view and sign your Loan Agreement
-                              value: https://icicibank.com/loanAgreement?id=afyrq9fbH
+                              value: https://northbridgebank.com/loanAgreement?id=afyrq9fbH
               Lender initiates invoice based loan application:
                 value:
                   context:
@@ -2309,8 +2309,8 @@ paths:
                     action: on_init
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
                     message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
                     ttl: PT10M
@@ -2321,11 +2321,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -2360,7 +2360,7 @@ paths:
                                 - descriptor:
                                     name: Terms & Conditions
                                     short_desc: Terms and Conditions
-                                  value: https://icicibank.com/loan/tnc.html
+                                  value: https://northbridgebank.com/loan/tnc.html
                               display: true
                       quote:
                         price:
@@ -2381,7 +2381,7 @@ paths:
                               currency: INR
                       payments:
                         - type: ON-ORDER
-                          url: https://emandate.icicibank.in
+                          url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -2430,7 +2430,7 @@ paths:
                             percentage: 3%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                         - fulfillment_state:
                             descriptor:
                               name: Loan disbursed
@@ -2438,13 +2438,13 @@ paths:
                             percentage: 5%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                       tags:
                         - list:
                             - descriptor:
                                 name: Loan Agreement
                                 short_desc: Click on this link to view and sign your Loan Agreement
-                              value: https://icicibank.com/loanAgreement?id=afyrq9fbH
+                              value: https://northbridgebank.com/loanAgreement?id=afyrq9fbH
               Mutual Fund provider initiates an SIP mutual fund order:
                 value:
                   context:
@@ -2809,8 +2809,8 @@ paths:
                     action: on_confirm
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
                     message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
                     ttl: PT10M
@@ -2822,11 +2822,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -2861,7 +2861,7 @@ paths:
                                 - descriptor:
                                     name: Terms & Conditions
                                     short_desc: Terms and Conditions
-                                  value: https://icicibank.com/loan/tnc.html
+                                  value: https://northbridgebank.com/loan/tnc.html
                               display: true
                       quote:
                         price:
@@ -2892,7 +2892,7 @@ paths:
                               name: Loan Sanctioned
                       payments:
                         - type: ON-ORDER
-                          url: https://emandate.icicibank.in
+                          url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -2901,7 +2901,7 @@ paths:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -2910,7 +2910,7 @@ paths:
                             range:
                               start: 01-07-2023 00:00:00
                             end: 31-07-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -2919,7 +2919,7 @@ paths:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -2928,7 +2928,7 @@ paths:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -2945,7 +2945,7 @@ paths:
                             percentage: 3%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                         - fulfillment_state:
                             descriptor:
                               name: Loan disbursed
@@ -2953,7 +2953,7 @@ paths:
                             percentage: 5%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
               Lender approves the invoice based loan application:
                 value:
                   context:
@@ -2965,8 +2965,8 @@ paths:
                     action: on_confirm
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
                     message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
                     ttl: PT10M
@@ -2978,11 +2978,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -3017,7 +3017,7 @@ paths:
                                 - descriptor:
                                     name: Terms & Conditions
                                     short_desc: Terms and Conditions
-                                  value: https://icicibank.com/loan/tnc.html
+                                  value: https://northbridgebank.com/loan/tnc.html
                               display: true
                       quote:
                         price:
@@ -3053,7 +3053,7 @@ paths:
                               name: Loan Sanctioned
                       payments:
                         - type: ON-ORDER
-                          url: https://emandate.icicibank.in
+                          url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3062,7 +3062,7 @@ paths:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3071,7 +3071,7 @@ paths:
                             range:
                               start: 01-07-2023 00:00:00
                             end: 31-07-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3080,7 +3080,7 @@ paths:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3089,7 +3089,7 @@ paths:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3106,7 +3106,7 @@ paths:
                             percentage: 3%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                         - fulfillment_state:
                             descriptor:
                               name: Loan disbursed
@@ -3114,7 +3114,7 @@ paths:
                             percentage: 5%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
               Mutual fund provider approves the SIP mutual fund Order:
                 value:
                   context:
@@ -3473,8 +3473,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     order:
                       id: 66B7AEDF45
@@ -3482,11 +3482,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -3521,7 +3521,7 @@ paths:
                                 - descriptor:
                                     name: Terms & Conditions
                                     short_desc: Terms and Conditions
-                                  value: https://icicibank.com/loan/tnc.html
+                                  value: https://northbridgebank.com/loan/tnc.html
                               display: true
                       quote:
                         price:
@@ -3552,7 +3552,7 @@ paths:
                               name: Loan Cancelled
                       payments:
                         - type: ON-ORDER
-                          url: https://emandate.icicibank.in
+                          url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3561,7 +3561,7 @@ paths:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3570,7 +3570,7 @@ paths:
                             range:
                               start: 01-07-2023 00:00:00
                               end: 31-07-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3579,7 +3579,7 @@ paths:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3588,7 +3588,7 @@ paths:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3605,7 +3605,7 @@ paths:
                             percentage: 3%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                         - fulfillment_state:
                             descriptor:
                               name: Loan disbursed
@@ -3613,7 +3613,7 @@ paths:
                             percentage: 5%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
               Lender cancels invoice based loan application:
                 value:
                   context:
@@ -3629,8 +3629,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     order:
                       id: 66B7AEDF45
@@ -3638,11 +3638,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -3677,7 +3677,7 @@ paths:
                                 - descriptor:
                                     name: Terms & Conditions
                                     short_desc: Terms and Conditions
-                                  value: https://icicibank.com/loan/tnc.html
+                                  value: https://northbridgebank.com/loan/tnc.html
                               display: true
                       quote:
                         price:
@@ -3713,7 +3713,7 @@ paths:
                               name: Loan Cancelled
                       payments:
                         - type: ON-ORDER
-                          url: https://emandate.icicibank.in
+                          url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3722,7 +3722,7 @@ paths:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3731,7 +3731,7 @@ paths:
                             range:
                               start: 01-07-2023 00:00:00
                               end: 31-07-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3740,7 +3740,7 @@ paths:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3749,7 +3749,7 @@ paths:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -3766,7 +3766,7 @@ paths:
                             percentage: 3%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                         - fulfillment_state:
                             descriptor:
                               name: Loan disbursed
@@ -3774,7 +3774,7 @@ paths:
                             percentage: 5%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
               Mutual fund provider cancels the SIP order:
                 value:
                   context:
@@ -3987,8 +3987,8 @@ paths:
                     action: on_update
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
                     message_id: 0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6
                     ttl: PT10M
@@ -4000,11 +4000,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -4039,7 +4039,7 @@ paths:
                                 - descriptor:
                                     name: Terms & Conditions
                                     short_desc: Terms and Conditions
-                                  value: https://icicibank.com/loan/tnc.html
+                                  value: https://northbridgebank.com/loan/tnc.html
                               display: true
                       quote:
                         price:
@@ -4070,7 +4070,7 @@ paths:
                               name: Loan application updated
                       payments:
                         - type: ON-ORDER
-                          url: https://emandate.icicibank.in
+                          url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4079,7 +4079,7 @@ paths:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4088,7 +4088,7 @@ paths:
                             range:
                               start: 01-07-2023 00:00:00
                               end: 31-07-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4097,7 +4097,7 @@ paths:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4106,7 +4106,7 @@ paths:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4123,7 +4123,7 @@ paths:
                             percentage: 3%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                         - fulfillment_state:
                             descriptor:
                               name: Loan disbursed
@@ -4131,7 +4131,7 @@ paths:
                             percentage: 5%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
               Lender updates the invoice based loan application and sends a response:
                 value:
                   context:
@@ -4143,8 +4143,8 @@ paths:
                     action: on_update
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                     transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
                     message_id: 0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6
                     ttl: PT10M
@@ -4156,11 +4156,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -4195,7 +4195,7 @@ paths:
                                 - descriptor:
                                     name: Terms & Conditions
                                     short_desc: Terms and Conditions
-                                  value: https://icicibank.com/loan/tnc.html
+                                  value: https://northbridgebank.com/loan/tnc.html
                               display: true
                       quote:
                         price:
@@ -4231,7 +4231,7 @@ paths:
                                 name: Loan application updated
                       payments:
                         - type: ON-ORDER
-                          url: https://emandate.icicibank.in
+                          url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4240,7 +4240,7 @@ paths:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4249,7 +4249,7 @@ paths:
                             range:
                               start: 01-07-2023 00:00:00
                               end: 31-07-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4258,7 +4258,7 @@ paths:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4267,7 +4267,7 @@ paths:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4284,7 +4284,7 @@ paths:
                             percentage: 3%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                         - fulfillment_state:
                             descriptor:
                               name: Loan disbursed
@@ -4292,7 +4292,7 @@ paths:
                             percentage: 5%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
               Mutual fund provider updates the SIP amount and sends the response:
                 value:
                   context:
@@ -4508,8 +4508,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     order:
                       id: 66B7AEDF45
@@ -4517,11 +4517,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -4556,7 +4556,7 @@ paths:
                                 - descriptor:
                                     name: Terms & Conditions
                                     short_desc: Terms and Conditions
-                                  value: https://icicibank.com/loan/tnc.html
+                                  value: https://northbridgebank.com/loan/tnc.html
                               display: true
                       quote:
                         price:
@@ -4587,7 +4587,7 @@ paths:
                               name: Loan Disbursed
                       payments:
                         - type: ON-ORDER
-                          url: https://emandate.icicibank.in
+                          url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4596,7 +4596,7 @@ paths:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4605,7 +4605,7 @@ paths:
                             range:
                               start: 01-07-2023 00:00:00
                             end: 31-07-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4614,7 +4614,7 @@ paths:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4623,7 +4623,7 @@ paths:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4640,7 +4640,7 @@ paths:
                             percentage: 3%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                         - fulfillment_state:
                             descriptor:
                               name: Loan disbursed
@@ -4648,7 +4648,7 @@ paths:
                             percentage: 5%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
               Returns the status of the personal loan application after paying an installment:
                 value:
                   context:
@@ -4664,8 +4664,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     order:
                       id: 66B7AEDF45
@@ -4673,11 +4673,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -4712,7 +4712,7 @@ paths:
                                 - descriptor:
                                     name: Terms & Conditions
                                     short_desc: Terms and Conditions
-                                  value: https://icicibank.com/loan/tnc.html
+                                  value: https://northbridgebank.com/loan/tnc.html
                               display: true
                       quote:
                         price:
@@ -4743,7 +4743,7 @@ paths:
                               name: Installment 1/5 received
                       payments:
                         - type: ON-ORDER
-                          url: https://emandate.icicibank.in
+                          url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4752,7 +4752,7 @@ paths:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4761,7 +4761,7 @@ paths:
                             range:
                               start: 01-07-2023 00:00:00
                             end: 31-07-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4770,7 +4770,7 @@ paths:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4779,7 +4779,7 @@ paths:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4796,7 +4796,7 @@ paths:
                             percentage: 3%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                         - fulfillment_state:
                             descriptor:
                               name: Loan disbursed
@@ -4804,7 +4804,7 @@ paths:
                             percentage: 5%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
               Returns the status of the invoice based loan application:
                 value:
                   context:
@@ -4820,8 +4820,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     order:
                       id: 66B7AEDF45
@@ -4829,11 +4829,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -4868,7 +4868,7 @@ paths:
                                 - descriptor:
                                     name: Terms & Conditions
                                     short_desc: Terms and Conditions
-                                  value: https://icicibank.com/loan/tnc.html
+                                  value: https://northbridgebank.com/loan/tnc.html
                               display: true
                       quote:
                         price:
@@ -4901,7 +4901,7 @@ paths:
                                 email: alpha.manufacturing@gmail.com
                       payments:
                         - type: ON-ORDER
-                          url: https://emandate.icicibank.in
+                          url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4910,7 +4910,7 @@ paths:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4919,7 +4919,7 @@ paths:
                             range:
                               start: 01-07-2023 00:00:00
                             end: 31-07-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4928,7 +4928,7 @@ paths:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4937,7 +4937,7 @@ paths:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -4954,7 +4954,7 @@ paths:
                             percentage: 3%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                         - fulfillment_state:
                             descriptor:
                               name: Loan disbursed
@@ -4962,7 +4962,7 @@ paths:
                             percentage: 5%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
               Returns the status of the invoice based loan application after paying an installment:
                 value:
                   context:
@@ -4978,8 +4978,8 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     order:
                       id: 66B7AEDF45
@@ -4987,11 +4987,11 @@ paths:
                         id: "1"
                         descriptor:
                           images:
-                            - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
-                          code: ICICIBANK
-                          name: ICICI Bank
-                          short_desc: ICICI Bank Ltd
-                          long_desc: ICICI Bank Ltd, India.
+                            - url: https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png
+                          code: NORTHBRIDGEBANK
+                          name: Northbridge Bank
+                          short_desc: Northbridge Bank Ltd
+                          long_desc: Northbridge Bank Ltd, India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -5026,7 +5026,7 @@ paths:
                                 - descriptor:
                                     name: Terms & Conditions
                                     short_desc: Terms and Conditions
-                                  value: https://icicibank.com/loan/tnc.html
+                                  value: https://northbridgebank.com/loan/tnc.html
                               display: true
                       quote:
                         price:
@@ -5059,7 +5059,7 @@ paths:
                                 email: alpha.manufacturing@gmail.com
                       payments:
                         - type: ON-ORDER
-                          url: https://emandate.icicibank.in
+                          url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -5068,7 +5068,7 @@ paths:
                             range:
                               start: 01-06-2023 00:00:00
                               end: 30-06-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -5077,7 +5077,7 @@ paths:
                             range:
                               start: 01-07-2023 00:00:00
                             end: 31-07-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -5086,7 +5086,7 @@ paths:
                             range:
                               start: 01-08-2023 00:00:00
                               end: 31-08-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -5095,7 +5095,7 @@ paths:
                             range:
                               start: 01-09-2023 00:00:00
                               end: 30-09-2023 23:59:59
-                        - url: https://emandate.icicibank.in
+                        - url: https://emandate.northbridgebank.in
                           params:
                             amount: "46360"
                             currency: INR
@@ -5112,7 +5112,7 @@ paths:
                             percentage: 3%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
                         - fulfillment_state:
                             descriptor:
                               name: Loan disbursed
@@ -5120,7 +5120,7 @@ paths:
                             percentage: 5%
                           external_ref:
                             mimetype: text/html
-                            url: https://icicibank.com/loan/tnc.html
+                            url: https://northbridgebank.com/loan/tnc.html
               Returns the status of the mutual fund order after an SIP has been initiated:
                 value:
                   context:
@@ -5391,14 +5391,14 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     support:
                       order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                       phone: 1800 1080
-                      email: customer.care@icicibank.com
-                      url: https://www.icicibank.com/helpdesk
+                      email: customer.care@northbridgebank.com
+                      url: https://www.northbridgebank.com/helpdesk
               Provides support for the invoice based loan application:
                 value:
                   context:
@@ -5414,14 +5414,14 @@ paths:
                     bap_uri: https://credit-protocol-network.becknprotocol.io/
                     bap_id: credit-protocol.becknprotocol.io
                     ttl: PT10M
-                    bpp_id: bpp.credit.icicibank.io
-                    bpp_uri: https://bpp.credit.icicibank.io
+                    bpp_id: bpp.credit.northbridgebank.io
+                    bpp_uri: https://bpp.credit.northbridgebank.io
                   message:
                     support:
                       order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                       phone: 1800 1080
-                      email: customer.care@icicibank.com
-                      url: https://www.icicibank.com/helpdesk
+                      email: customer.care@northbridgebank.com
+                      url: https://www.northbridgebank.com/helpdesk
               Provides support for the mutual fund order:
                 value:
                   context:
@@ -5443,8 +5443,8 @@ paths:
                     support:
                       order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                       phone: 1800 1080
-                      email: customer.care@icicibank.com
-                      url: https://www.icicibank.com/helpdesk
+                      email: customer.care@northbridgebank.com
+                      url: https://www.northbridgebank.com/helpdesk
       responses:
         "200":
           description: Acknowledgement of message received after successful validation of schema and signature

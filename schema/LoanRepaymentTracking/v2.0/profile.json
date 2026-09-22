@@ -1,0 +1,29 @@
+{
+  "id": "https://schema.nfh.global/LoanRepaymentTracking/v2.0",
+  "name": "FIS Loan Repayment Tracking Attributes",
+  "version": "2.0.0",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "included_schemas": ["LoanRepaymentTracking"],
+  "discovery_fields": [
+    "installmentStatus",
+    "installmentNumber",
+    "dueDate"
+  ],
+  "indexable_paths": [
+    "beckn:performanceAttributes.installmentStatus",
+    "beckn:performanceAttributes.installmentNumber",
+    "beckn:performanceAttributes.dueDate",
+    "beckn:performanceAttributes.paidAmount",
+    "beckn:performanceAttributes.outstandingPrincipal"
+  ],
+  "filterable_paths": [
+    "beckn:performanceAttributes.installmentStatus"
+  ],
+  "sortable_paths": [
+    "beckn:performanceAttributes.installmentNumber",
+    "beckn:performanceAttributes.dueDate",
+    "beckn:performanceAttributes.outstandingPrincipal"
+  ],
+  "privacy_notes": []
+}

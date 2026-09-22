@@ -1,0 +1,65 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/context.jsonld#generalised",
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "lpra": "https://schema.nfh.global/LoanProduct#",
+    "loa": "https://schema.nfh.global/LoanOffer#",
+    "sla": "https://schema.nfh.global/SanctionedLoan#",
+    "lca": "https://schema.nfh.global/LoanCharges#",
+    "laca": "https://schema.nfh.global/LoanApplicationChecklist#",
+    "lrta": "https://schema.nfh.global/LoanRepaymentTracking#",
+
+    "LoanProduct": "lpra:LoanProduct",
+    "LoanOffer": "loa:LoanOffer",
+    "SanctionedLoan": "sla:SanctionedLoan",
+    "LoanCharges": "lca:LoanCharges",
+    "LoanApplicationChecklist": "laca:LoanApplicationChecklist",
+    "LoanRepaymentTracking": "lrta:LoanRepaymentTracking",
+
+    "loanCategory": { "@id": "lpra:loanCategory" },
+    "interestRateType": { "@id": "lpra:interestRateType" },
+    "minInterestRate": { "@id": "lpra:minInterestRate" },
+    "maxInterestRate": { "@id": "lpra:maxInterestRate" },
+    "minTenureMonths": { "@id": "lpra:minTenureMonths" },
+    "maxTenureMonths": { "@id": "lpra:maxTenureMonths" },
+    "minLoanAmount": { "@id": "lpra:minLoanAmount" },
+    "maxLoanAmount": { "@id": "lpra:maxLoanAmount" },
+    "applicationFormUrl": { "@id": "lpra:applicationFormUrl" },
+    "journeyType": { "@id": "lpra:journeyType" },
+
+    "principalAmount": { "@id": "loa:principalAmount" },
+    "interestRate": { "@id": "loa:interestRate" },
+    "tenureMonths": { "@id": "loa:tenureMonths" },
+    "applicationFee": { "@id": "loa:applicationFee" },
+    "foreclosureFeePct": { "@id": "loa:foreclosureFeePct" },
+    "interestRateConversionCharge": { "@id": "loa:interestRateConversionCharge" },
+    "delayPenaltyFeePct": { "@id": "loa:delayPenaltyFeePct" },
+    "otherPenaltyFeePct": { "@id": "loa:otherPenaltyFeePct" },
+    "annualPercentageRate": { "@id": "loa:annualPercentageRate" },
+    "repaymentFrequency": { "@id": "loa:repaymentFrequency" },
+    "numberOfInstallments": { "@id": "loa:numberOfInstallments" },
+    "installmentAmount": { "@id": "loa:installmentAmount" },
+    "coolOffPeriod": { "@id": "loa:coolOffPeriod" },
+    "termsAndConditionsUrl": { "@id": "loa:termsAndConditionsUrl" },
+    "keyFactStatementUrl": { "@id": "loa:keyFactStatementUrl" },
+
+    "loanAccountRef": { "@id": "sla:loanAccountRef" },
+    "sanctionedInterestRate": { "@id": "sla:sanctionedInterestRate" },
+    "sanctionedTenureMonths": { "@id": "sla:sanctionedTenureMonths" },
+    "disbursedAmount": { "@id": "sla:disbursedAmount" },
+    "formSubmission": { "@id": "sla:formSubmission" },
+
+    "components": { "@id": "lca:components" },
+
+    "stopType": { "@id": "laca:stopType" },
+    "stopStatus": { "@id": "laca:stopStatus" },
+    "sequence": { "@id": "laca:sequence" },
+
+    "installmentStatus": { "@id": "lrta:installmentStatus" },
+    "installmentNumber": { "@id": "lrta:installmentNumber" },
+    "dueDate": { "@id": "lrta:dueDate" },
+    "paidAmount": { "@id": "lrta:paidAmount" },
+    "outstandingPrincipal": { "@id": "lrta:outstandingPrincipal" }
+  }
+}

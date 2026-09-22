@@ -1,0 +1,36 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "loa": "https://schema.nfh.global/LoanOffer#",
+    "@context": {
+      "@id": "loa:@context"
+    },
+    "@type": {
+      "@id": "loa:@type"
+    },
+    "LoanOffer": "loa:LoanOffer",
+    "InterestRateType": "loa:InterestRateType",
+    "RepaymentFrequency": "loa:RepaymentFrequency",
+    "principalAmount": { "@id": "loa:principalAmount" },
+    "interestRate": { "@id": "loa:interestRate" },
+    "interestRateType": { "@id": "loa:interestRateType" },
+    "tenureMonths": { "@id": "loa:tenureMonths" },
+    "applicationFee": { "@id": "loa:applicationFee" },
+    "applicationFeeValue": { "@id": "loa:applicationFeeValue" },
+    "applicationFeeCurrency": { "@id": "loa:applicationFeeCurrency" },
+    "foreclosureFeePct": { "@id": "loa:foreclosureFeePct" },
+    "interestRateConversionCharge": { "@id": "loa:interestRateConversionCharge" },
+    "interestRateConversionChargeValue": { "@id": "loa:interestRateConversionChargeValue" },
+    "interestRateConversionChargeCurrency": { "@id": "loa:interestRateConversionChargeCurrency" },
+    "delayPenaltyFeePct": { "@id": "loa:delayPenaltyFeePct" },
+    "otherPenaltyFeePct": { "@id": "loa:otherPenaltyFeePct" },
+    "annualPercentageRate": { "@id": "loa:annualPercentageRate" },
+    "repaymentFrequency": { "@id": "loa:repaymentFrequency" },
+    "numberOfInstallments": { "@id": "loa:numberOfInstallments" },
+    "installmentAmount": { "@id": "loa:installmentAmount" },
+    "coolOffPeriod": { "@id": "loa:coolOffPeriod" },
+    "termsAndConditionsUrl": { "@id": "loa:termsAndConditionsUrl" },
+    "keyFactStatementUrl": { "@id": "loa:keyFactStatementUrl" }
+  }
+}

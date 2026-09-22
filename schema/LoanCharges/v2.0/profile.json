@@ -1,0 +1,23 @@
+{
+  "id": "https://schema.nfh.global/LoanCharges/v2.0",
+  "name": "FIS Loan Charges Attributes",
+  "version": "2.0.0",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "included_schemas": ["LoanCharges"],
+  "discovery_fields": [
+    "components"
+  ],
+  "indexable_paths": [
+    "beckn:considerationAttributes.components[].type",
+    "beckn:considerationAttributes.components[].value",
+    "beckn:considerationAttributes.components[].currency"
+  ],
+  "filterable_paths": [
+    "beckn:considerationAttributes.components[].type"
+  ],
+  "sortable_paths": [
+    "beckn:considerationAttributes.components[].value"
+  ],
+  "privacy_notes": []
+}

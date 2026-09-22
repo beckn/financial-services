@@ -1,0 +1,33 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "lcta": "https://schema.nfh.global/LoanContractTerms#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "lcta:borrowerTerms",
+      "@type": "rdfs:Property",
+      "rdfs:label": "CN Terms",
+      "rdfs:comment": "The Consumer Node's (borrower platform's) static terms of engagement and offline-contract flag."
+    },
+    {
+      "@id": "lcta:lenderTerms",
+      "@type": "rdfs:Property",
+      "rdfs:label": "PN Terms",
+      "rdfs:comment": "The Provider Node's (lender platform's) static terms of engagement and offline-contract flag."
+    },
+    {
+      "@id": "lcta:staticTermsUrl",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Static Terms URL",
+      "rdfs:comment": "URL to a party's published static terms of engagement for this contract."
+    },
+    {
+      "@id": "lcta:offlineContract",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Offline Contract",
+      "rdfs:comment": "Whether the transaction is conducted under an offline (physical/branch) contracting model."
+    }
+  ]
+}

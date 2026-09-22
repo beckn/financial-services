@@ -1,0 +1,244 @@
+appName: "onix-financial-services-bpp"
+log:
+  level: debug
+  destinations:
+    - type: stdout
+  contextKeys:
+    - transactionId
+    - messageId
+http:
+  port: 8082
+  timeout:
+    read: 30
+    write: 30
+    idle: 30
+pluginManager:
+  root: ./plugins
+  becknConstants:
+    disableRemoteRefresh: true
+
+modules:
+  # ─────────────────────────────────────────────────────────────────
+  # BPP Receiver  — accepts action requests from BAPs
+  # Listens at:  http://localhost:8082/bpp/receiver/
+  # bppUri in Postman = https://bpp.northbridgebank.example.com/bpp/receiver
+  # ─────────────────────────────────────────────────────────────────
+  - name: bppTxnReceiver
+    path: /bpp/receiver/
+    handler:
+      type: std
+      role: bpp
+      httpClientConfig:
+        maxIdleConns: 1000
+        maxIdleConnsPerHost: 200
+        idleConnTimeout: 300s
+        responseHeaderTimeout: 5s
+      plugins:
+        registry:
+          id: dediregistry
+          config:
+            timeout: 10
+            retry_max: 3
+            retry_wait_min: 100ms
+            retry_wait_max: 500ms
+        keyManager:
+          id: simplekeymanager
+          config:
+            subscriberId: bpp.example.com
+            keyId: 76EU7ofwRCF1aobQkShARrf1PAUsNpHqWUJoynPu9w45YFKmzqaPmy
+            signingPrivateKey: 393fVJJsfqssJCRAjedKR2cKAjSLrjU3t+bICQ5KzYM=
+            signingPublicKey: CqVy97DW45bcZPPrWIYGe2ldl9C93NFeVciiAEYsvR0=
+            encrPrivateKey: 393fVJJsfqssJCRAjedKR2cKAjSLrjU3t+bICQ5KzYM=
+            encrPublicKey: CqVy97DW45bcZPPrWIYGe2ldl9C93NFeVciiAEYsvR0=
+        cache:
+          id: cache
+          config:
+            addr: redis:6379
+        schemaValidator:
+          id: schemav2validator
+          config:
+            cacheTTL: "3600"
+            extendedSchema_enabled: "true"
+            extendedSchema_cacheTTL: "86400"
+            extendedSchema_maxCacheSize: "100"
+            extendedSchema_downloadTimeout: "30"
+            extendedSchema_allowedDomains: "raw.githubusercontent.com,schema.beckn.io,schema.nfh.global"
+            extendedSchema_localSchemaPath: "/app/schema-local"
+        signValidator:
+          id: signvalidator
+        router:
+          id: router
+          config:
+            routingConfig: ./config/financial-services-routing-BPPReceiver.yaml
+        signer:
+          id: signer
+        payloadStore:
+          id: payloadstore
+          config:
+            ttl: "24h"
+            indexTTL: "25h"
+            storeSignature: "true"
+        middleware:
+          - id: reqpreprocessor
+            config:
+              contextKeys: transactionId,messageId
+              role: bpp
+      steps:
+        - validateSign
+        - addRoute
+        - validateSchema
+        - signAck
+
+  # ─────────────────────────────────────────────────────────────────
+  # BPP Caller  — forwards on_* callbacks back to the originating BAP
+  # Listens at:  http://localhost:8082/bpp/caller/
+  # Postman bpp_adapter_url = http://localhost:8082/bpp/caller
+  # ─────────────────────────────────────────────────────────────────
+  - name: bppTxnCaller
+    path: /bpp/caller/
+    handler:
+      type: std
+      role: bpp
+      httpClientConfig:
+        maxIdleConns: 1000
+        maxIdleConnsPerHost: 200
+        idleConnTimeout: 300s
+        responseHeaderTimeout: 5s
+      plugins:
+        registry:
+          id: dediregistry
+          config:
+            timeout: 10
+            retry_max: 3
+            retry_wait_min: 100ms
+            retry_wait_max: 500ms
+        keyManager:
+          id: simplekeymanager
+          config:
+            subscriberId: bpp.example.com
+            keyId: 76EU7ofwRCF1aobQkShARrf1PAUsNpHqWUJoynPu9w45YFKmzqaPmy
+            signingPrivateKey: 393fVJJsfqssJCRAjedKR2cKAjSLrjU3t+bICQ5KzYM=
+            signingPublicKey: CqVy97DW45bcZPPrWIYGe2ldl9C93NFeVciiAEYsvR0=
+            encrPrivateKey: 393fVJJsfqssJCRAjedKR2cKAjSLrjU3t+bICQ5KzYM=
+            encrPublicKey: CqVy97DW45bcZPPrWIYGe2ldl9C93NFeVciiAEYsvR0=
+        cache:
+          id: cache
+          config:
+            addr: redis:6379
+        schemaValidator:
+          id: schemav2validator
+          config:
+            cacheTTL: "3600"
+            extendedSchema_enabled: "true"
+            extendedSchema_cacheTTL: "86400"
+            extendedSchema_maxCacheSize: "100"
+            extendedSchema_downloadTimeout: "30"
+            extendedSchema_allowedDomains: "raw.githubusercontent.com,schema.beckn.io,schema.nfh.global"
+            extendedSchema_localSchemaPath: "/app/schema-local"
+        router:
+          id: router
+          config:
+            routingConfig: ./config/financial-services-routing-BPPCaller.yaml
+        signer:
+          id: signer
+        signValidator:
+          id: signvalidator
+        payloadStore:
+          id: payloadstore
+          config:
+            ttl: "24h"
+            indexTTL: "25h"
+            storeSignature: "true"
+        middleware:
+          - id: reqpreprocessor
+            config:
+              contextKeys: transactionId,messageId
+              role: bpp
+      steps:
+        - addRoute
+        - storePayload
+        - validateSchema
+        - sign
+        - validateAckSign
+
+  # ─────────────────────────────────────────────────────────────────
+  # catalog/publish — DS-internal trigger for the catalog-publisher
+  # plugin. Unsigned, same-operator call (not a network-facing Beckn
+  # action): no validateSign/addRoute/signAck. Given one or more plain
+  # Beckn Catalog objects (e.g. the sample loan-product catalog under
+  # ../data/beckn/catalogs), it diffs against what was last published
+  # (baseline vs. incremental change file), signs the result, and
+  # writes it under outputRoot. Public catalogs only in this phase.
+  # Listens at: http://localhost:8082/catalog/publish
+  # See beckn-onix's pkg/plugin/implementation/catalogpublisher/README.md
+  # ─────────────────────────────────────────────────────────────────
+  - name: catalogPublish
+    path: /catalog/publish
+    handler:
+      type: catalogPublish
+      role: bpp
+      outputRoot: /beckn
+      httpClientConfig:
+        maxIdleConns: 1000
+        maxIdleConnsPerHost: 200
+        idleConnTimeout: 300s
+        responseHeaderTimeout: 5s
+      plugins:
+        # registry+cache exist only to satisfy keyManager's constructor
+        # (KeyManagerProvider.New always requires a RegistryLookup); the
+        # publisher itself never calls either.
+        registry:
+          id: dediregistry
+          config:
+            timeout: 10
+            retry_max: 3
+            retry_wait_min: 100ms
+            retry_wait_max: 500ms
+        cache:
+          id: cache
+          config:
+            addr: redis:6379
+        keyManager:
+          id: simplekeymanager
+          config:
+            subscriberId: bpp.example.com
+            keyId: 76EU7ofwRCF1aobQkShARrf1PAUsNpHqWUJoynPu9w45YFKmzqaPmy
+            signingPrivateKey: 393fVJJsfqssJCRAjedKR2cKAjSLrjU3t+bICQ5KzYM=
+            signingPublicKey: CqVy97DW45bcZPPrWIYGe2ldl9C93NFeVciiAEYsvR0=
+            encrPrivateKey: 393fVJJsfqssJCRAjedKR2cKAjSLrjU3t+bICQ5KzYM=
+            encrPublicKey: CqVy97DW45bcZPPrWIYGe2ldl9C93NFeVciiAEYsvR0=
+        # catalogBlobStore: required by the catalogPublish handler -- it reads
+        # prior state from and persists publish results here (outputRoot above
+        # is no longer read directly). Same path outputRoot points to (/beckn).
+        catalogBlobStore:
+          id: localcatalogblobstore
+          config:
+            root: /beckn
+        catalogPublisher:
+          id: catalogpublisher
+          config:
+            # subscriberId derives from keyManager.config.subscriberId above.
+            nextUpdateIn: "336h"
+            # Public URL prefix outputRoot is served under (beckn-router's
+            # ngrok tunnel, /beckn/* route in install/Caddyfile). Update if
+            # your ngrok domain changes.
+            catalogBaseURL: "https://<your-static-domain>.ngrok-free.app/beckn"
+            # Read-only, warn-only: checks whether this node's DeDi registry
+            # record links this catalog index via meta.catalog_index_urls.
+            checkCatalogIndexLink: "true"
+            publishLatest: "true"
+            gzip: "true"
+            # Automatic compaction is off by default (both 0) -- uncomment
+            # either to auto-compact a catalog's baseline instead of adding
+            # another change file, once it already has this many pending
+            # changes, or once their combined size reaches this fraction of
+            # the baseline's own size:
+            # compactionChangeCountThreshold: "20"
+            # compactionSizeRatioThreshold: "0.5"
+        # Validates submitted catalogs before they're published against
+        # catalog/publish's real schema (protocol-specifications-v2 beckn.yaml
+        # via becknConstants). checkPolicy left out -- not needed yet.
+        schemaValidator:
+          id: schemav2validator
+          config:
+            cacheTTL: "3600"

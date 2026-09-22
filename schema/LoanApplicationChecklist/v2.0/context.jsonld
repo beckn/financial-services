@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "laca": "https://schema.nfh.global/LoanApplicationChecklist#",
+    "@context": {
+      "@id": "laca:@context"
+    },
+    "@type": {
+      "@id": "laca:@type"
+    },
+    "LoanApplicationChecklist": "laca:LoanApplicationChecklist",
+    "StopType": "laca:StopType",
+    "StopStatus": "laca:StopStatus",
+    "stopType": { "@id": "laca:stopType" },
+    "stopStatus": { "@id": "laca:stopStatus" },
+    "sequence": { "@id": "laca:sequence" }
+  }
+}

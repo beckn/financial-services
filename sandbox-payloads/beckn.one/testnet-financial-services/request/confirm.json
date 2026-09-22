@@ -1,0 +1,73 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "confirm",
+    "senderId": "bap.example.com",
+    "bapUri": "http://onix-bap:8081/bap/receiver",
+    "receiverId": "bpp.example.com",
+    "bppUri": "http://onix-bpp:8082/bpp/receiver",
+    "networkId": "nfh.global/testnet",
+    "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "messageId": "a1b2c3d4-4444-4d5e-8f6a-7b8c9d0e1f2a",
+    "timestamp": "2026-09-21T06:05:00.000Z",
+    "ttl": "PT10M"
+  },
+  "message": {
+    "contract": {
+      "id": "LOAN_LEAD_ID_OR_SIMILAR",
+      "status": {
+        "code": "DRAFT"
+      },
+      "commitments": [
+        {
+          "id": "COMMITMENT_1",
+          "status": {
+            "descriptor": {
+              "code": "DRAFT"
+            }
+          },
+          "resources": [
+            {
+              "id": "ITEM_ID_PERSONAL_LOAN_1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              }
+            }
+          ],
+          "offer": {
+            "id": "OFFER_ITEM_ID_PERSONAL_LOAN_1",
+            "resourceIds": [
+              "ITEM_ID_PERSONAL_LOAN_1"
+            ]
+          },
+          "formSubmission": {
+            "id": "https://bpp.northbridgebank.example.com/xinput/formid/FO3",
+            "submissionId": "79850933-4e41-4c76-bbe6-c5a392481226",
+            "data": {
+              "status": "SUCCESS"
+            },
+            "submittedAt": "2026-09-21T06:04:30.000Z"
+          },
+          "commitmentAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/SanctionedLoan/v2.0/context.jsonld",
+            "@type": "SanctionedLoan"
+          }
+        }
+      ],
+      "contractAttributes": {
+        "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanContractTerms/v2.0/context.jsonld",
+        "@type": "LoanContractTerms",
+        "borrowerTerms": {
+          "staticTermsUrl": "https://bap.lending.example.com/personal-banking/loans/personal-loan",
+          "offlineContract": true
+        },
+        "lenderTerms": {
+          "staticTermsUrl": "https://bpp.northbridgebank.example.com/terms/personal-loan",
+          "offlineContract": true
+        }
+      }
+    }
+  }
+}

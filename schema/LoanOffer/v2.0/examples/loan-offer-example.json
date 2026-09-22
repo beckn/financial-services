@@ -1,0 +1,25 @@
+{
+  "id": "OFFER_ITEM_ID_PERSONAL_LOAN_1",
+  "resourceIds": ["ITEM_ID_PERSONAL_LOAN_1"],
+  "price": { "currency": "INR", "value": "233900" },
+  "offerAttributes": {
+    "@context": "https://schema.nfh.global/LoanOffer/v2.0/context.jsonld",
+    "@type": "loa:LoanOffer",
+    "principalAmount": 200000,
+    "interestRate": "12%",
+    "interestRateType": "FIXED",
+    "tenureMonths": 5,
+    "applicationFee": { "value": 1000, "currency": "INR" },
+    "foreclosureFeePct": "0.5%",
+    "interestRateConversionCharge": { "value": 1000, "currency": "INR" },
+    "delayPenaltyFeePct": "5%",
+    "otherPenaltyFeePct": "1%",
+    "annualPercentageRate": "5%",
+    "repaymentFrequency": "MONTHLY",
+    "numberOfInstallments": 45,
+    "installmentAmount": 46360,
+    "coolOffPeriod": "P30D",
+    "termsAndConditionsUrl": "https://bpp.northbridgebank.example.com/loan/tnc.html",
+    "keyFactStatementUrl": "https://bpp.northbridgebank.example.com/loan/kfs-terms"
+  }
+}

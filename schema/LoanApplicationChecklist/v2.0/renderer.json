@@ -1,0 +1,8 @@
+{
+  "schema": "LoanApplicationChecklist",
+  "version": "2.0.0",
+  "card_template": "Step {{beckn:performanceAttributes.sequence}}: {{beckn:performanceAttributes.stopType}} — {{beckn:performanceAttributes.stopStatus}}",
+  "detail_template": "Stop: {{beckn:performanceAttributes.stopType}}\nStatus: {{beckn:performanceAttributes.stopStatus}}\nSequence: {{beckn:performanceAttributes.sequence}}",
+  "html": "<div class=\"loan-checklist-stop\" data-performance-id=\"{{beckn:id}}\"><span class=\"seq\">{{get \"beckn:performanceAttributes.sequence\"}}</span><span class=\"stop-type\">{{get \"beckn:performanceAttributes.stopType\"}}</span><span class=\"badge badge-status\">{{get \"beckn:performanceAttributes.stopStatus\"}}</span></div>",
+  "html_detail": "<div class=\"loan-checklist-detail\" data-performance-id=\"{{beckn:id}}\"><h3>Application Checklist</h3><ol>{{#each (get \"beckn:performance\")}}<li class=\"stop-{{this.performanceAttributes.stopStatus}}\">{{this.performanceAttributes.stopType}}: {{this.performanceAttributes.stopStatus}}</li>{{/each}}</ol></div>"
+}

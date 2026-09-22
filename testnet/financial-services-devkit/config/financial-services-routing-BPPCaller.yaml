@@ -1,0 +1,18 @@
+# BPP Caller Routing — outbound on_* callbacks from BPP back to the originating BAP
+#
+# targetType "bap" resolves the BAP's callback URI via DeDi registry lookup (senderId).
+#
+# catalog/publish does NOT route through here -- it's handled entirely by the
+# separate catalogPublish module (/catalog/publish in financial-services-bpp.yaml), an
+# unsigned, same-operator call with no routing config and no on_publish
+# callback at all.
+
+routingRules:
+  # All standard on_* callbacks: routed to the BAP via registry lookup
+  - version: "2.0.0"
+    targetType: "bap"
+    endpoints:
+      - on_discover
+      - on_select
+      - on_confirm
+      - on_status

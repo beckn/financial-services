@@ -1,0 +1,14 @@
+{
+  "contractAttributes": {
+    "@context": "https://schema.nfh.global/LoanContractTerms/v2.0/context.jsonld",
+    "@type": "lcta:LoanContractTerms",
+    "borrowerTerms": {
+      "staticTermsUrl": "https://bap.lending.example.com/personal-banking/loans/personal-loan",
+      "offlineContract": true
+    },
+    "lenderTerms": {
+      "staticTermsUrl": "https://bpp.northbridgebank.example.com/terms/personal-loan",
+      "offlineContract": true
+    }
+  }
+}

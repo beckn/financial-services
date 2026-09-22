@@ -1,0 +1,24 @@
+# BAP Caller Routing — outbound requests from BAP to BPPs / discovery
+#
+# networkId "beckn.one/testnet-financial-services" maps to the v2.0.0 context.networkId field.
+# The adapter router resolves targetType "bpp" via DeDi registry lookup (receiverId).
+# The discovery URL below handles discover; update it for your network.
+
+routingRules:
+  # Transaction & status actions: routed to the BPP via registry lookup
+  - version: "2.0.0"
+    targetType: "bpp"
+    endpoints:
+      - select
+      - confirm
+      - status
+
+  # Discovery: routed to a Discover Service
+  - version: "2.0.0"
+    targetType: "url"
+    target:
+      # Replace with your Discover Service endpoint.
+      # Local dev alternate: url: "http://host.docker.internal:8090/receiver"
+      url: "https://<your-discover-service-host>/beckn"
+    endpoints:
+      - discover

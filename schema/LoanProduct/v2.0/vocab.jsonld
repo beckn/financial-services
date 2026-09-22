@@ -1,0 +1,40 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "lpra": "https://schema.nfh.global/LoanProduct#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "lpra:InterestRateType",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Interest Rate Type",
+      "rdfs:comment": "Whether a loan product's interest-rate band is fixed or floating."
+    },
+    { "@id": "lpra:FIXED", "@type": "lpra:InterestRateType", "rdfs:label": "Fixed", "rdfs:comment": "Interest rate is fixed for the tenure." },
+    { "@id": "lpra:FLOATING", "@type": "lpra:InterestRateType", "rdfs:label": "Floating", "rdfs:comment": "Interest rate floats with a reference benchmark." },
+
+    {
+      "@id": "lpra:JourneyType",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Journey Type",
+      "rdfs:comment": "Application journey type for a loan product."
+    },
+    { "@id": "lpra:OFFLINE", "@type": "lpra:JourneyType", "rdfs:label": "Offline", "rdfs:comment": "Application journey requires an offline/branch step (e.g. physical KYC)." },
+    { "@id": "lpra:ONLINE", "@type": "lpra:JourneyType", "rdfs:label": "Online", "rdfs:comment": "Fully online, single-redirection application journey." },
+    { "@id": "lpra:SEMI_ONLINE", "@type": "lpra:JourneyType", "rdfs:label": "Semi-Online", "rdfs:comment": "Application journey mixes online steps with an offline/branch component." },
+
+    {
+      "@id": "lpra:loanCategory",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Loan Category",
+      "rdfs:comment": "Flat loan product/category taxonomy code (e.g. PERSONAL_LOAN, PRE_QUALIFIER)."
+    },
+    {
+      "@id": "lpra:applicationFormUrl",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Application Form URL",
+      "rdfs:comment": "Link to the lender's out-of-band application form for this loan product."
+    }
+  ]
+}

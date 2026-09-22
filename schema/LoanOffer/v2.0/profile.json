@@ -1,0 +1,36 @@
+{
+  "id": "https://schema.nfh.global/LoanOffer/v2.0",
+  "name": "FIS Loan Offer Attributes",
+  "version": "2.0.0",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "included_schemas": ["LoanOffer"],
+  "discovery_fields": [
+    "principalAmount",
+    "interestRate",
+    "tenureMonths",
+    "installmentAmount",
+    "annualPercentageRate"
+  ],
+  "indexable_paths": [
+    "beckn:offerAttributes.principalAmount",
+    "beckn:offerAttributes.interestRate",
+    "beckn:offerAttributes.interestRateType",
+    "beckn:offerAttributes.tenureMonths",
+    "beckn:offerAttributes.installmentAmount",
+    "beckn:offerAttributes.numberOfInstallments",
+    "beckn:offerAttributes.annualPercentageRate",
+    "beckn:offerAttributes.repaymentFrequency"
+  ],
+  "filterable_paths": [
+    "beckn:offerAttributes.interestRateType",
+    "beckn:offerAttributes.tenureMonths",
+    "beckn:offerAttributes.repaymentFrequency"
+  ],
+  "sortable_paths": [
+    "beckn:offerAttributes.interestRate",
+    "beckn:offerAttributes.installmentAmount",
+    "beckn:offerAttributes.principalAmount"
+  ],
+  "privacy_notes": []
+}

@@ -1,0 +1,46 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "status",
+    "senderId": "bap.example.com",
+    "bapUri": "http://onix-bap:8081/bap/receiver",
+    "receiverId": "bpp.example.com",
+    "bppUri": "http://onix-bpp:8082/bpp/receiver",
+    "networkId": "nfh.global/testnet",
+    "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "messageId": "e2b3c4d5-2222-4b3c-8d4e-5f6a7b8c9d0e",
+    "timestamp": "2026-09-21T05:30:00.000Z",
+    "ttl": "PT10M"
+  },
+  "message": {
+    "contract": {
+      "id": "LOAN_LEAD_ID_OR_SIMILAR",
+      "commitments": [
+        {
+          "id": "COMMITMENT_1",
+          "status": {
+            "descriptor": {
+              "code": "ACTIVE"
+            }
+          },
+          "resources": [
+            {
+              "id": "ITEM_ID_PERSONAL_LOAN_1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              }
+            }
+          ],
+          "offer": {
+            "id": "OFFER_ITEM_ID_PERSONAL_LOAN_1",
+            "resourceIds": [
+              "ITEM_ID_PERSONAL_LOAN_1"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

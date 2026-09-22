@@ -1,0 +1,32 @@
+{
+  "id": "https://schema.nfh.global/SanctionedLoan/v2.0",
+  "name": "FIS Sanctioned Loan Attributes",
+  "version": "2.0.0",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "included_schemas": ["SanctionedLoan"],
+  "discovery_fields": [
+    "loanAccountRef",
+    "principalAmount",
+    "sanctionedInterestRate",
+    "disbursedAmount"
+  ],
+  "indexable_paths": [
+    "beckn:commitmentAttributes.loanAccountRef",
+    "beckn:commitmentAttributes.principalAmount",
+    "beckn:commitmentAttributes.sanctionedInterestRate",
+    "beckn:commitmentAttributes.sanctionedTenureMonths",
+    "beckn:commitmentAttributes.installmentAmount",
+    "beckn:commitmentAttributes.disbursedAmount"
+  ],
+  "filterable_paths": [
+    "beckn:commitmentAttributes.repaymentFrequency"
+  ],
+  "sortable_paths": [
+    "beckn:commitmentAttributes.principalAmount",
+    "beckn:commitmentAttributes.disbursedAmount"
+  ],
+  "privacy_notes": [
+    "loanAccountRef and formSubmission may carry borrower-identifying financial data; treat as sensitive per lender data-handling policy."
+  ]
+}

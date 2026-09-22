@@ -1,0 +1,20 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "lca": "https://schema.nfh.global/LoanCharges#",
+    "@context": {
+      "@id": "lca:@context"
+    },
+    "@type": {
+      "@id": "lca:@type"
+    },
+    "LoanCharges": "lca:LoanCharges",
+    "ComponentType": "lca:ComponentType",
+    "components": { "@id": "lca:components" },
+    "type": { "@id": "lca:componentType" },
+    "value": { "@id": "lca:componentValue" },
+    "currency": { "@id": "lca:componentCurrency" },
+    "description": { "@id": "lca:componentDescription" }
+  }
+}

@@ -10,8 +10,8 @@
     "version": "1.1.0",
     "bap_id": "credit-protocol.becknprotocol.io",
     "bap_uri": "https://credit-protocol-network.becknprotocol.io/",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io",
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io",
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62195",
     "message_id": "c8e3968c-cd78-4e46-aa34-0d541e46bd73",
     "timestamp": "2023-05-25T05:23:03.443Z",
@@ -24,13 +24,13 @@
         "descriptor": {
           "images": [
             {
-              "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png",
+              "url": "https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png",
               "size_type": "sm"
             }
           ],
-          "name": "ICICI Bank",
-          "short_desc": "ICICI Bank Ltd",
-          "long_desc": "ICICI Bank Ltd, India."
+          "name": "Northbridge Bank",
+          "short_desc": "Northbridge Bank Ltd",
+          "long_desc": "Northbridge Bank Ltd, India."
         }
       },
       "items": [
@@ -75,7 +75,7 @@
           },
             "form": {
               "mime_type": "text/html",
-              "url": "https://6vs8xnx5i7.icicibank.co.in/loans-details/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+              "url": "https://6vs8xnx5i7.northbridgebank.co.in/loans-details/xinput/formid/a23f2fdfbbb8ac402bfd54f",
               "resubmit": false,
               "multiple_sumbissions": false
             },

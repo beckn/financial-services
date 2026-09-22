@@ -1,0 +1,101 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "on_discover",
+    "senderId": "bap.example.com",
+    "bapUri": "http://onix-bap:8081/bap/receiver",
+    "receiverId": "bpp.example.com",
+    "bppUri": "http://onix-bpp:8082/bpp/receiver",
+    "networkId": "nfh.global/testnet",
+    "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "messageId": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "timestamp": "2026-09-21T05:23:04.000Z",
+    "ttl": "PT30M"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "id": "CAT_NORTHBRIDGE_LOANS",
+        "descriptor": {
+          "name": "Northbridge Bank",
+          "shortDesc": "Northbridge Bank Ltd"
+        },
+        "receiverId": "bpp.example.com",
+        "bppUri": "http://onix-bpp:8082/bpp/receiver",
+        "providerId": "PROVIDER_ID",
+        "resources": [
+          {
+            "id": "ITEM_ID_PERSONAL_LOAN_1",
+            "descriptor": {
+              "name": "Personal Loan without AA - Offline Journey",
+              "shortDesc": "PERSONAL_LOAN"
+            },
+            "isActive": true,
+            "provider": {
+              "id": "PROVIDER_ID",
+              "descriptor": {
+                "name": "Northbridge Bank",
+                "shortDesc": "Northbridge Bank Ltd",
+                "longDesc": "Northbridge Bank Ltd, India."
+              }
+            },
+            "resourceAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanProduct/v2.0/context.jsonld",
+              "@type": "LoanProduct",
+              "loanCategory": "PERSONAL_LOAN",
+              "interestRateType": "FIXED",
+              "minInterestRate": "9%",
+              "maxInterestRate": "15%",
+              "minTenureMonths": 5,
+              "maxTenureMonths": 60,
+              "minLoanAmount": 50000,
+              "maxLoanAmount": 5000000,
+              "currency": "INR",
+              "applicationFormUrl": "https://bpp.northbridgebank.example.com/xinput/formid/F01",
+              "journeyType": "SEMI_ONLINE"
+            }
+          },
+          {
+            "id": "ITEM_ID_PERSONAL_LOAN_2",
+            "descriptor": {
+              "name": "Personal Loan without AA - Single Redirection",
+              "shortDesc": "PERSONAL_LOAN"
+            },
+            "isActive": true,
+            "provider": {
+              "id": "PROVIDER_ID",
+              "descriptor": {
+                "name": "Northbridge Bank"
+              }
+            },
+            "resourceAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanProduct/v2.0/context.jsonld",
+              "@type": "LoanProduct",
+              "loanCategory": "PERSONAL_LOAN",
+              "journeyType": "ONLINE"
+            }
+          },
+          {
+            "id": "ITEM_ID_PERSONAL_LOAN_3",
+            "descriptor": {
+              "name": "Pre Qualifier",
+              "shortDesc": "PRE_QUALIFIER"
+            },
+            "isActive": true,
+            "provider": {
+              "id": "PROVIDER_ID",
+              "descriptor": {
+                "name": "Northbridge Bank"
+              }
+            },
+            "resourceAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanProduct/v2.0/context.jsonld",
+              "@type": "LoanProduct",
+              "loanCategory": "PRE_QUALIFIER"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

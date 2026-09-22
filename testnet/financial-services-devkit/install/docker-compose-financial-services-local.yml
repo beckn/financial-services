@@ -1,0 +1,153 @@
+services:
+  # ============================================================
+  # beckn-router — Caddy reverse proxy, single entry point for
+  #   both adapters. Exposes port 9000 on the host.
+  #
+  #   /bap/* → onix-bap:8081
+  #   /bpp/* → onix-bpp:8082
+  #
+  # For public-internet callbacks, tunnel port 9000 via ngrok:
+  #   cp ngrok.yml.example ngrok.yml   # fill in authtoken + domain
+  #   ngrok start --all --config ngrok.yml
+  # Then set PUBLIC_URL in your Postman collection to the tunnel URL.
+  # ============================================================
+  beckn-router:
+    image: caddy:alpine
+    container_name: beckn-router
+    ports:
+      - "9000:9000"
+    networks:
+      - beckn_network
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ../data/beckn:/srv/beckn:ro
+    depends_on:
+      - onix-bap
+      - onix-bpp
+    restart: unless-stopped
+
+  # ============================================================
+  # Redis — shared cache for both adapters
+  # ============================================================
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - beckn_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # ============================================================
+  # onix-bap — Beckn adapter acting as BAP (lending platform)
+  #   Locally-built image (beckn-onix:latest) instead of the published
+  #   fidedocker/onix-adapter image -- see docker-compose-financial-services.yml
+  #   for the published-image variant.
+  #   Caller  (outbound): http://localhost:8081/bap/caller/
+  #   Receiver (inbound): http://localhost:8081/bap/receiver/
+  # ============================================================
+  onix-bap:
+    image: beckn-onix:latest
+    container_name: onix-bap
+    platform: linux/amd64
+    networks:
+      - beckn_network
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      REDIS_ADDR: redis:6379
+    volumes:
+      - ../config:/app/config
+      - ../../../schema:/app/schema-local
+    command: ["./server", "--config=/app/config/financial-services-bap.yaml"]
+
+  # ============================================================
+  # onix-bpp — Beckn adapter acting as BPP (lender / loan origination system)
+  #   Caller  (outbound): http://localhost:8082/bpp/caller/
+  #   Receiver (inbound): http://localhost:8082/bpp/receiver/
+  #   Catalog publish (internal trigger): http://localhost:8082/catalog/publish
+  # ============================================================
+  onix-bpp:
+    image: beckn-onix:latest
+    container_name: onix-bpp
+    platform: linux/amd64
+    networks:
+      - beckn_network
+    ports:
+      - "8082:8082"
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      REDIS_ADDR: redis:6379
+    volumes:
+      - ../config:/app/config
+      - ../data/beckn:/beckn
+      - ../../../schema:/app/schema-local
+    command: ["./server", "--config=/app/config/financial-services-bpp.yaml"]
+
+  # ============================================================
+  # sandbox-bap — mock BAP application (borrower-facing lending app)
+  #   Receives on_* callbacks at: http://sandbox-bap:3001/api/bap-webhook
+  #   Health:                     http://localhost:3001/api/health
+  # ============================================================
+  sandbox-bap:
+    container_name: sandbox-bap
+    image: fidedocker/sandbox-2.0:latest
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+    ports:
+      - "3001:3001"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3001/api/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    networks:
+      - beckn_network
+
+  # ============================================================
+  # sandbox-bpp — mock BPP application (lender loan origination system)
+  #   Receives action requests at: http://sandbox-bpp:3002/api/webhook
+  #   Health:                      http://localhost:3002/api/health
+  #   Serves canned on_* responses from the sandbox-payloads tree so
+  #   the flow can be exercised end-to-end without a real lender.
+  #
+  #   IMPORTANT: the volume target's networkId segment must match whatever
+  #   context.networkId the payloads you send actually carry -- see the
+  #   detailed note on this same service in docker-compose-financial-services.yml.
+  # ============================================================
+  sandbox-bpp:
+    container_name: sandbox-bpp
+    image: fidedocker/sandbox-2.0:latest
+    environment:
+      - NODE_ENV=production
+      - PORT=3002
+    ports:
+      - "3002:3002"
+    volumes:
+      - ../../../sandbox-payloads/beckn.one/testnet-financial-services/response:/app/dist/webhook/jsons/nfh.global/testnet/response
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3002/api/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    networks:
+      - beckn_network
+
+networks:
+  beckn_network:
+    name: beckn_network
+    driver: bridge

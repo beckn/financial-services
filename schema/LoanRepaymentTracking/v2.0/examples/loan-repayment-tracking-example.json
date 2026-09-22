@@ -1,0 +1,13 @@
+{
+  "id": "EMI_1",
+  "status": { "descriptor": { "code": "EMI_PAID", "name": "Installment 1 paid" } },
+  "performanceAttributes": {
+    "@context": "https://schema.nfh.global/LoanRepaymentTracking/v2.0/context.jsonld",
+    "@type": "lrta:LoanRepaymentTracking",
+    "installmentStatus": "EMI_PAID",
+    "installmentNumber": 1,
+    "dueDate": "2026-10-25",
+    "paidAmount": 46360,
+    "outstandingPrincipal": 156097
+  }
+}

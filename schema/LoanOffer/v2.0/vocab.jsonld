@@ -1,0 +1,31 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "loa": "https://schema.nfh.global/LoanOffer#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "loa:RepaymentFrequency",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Repayment Frequency",
+      "rdfs:comment": "Cadence of scheduled installment repayments."
+    },
+    { "@id": "loa:MONTHLY", "@type": "loa:RepaymentFrequency", "rdfs:label": "Monthly" },
+    { "@id": "loa:WEEKLY", "@type": "loa:RepaymentFrequency", "rdfs:label": "Weekly" },
+    { "@id": "loa:QUARTERLY", "@type": "loa:RepaymentFrequency", "rdfs:label": "Quarterly" },
+
+    {
+      "@id": "loa:coolOffPeriod",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Cool-Off Period",
+      "rdfs:comment": "ISO 8601 duration for the borrower's cooling-off/free-look period after accepting the offer."
+    },
+    {
+      "@id": "loa:keyFactStatementUrl",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Key Fact Statement URL",
+      "rdfs:comment": "Link to the regulator-mandated Key Fact Statement (KFS) document for this quoted offer."
+    }
+  ]
+}

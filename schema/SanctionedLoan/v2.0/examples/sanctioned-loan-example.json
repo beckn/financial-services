@@ -1,0 +1,24 @@
+{
+  "id": "COMMITMENT_1",
+  "status": { "descriptor": { "code": "SANCTIONED" } },
+  "resources": ["ITEM_ID_PERSONAL_LOAN_1"],
+  "offer": { "id": "OFFER_ITEM_ID_PERSONAL_LOAN_1", "resourceIds": ["ITEM_ID_PERSONAL_LOAN_1"] },
+  "formSubmission": {
+    "id": "https://bpp.northbridgebank.example.com/xinput/formid/FO3",
+    "submissionId": "79850933-4e41-4c76-bbe6-c5a392481226",
+    "data": { "status": "SUCCESS" },
+    "submittedAt": "2026-09-21T06:04:30.000Z"
+  },
+  "commitmentAttributes": {
+    "@context": "https://schema.nfh.global/SanctionedLoan/v2.0/context.jsonld",
+    "@type": "sla:SanctionedLoan",
+    "loanAccountRef": "LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID",
+    "principalAmount": 200000,
+    "sanctionedInterestRate": "12%",
+    "sanctionedTenureMonths": 5,
+    "installmentAmount": 46360,
+    "numberOfInstallments": 45,
+    "repaymentFrequency": "MONTHLY",
+    "disbursedAmount": 197700
+  }
+}

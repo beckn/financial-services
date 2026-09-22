@@ -1,0 +1,175 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "on_status",
+    "senderId": "bap.example.com",
+    "bapUri": "http://onix-bap:8081/bap/receiver",
+    "receiverId": "bpp.example.com",
+    "bppUri": "http://onix-bpp:8082/bpp/receiver",
+    "networkId": "nfh.global/testnet",
+    "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "messageId": "f1a2b3c4-3333-4c5d-9e6f-7a8b9c0d1e2f",
+    "timestamp": "2026-09-21T05:40:00.000Z",
+    "ttl": "PT30M"
+  },
+  "message": {
+    "contract": {
+      "id": "LOAN_LEAD_ID_OR_SIMILAR",
+      "status": {
+        "code": "DRAFT"
+      },
+      "commitments": [
+        {
+          "id": "COMMITMENT_1",
+          "status": {
+            "descriptor": {
+              "code": "DRAFT"
+            }
+          },
+          "resources": [
+            {
+              "id": "ITEM_ID_PERSONAL_LOAN_1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              }
+            }
+          ],
+          "offer": {
+            "id": "OFFER_ITEM_ID_PERSONAL_LOAN_1",
+            "resourceIds": [
+              "ITEM_ID_PERSONAL_LOAN_1"
+            ]
+          },
+          "commitmentAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/SanctionedLoan/v2.0/context.jsonld",
+            "@type": "SanctionedLoan",
+            "loanAccountRef": "NORTHBRIDGE-PL-2026-000123",
+            "principalAmount": 200000,
+            "sanctionedInterestRate": "12%",
+            "sanctionedTenureMonths": 5,
+            "installmentAmount": 46360,
+            "numberOfInstallments": 45,
+            "repaymentFrequency": "MONTHLY",
+            "disbursedAmount": 197700
+          }
+        }
+      ],
+      "performance": [
+        {
+          "id": "STOP_1",
+          "status": {
+            "descriptor": {
+              "code": "SUCCESSFUL",
+              "name": "Personal Information"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "PERSONAL_INFORMATION",
+            "stopStatus": "SUCCESSFUL",
+            "sequence": 1
+          }
+        },
+        {
+          "id": "STOP_2",
+          "status": {
+            "descriptor": {
+              "code": "SELECTED",
+              "name": "Loan Offer"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "LOAN_OFFER",
+            "stopStatus": "SELECTED",
+            "sequence": 2
+          }
+        },
+        {
+          "id": "STOP_3",
+          "status": {
+            "descriptor": {
+              "code": "IN_PROGRESS",
+              "name": "Journey Offline"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "JOURNEY_OFFLINE",
+            "stopStatus": "IN_PROGRESS",
+            "sequence": 3
+          }
+        },
+        {
+          "id": "STOP_4",
+          "status": {
+            "descriptor": {
+              "code": "IN_PROGRESS",
+              "name": "KYC"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "KYC",
+            "stopStatus": "IN_PROGRESS",
+            "sequence": 4
+          }
+        },
+        {
+          "id": "STOP_5",
+          "status": {
+            "descriptor": {
+              "code": "IN_PROGRESS",
+              "name": "Bank Account Verification"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "BANK_ACCOUNT_VERIFICATION",
+            "stopStatus": "IN_PROGRESS",
+            "sequence": 5
+          }
+        },
+        {
+          "id": "STOP_6",
+          "status": {
+            "descriptor": {
+              "code": "IN_PROGRESS",
+              "name": "Repayment Setup"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "REPAYMENT_SETUP",
+            "stopStatus": "IN_PROGRESS",
+            "sequence": 6
+          }
+        },
+        {
+          "id": "STOP_7",
+          "status": {
+            "descriptor": {
+              "code": "IN_PROGRESS",
+              "name": "Loan Agreement"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "LOAN_AGREEMENT",
+            "stopStatus": "IN_PROGRESS",
+            "sequence": 7
+          }
+        }
+      ]
+    }
+  }
+}

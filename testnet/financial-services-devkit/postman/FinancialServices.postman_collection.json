@@ -1,0 +1,226 @@
+{
+  "info": {
+    "_postman_id": "f1a2b3c4-financial-services-0001-000000000000",
+    "name": "Financial Services",
+    "description": "Personal Loan \"Personal Loan - Offline\" flow, converted to Beckn Protocol v2.0.0 LTS. Uses senderId/receiverId (not bapId/bppId), discover/on_discover naming, and networkId in namespace/registry-id format (nfh.global/testnet-fin-services).\n\nSet bap_adapter_url = http://localhost:8081/bap/caller before running. Run requests in sequence: discover -> select -> status -> confirm.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1 \u2014 Discovery",
+      "item": [
+        {
+          "name": "discover - PERSONAL_LOAN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"version\": \"2.0.0\",\n    \"action\": \"discover\",\n    \"senderId\": \"bap.example.com\",\n    \"bapUri\": \"https://bap.lending.example.com/beckn\",\n    \"networkId\": \"nfh.global/testnet\",\n    \"transactionId\": \"a9aaecca-10b7-4d19-b640-b047a7c62196\",\n    \"messageId\": \"bb579fb8-cb82-4824-be12-fcbc405b6608\",\n    \"timestamp\": \"2026-09-21T05:23:03.443Z\",\n    \"ttl\": \"PT10M\"\n  },\n  \"message\": {\n    \"intent\": {\n      \"category\": {\n        \"descriptor\": {\n          \"code\": \"PERSONAL_LOAN\"\n        }\n      },\n      \"tags\": [\n        {\n          \"descriptor\": {\n            \"code\": \"BAP_TERMS\",\n            \"name\": \"BAP Terms of Engagement\"\n          },\n          \"display\": false,\n          \"list\": [\n            {\n              \"descriptor\": {\n                \"code\": \"STATIC_TERMS\"\n              },\n              \"value\": \"https://bap.lending.example.com/personal-banking/loans/personal-loan\"\n            },\n            {\n              \"descriptor\": {\n                \"code\": \"OFFLINE_CONTRACT\"\n              },\n              \"value\": \"true\"\n            }\n          ]\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bap_adapter_url}}/discover",
+              "host": [
+                "{{bap_adapter_url}}"
+              ],
+              "path": [
+                "discover"
+              ]
+            },
+            "description": "Borrower's CN discovers personal loan products from lender PNs (category PERSONAL_LOAN), passing CN terms-of-engagement (offline contract flag) as intent-level tags."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2 \u2014 Transaction",
+      "item": [
+        {
+          "name": "select",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"version\": \"2.0.0\",\n    \"action\": \"select\",\n    \"senderId\": \"bap.example.com\",\n    \"bapUri\": \"https://bap.lending.example.com/beckn\",\n    \"receiverId\": \"bpp.example.com\",\n    \"bppUri\": \"https://bpp.northbridgebank.example.com/beckn\",\n    \"networkId\": \"nfh.global/testnet\",\n    \"transactionId\": \"a9aaecca-10b7-4d19-b640-b047a7c62196\",\n    \"messageId\": \"d1a2b3c4-1111-4a2b-9c3d-4e5f6a7b8c9d\",\n    \"timestamp\": \"2026-09-21T05:24:00.000Z\",\n    \"ttl\": \"PT10M\"\n  },\n  \"message\": {\n    \"selection\": {\n      \"providerId\": \"PROVIDER_ID\",\n      \"resourceIds\": [\n        \"ITEM_ID_PERSONAL_LOAN_1\"\n      ],\n      \"formSubmission\": {\n        \"id\": \"https://bpp.northbridgebank.example.com/xinput/formid/F01\",\n        \"submissionId\": \"F01_SUBMISSION_ID\",\n        \"data\": {\n          \"status\": \"SUCCESS\"\n        },\n        \"submittedAt\": \"2026-09-21T05:23:50.000Z\"\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bap_adapter_url}}/select",
+              "host": [
+                "{{bap_adapter_url}}"
+              ],
+              "path": [
+                "select"
+              ]
+            },
+            "description": "Borrower's CN selects the \"Offline Journey\" loan resource, attaching the completed out-of-band application as a formSubmission sibling field on message.selection."
+          },
+          "response": []
+        },
+        {
+          "name": "status",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"version\": \"2.0.0\",\n    \"action\": \"status\",\n    \"senderId\": \"bap.example.com\",\n    \"bapUri\": \"https://bap.lending.example.com/beckn\",\n    \"receiverId\": \"bpp.example.com\",\n    \"bppUri\": \"https://bpp.northbridgebank.example.com/beckn\",\n    \"networkId\": \"nfh.global/testnet\",\n    \"transactionId\": \"a9aaecca-10b7-4d19-b640-b047a7c62196\",\n    \"messageId\": \"e2b3c4d5-2222-4b3c-8d4e-5f6a7b8c9d0e\",\n    \"timestamp\": \"2026-09-21T05:30:00.000Z\",\n    \"ttl\": \"PT10M\"\n  },\n  \"message\": {\n    \"refId\": \"a9aaecca-10b7-4d19-b640-b047a7c62196\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bap_adapter_url}}/status",
+              "host": [
+                "{{bap_adapter_url}}"
+              ],
+              "path": [
+                "status"
+              ]
+            },
+            "description": "Borrower's CN polls for the latest application status using message.refId = transactionId."
+          },
+          "response": []
+        },
+        {
+          "name": "confirm",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"version\": \"2.0.0\",\n    \"action\": \"confirm\",\n    \"senderId\": \"bap.example.com\",\n    \"bapUri\": \"https://bap.lending.example.com/beckn\",\n    \"receiverId\": \"bpp.example.com\",\n    \"bppUri\": \"https://bpp.northbridgebank.example.com/beckn\",\n    \"networkId\": \"nfh.global/testnet\",\n    \"transactionId\": \"a9aaecca-10b7-4d19-b640-b047a7c62196\",\n    \"messageId\": \"a1b2c3d4-4444-4d5e-8f6a-7b8c9d0e1f2a\",\n    \"timestamp\": \"2026-09-21T06:05:00.000Z\",\n    \"ttl\": \"PT10M\"\n  },\n  \"message\": {\n    \"contract\": {\n      \"@context\": \"https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/Contract/v2.0/context.jsonld\",\n      \"@type\": \"beckn:Contract\",\n      \"id\": \"LOAN_LEAD_ID_OR_SIMILAR\",\n      \"status\": {\n        \"code\": \"DRAFT\"\n      },\n      \"commitments\": [\n        {\n          \"id\": \"COMMITMENT_1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"PENDING\"\n            }\n          },\n          \"offer\": {\n            \"id\": \"OFFER_ITEM_ID_PERSONAL_LOAN_1\",\n            \"resourceIds\": [\n              \"ITEM_ID_PERSONAL_LOAN_1\"\n            ]\n          },\n          \"formSubmission\": {\n            \"id\": \"https://bpp.northbridgebank.example.com/xinput/formid/FO3\",\n            \"submissionId\": \"79850933-4e41-4c76-bbe6-c5a392481226\",\n            \"data\": {\n              \"status\": \"SUCCESS\"\n            },\n            \"submittedAt\": \"2026-09-21T06:04:30.000Z\"\n          },\n          \"commitmentAttributes\": {\n            \"@context\": \"https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/SanctionedLoan/v2.0/context.jsonld\",\n            \"@type\": \"SanctionedLoan\"\n          }\n        }\n      ],\n      \"contractAttributes\": {\n        \"@context\": \"https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanContractTerms/v2.0/context.jsonld\",\n        \"@type\": \"LoanContractTerms\",\n        \"borrowerTerms\": {\n          \"staticTermsUrl\": \"https://bap.lending.example.com/personal-banking/loans/personal-loan\",\n          \"offlineContract\": true\n        },\n        \"lenderTerms\": {\n          \"staticTermsUrl\": \"https://bpp.northbridgebank.example.com/terms/personal-loan\",\n          \"offlineContract\": true\n        }\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bap_adapter_url}}/confirm",
+              "host": [
+                "{{bap_adapter_url}}"
+              ],
+              "path": [
+                "confirm"
+              ]
+            },
+            "description": "Borrower's CN confirms/accepts the sanctioned loan, carrying CN/PN terms-of-engagement tags (offline contract) in contractAttributes."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Beckn Protocol v2.0.0 \u2014 Financial Services (Personal Loan) Collection",
+          "if (!pm.collectionVariables.get('transaction_id')) {",
+          "    pm.collectionVariables.set('transaction_id', pm.variables.replaceIn('{{$guid}}'));",
+          "}"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.test('Status code is 200', function () {",
+          "    pm.response.to.have.status(200);",
+          "});",
+          "pm.test('Response has ack', function () {",
+          "    const json = pm.response.json();",
+          "    pm.expect(json).to.have.property('message');",
+          "    pm.expect(json.message).to.have.property('ack');",
+          "    pm.expect(json.message.ack.status).to.eql('ACK');",
+          "});"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "bap_adapter_url",
+      "value": "http://localhost:8081/bap/caller",
+      "description": "BAP adapter caller endpoint (outbound)"
+    },
+    {
+      "key": "sender_id",
+      "value": "bap.lending.example.com",
+      "description": "BAP (CN) subscriber ID (FQDN) -- used as context.senderId"
+    },
+    {
+      "key": "public_url",
+      "value": "https://<your-ngrok-subdomain>.ngrok-free.app",
+      "description": "Base URL for bapUri / bppUri callbacks. Set to your ngrok tunnel (see install/ngrok.yml.example) so on_* callbacks reach this stack from a remote BPP."
+    },
+    {
+      "key": "bap_uri",
+      "value": "{{public_url}}/bap/receiver",
+      "description": "BAP receiver callback URI \u2014 derived from public_url via beckn-router"
+    },
+    {
+      "key": "receiver_id",
+      "value": "bpp.northbridgebank.example.com",
+      "description": "BPP (PN) subscriber ID (FQDN) -- must match financial-services-bpp.yaml's keyManager.config.subscriberId"
+    },
+    {
+      "key": "bpp_uri",
+      "value": "{{public_url}}/bpp/receiver",
+      "description": "BPP receiver callback URI \u2014 derived from public_url via beckn-router"
+    },
+    {
+      "key": "networkId",
+      "value": "nfh.global/testnet",
+      "description": "Network identifier, namespace/registry-id format"
+    },
+    {
+      "key": "transaction_id",
+      "value": "",
+      "description": "Transaction ID \u2014 set once in pre-request script, shared across all calls in a flow"
+    },
+    {
+      "key": "bap_base_url",
+      "value": "http://localhost:8081",
+      "description": "BAP adapter host:port, no path suffix."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+manifestVersion: "1.0"
+manifestType: "node-manifest"
+subscriberId: "beckn.one/testnet-financial-services/bpp.example.com"
+schema:
+  schemaObjects:
+    - baseUrl: "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanProduct"
+      type: "LoanProduct"
+      supportedVersions:
+        - "v2.0"
+    - baseUrl: "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanOffer"
+      type: "LoanOffer"
+      supportedVersions:
+        - "v2.0"
+    - baseUrl: "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/SanctionedLoan"
+      type: "SanctionedLoan"
+      supportedVersions:
+        - "v2.0"
+    - baseUrl: "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanCharges"
+      type: "LoanCharges"
+      supportedVersions:
+        - "v2.0"
+    - baseUrl: "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist"
+      type: "LoanApplicationChecklist"
+      supportedVersions:
+        - "v2.0"
+    - baseUrl: "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanRepaymentTracking"
+      type: "LoanRepaymentTracking"
+      supportedVersions:
+        - "v2.0"
+    - baseUrl: "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanContractTerms"
+      type: "LoanContractTerms"
+      supportedVersions:
+        - "v2.0"
+governance:
+  effectiveFrom: "2026-01-01T00:00:00Z"

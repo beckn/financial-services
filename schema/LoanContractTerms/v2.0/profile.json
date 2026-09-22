@@ -1,0 +1,23 @@
+{
+  "id": "https://schema.nfh.global/LoanContractTerms/v2.0",
+  "name": "FIS Loan Contract Terms Attributes",
+  "version": "2.0.0",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "included_schemas": ["LoanContractTerms"],
+  "discovery_fields": [
+    "borrowerTerms.offlineContract",
+    "lenderTerms.offlineContract"
+  ],
+  "indexable_paths": [
+    "beckn:contractAttributes.borrowerTerms.staticTermsUrl",
+    "beckn:contractAttributes.borrowerTerms.offlineContract",
+    "beckn:contractAttributes.lenderTerms.staticTermsUrl",
+    "beckn:contractAttributes.lenderTerms.offlineContract"
+  ],
+  "filterable_paths": [
+    "beckn:contractAttributes.borrowerTerms.offlineContract",
+    "beckn:contractAttributes.lenderTerms.offlineContract"
+  ],
+  "privacy_notes": []
+}

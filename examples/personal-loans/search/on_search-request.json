@@ -14,13 +14,13 @@
     "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
     "ttl": "PT30M",
     "timestamp": "2023-05-25T05:23:03.443Z",
-    "bpp_id": "bpp.credit.icicibank.io",
-    "bpp_uri": "https://bpp.credit.icicibank.io"
+    "bpp_id": "bpp.credit.northbridgebank.io",
+    "bpp_uri": "https://bpp.credit.northbridgebank.io"
   },
   "message": {
     "catalog": {
       "descriptor": {
-        "name": "ICICI Bank"
+        "name": "Northbridge Bank"
       },
       "providers": [
         {
@@ -28,13 +28,13 @@
           "descriptor": {
             "images": [
               {
-                "url": "https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png",
+                "url": "https://www.northbridgebank.com/content/dam/northbridgebank/india/assets/images/header/logo.png",
                 "size_type": "sm"
               }
             ],
-            "name": "ICICI Bank",
-            "short_desc": "ICICI Bank Ltd",
-            "long_desc": "ICICI Bank Ltd, India."
+            "name": "Northbridge Bank",
+            "short_desc": "Northbridge Bank Ltd",
+            "long_desc": "Northbridge Bank Ltd, India."
           },
           "categories": [
             {
@@ -105,7 +105,7 @@
                 "form": {
                   "id": "d097c2f5-cb8d-42fe-900e-dfecdede16fb",
                   "mime_type": "text/html",
-                  "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75",
+                  "url": "https://6vs8xnx5i7.northbridgebank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75",
                   "resubmit": false,
                   "multiple_sumbissions": false
                 },
@@ -155,7 +155,7 @@
                 "form": {
                   "id": "d097c2f5-cb8d-42fe-900e-dfecdede16fb",
                   "mime_type": "text/html",
-                  "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f",
+                  "url": "https://6vs8xnx5i7.northbridgebank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f",
                   "resubmit": false,
                   "multiple_sumbissions": false
                 },
@@ -205,7 +205,7 @@
                 "form": {
                   "id": "d097c2f5-cb8d-42fe-900e-dfecdede16fb",
                   "mime_type": "text/html",
-                  "url": "https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf253fd",
+                  "url": "https://6vs8xnx5i7.northbridgebank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf253fd",
                   "resubmit": false,
                   "multiple_sumbissions": false
                 },

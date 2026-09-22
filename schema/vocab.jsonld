@@ -1,0 +1,63 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "beckn": "https://schema.beckn.io/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/"
+  },
+  "@graph": [
+    {
+      "@id": "https://schema.nfh.global/FinancialServicesSchemaPack",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Beckn v2.0.0 LTS Financial Services (FIS) Schema Pack",
+      "rdfs:comment": "Custom schemas for the the 'Personal Loan' use case on Beckn v2.0.0 LTS.",
+      "owl:imports": [
+        "https://schema.beckn.io/core/v2/vocab.jsonld",
+        "https://schema.nfh.global/LoanProduct/v2.0/vocab.jsonld",
+        "https://schema.nfh.global/LoanOffer/v2.0/vocab.jsonld",
+        "https://schema.nfh.global/SanctionedLoan/v2.0/vocab.jsonld",
+        "https://schema.nfh.global/LoanCharges/v2.0/vocab.jsonld",
+        "https://schema.nfh.global/LoanApplicationChecklist/v2.0/vocab.jsonld",
+        "https://schema.nfh.global/LoanRepaymentTracking/v2.0/vocab.jsonld"
+      ]
+    },
+    {
+      "@id": "beckn:FISCoreSchema",
+      "@type": "rdfs:Class",
+      "rdfs:label": "FIS Core Schema",
+      "rdfs:comment": "Custom personal-loan attribute schemas for the Personal Loan use case."
+    },
+    {
+      "@id": "https://schema.nfh.global/LoanProduct#LoanProduct",
+      "@type": ["rdfs:Class", "beckn:FISCoreSchema"],
+      "rsp:container": "resourceAttributes"
+    },
+    {
+      "@id": "https://schema.nfh.global/LoanOffer#LoanOffer",
+      "@type": ["rdfs:Class", "beckn:FISCoreSchema"],
+      "rsp:container": "offerAttributes"
+    },
+    {
+      "@id": "https://schema.nfh.global/SanctionedLoan#SanctionedLoan",
+      "@type": ["rdfs:Class", "beckn:FISCoreSchema"],
+      "rsp:container": "commitmentAttributes"
+    },
+    {
+      "@id": "https://schema.nfh.global/LoanCharges#LoanCharges",
+      "@type": ["rdfs:Class", "beckn:FISCoreSchema"],
+      "rsp:container": "considerationAttributes"
+    },
+    {
+      "@id": "https://schema.nfh.global/LoanApplicationChecklist#LoanApplicationChecklist",
+      "@type": ["rdfs:Class", "beckn:FISCoreSchema"],
+      "rsp:container": "performanceAttributes"
+    },
+    {
+      "@id": "https://schema.nfh.global/LoanRepaymentTracking#LoanRepaymentTracking",
+      "@type": ["rdfs:Class", "beckn:FISCoreSchema"],
+      "rsp:container": "performanceAttributes"
+    }
+  ]
+}
