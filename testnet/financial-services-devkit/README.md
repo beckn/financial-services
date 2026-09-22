@@ -2,6 +2,15 @@
 
 A developer toolkit for building and testing applications on the **beckn financial-services testnet**. This devkit provides a pre-configured adapter stack and ready-to-use Postman collections to help you get started quickly with the "Personal Loan" flow, converted to Beckn Protocol v2.0.0 LTS.
 
+> **TEMPORARY, pre-merge only:** `subscriberId`/`senderId`/`receiverId` currently use the shared
+> `bap.example.com` / `bpp.example.com` testnet identities from `starter-kit`'s `generic-devkit`
+> (borrowing their already-registered keys) purely so the flow can be exercised end-to-end against
+> the real DeDi registry before dedicated `financial-services` participant entities exist. Once two
+> new entities are registered for this domain, these identities (and the matching keys in
+> `config/financial-services-bap.yaml` / `financial-services-bpp.yaml` and
+> `manifests/*-node-manifest.yaml`) must be replaced before this PR merges -- do not treat
+> `bap.example.com`/`bpp.example.com` as this domain's real, permanent identities.
+
 ---
 
 ## Table of Contents

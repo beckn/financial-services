@@ -1,6 +1,6 @@
 manifestVersion: "1.0"
 manifestType: "node-manifest"
-subscriberId: "beckn.one/testnet-financial-services/bpp.northbridgebank.example.com"
+subscriberId: "beckn.one/testnet-financial-services/bpp.example.com"
 schema:
   schemaObjects:
     - baseUrl: "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanProduct"

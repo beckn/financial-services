@@ -44,7 +44,7 @@ modules:
         keyManager:
           id: simplekeymanager
           config:
-            subscriberId: bpp.northbridgebank.example.com
+            subscriberId: bpp.example.com
             keyId: 76EU7ofwRCF1aobQkShARrf1PAUsNpHqWUJoynPu9w45YFKmzqaPmy
             signingPrivateKey: 393fVJJsfqssJCRAjedKR2cKAjSLrjU3t+bICQ5KzYM=
             signingPublicKey: CqVy97DW45bcZPPrWIYGe2ldl9C93NFeVciiAEYsvR0=
@@ -114,7 +114,7 @@ modules:
         keyManager:
           id: simplekeymanager
           config:
-            subscriberId: bpp.northbridgebank.example.com
+            subscriberId: bpp.example.com
             keyId: 76EU7ofwRCF1aobQkShARrf1PAUsNpHqWUJoynPu9w45YFKmzqaPmy
             signingPrivateKey: 393fVJJsfqssJCRAjedKR2cKAjSLrjU3t+bICQ5KzYM=
             signingPublicKey: CqVy97DW45bcZPPrWIYGe2ldl9C93NFeVciiAEYsvR0=
@@ -199,7 +199,7 @@ modules:
         keyManager:
           id: simplekeymanager
           config:
-            subscriberId: bpp.northbridgebank.example.com
+            subscriberId: bpp.example.com
             keyId: 76EU7ofwRCF1aobQkShARrf1PAUsNpHqWUJoynPu9w45YFKmzqaPmy
             signingPrivateKey: 393fVJJsfqssJCRAjedKR2cKAjSLrjU3t+bICQ5KzYM=
             signingPublicKey: CqVy97DW45bcZPPrWIYGe2ldl9C93NFeVciiAEYsvR0=
