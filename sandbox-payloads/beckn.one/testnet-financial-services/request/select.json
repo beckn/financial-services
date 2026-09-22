@@ -3,9 +3,9 @@
     "version": "2.0.0",
     "action": "select",
     "senderId": "bap.lending.example.com",
-    "bapUri": "https://bap.lending.example.com/beckn",
+    "bapUri": "http://onix-bap:8081/bap/receiver",
     "receiverId": "bpp.northbridgebank.example.com",
-    "bppUri": "https://bpp.northbridgebank.example.com/beckn",
+    "bppUri": "http://onix-bpp:8082/bpp/receiver",
     "networkId": "nfh.global/testnet-fin-services",
     "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "messageId": "d1a2b3c4-1111-4a2b-9c3d-4e5f6a7b8c9d",
@@ -13,19 +13,40 @@
     "ttl": "PT10M"
   },
   "message": {
-    "selection": {
-      "providerId": "PROVIDER_ID",
-      "resourceIds": [
-        "ITEM_ID_PERSONAL_LOAN_1"
-      ],
-      "formSubmission": {
-        "id": "https://bpp.northbridgebank.example.com/xinput/formid/F01",
-        "submissionId": "F01_SUBMISSION_ID",
-        "data": {
-          "status": "SUCCESS"
-        },
-        "submittedAt": "2026-09-21T05:23:50.000Z"
-      }
+    "contract": {
+      "commitments": [
+        {
+          "status": {
+            "descriptor": {
+              "code": "DRAFT"
+            }
+          },
+          "resources": [
+            {
+              "id": "ITEM_ID_PERSONAL_LOAN_1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              }
+            }
+          ],
+          "offer": {
+            "id": "OFFER_ITEM_ID_PERSONAL_LOAN_1",
+            "resourceIds": [
+              "ITEM_ID_PERSONAL_LOAN_1"
+            ]
+          },
+          "formSubmission": {
+            "id": "https://bpp.northbridgebank.example.com/xinput/formid/F01",
+            "submissionId": "F01_SUBMISSION_ID",
+            "data": {
+              "status": "SUCCESS"
+            },
+            "submittedAt": "2026-09-21T05:23:50.000Z"
+          }
+        }
+      ]
     }
   }
 }

@@ -3,9 +3,9 @@
     "version": "2.0.0",
     "action": "on_select",
     "senderId": "bap.lending.example.com",
-    "bapUri": "https://bap.lending.example.com/beckn",
+    "bapUri": "http://onix-bap:8081/bap/receiver",
     "receiverId": "bpp.northbridgebank.example.com",
-    "bppUri": "https://bpp.northbridgebank.example.com/beckn",
+    "bppUri": "http://onix-bpp:8082/bpp/receiver",
     "networkId": "nfh.global/testnet-fin-services",
     "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "messageId": "d1a2b3c4-1111-4a2b-9c3d-4e5f6a7b8c9d",
@@ -13,43 +13,80 @@
     "ttl": "PT30M"
   },
   "message": {
-    "offers": [
-      {
-        "id": "OFFER_ITEM_ID_PERSONAL_LOAN_1",
-        "resourceIds": [
-          "ITEM_ID_PERSONAL_LOAN_1"
-        ],
-        "price": {
-          "currency": "INR",
-          "value": "233900"
-        },
-        "offerAttributes": {
-          "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanOffer/v2.0/context.jsonld",
-          "@type": "LoanOffer",
-          "principalAmount": 200000,
-          "interestRate": "12%",
-          "interestRateType": "FIXED",
-          "tenureMonths": 5,
-          "applicationFee": {
-            "value": 1000,
-            "currency": "INR"
+    "contract": {
+      "commitments": [
+        {
+          "status": {
+            "descriptor": {
+              "code": "DRAFT"
+            }
           },
-          "foreclosureFeePct": "0.5%",
-          "interestRateConversionCharge": {
-            "value": 1000,
-            "currency": "INR"
-          },
-          "delayPenaltyFeePct": "5%",
-          "otherPenaltyFeePct": "1%",
-          "annualPercentageRate": "5%",
-          "repaymentFrequency": "MONTHLY",
-          "numberOfInstallments": 45,
-          "installmentAmount": 46360,
-          "coolOffPeriod": "P30D",
-          "termsAndConditionsUrl": "https://bpp.northbridgebank.example.com/loan/tnc.html",
-          "keyFactStatementUrl": "https://bpp.northbridgebank.example.com/loan/kfs-terms"
+          "resources": [
+            {
+              "id": "ITEM_ID_PERSONAL_LOAN_1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              }
+            }
+          ],
+          "offer": {
+            "id": "OFFER_ITEM_ID_PERSONAL_LOAN_1",
+            "resourceIds": [
+              "ITEM_ID_PERSONAL_LOAN_1"
+            ],
+            "considerations": [
+              {
+                "id": "CONSIDERATION_QUOTE_1",
+                "status": {
+                  "descriptor": {
+                    "code": "PENDING"
+                  }
+                },
+                "considerationAttributes": {
+                  "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanCharges/v2.0/context.jsonld",
+                  "@type": "LoanCharges",
+                  "components": [
+                    {
+                      "type": "NET_DISBURSED_AMOUNT",
+                      "value": "233900",
+                      "currency": "INR",
+                      "description": "Total quoted amount"
+                    }
+                  ]
+                }
+              }
+            ],
+            "offerAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanOffer/v2.0/context.jsonld",
+              "@type": "LoanOffer",
+              "principalAmount": 200000,
+              "interestRate": "12%",
+              "interestRateType": "FIXED",
+              "tenureMonths": 5,
+              "applicationFee": {
+                "value": 1000,
+                "currency": "INR"
+              },
+              "foreclosureFeePct": "0.5%",
+              "interestRateConversionCharge": {
+                "value": 1000,
+                "currency": "INR"
+              },
+              "delayPenaltyFeePct": "5%",
+              "otherPenaltyFeePct": "1%",
+              "annualPercentageRate": "5%",
+              "repaymentFrequency": "MONTHLY",
+              "numberOfInstallments": 45,
+              "installmentAmount": 46360,
+              "coolOffPeriod": "P30D",
+              "termsAndConditionsUrl": "https://bpp.northbridgebank.example.com/loan/tnc.html",
+              "keyFactStatementUrl": "https://bpp.northbridgebank.example.com/loan/kfs-terms"
+            }
+          }
         }
-      }
-    ]
+      ]
+    }
   }
 }

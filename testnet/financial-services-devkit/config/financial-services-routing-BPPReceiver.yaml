@@ -4,8 +4,7 @@
 # The sandbox container processes the request and generates the on_* callback.
 
 routingRules:
-  - networkId: "beckn.one/testnet-financial-services"
-    version: "2.0.0"
+  - version: "2.0.0"
     targetType: "url"
     target:
       url: "http://sandbox-bpp:3002/api/webhook"

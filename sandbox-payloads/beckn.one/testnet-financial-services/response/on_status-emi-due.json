@@ -3,9 +3,9 @@
     "version": "2.0.0",
     "action": "on_status",
     "senderId": "bap.lending.example.com",
-    "bapUri": "https://bap.lending.example.com/beckn",
+    "bapUri": "http://onix-bap:8081/bap/receiver",
     "receiverId": "bpp.northbridgebank.example.com",
-    "bppUri": "https://bpp.northbridgebank.example.com/beckn",
+    "bppUri": "http://onix-bpp:8082/bpp/receiver",
     "networkId": "nfh.global/testnet-fin-services",
     "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "messageId": "843f34c9-a2e4-4e2d-9f72-e434cc97a151",
@@ -14,12 +14,48 @@
   },
   "message": {
     "contract": {
-      "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/Contract/v2.0/context.jsonld",
-      "@type": "beckn:Contract",
       "id": "LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID",
       "status": {
         "code": "ACTIVE"
       },
+      "commitments": [
+        {
+          "id": "COMMITMENT_1",
+          "status": {
+            "descriptor": {
+              "code": "ACTIVE"
+            }
+          },
+          "resources": [
+            {
+              "id": "ITEM_ID_PERSONAL_LOAN_1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              }
+            }
+          ],
+          "offer": {
+            "id": "OFFER_ITEM_ID_PERSONAL_LOAN_1",
+            "resourceIds": [
+              "ITEM_ID_PERSONAL_LOAN_1"
+            ]
+          },
+          "commitmentAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/SanctionedLoan/v2.0/context.jsonld",
+            "@type": "SanctionedLoan",
+            "loanAccountRef": "NORTHBRIDGE-PL-2026-000123",
+            "principalAmount": 200000,
+            "sanctionedInterestRate": "12%",
+            "sanctionedTenureMonths": 5,
+            "installmentAmount": 46360,
+            "numberOfInstallments": 45,
+            "repaymentFrequency": "MONTHLY",
+            "disbursedAmount": 197700
+          }
+        }
+      ],
       "performance": [
         {
           "id": "EMI_1",

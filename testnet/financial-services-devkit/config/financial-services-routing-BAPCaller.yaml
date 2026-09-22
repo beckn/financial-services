@@ -6,8 +6,7 @@
 
 routingRules:
   # Transaction & status actions: routed to the BPP via registry lookup
-  - domain: "beckn.one/testnet-financial-services"
-    version: "2.0.0"
+  - version: "2.0.0"
     targetType: "bpp"
     endpoints:
       - select
@@ -15,8 +14,7 @@ routingRules:
       - status
 
   # Discovery: routed to a Discover Service
-  - domain: "beckn.one/testnet-financial-services"
-    version: "2.0.0"
+  - version: "2.0.0"
     targetType: "url"
     target:
       # Replace with your Discover Service endpoint.

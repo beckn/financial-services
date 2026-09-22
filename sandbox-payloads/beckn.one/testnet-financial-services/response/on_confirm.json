@@ -3,9 +3,9 @@
     "version": "2.0.0",
     "action": "on_confirm",
     "senderId": "bap.lending.example.com",
-    "bapUri": "https://bap.lending.example.com/beckn",
+    "bapUri": "http://onix-bap:8081/bap/receiver",
     "receiverId": "bpp.northbridgebank.example.com",
-    "bppUri": "https://bpp.northbridgebank.example.com/beckn",
+    "bppUri": "http://onix-bpp:8082/bpp/receiver",
     "networkId": "nfh.global/testnet-fin-services",
     "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "messageId": "166a5633-66d2-4ec8-bdcb-65cfeb1e4697",
@@ -14,10 +14,7 @@
   },
   "message": {
     "contract": {
-      "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/Contract/v2.0/context.jsonld",
-      "@type": "beckn:Contract",
       "id": "LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID",
-      "displayId": "NORTHBRIDGE-PL-2026-000123",
       "status": {
         "code": "ACTIVE"
       },
@@ -38,11 +35,18 @@
           "id": "COMMITMENT_1",
           "status": {
             "descriptor": {
-              "code": "SANCTIONED"
+              "code": "ACTIVE"
             }
           },
           "resources": [
-            "ITEM_ID_PERSONAL_LOAN_1"
+            {
+              "id": "ITEM_ID_PERSONAL_LOAN_1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              }
+            }
           ],
           "offer": {
             "id": "OFFER_ITEM_ID_PERSONAL_LOAN_1",
@@ -53,7 +57,7 @@
           "commitmentAttributes": {
             "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/SanctionedLoan/v2.0/context.jsonld",
             "@type": "SanctionedLoan",
-            "loanAccountRef": "LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID",
+            "loanAccountRef": "NORTHBRIDGE-PL-2026-000123",
             "principalAmount": 200000,
             "sanctionedInterestRate": "12%",
             "sanctionedTenureMonths": 5,

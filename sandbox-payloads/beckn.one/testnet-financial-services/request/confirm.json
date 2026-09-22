@@ -3,9 +3,9 @@
     "version": "2.0.0",
     "action": "confirm",
     "senderId": "bap.lending.example.com",
-    "bapUri": "https://bap.lending.example.com/beckn",
+    "bapUri": "http://onix-bap:8081/bap/receiver",
     "receiverId": "bpp.northbridgebank.example.com",
-    "bppUri": "https://bpp.northbridgebank.example.com/beckn",
+    "bppUri": "http://onix-bpp:8082/bpp/receiver",
     "networkId": "nfh.global/testnet-fin-services",
     "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "messageId": "a1b2c3d4-4444-4d5e-8f6a-7b8c9d0e1f2a",
@@ -14,8 +14,6 @@
   },
   "message": {
     "contract": {
-      "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/Contract/v2.0/context.jsonld",
-      "@type": "beckn:Contract",
       "id": "LOAN_LEAD_ID_OR_SIMILAR",
       "status": {
         "code": "DRAFT"
@@ -25,9 +23,19 @@
           "id": "COMMITMENT_1",
           "status": {
             "descriptor": {
-              "code": "PENDING"
+              "code": "DRAFT"
             }
           },
+          "resources": [
+            {
+              "id": "ITEM_ID_PERSONAL_LOAN_1",
+              "quantity": {
+                "selected": {
+                  "count": 1
+                }
+              }
+            }
+          ],
           "offer": {
             "id": "OFFER_ITEM_ID_PERSONAL_LOAN_1",
             "resourceIds": [

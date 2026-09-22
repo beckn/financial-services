@@ -3,7 +3,7 @@
     "version": "2.0.0",
     "action": "discover",
     "senderId": "bap.lending.example.com",
-    "bapUri": "https://bap.lending.example.com/beckn",
+    "bapUri": "http://onix-bap:8081/bap/receiver",
     "networkId": "nfh.global/testnet-fin-services",
     "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "messageId": "bb579fb8-cb82-4824-be12-fcbc405b6608",
