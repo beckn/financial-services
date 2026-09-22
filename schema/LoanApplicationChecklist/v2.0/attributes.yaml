@@ -1,0 +1,48 @@
+openapi: 3.1.1
+info:
+  title: FIS — Loan Application Checklist Attributes (v2.0)
+  version: 2.0.0
+  description: >
+    Custom performanceAttributes extension for FIS12-style KYC/application-processing
+    checklist tracking (the "Personal Loan" use case, converted to Beckn
+    v2.0.0 LTS). Tracks the application/KYC checklist stops (personal info, loan
+    offer, offline journey, KYC, bank verification, e-mandate, loan agreement) as
+    Contract.performance[] entries, from discovery through disbursement.
+    Attaches to beckn:Performance via performanceAttributes.
+
+components:
+  schemas:
+    LoanApplicationChecklist:
+      type: object
+      x-beckn-container: performanceAttributes
+      x-jsonld:
+        "@context": "https://schema.nfh.global/LoanApplicationChecklist/v2.0/context.jsonld"
+        "@type": laca:LoanApplicationChecklist
+      properties:
+        stopType:
+          type: string
+          enum:
+            - PERSONAL_INFORMATION
+            - LOAN_OFFER
+            - JOURNEY_OFFLINE
+            - KYC
+            - BANK_ACCOUNT_VERIFICATION
+            - REPAYMENT_SETUP
+            - LOAN_AGREEMENT
+          description: Which checklist stop this performance entry represents.
+          x-jsonld-id: "laca:stopType"
+        stopStatus:
+          type: string
+          enum:
+            - PENDING
+            - INITIATED
+            - IN_PROGRESS
+            - SUCCESSFUL
+            - FINALIZED
+            - SELECTED
+          description: Current processing status of this checklist stop.
+          x-jsonld-id: "laca:stopStatus"
+        sequence:
+          type: integer
+          description: Ordinal position of this stop within the overall checklist.
+          x-jsonld-id: "laca:sequence"

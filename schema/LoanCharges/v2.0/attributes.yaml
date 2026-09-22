@@ -1,0 +1,50 @@
+openapi: 3.1.1
+info:
+  title: FIS — Loan Charges Attributes (v2.0)
+  version: 2.0.0
+  description: >
+    Custom considerationAttributes extension for FIS12-style loan fee/charge
+    breakdowns (the "Personal Loan" use case, converted to Beckn v2.0.0 LTS).
+    Carries a components[] breakup of principal, interest, processing fee, insurance,
+    other charges, and net disbursed amount, attached to Contract.consideration[].
+    Attaches to beckn:Consideration via considerationAttributes.
+
+components:
+  schemas:
+    LoanCharges:
+      type: object
+      x-beckn-container: considerationAttributes
+      x-jsonld:
+        "@context": "https://schema.nfh.global/LoanCharges/v2.0/context.jsonld"
+        "@type": lca:LoanCharges
+      properties:
+        components:
+          type: array
+          description: Line-item breakup of the loan's monetary components.
+          items:
+            type: object
+            required: [type, value, currency]
+            properties:
+              type:
+                type: string
+                enum:
+                  - PRINCIPAL
+                  - INTEREST
+                  - PROCESSING_FEE
+                  - INSURANCE_CHARGES
+                  - OTHER_UPFRONT_CHARGES
+                  - OTHER_CHARGES
+                  - NET_DISBURSED_AMOUNT
+                x-jsonld-id: "lca:componentType"
+              value:
+                type: string
+                description: Monetary value of this component (string to preserve precision).
+                x-jsonld-id: "lca:componentValue"
+              currency:
+                type: string
+                description: ISO 4217 currency code.
+                x-jsonld-id: "lca:componentCurrency"
+              description:
+                type: string
+                x-jsonld-id: "lca:componentDescription"
+          x-jsonld-id: "lca:components"

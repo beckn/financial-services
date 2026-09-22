@@ -1,0 +1,11 @@
+{
+  "id": "STOP_4",
+  "status": { "descriptor": { "code": "SUCCESSFUL", "name": "KYC" } },
+  "performanceAttributes": {
+    "@context": "https://schema.nfh.global/LoanApplicationChecklist/v2.0/context.jsonld",
+    "@type": "laca:LoanApplicationChecklist",
+    "stopType": "KYC",
+    "stopStatus": "SUCCESSFUL",
+    "sequence": 4
+  }
+}

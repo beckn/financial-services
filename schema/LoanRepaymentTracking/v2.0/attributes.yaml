@@ -1,0 +1,47 @@
+openapi: 3.1.1
+info:
+  title: FIS — Loan Repayment Tracking Attributes (v2.0)
+  version: 2.0.0
+  description: >
+    Custom performanceAttributes extension for FIS12-style post-disbursement
+    EMI/repayment tracking (the "Personal Loan" use case, converted to
+    Beckn v2.0.0 LTS). Tracks per-installment status (due/paid/closed) as
+    Contract.performance[] entries sent as unsolicited on_status callbacks while
+    the loan amortizes.
+    Attaches to beckn:Performance via performanceAttributes.
+
+components:
+  schemas:
+    LoanRepaymentTracking:
+      type: object
+      x-beckn-container: performanceAttributes
+      x-jsonld:
+        "@context": "https://schema.nfh.global/LoanRepaymentTracking/v2.0/context.jsonld"
+        "@type": lrta:LoanRepaymentTracking
+      properties:
+        installmentStatus:
+          type: string
+          enum: [EMI_DUE, EMI_PAID, LOAN_CLOSED]
+          description: >
+            Status of this installment. This vocabulary and the per-installment
+            tracking arc are an inferred narrative reconstruction (the source
+            v1 sample payloads do not expose a distinct per-installment field);
+            a real lender integration should confirm its actual per-EMI status
+            vocabulary. See ../../ondc_fis_v2_payloads.md Section 5.
+          x-jsonld-id: "lrta:installmentStatus"
+        installmentNumber:
+          type: integer
+          description: 1-based installment number within the loan's repayment schedule.
+          x-jsonld-id: "lrta:installmentNumber"
+        dueDate:
+          type: string
+          format: date
+          x-jsonld-id: "lrta:dueDate"
+        paidAmount:
+          type: number
+          description: Amount actually paid for this installment (absent while still due).
+          x-jsonld-id: "lrta:paidAmount"
+        outstandingPrincipal:
+          type: number
+          description: Remaining principal balance after this installment.
+          x-jsonld-id: "lrta:outstandingPrincipal"

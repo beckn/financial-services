@@ -1,0 +1,24 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "sla": "https://schema.nfh.global/SanctionedLoan#",
+    "@context": {
+      "@id": "sla:@context"
+    },
+    "@type": {
+      "@id": "sla:@type"
+    },
+    "SanctionedLoan": "sla:SanctionedLoan",
+    "RepaymentFrequency": "sla:RepaymentFrequency",
+    "loanAccountRef": { "@id": "sla:loanAccountRef" },
+    "principalAmount": { "@id": "sla:principalAmount" },
+    "sanctionedInterestRate": { "@id": "sla:sanctionedInterestRate" },
+    "sanctionedTenureMonths": { "@id": "sla:sanctionedTenureMonths" },
+    "installmentAmount": { "@id": "sla:installmentAmount" },
+    "numberOfInstallments": { "@id": "sla:numberOfInstallments" },
+    "repaymentFrequency": { "@id": "sla:repaymentFrequency" },
+    "disbursedAmount": { "@id": "sla:disbursedAmount" },
+    "formSubmission": { "@id": "sla:formSubmission" }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "status",
+    "senderId": "bap.lending.example.com",
+    "bapUri": "https://bap.lending.example.com/beckn",
+    "receiverId": "bpp.icicibank.example.com",
+    "bppUri": "https://bpp.icicibank.example.com/beckn",
+    "networkId": "nfh.global/testnet-fin-services",
+    "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "messageId": "e2b3c4d5-2222-4b3c-8d4e-5f6a7b8c9d0e",
+    "timestamp": "2026-09-21T05:30:00.000Z",
+    "ttl": "PT10M"
+  },
+  "message": {
+    "refId": "a9aaecca-10b7-4d19-b640-b047a7c62196"
+  }
+}

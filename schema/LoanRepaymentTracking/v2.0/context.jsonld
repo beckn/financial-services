@@ -1,0 +1,20 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "lrta": "https://schema.nfh.global/LoanRepaymentTracking#",
+    "@context": {
+      "@id": "lrta:@context"
+    },
+    "@type": {
+      "@id": "lrta:@type"
+    },
+    "LoanRepaymentTracking": "lrta:LoanRepaymentTracking",
+    "InstallmentStatus": "lrta:InstallmentStatus",
+    "installmentStatus": { "@id": "lrta:installmentStatus" },
+    "installmentNumber": { "@id": "lrta:installmentNumber" },
+    "dueDate": { "@id": "lrta:dueDate" },
+    "paidAmount": { "@id": "lrta:paidAmount" },
+    "outstandingPrincipal": { "@id": "lrta:outstandingPrincipal" }
+  }
+}

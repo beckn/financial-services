@@ -1,0 +1,63 @@
+openapi: 3.1.1
+info:
+  title: FIS — Sanctioned Loan Attributes (v2.0)
+  version: 2.0.0
+  description: >
+    Custom commitmentAttributes extension for FIS12-style sanctioned personal loans
+    (the "Personal Loan" use case, converted to Beckn v2.0.0 LTS). Carries the
+    loan account reference and sanctioned principal/rate/tenure/EMI/disbursed amount
+    once the lender approves the loan, attached to Contract.commitments[].
+    Attaches to beckn:Commitment via commitmentAttributes.
+
+components:
+  schemas:
+    SanctionedLoan:
+      type: object
+      x-beckn-container: commitmentAttributes
+      x-jsonld:
+        "@context": "https://schema.nfh.global/SanctionedLoan/v2.0/context.jsonld"
+        "@type": sla:SanctionedLoan
+      properties:
+        loanAccountRef:
+          type: string
+          description: Lender's loan account reference (often equals the Contract/order id).
+          x-jsonld-id: "sla:loanAccountRef"
+        principalAmount:
+          type: number
+          x-jsonld-id: "sla:principalAmount"
+        sanctionedInterestRate:
+          type: string
+          description: Final sanctioned interest rate (e.g. "12%").
+          x-jsonld-id: "sla:sanctionedInterestRate"
+        sanctionedTenureMonths:
+          type: integer
+          x-jsonld-id: "sla:sanctionedTenureMonths"
+        installmentAmount:
+          type: number
+          x-jsonld-id: "sla:installmentAmount"
+        numberOfInstallments:
+          type: integer
+          x-jsonld-id: "sla:numberOfInstallments"
+        repaymentFrequency:
+          type: string
+          enum: [MONTHLY, WEEKLY, QUARTERLY]
+          x-jsonld-id: "sla:repaymentFrequency"
+        disbursedAmount:
+          type: number
+          description: Net amount disbursed to the borrower after upfront deductions.
+          x-jsonld-id: "sla:disbursedAmount"
+        formSubmission:
+          description: >
+            Reuses the core beckn:FormSubmission schema by composition, for the
+            offline/branch-journey KYC form submission tied to this commitment
+            (e.g. the confirm-time application form). This is a documented,
+            temporary stopgap: FormSubmission.data is an open string-keyed map,
+            and this flow folds a system-generated `status` value into it
+            (e.g. `"data": {"status": "SUCCESS"}`) alongside the user's actual
+            submitted answers — a semantic compromise, not a recommendation.
+            See financial-services/schema/INDEX.md "Core types composed" section
+            for the full reasoning. FormSubmission itself is NOT redefined here;
+            it is the core schema as-is, referenced by composition.
+          allOf:
+            - $ref: "https://schema.beckn.io/core/v2.0.0/beckn.yaml#/components/schemas/FormSubmission"
+          x-jsonld-id: "sla:formSubmission"

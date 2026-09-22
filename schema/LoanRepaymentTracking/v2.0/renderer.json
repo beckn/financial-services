@@ -1,0 +1,8 @@
+{
+  "schema": "LoanRepaymentTracking",
+  "version": "2.0.0",
+  "card_template": "Installment #{{beckn:performanceAttributes.installmentNumber}}: {{beckn:performanceAttributes.installmentStatus}} (due {{beckn:performanceAttributes.dueDate}})",
+  "detail_template": "Installment: {{beckn:performanceAttributes.installmentNumber}}\nStatus: {{beckn:performanceAttributes.installmentStatus}}\nDue: {{beckn:performanceAttributes.dueDate}}\nPaid: {{beckn:performanceAttributes.paidAmount}}\nOutstanding Principal: {{beckn:performanceAttributes.outstandingPrincipal}}",
+  "html": "<div class=\"loan-repayment-card\" data-performance-id=\"{{beckn:id}}\"><span class=\"installment-no\">#{{get \"beckn:performanceAttributes.installmentNumber\"}}</span><span class=\"badge badge-status\">{{get \"beckn:performanceAttributes.installmentStatus\"}}</span><span class=\"due-date\">{{get \"beckn:performanceAttributes.dueDate\"}}</span></div>",
+  "html_detail": "<div class=\"loan-repayment-detail\" data-performance-id=\"{{beckn:id}}\"><h3>Repayment Tracking</h3><p>Installment #{{get \"beckn:performanceAttributes.installmentNumber\"}}</p><p>Status: {{get \"beckn:performanceAttributes.installmentStatus\"}}</p><p>Due: {{get \"beckn:performanceAttributes.dueDate\"}}</p><p>Paid: {{get \"beckn:performanceAttributes.paidAmount\"}}</p><p>Outstanding Principal: {{get \"beckn:performanceAttributes.outstandingPrincipal\"}}</p></div>"
+}

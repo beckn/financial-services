@@ -1,0 +1,8 @@
+{
+  "schema": "LoanCharges",
+  "version": "2.0.0",
+  "card_template": "Charges: {{#each beckn:considerationAttributes.components}}{{this.type}}: {{this.value}} {{this.currency}}; {{/each}}",
+  "detail_template": "{{#each beckn:considerationAttributes.components}}{{this.type}}: {{this.value}} {{this.currency}} — {{this.description}}\n{{/each}}",
+  "html": "<div class=\"loan-charges-card\" data-consideration-id=\"{{beckn:id}}\"><h3>Loan Charges</h3><ul>{{#each (get \"beckn:considerationAttributes.components\")}}<li>{{this.type}}: {{this.value}} {{this.currency}}</li>{{/each}}</ul></div>",
+  "html_detail": "<div class=\"loan-charges-detail\" data-consideration-id=\"{{beckn:id}}\"><h2>Fee &amp; Charge Breakdown</h2><table>{{#each (get \"beckn:considerationAttributes.components\")}}<tr><td>{{this.type}}</td><td>{{this.value}} {{this.currency}}</td><td>{{this.description}}</td></tr>{{/each}}</table></div>"
+}

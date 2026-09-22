@@ -1,0 +1,53 @@
+openapi: 3.1.1
+info:
+  title: FIS — Loan Contract Terms Attributes (v2.0)
+  version: 2.0.0
+  description: >
+    Custom contractAttributes extension for FIS12-style static terms-of-engagement
+    declarations (the "Personal Loan" use case, converted to Beckn v2.0.0 LTS).
+    Carries the CN's and PN's static terms URLs and the offline-contract flag that,
+    in the v1 source, were expressed as generic BAP_TERMS/BPP_TERMS intent tags
+    with STATIC_TERMS/OFFLINE_CONTRACT sub-tags. Attaches to the top-level
+    beckn:Contract via contractAttributes.
+
+components:
+  schemas:
+    LoanContractTerms:
+      type: object
+      x-beckn-container: contractAttributes
+      x-jsonld:
+        "@context": "https://schema.nfh.global/LoanContractTerms/v2.0/context.jsonld"
+        "@type": lcta:LoanContractTerms
+      properties:
+        bapTerms:
+          type: object
+          description: >
+            The CN's (borrower platform's) static terms of engagement, as declared
+            at discover time in the v1 source's BAP_TERMS intent tag.
+          properties:
+            staticTermsUrl:
+              type: string
+              format: uri
+              description: URL to the CN's published static terms of engagement.
+              x-jsonld-id: "lcta:bapStaticTermsUrl"
+            offlineContract:
+              type: boolean
+              description: >
+                Whether this transaction is conducted under an offline (physical/
+                branch) contracting model, per the v1 source's OFFLINE_CONTRACT sub-tag.
+              x-jsonld-id: "lcta:bapOfflineContract"
+          x-jsonld-id: "lcta:bapTerms"
+        bppTerms:
+          type: object
+          description: >
+            The PN's (lender platform's) static terms of engagement, mirroring
+            bapTerms but declared by the provider side.
+          properties:
+            staticTermsUrl:
+              type: string
+              format: uri
+              x-jsonld-id: "lcta:bppStaticTermsUrl"
+            offlineContract:
+              type: boolean
+              x-jsonld-id: "lcta:bppOfflineContract"
+          x-jsonld-id: "lcta:bppTerms"

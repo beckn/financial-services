@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "lca": "https://schema.nfh.global/LoanCharges#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "lca:ComponentType",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Component Type",
+      "rdfs:comment": "Type of monetary component in a loan's fee/charge breakup."
+    },
+    { "@id": "lca:PRINCIPAL", "@type": "lca:ComponentType", "rdfs:label": "Principal" },
+    { "@id": "lca:INTEREST", "@type": "lca:ComponentType", "rdfs:label": "Interest", "rdfs:comment": "Total interest payable over the tenure." },
+    { "@id": "lca:PROCESSING_FEE", "@type": "lca:ComponentType", "rdfs:label": "Processing Fee", "rdfs:comment": "One-time loan processing fee." },
+    { "@id": "lca:INSURANCE_CHARGES", "@type": "lca:ComponentType", "rdfs:label": "Insurance Charges", "rdfs:comment": "Loan protection insurance premium." },
+    { "@id": "lca:OTHER_UPFRONT_CHARGES", "@type": "lca:ComponentType", "rdfs:label": "Other Upfront Charges" },
+    { "@id": "lca:OTHER_CHARGES", "@type": "lca:ComponentType", "rdfs:label": "Other Charges" },
+    { "@id": "lca:NET_DISBURSED_AMOUNT", "@type": "lca:ComponentType", "rdfs:label": "Net Disbursed Amount", "rdfs:comment": "Amount actually credited to the borrower after all deductions." },
+
+    {
+      "@id": "lca:components",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Components",
+      "rdfs:comment": "Line-item breakup of the loan's monetary components (principal, interest, fees, charges, net disbursed amount)."
+    }
+  ]
+}

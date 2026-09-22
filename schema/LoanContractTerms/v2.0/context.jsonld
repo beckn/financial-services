@@ -1,0 +1,18 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "beckn": "https://schema.beckn.io/",
+    "lcta": "https://schema.nfh.global/LoanContractTerms#",
+    "@context": {
+      "@id": "lcta:@context"
+    },
+    "@type": {
+      "@id": "lcta:@type"
+    },
+    "LoanContractTerms": "lcta:LoanContractTerms",
+    "bapTerms": { "@id": "lcta:bapTerms" },
+    "bppTerms": { "@id": "lcta:bppTerms" },
+    "staticTermsUrl": { "@id": "lcta:staticTermsUrl" },
+    "offlineContract": { "@id": "lcta:offlineContract" }
+  }
+}

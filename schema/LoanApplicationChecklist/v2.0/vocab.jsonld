@@ -1,0 +1,42 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "laca": "https://schema.nfh.global/LoanApplicationChecklist#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "laca:StopType",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Stop Type",
+      "rdfs:comment": "Checklist stop in the personal-loan application/KYC processing sequence."
+    },
+    { "@id": "laca:PERSONAL_INFORMATION", "@type": "laca:StopType", "rdfs:label": "Personal Information" },
+    { "@id": "laca:LOAN_OFFER", "@type": "laca:StopType", "rdfs:label": "Loan Offer" },
+    { "@id": "laca:JOURNEY_OFFLINE", "@type": "laca:StopType", "rdfs:label": "Journey Offline", "rdfs:comment": "Offline/branch-journey leg of the application." },
+    { "@id": "laca:KYC", "@type": "laca:StopType", "rdfs:label": "KYC" },
+    { "@id": "laca:BANK_ACCOUNT_VERIFICATION", "@type": "laca:StopType", "rdfs:label": "Bank Account Verification" },
+    { "@id": "laca:REPAYMENT_SETUP", "@type": "laca:StopType", "rdfs:label": "Repayment Setup", "rdfs:comment": "e-Mandate / repayment instrument setup." },
+    { "@id": "laca:LOAN_AGREEMENT", "@type": "laca:StopType", "rdfs:label": "Loan Agreement" },
+
+    {
+      "@id": "laca:StopStatus",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Stop Status",
+      "rdfs:comment": "Processing status of a checklist stop."
+    },
+    { "@id": "laca:PENDING", "@type": "laca:StopStatus", "rdfs:label": "Pending" },
+    { "@id": "laca:INITIATED", "@type": "laca:StopStatus", "rdfs:label": "Initiated" },
+    { "@id": "laca:IN_PROGRESS", "@type": "laca:StopStatus", "rdfs:label": "In Progress" },
+    { "@id": "laca:SUCCESSFUL", "@type": "laca:StopStatus", "rdfs:label": "Successful" },
+    { "@id": "laca:FINALIZED", "@type": "laca:StopStatus", "rdfs:label": "Finalized" },
+    { "@id": "laca:SELECTED", "@type": "laca:StopStatus", "rdfs:label": "Selected" },
+
+    {
+      "@id": "laca:sequence",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Sequence",
+      "rdfs:comment": "Ordinal position of this checklist stop within the overall application flow."
+    }
+  ]
+}

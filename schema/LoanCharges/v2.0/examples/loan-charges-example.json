@@ -1,0 +1,16 @@
+{
+  "id": "CONSIDERATION_1",
+  "status": { "descriptor": { "code": "SETTLED" } },
+  "considerationAttributes": {
+    "@context": "https://schema.nfh.global/LoanCharges/v2.0/context.jsonld",
+    "@type": "lca:LoanCharges",
+    "components": [
+      { "type": "PRINCIPAL", "value": "200000", "currency": "INR", "description": "Sanctioned principal" },
+      { "type": "INTEREST", "value": "30000", "currency": "INR", "description": "Total interest over tenure" },
+      { "type": "PROCESSING_FEE", "value": "1800", "currency": "INR", "description": "One-time processing fee" },
+      { "type": "INSURANCE_CHARGES", "value": "500", "currency": "INR", "description": "Loan protection insurance" },
+      { "type": "NET_DISBURSED_AMOUNT", "value": "197700", "currency": "INR", "description": "Amount credited to borrower" },
+      { "type": "OTHER_CHARGES", "value": "0", "currency": "INR", "description": "Other charges" }
+    ]
+  }
+}

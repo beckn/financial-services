@@ -1,0 +1,44 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "on_status",
+    "senderId": "bap.lending.example.com",
+    "bapUri": "https://bap.lending.example.com/beckn",
+    "receiverId": "bpp.icicibank.example.com",
+    "bppUri": "https://bpp.icicibank.example.com/beckn",
+    "networkId": "nfh.global/testnet-fin-services",
+    "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "messageId": "843f34c9-a2e4-4e2d-9f72-e434cc97a151",
+    "timestamp": "2026-10-21T06:00:00.000Z",
+    "ttl": "PT30M"
+  },
+  "message": {
+    "contract": {
+      "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/Contract/v2.0/context.jsonld",
+      "@type": "beckn:Contract",
+      "id": "LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID",
+      "status": {
+        "code": "ACTIVE"
+      },
+      "performance": [
+        {
+          "id": "EMI_1",
+          "status": {
+            "descriptor": {
+              "code": "EMI_DUE",
+              "name": "Installment 1 due"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanRepaymentTracking/v2.0/context.jsonld",
+            "@type": "LoanRepaymentTracking",
+            "installmentStatus": "EMI_DUE",
+            "installmentNumber": 1,
+            "dueDate": "2026-10-25",
+            "outstandingPrincipal": 200000
+          }
+        }
+      ]
+    }
+  }
+}

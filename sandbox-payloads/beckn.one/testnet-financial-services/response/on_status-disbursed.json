@@ -1,0 +1,139 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "on_status",
+    "senderId": "bap.lending.example.com",
+    "bapUri": "https://bap.lending.example.com/beckn",
+    "receiverId": "bpp.icicibank.example.com",
+    "bppUri": "https://bpp.icicibank.example.com/beckn",
+    "networkId": "nfh.global/testnet-fin-services",
+    "transactionId": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "messageId": "f9cb9107-9cb6-4b4f-a1b5-46b961deb47b",
+    "timestamp": "2026-09-21T06:00:00.000Z",
+    "ttl": "PT30M"
+  },
+  "message": {
+    "contract": {
+      "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/Contract/v2.0/context.jsonld",
+      "@type": "beckn:Contract",
+      "id": "LOAN_LEAD_ID_OR_SIMILAR",
+      "status": {
+        "code": "DRAFT"
+      },
+      "performance": [
+        {
+          "id": "STOP_1",
+          "status": {
+            "descriptor": {
+              "code": "SUCCESSFUL",
+              "name": "Personal Information"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "PERSONAL_INFORMATION",
+            "stopStatus": "SUCCESSFUL",
+            "sequence": 1
+          }
+        },
+        {
+          "id": "STOP_2",
+          "status": {
+            "descriptor": {
+              "code": "SUCCESSFUL",
+              "name": "Loan Offer"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "LOAN_OFFER",
+            "stopStatus": "SUCCESSFUL",
+            "sequence": 2
+          }
+        },
+        {
+          "id": "STOP_3",
+          "status": {
+            "descriptor": {
+              "code": "SUCCESSFUL",
+              "name": "Journey Offline"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "JOURNEY_OFFLINE",
+            "stopStatus": "SUCCESSFUL",
+            "sequence": 3
+          }
+        },
+        {
+          "id": "STOP_4",
+          "status": {
+            "descriptor": {
+              "code": "SUCCESSFUL",
+              "name": "KYC"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "KYC",
+            "stopStatus": "SUCCESSFUL",
+            "sequence": 4
+          }
+        },
+        {
+          "id": "STOP_5",
+          "status": {
+            "descriptor": {
+              "code": "SUCCESSFUL",
+              "name": "Bank Account Verification"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "BANK_ACCOUNT_VERIFICATION",
+            "stopStatus": "SUCCESSFUL",
+            "sequence": 5
+          }
+        },
+        {
+          "id": "STOP_6",
+          "status": {
+            "descriptor": {
+              "code": "SUCCESSFUL",
+              "name": "Repayment Setup"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "REPAYMENT_SETUP",
+            "stopStatus": "SUCCESSFUL",
+            "sequence": 6
+          }
+        },
+        {
+          "id": "STOP_7",
+          "status": {
+            "descriptor": {
+              "code": "SUCCESSFUL",
+              "name": "Loan Agreement"
+            }
+          },
+          "performanceAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanApplicationChecklist/v2.0/context.jsonld",
+            "@type": "LoanApplicationChecklist",
+            "stopType": "LOAN_AGREEMENT",
+            "stopStatus": "SUCCESSFUL",
+            "sequence": 7
+          }
+        }
+      ]
+    }
+  }
+}

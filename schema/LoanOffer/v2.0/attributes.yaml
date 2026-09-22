@@ -1,0 +1,96 @@
+openapi: 3.1.1
+info:
+  title: FIS — Loan Offer Attributes (v2.0)
+  version: 2.0.0
+  description: >
+    Custom offerAttributes extension for FIS12-style quoted personal loan terms
+    (the "Personal Loan" use case, converted to Beckn v2.0.0 LTS). Carries
+    the applicant-specific quoted principal, interest rate, tenure, fees, EMI, and
+    cooling-off period returned at select/on_select time, before a Contract exists.
+    Attaches to beckn:Offer via offerAttributes.
+
+components:
+  schemas:
+    LoanOffer:
+      type: object
+      x-beckn-container: offerAttributes
+      x-jsonld:
+        "@context": "https://schema.nfh.global/LoanOffer/v2.0/context.jsonld"
+        "@type": loa:LoanOffer
+      properties:
+        principalAmount:
+          type: number
+          description: Quoted principal loan amount.
+          x-jsonld-id: "loa:principalAmount"
+        interestRate:
+          type: string
+          description: Quoted interest rate (e.g. "12%").
+          x-jsonld-id: "loa:interestRate"
+        interestRateType:
+          type: string
+          enum: [FIXED, FLOATING]
+          x-jsonld-id: "loa:interestRateType"
+        tenureMonths:
+          type: integer
+          description: Quoted loan tenure in months.
+          x-jsonld-id: "loa:tenureMonths"
+        applicationFee:
+          type: object
+          properties:
+            value:
+              type: number
+              x-jsonld-id: "loa:applicationFeeValue"
+            currency:
+              type: string
+              x-jsonld-id: "loa:applicationFeeCurrency"
+          x-jsonld-id: "loa:applicationFee"
+        foreclosureFeePct:
+          type: string
+          description: Foreclosure/prepayment fee as a percentage (e.g. "0.5%").
+          x-jsonld-id: "loa:foreclosureFeePct"
+        interestRateConversionCharge:
+          type: object
+          properties:
+            value:
+              type: number
+              x-jsonld-id: "loa:interestRateConversionChargeValue"
+            currency:
+              type: string
+              x-jsonld-id: "loa:interestRateConversionChargeCurrency"
+          x-jsonld-id: "loa:interestRateConversionCharge"
+        delayPenaltyFeePct:
+          type: string
+          description: Penalty percentage applied on delayed payment (e.g. "5%").
+          x-jsonld-id: "loa:delayPenaltyFeePct"
+        otherPenaltyFeePct:
+          type: string
+          description: Other penalty percentage (e.g. "1%").
+          x-jsonld-id: "loa:otherPenaltyFeePct"
+        annualPercentageRate:
+          type: string
+          description: All-in annual percentage rate (APR), e.g. "5%".
+          x-jsonld-id: "loa:annualPercentageRate"
+        repaymentFrequency:
+          type: string
+          enum: [MONTHLY, WEEKLY, QUARTERLY]
+          x-jsonld-id: "loa:repaymentFrequency"
+        numberOfInstallments:
+          type: integer
+          x-jsonld-id: "loa:numberOfInstallments"
+        installmentAmount:
+          type: number
+          description: Quoted EMI amount per installment.
+          x-jsonld-id: "loa:installmentAmount"
+        coolOffPeriod:
+          type: string
+          description: ISO 8601 duration for the borrower's cooling-off/free-look period (e.g. "P30D").
+          x-jsonld-id: "loa:coolOffPeriod"
+        termsAndConditionsUrl:
+          type: string
+          format: uri
+          x-jsonld-id: "loa:termsAndConditionsUrl"
+        keyFactStatementUrl:
+          type: string
+          format: uri
+          description: Link to the Key Fact Statement (KFS) document for this offer.
+          x-jsonld-id: "loa:keyFactStatementUrl"

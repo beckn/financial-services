@@ -1,0 +1,25 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "lrta": "https://schema.nfh.global/LoanRepaymentTracking#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "lrta:InstallmentStatus",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Installment Status",
+      "rdfs:comment": "Status of a tracked loan installment. An inferred narrative reconstruction, not a literal translation of a distinguishable source field — see the domain pack's schema design doc for the caveat."
+    },
+    { "@id": "lrta:EMI_DUE", "@type": "lrta:InstallmentStatus", "rdfs:label": "EMI Due" },
+    { "@id": "lrta:EMI_PAID", "@type": "lrta:InstallmentStatus", "rdfs:label": "EMI Paid" },
+    { "@id": "lrta:LOAN_CLOSED", "@type": "lrta:InstallmentStatus", "rdfs:label": "Loan Closed", "rdfs:comment": "Final installment paid; loan fully repaid and closed." },
+
+    {
+      "@id": "lrta:outstandingPrincipal",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Outstanding Principal",
+      "rdfs:comment": "Remaining principal balance after this installment."
+    }
+  ]
+}

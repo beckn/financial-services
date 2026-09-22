@@ -1,0 +1,31 @@
+{
+  "id": "ITEM_ID_PERSONAL_LOAN_1",
+  "descriptor": {
+    "name": "Personal Loan without AA - Offline Journey",
+    "shortDesc": "PERSONAL_LOAN"
+  },
+  "isActive": true,
+  "provider": {
+    "id": "PROVIDER_ID",
+    "descriptor": {
+      "name": "ICICI Bank",
+      "shortDesc": "ICICI Bank Ltd",
+      "longDesc": "ICICI Bank Ltd, India."
+    }
+  },
+  "resourceAttributes": {
+    "@context": "https://schema.nfh.global/LoanProduct/v2.0/context.jsonld",
+    "@type": "lpra:LoanProduct",
+    "loanCategory": "PERSONAL_LOAN",
+    "interestRateType": "FIXED",
+    "minInterestRate": "9%",
+    "maxInterestRate": "15%",
+    "minTenureMonths": 5,
+    "maxTenureMonths": 60,
+    "minLoanAmount": 50000,
+    "maxLoanAmount": 5000000,
+    "currency": "INR",
+    "applicationFormUrl": "https://bpp.icicibank.example.com/xinput/formid/F01",
+    "journeyType": "SEMI_ONLINE"
+  }
+}

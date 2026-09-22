@@ -1,0 +1,37 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "sla": "https://schema.nfh.global/SanctionedLoan#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "sla:RepaymentFrequency",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Repayment Frequency",
+      "rdfs:comment": "Cadence of scheduled installment repayments for the sanctioned loan."
+    },
+    { "@id": "sla:MONTHLY", "@type": "sla:RepaymentFrequency", "rdfs:label": "Monthly" },
+    { "@id": "sla:WEEKLY", "@type": "sla:RepaymentFrequency", "rdfs:label": "Weekly" },
+    { "@id": "sla:QUARTERLY", "@type": "sla:RepaymentFrequency", "rdfs:label": "Quarterly" },
+
+    {
+      "@id": "sla:loanAccountRef",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Loan Account Reference",
+      "rdfs:comment": "Lender's loan account reference for the sanctioned loan."
+    },
+    {
+      "@id": "sla:disbursedAmount",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Disbursed Amount",
+      "rdfs:comment": "Net amount disbursed to the borrower after upfront deductions."
+    },
+    {
+      "@id": "sla:formSubmission",
+      "@type": "rdfs:Property",
+      "rdfs:label": "Form Submission",
+      "rdfs:comment": "Composed reference to the core beckn:FormSubmission object for the offline/KYC application form tied to this commitment. Temporary stopgap: carries a system status value in FormSubmission.data alongside user-submitted answers; see the domain pack INDEX.md for the full caveat."
+    }
+  ]
+}
