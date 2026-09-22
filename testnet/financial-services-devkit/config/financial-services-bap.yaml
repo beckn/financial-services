@@ -64,6 +64,7 @@ modules:
             extendedSchema_maxCacheSize: "100"
             extendedSchema_downloadTimeout: "30"
             extendedSchema_allowedDomains: "raw.githubusercontent.com,schema.beckn.io,schema.nfh.global"
+            extendedSchema_localSchemaPath: "/app/schema-local"
         signValidator:
           id: signvalidator
         router:
@@ -134,6 +135,7 @@ modules:
             extendedSchema_maxCacheSize: "100"
             extendedSchema_downloadTimeout: "30"
             extendedSchema_allowedDomains: "raw.githubusercontent.com,schema.beckn.io,schema.nfh.global"
+            extendedSchema_localSchemaPath: "/app/schema-local"
         router:
           id: router
           config:

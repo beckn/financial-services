@@ -66,6 +66,7 @@ services:
       REDIS_ADDR: redis:6379
     volumes:
       - ../config:/app/config
+      - ../../../schema:/app/schema-local
     command: ["./server", "--config=/app/config/financial-services-bap.yaml"]
 
   # ============================================================
@@ -91,6 +92,7 @@ services:
     volumes:
       - ../config:/app/config
       - ../data/beckn:/beckn
+      - ../../../schema:/app/schema-local
     command: ["./server", "--config=/app/config/financial-services-bpp.yaml"]
 
   # ============================================================

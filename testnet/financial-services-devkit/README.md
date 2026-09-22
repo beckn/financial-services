@@ -9,7 +9,41 @@ A developer toolkit for building and testing applications on the **beckn financi
 > new entities are registered for this domain, these identities (and the matching keys in
 > `config/financial-services-bap.yaml` / `financial-services-bpp.yaml` and
 > `manifests/*-node-manifest.yaml`) must be replaced before this PR merges -- do not treat
-> `bap.example.com`/`bpp.example.com` as this domain's real, permanent identities.
+> `bap.example.com`/`bpp.example.com` as this domain's real, permanent identities. `networkId`
+> is likewise pinned to the registered `nfh.global/testnet` rather than this domain's eventual real
+> `networkId`, for the same reason -- see the `sandbox-bpp` note below for why that value is also
+> load-bearing for the mock's file lookup, not just registry membership.
+
+### Local schema resolution (dev mode)
+
+`onix-adapter`'s `schemaValidator` plugin normally fetches every custom `*Attributes` schema's
+`attributes.yaml` over HTTP from the `@context` URL (e.g.
+`raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/...`). Before this PR
+merges to `main`, that URL 404s, since `main` has none of this pack's schema files yet.
+
+Both `config/financial-services-bap.yaml` and `config/financial-services-bpp.yaml` set
+`extendedSchema_localSchemaPath: "/app/schema-local"` on every `schemaValidator` block, and both
+compose files mount this repo's `schema/` directory read-only at that path
+(`../../../schema:/app/schema-local`). With this set, the adapter tries a local, in-memory lookup
+by `@type` name (e.g. `LoanOffer` -> `/app/schema-local/LoanOffer/attributes.yaml`, confirmed via
+its own debug log: `"Loading from memory: LoanOffer/attributes.yaml"`) **before** falling back to
+the remote URL -- so custom schema validation works fully offline, pre-merge, with no
+`raw.githubusercontent.com` dependency at all. This is a `beckn-onix` dev-mode feature, not
+something specific to this repo; verified by reading the shipped `schemav2validator.so` plugin's
+strings and confirming the behavior live (`docker run --rm --entrypoint sh
+fidedocker/onix-adapter:latest -c "strings /app/plugins/schemav2validator.so | grep -i
+localSchema"`).
+
+Two things to know if this stops working:
+- The adapter caches both successes and failures in memory. If you edit a file under `schema/`
+  while the stack is running, `docker compose restart onix-bap onix-bpp` to pick it up -- the
+  cache does not watch the filesystem.
+- A schema that itself `$ref`s another schema (e.g. `SanctionedLoan` composing the core
+  `FormSubmission` type) still resolves *that* nested `$ref` over the network, not locally --
+  make sure any such `$ref` points at a URL that's actually reachable (we found and fixed one that
+  pointed at `schema.beckn.io/core/v2.0.0/beckn.yaml`, which redirects to a 404 on
+  `schema.nfh.global`; the working URL is
+  `raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/tags/core-v2.0.0-lts/api/v2.0.0/beckn.yaml`).
 
 ---
 
