@@ -49,6 +49,19 @@ Two things to know if this stops working:
   `schema.nfh.global`; the working URL is
   `raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/tags/core-v2.0.0-lts/api/v2.0.0/beckn.yaml`).
 
+> **Known limitation: schemas are not yet usable "over the wire."** `extendedSchema_localSchemaPath`
+> is what makes this devkit work today -- it means *this* devkit always resolves the custom schemas
+> from the local `schema/` mount first, regardless of whether `main` has them yet. But any other
+> party (a real BPP/BAP, or anyone else's adapter) trying to fetch a schema by its `@context` URL --
+> `raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/...` -- gets a live 404
+> today, since none of this pack's schema files are on `main` yet. **Next step, once this PR
+> merges:** confirm those `@context` URLs actually resolve over the network from `main` (they should,
+> automatically, once merged -- no further change needed to the URLs themselves), and treat that as
+> the point at which external parties can validate against these schemas without needing this
+> devkit's local-mount workaround. Separately, note these schemas are also not yet published to the
+> `schema.nfh.global` registry itself (confirmed absent when checked earlier in this pack's design) --
+> that's a further, separate step beyond merging this PR if formal registry publication is wanted.
+
 ---
 
 ## Table of Contents
