@@ -2,11 +2,11 @@
   "contractAttributes": {
     "@context": "https://schema.nfh.global/LoanContractTerms/v2.0/context.jsonld",
     "@type": "lcta:LoanContractTerms",
-    "bapTerms": {
+    "borrowerTerms": {
       "staticTermsUrl": "https://bap.lending.example.com/personal-banking/loans/personal-loan",
       "offlineContract": true
     },
-    "bppTerms": {
+    "lenderTerms": {
       "staticTermsUrl": "https://bpp.icicibank.example.com/terms/personal-loan",
       "offlineContract": true
     }

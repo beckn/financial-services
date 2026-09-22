@@ -6,13 +6,13 @@
   },
   "@graph": [
     {
-      "@id": "lcta:bapTerms",
+      "@id": "lcta:borrowerTerms",
       "@type": "rdfs:Property",
       "rdfs:label": "CN Terms",
       "rdfs:comment": "The Consumer Node's (borrower platform's) static terms of engagement and offline-contract flag."
     },
     {
-      "@id": "lcta:bppTerms",
+      "@id": "lcta:lenderTerms",
       "@type": "rdfs:Property",
       "rdfs:label": "PN Terms",
       "rdfs:comment": "The Provider Node's (lender platform's) static terms of engagement and offline-contract flag."

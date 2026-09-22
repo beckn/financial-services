@@ -51,12 +51,12 @@
       "contractAttributes": {
         "@context": "https://raw.githubusercontent.com/beckn/financial-services/refs/heads/main/schema/LoanContractTerms/v2.0/context.jsonld",
         "@type": "LoanContractTerms",
-        "bapTerms": {
+        "borrowerTerms": {
           "staticTermsUrl": "https://bap.lending.example.com/personal-banking/loans/personal-loan",
           "offlineContract": true
         },
-        "bppTerms": {
-          "staticTermsUrl": "https://bap.lending.example.com/personal-banking/loans/personal-loan",
+        "lenderTerms": {
+          "staticTermsUrl": "https://bpp.icicibank.example.com/terms/personal-loan",
           "offlineContract": true
         }
       }

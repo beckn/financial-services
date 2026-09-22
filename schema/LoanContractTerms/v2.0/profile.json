@@ -6,18 +6,18 @@
   "semantic_model": "generalised",
   "included_schemas": ["LoanContractTerms"],
   "discovery_fields": [
-    "bapTerms.offlineContract",
-    "bppTerms.offlineContract"
+    "borrowerTerms.offlineContract",
+    "lenderTerms.offlineContract"
   ],
   "indexable_paths": [
-    "beckn:contractAttributes.bapTerms.staticTermsUrl",
-    "beckn:contractAttributes.bapTerms.offlineContract",
-    "beckn:contractAttributes.bppTerms.staticTermsUrl",
-    "beckn:contractAttributes.bppTerms.offlineContract"
+    "beckn:contractAttributes.borrowerTerms.staticTermsUrl",
+    "beckn:contractAttributes.borrowerTerms.offlineContract",
+    "beckn:contractAttributes.lenderTerms.staticTermsUrl",
+    "beckn:contractAttributes.lenderTerms.offlineContract"
   ],
   "filterable_paths": [
-    "beckn:contractAttributes.bapTerms.offlineContract",
-    "beckn:contractAttributes.bppTerms.offlineContract"
+    "beckn:contractAttributes.borrowerTerms.offlineContract",
+    "beckn:contractAttributes.lenderTerms.offlineContract"
   ],
   "privacy_notes": []
 }

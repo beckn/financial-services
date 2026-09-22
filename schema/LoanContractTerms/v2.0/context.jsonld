@@ -10,8 +10,8 @@
       "@id": "lcta:@type"
     },
     "LoanContractTerms": "lcta:LoanContractTerms",
-    "bapTerms": { "@id": "lcta:bapTerms" },
-    "bppTerms": { "@id": "lcta:bppTerms" },
+    "borrowerTerms": { "@id": "lcta:borrowerTerms" },
+    "lenderTerms": { "@id": "lcta:lenderTerms" },
     "staticTermsUrl": { "@id": "lcta:staticTermsUrl" },
     "offlineContract": { "@id": "lcta:offlineContract" }
   }

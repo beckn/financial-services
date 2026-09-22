@@ -73,7 +73,7 @@ Complete index of seven custom Beckn v2.0.0 LTS schema packs for the
 - **Prefix:** `lcta` -> https://schema.nfh.global/LoanContractTerms#
 - **Files:** [attributes.yaml](./LoanContractTerms/v2.0/attributes.yaml) - [context.jsonld](./LoanContractTerms/v2.0/context.jsonld) - [vocab.jsonld](./LoanContractTerms/v2.0/vocab.jsonld) - [profile.json](./LoanContractTerms/v2.0/profile.json) - [renderer.json](./LoanContractTerms/v2.0/renderer.json) - [README.md](./LoanContractTerms/v2.0/README.md) - [example](./LoanContractTerms/v2.0/examples/loan-contract-terms-example.json)
 
-**Key Properties:** `bapTerms` / `bppTerms` (each: `staticTermsUrl`, `offlineContract`)
+**Key Properties:** `borrowerTerms` / `lenderTerms` (each: `staticTermsUrl`, `offlineContract`)
 
 *Added after the initial six-schema pass, once the `confirm` sandbox payload (built separately from this source doc) was found to already depend on it — see `README.md` for the reconciliation note.*
 
